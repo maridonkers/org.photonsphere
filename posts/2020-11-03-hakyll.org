@@ -5,7 +5,7 @@ meta_description:
 tags: Computer, Software, Linux, Windows, Functional, Clojure, Haskell, Hakyll, Static Site Generator
 ----
 
-Because I have been wanting to use [[https://orgmode.org/][org-mode]] instead of [[https://en.wikipedia.org/wiki/Markdown][Markdown]] for this site I started using the [[https://jaspervdj.be/hakyll/][Hakyll]] static site generator. The [[https://blog.thjread.com/#about/][Thomas Read's blog]] as-a-template (that I used as a template) even has [[https://www.mathjax.org/][MathJax]] support implemented. Support for $\LaTeX$ is also possible with [[https://jaspervdj.be/hakyll/][Hakyll]] I read online.
+Because I have been wanting to use [[https://orgmode.org/][org-mode]] instead of [[https://en.wikipedia.org/wiki/Markdown][Markdown]] for this site, I started using the [[https://jaspervdj.be/hakyll/][Hakyll]] static site generator. The [[https://blog.thjread.com/#about/][Thomas Read's blog]] as-a-template (that I used as a template) even has [[https://www.mathjax.org/][MathJax]] support implemented. Support for $\LaTeX$ is also possible with [[https://jaspervdj.be/hakyll/][Hakyll]], I read online.
 
 (.more.)
 

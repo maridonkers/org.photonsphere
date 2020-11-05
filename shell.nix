@@ -8,12 +8,12 @@ let
   # TODO Hakyll is marked as broken in NixOS 20.09 so for now use 20.03's.
   #inherit (nixpkgs) pkgs;
   pkgs = import (builtins.fetchGit {
-    # Descriptive name to make the store path easier to identify                
-    name = "my-old-revision";                                                 
-    url = "https://github.com/nixos/nixpkgs-channels/";                       
-    ref = "refs/heads/nixpkgs-20.03-darwin";                     
+    # Descriptive name to make the store path easier to identify
+    name = "my-old-revision";
+    url = "https://github.com/nixos/nixpkgs-channels/";
+    ref = "refs/heads/nixpkgs-20.03-darwin";
     rev = "1975b8687474764c157e6a220fdcad2c5dc348a1";
-  }) {};                                                                           
+  }) {};
 
   myPkg = pkgs.haskellPackages.hakyll;
 
