@@ -275,6 +275,17 @@ ul li {
   margin-left: 3rem;
 }
 
+code {
+  color: #428bca;
+  background-color: #f7f9fd;
+}
+
+pre code {
+  color: black;
+  background-color: white;
+}
+
+
 .post-title-link {
   color: #b84f62;
 }
