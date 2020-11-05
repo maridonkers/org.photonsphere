@@ -2,7 +2,7 @@
 title: KMyMoney to HLedger
 modified: 2020-05-31
 meta_description: 
-tags: Computer, Software, Linux, Windows, Functional, Clojure, Haskell, Financial, Plain Text Accounting
+tags: Computer, Software, Linux, Windows, Functional, Clojure, Haskell, Financial, Plain Text Accounting, CSV, XML
 ----
 
 Because I have been wanting to start using [[https://plaintextaccounting.org/][plain text accounting]] I

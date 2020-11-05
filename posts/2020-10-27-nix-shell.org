@@ -2,7 +2,7 @@
 title: Nix shell and build dependencies
 modified: 2020-11-02
 meta_description: 
-tags: Computer, Software, Linux, Functional, NixOS, Nix
+tags: Computer, Software, Linux, Functional, NixOS, Nix, Hakyll, SDL, C, Haskell
 ----
 
 A [[https://nixos.wiki/wiki/Development_environment_with_nix-shell][nix-shell]] can be used to quickly set up ad-hoc development
