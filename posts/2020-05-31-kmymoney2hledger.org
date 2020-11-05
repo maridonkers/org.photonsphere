@@ -1,0 +1,76 @@
+----
+title: KMyMoney to HLedger
+modified: 2020-05-31
+meta_description: 
+tags: Computer, Software, Linux, Windows, Functional, Clojure, Haskell, Financial, Plain Text Accounting
+----
+
+Because I have been wanting to start using [[https://plaintextaccounting.org/][plain text accounting]] I
+needed a conversion from [[https://kmymoney.org/][KMyMoney]] software to [[https://hledger.org/][HLedger]].
+
+(.more.)
+
+* Command line Clojure tool
+    :PROPERTIES:
+    :CUSTOM_ID: command-line-clojure-tool
+    :END:
+
+My Clojure [[https://github.com/maridonkers/kmymoney2hledger][KMyMoney to HLedger conversion]] conversion program (a quick
+hack; also see disclaimer in the source code header) uses =Tupolo
+Forest= (see below) to parse the input XML KMyMoney file (prior to
+conversion it must be decompressed from its gzip format).
+
+* Usage
+    :PROPERTIES:
+    :CUSTOM_ID: usage
+    :END:
+
+From [[https://github.com/maridonkers/kmymoney2hledger/releases][Releases]] copy =kmymoney2hledger= and =kmymoney2hledger.jar= to a
+subdirectory and make =kmymoney2hledger= executable. Put the
+subdirectory in your path (if it isn't already). Also a Java runtime
+environment (JRE) is required.
+
+#+BEGIN_SRC sh
+  kmymoney2hledger yourdecompressedkmymoneyinputfile.kmy
+#+END_SRC
+
+It writes the converted output to
+=yourdecompressedkmymoneyinputfile.kmy.journal=.
+
+* CSV importers
+    :PROPERTIES:
+    :CUSTOM_ID: csv-importers
+    :END:
+
+See the following repositories for import of CSV-files into HLedger
+journals:
+
+[[https://github.com/maridonkers/rabobankcsvhledger][Rabobank CSV-export to HLedger converter]] and [[https://github.com/maridonkers/n26csvhledger][N26 CSV-export to HLedger converter]]
+
+But it's much better to use the HLedger [[https://hledger.org/csv.html][csv format]] functionality to import CSV-files.
+
+* Technical information
+    :PROPERTIES:
+    :CUSTOM_ID: technical-information
+    :END:
+
+** Libraries
+     :PROPERTIES:
+     :CUSTOM_ID: libraries
+     :END:
+
+Have you ever wanted to manipulate tree-like data structures such as
+hiccup or HTML? If so, then the tupelo.forest library is for you!
+Forest allows you to:
+
+- Easily search for tree nodes based on the path from the tree root.
+- Search for tree nodes based on content.
+- Limit a search to nodes in an arbitrary sub-tree.
+- Find parents and siblings of a node found in a search.
+- Chain searches together, so that nodes found in one search are used
+  to limit the scope of sub-searches.
+- In addition, tupelo.forest allows you to update the tree by adding,
+  changing, or deleting nodes. Since tupelo.forest allows one to
+  easily find parent and/or sibling nodes, this is a powerful feature
+  missing in most other tree-processing libraries. -- [[https://github.com/cloojure/tupelo/blob/master/docs/forest.adoc][Tupelo Forest]]
+  (by **[[https://github.com/clojure][Alan Thompson]]**)

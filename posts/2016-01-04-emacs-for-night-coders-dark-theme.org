@@ -1,0 +1,27 @@
+----
+title: Emacs for night coders (dark theme)
+modified: 2016-01-04
+meta_description: 
+tags: Computer, Software, Linux, GUI, KDE, IDE, Emacs, Functional, Clojure, ClojureScript
+----
+
+A dark theme approach for Emacs running under KDE (Debian Linux).
+
+(.more.)
+
+* Alternative approach
+    :PROPERTIES:
+    :CUSTOM_ID: alternative-approach
+    :END:
+
+Configure the Invert desktop effect under KDE system settings and use
+Ctrl-Meta-U to activate it for the Emacs window (which uses the
+regular light theme). This gives a very nice dark theme like effect,
+which is perfect for coding when it's dark!
+
+* Screendump
+    :PROPERTIES:
+    :CUSTOM_ID: screendump
+    :END:
+
+[[../images/EmacsDarkThemeViaKDEInvertDesktopEffect.png]]

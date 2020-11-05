@@ -1,0 +1,10 @@
+----
+title: Project Skummet
+modified: 2016-06-25
+meta_description: 
+tags: Computer, Software, Android, Embedded, Functional, Clojure
+----
+
+Experimental Clojure compiler with small memory footprint, fast
+loading time and reduced binary size -- [[http://clojure-android.info/skummet/][Project Skummet]] (by *Alex
+Yakushev*)

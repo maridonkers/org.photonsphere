@@ -1,0 +1,34 @@
+----
+title: nginx-clojure - lean Clojure deployment
+modified: 2017-03-23
+meta_description: 
+tags: Computer, Software, Linux, Functional, Server, Internet, GUI, Clojure, Java, Nginx
+----
+
+[[http://nginx.org/][Nginx]] module for embedding [[http://clojure.org/][Clojure]] / [[http://openjdk.java.net/][Java]] / [[http://groovy-lang.org/][Groovy]] programs, typically
+those [[https://github.com/ring-clojure/ring/blob/master/SPEC][Ring]] based handlers -- [[http://nginx-clojure.github.io/][Nginx-Clojure]] (by *Zhang, Yuexiang
+(xfeep)*).
+
+(.more.)
+
+* DZone article on Nginx-Clojure
+[[https://dzone.com/articles/develope-high-performance][Fast Clojure/Java Web Apps on NGINX Without a Java Web Server]].
+
+* Fast Clojure/Java Web Apps on NGINX Without a Java Web Server
+
+[[https://github.com/xfeep/nginx-clojure][Nginx-Clojure]] is a [[http://nginx.org/][Nginx]] module for embedding Clojure or Java
+programs, typically those [[https://github.com/ring-clojure/ring/blob/master/SPEC][Ring]] based handlers. It is an opensource
+project hosted on Github. With it we can develope high performance
+Clojure/Java web apps on Nginx without any Java web server and with
+several benefits:
+
+- Clojure/Java controlled static files will get almost the same
+  performance with Nginx static file service;
+- we just deploy one Nginx (compiled with Nginx-Clojure module) server
+  instead of Nginx + some Java web server, eg. Tomcat, Jetty etc.;
+- [[https://github.com/ring-clojure/ring/blob/master/SPEC][Ring Handler]] is dead easy compared to Java Servlet;
+- we can use Nginx modules such as GZip, Image Filter etc. with our
+  static and dynamic content on the fly without any cost of Proxy
+  level;
+- we can use Java rewrite handler + proxy_pass to implement a dynamic
+  proxy/balancer very quickly.

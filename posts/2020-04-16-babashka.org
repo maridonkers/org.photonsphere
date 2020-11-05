@@ -1,0 +1,21 @@
+----
+title: Babashka
+modified: 2020-04-16
+meta_description: 
+tags: Computer, Software, Linux, Windows, Functional, Clojure, ClojureScript, Financial
+----
+
+A Clojure babushka for the grey areas of Bash (native fast-starting
+Clojure scripting environment). The main idea behind babashka is to
+leverage Clojure in places where you would be using bash otherwise. --
+[[https://github.com/borkdude/babashka][babashka]] (by *[[https://github.com/borkdude][Michiel Borkent]]*)
+
+(.more.)
+
+* Ports
+    :PROPERTIES:
+    :CUSTOM_ID: ports
+    :END:
+
+- Babashka port of [[./2016-11-13-rabobank-sepa-csv-to-kmymoney.html][Rabobank SEPA CSV to KMyMoney]] is here: [[https://github.com/maridonkers/bb.rabobank.sepa][Babashka port of Rabobank SEPA CSV-export to KMyMoney converter]].
+- Babashka port of [[./2018-11-01-n26csv.html][N26 CSV to KMyMoney]] is here: [[https://github.com/maridonkers/bb.n26.csv][Babashka port of N26 CSV-export to KMyMoney converter]].

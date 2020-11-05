@@ -1,0 +1,38 @@
+----
+title: Bulma
+modified: 2017-09-18
+meta_description: 
+tags: Computer, Software, Functional, Clojure, ClojureScript, JavaScript, CSS, GUI
+----
+
+Modern CSS framework based on [[https://en.wikipedia.org/wiki/CSS_Flex_Box_Layout][Flexbox]] -- [[https://github.com/jgthms/bulma][Bulma]] (by *[[https://github.com/jgthms][Jeremy Thomas]]*).
+
+(.more.)
+
+* From its documentation
+   :PROPERTIES:
+   :CUSTOM_ID: from-its-documentation
+   :END:
+
+** CDN
+    :PROPERTIES:
+    :CUSTOM_ID: cdn
+    :END:
+
+[[https://cdnjs.com/libraries/bulma]]
+
+** CSS only
+    :PROPERTIES:
+    :CUSTOM_ID: css-only
+    :END:
+
+Bulma is a [[https://en.wikipedia.org/wiki/Cascading_Style_Sheets][CSS]] framework. As such, the sole output is a single CSS
+file: =bulma.css=.
+
+You can either use that file, "out of the box", or download the Sass
+source files to customize the variables.
+
+There is no [[https://en.wikipedia.org/wiki/JavaScript][JavaScript]] included. People generally want to use their
+own JS implementation (and usually already have one). Bulma can be
+considered "environment agnostic": it's just the style layer on top of
+the logic.

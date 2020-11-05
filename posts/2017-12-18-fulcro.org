@@ -1,0 +1,44 @@
+----
+title: Fulcro
+modified: 2017-12-18
+meta_description: 
+tags: Computer, Software, Clojure, ClojureScript, Functional, Server, Client, Database, GUI, Internet, JavaScript, Web
+----
+
+A library for development of single-page full-stack web applications
+in [[http://clojure.org/][Clojure]] / [[http://clojurescript.org/][ClojureScript]] -- [[http://fulcro.fulcrologic.com/][Fulcro]] (by *[[http://www.fulcrologic.com/][Fulcrologic, LLC]]*).
+
+Fulcro 2.0 is a library for building data-driven full-stack
+applications for the web. It uses React, is written in Clojure and
+Clojurescript (so it has first-class functional abilities with
+immutable data) which leads to a very clean synchronous story for the
+UI. The result is a stack that dramatically reduces the amount of
+boilerplate and incidental complexity in your software.
+
+(.more.)
+
+* Full-featured
+    :PROPERTIES:
+    :CUSTOM_ID: full-featured
+    :END:
+
+Fulcro is a full-stack library for making data-driven applications for
+the web. The built-in data model prevents many common errors that are
+made when assembling your tools from invented or selected parts.
+
+* Less Incidental Complexity
+    :PROPERTIES:
+    :CUSTOM_ID: less-incidental-complexity
+    :END:
+
+Fulcro provides a strongly cohesive story that has many advantages
+over techniques, libraries, and frameworks you might have used before.
+
+* Solve problems
+    :PROPERTIES:
+    :CUSTOM_ID: solve-problems
+    :END:
+
+Concentrate on solving your real application problems. Other systems
+weigh you down with asynchrony, event systems, callback hell, and REST
+APIs. Fulcro gives you much simpler constructs as a foundation.

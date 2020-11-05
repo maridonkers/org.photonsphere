@@ -1,0 +1,81 @@
+----
+title:  Lisps targeting Lua
+modified: 2018-09-22
+meta_description: 
+tags: Computer, Software, Lua, Embedded, Functional, Lisp, JavaScript
+----
+
+Some Lisps targeting [[https://www.lua.org/][Lua]] are: [[https://fennel-lang.org/][Fennel]]; [[https://github.com/sctb/lumen/][Lumen]] and [[https://github.com/SquidDev/urn/blob/master/README.md][Urn]].
+
+(.more.)
+
+* Fennel
+   :PROPERTIES:
+   :CUSTOM_ID: fennel
+   :END:
+
+Fennel is a programming language that brings together the speed,
+simplicity, and reach of [[https://www.lua.org/][Lua]] with the flexibility of a [[https://en.wikipedia.org/wiki/Lisp_(programming_language)][lisp syntax and
+macro system]]. -- [[https://fennel-lang.org/][Fennel]] (by *Calvin Rose and [[https://github.com/bakpakin/Fennel/graphs/contributors][contributors]].*)
+
+** From its documentation
+    :PROPERTIES:
+    :CUSTOM_ID: from-its-documentation
+    :END:
+
+- Full Lua compatibilty: Easily call any Lua function or library from
+  Fennel and vice-versa.
+- Zero overhead: Compiled code should be just as or more efficient than
+  hand-written Lua.
+- Compile-time macros: Ship compiled code with no runtime dependency on
+  Fennel.
+- Embeddable: Fennel is a one-file library as well as an executable.
+  Embed it in other programs to support runtime extensibility and
+  interactive development.
+
+Anywhere you can run Lua code, you can run Fennel code.
+
+* Lumen
+   :PROPERTIES:
+   :CUSTOM_ID: lumen
+   :END:
+
+Lumen Lumen is a very small, self-hosted Lisp for [[https://www.lua.org/][Lua]] and JavaScript.
+-- [[https://github.com/sctb/lumen/][Lumen]] (by *[[https://github.com/sctb][Scott Bell]] with [[https://github.com/gruseom][Daniel Gackle]] and [[https://github.com/shawwn][Shawn Presser]].*)
+
+** From its documentation
+    :PROPERTIES:
+    :CUSTOM_ID: from-its-documentation-1
+    :END:
+
+Lumen provides a flexible compilation environment with an extensible
+reader, macros, and extensible special forms, but otherwise attempts
+to match the target runtime environment as closely as possible. You
+can get started by running bin/lumen on a machine with Node.js, Lua,
+or LuaJIT installed.
+
+* Urn
+   :PROPERTIES:
+   :CUSTOM_ID: urn
+   :END:
+
+Urn is a Lisp dialect with a focus on minimalism which compiles to
+[[https://www.lua.org/][Lua]]. -- [[https://github.com/SquidDev/urn/blob/master/README.md][Urn]] (by *[[https://github.com/SquidDev][SquidDev]], and [[https://github.com/zardyh][demhydraz]]*.)
+
+** From its documentation
+    :PROPERTIES:
+    :CUSTOM_ID: from-its-documentation-2
+    :END:
+
+Urn is a Lisp dialect with a focus on minimalism which compiles to
+Lua.
+
+What? * A minimal¹ Lisp implementation, with full support for compile
+time code execution and macros. * Support for Lua 5.1, 5.2 and 5.3.
+Should also work with LuaJIT. * Lisp-1 scoping rules (functions and
+data share the same namespace). * Influenced by a whole range of Lisp
+implementations, including [[https://en.wikipedia.org/wiki/Common_Lisp][Common Lisp]] and [[http://clojure.org/][Clojure]]. * Produces
+standalone, optimised Lua files: no dependencies on a standard
+library.
+
+¹: Minimalism is an implementation detail.

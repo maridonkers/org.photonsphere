@@ -1,0 +1,21 @@
+----
+title: Rust
+modified: 2016-10-25
+meta_description: 
+tags: Computer, Software, Embedded, Real-Time, Security, Rust
+----
+
+*Rust* is a systems programming language that runs blazingly fast,
+prevents segfaults, and guarantees thread safety. -- [[https://www.rust-lang.org/en-US/][Rust]] (by *Rust
+Project Developers*)
+
+(.more.)
+
+* Free book online
+[[https://doc.rust-lang.org/book/][Rust Programming Language]]
+
+* Videos
+
+- [[https://youtu.be/0emIUsU1_0E][Rust in Production]] (by Steve Klabnik)
+- [[https://youtu.be/O5vzLKg7y-k][The Rust Programming Language]] (by
+  Aaron Turon)

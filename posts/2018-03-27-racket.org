@@ -1,0 +1,46 @@
+----
+title: Racket programming language
+modified: 2018-03-27
+meta_description: 
+tags: Computer, Software, Lisp, Functional, Racket
+----
+
+Racket is a general-purpose programming language as well as the
+world's first ecosystem for developing and deploying new languages. --
+[[http://racket-lang.org/][Racket]] (by *[[http://felleisen.org/matthias/manifesto/index.html][The Racket Manifesto]]*).
+
+(.more.)
+
+* Racket
+    :PROPERTIES:
+    :CUSTOM_ID: racket
+    :END:
+
+Batteries included --Racket's extensive standard library gets your
+projects off the ground quickly.
+
+Cross-platform --Racket runs on Linux, macOS, and Windows. Develop on
+one; deploy to all three.
+
+Powerful macros & languages --Racket's crown jewel is its macro
+system, which lets you freely extend the language.
+
+Mature, stable, open source -- Racket is a mature LGPL project that's
+actively developed and maintained.
+
+DrRacket IDE & tons of documentation --DrRacket is a graphical IDE
+that's integrated with Racket's vast documentation.
+
+The best of Scheme and Lisp --Racket started life as a Scheme
+implementation, but then grew into new areas.
+
+* The principles of Racket
+    :PROPERTIES:
+    :CUSTOM_ID: the-principles-of-racket
+    :END:
+
+1. Racket is about creating new programming languages quickly.
+2. Racket provides building blocks for strong protection mechanisms.
+3. Racket turns extra-linguistic mechanisms into linguistic constructs
+
+(From [[http://felleisen.org/matthias/manifesto/The_Principles_of_Racket.html][The Principles of Racket]].)

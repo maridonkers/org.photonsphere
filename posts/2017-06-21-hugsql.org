@@ -1,0 +1,27 @@
+----
+title: HugSQL - A Clojure library for embracing SQL
+modified: 2017-06-21
+meta_description: 
+tags: Computer, Software, Functional, Clojure, Server, Database, SQL
+----
+
+A [[http://clojure.org/][Clojure]] library for embracing [[https://en.wikipedia.org/wiki/SQL][SQL]] -- [[https://www.hugsql.org/][HugSQL]] (by *[[https://www.layerware.com/][Layerware, Inc]]*).
+
+(.more.)
+
+* From its documentation
+
+- HugSQL is of the opinion that [[https://en.wikipedia.org/wiki/SQL][SQL]] is the right tool for the job when
+  working with a relational database.
+- HugSQL uses [[https://www.hugsql.org/#detail][simple conventions]] in your SQL files to define (at
+  compile time) database functions in your Clojure namespace, creating
+  a clean separation of Clojure and SQL code.
+- HugSQL supports runtime replacement of [[https://www.hugsql.org/#param-value][SQL Value Parameters]] (e.g.,
+  where id = :id), [[https://www.hugsql.org/#param-identifier][SQL Identifiers]] (i.e. table/column names), and [[https://www.hugsql.org/#param-sql][SQL
+  Keywords]]. You can also [[https://www.hugsql.org/#param-custom][implement your own parameter types]].
+- HugSQL features [[https://www.hugsql.org/#using-expressions][Clojure Expressions]] and [[https://www.hugsql.org/#using-snippets][Snippets]] providing the full
+  expressiveness of Clojure and the composability of partial SQL
+  statements when constructing complex SQL queries.
+- HugSQL has [[https://www.hugsql.org/#adapter][protocol-based adapters]] supporting multiple database
+  libraries and ships with adapters for [[https://github.com/clojure/java.jdbc][clojure.java.jdbc]] (default)
+  and [[http://funcool.github.io/clojure.jdbc/latest/][clojure.jdbc]].

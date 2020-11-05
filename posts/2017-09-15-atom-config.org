@@ -1,0 +1,20 @@
+----
+title: My Atom configuration
+modified: 2017-09-15
+meta_description: 
+tags: Computer, Software, Atom, Editor, IDE
+----
+
+My [[https://github.com/maridonkers/atom-config][atom-config]] (which is unused because I use only [[./2017-04-13-emacs-config.html][Emacs]] these days).
+
+(.more.)
+
+* Usage
+   :PROPERTIES:
+   :CUSTOM_ID: usage
+   :END:
+
+- rename your existing ~/.atom directory as a backup;
+- git clone https://github.com/maridonkers/atom-config.git ~/.atom
+
+Start atom.

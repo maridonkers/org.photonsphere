@@ -1,0 +1,18 @@
+----
+title: Korma - tasty SQL for Clojure
+modified: 2017-03-27
+meta_description: 
+tags: Computer, Software, Linux, Functional, Server, Database, SQL, Clojure
+----
+
+[[http://clojure.org/][Clojure]] is beautiful. It can make [[https://en.wikipedia.org/wiki/SQL][SQL]] beautiful too -- [[http://sqlkorma.com/][Korma]] (by
+*Chris Granger*).
+
+(.more.)
+
+* From its documentation
+
+Korma is a domain specific language for Clojure that takes the pain
+out of working with your favorite [[https://en.wikipedia.org/wiki/Relational_database_management_system][RDBMS]]. Built for speed and designed
+for flexibility, Korma provides a simple and intuitive interface to
+your data that won't leave a bad taste in your mouth.

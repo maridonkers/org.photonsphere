@@ -1,0 +1,27 @@
+----
+title: Debian Linux
+modified: 2017-10-10
+meta_description: 
+tags: Computer, Software, Linux, Debian
+----
+
+Where *stable* actually means *stable*! -- [[https://www.debian.org/][Debian]] (by *[[https://www.spi-inc.org/][Software in the
+Public Interest]]*).
+
+Debian is a free operating system (OS) for your computer. An operating
+system is the set of basic programs and utilities that make your
+computer run.
+
+Debian provides more than a pure OS: it comes with over 51000
+[[https://www.debian.org/distrib/packages][packages]], precompiled software bundled up in a nice format for easy
+installation on your machine.
+
+(.more.)
+
+* Backports
+    :PROPERTIES:
+    :CUSTOM_ID: backports
+    :END:
+
+Between major releases your Debian stable system can be brought up to
+date via [[https://backports.debian.org/][Debian Backports]].

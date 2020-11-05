@@ -1,0 +1,19 @@
+----
+title: jpro - JavaFX in the Browser
+modified: 2017-03-07
+meta_description: 
+tags: Computer, Software, Linux, Functional, Server, Internet, GUI, Java, JavaFX
+----
+
+JavaFX in the Browser - NO PLUGINS - EVERYWHERE -- [[https://www.jpro.io/][JPRO]] (by *jpro
+technologies AG*).
+
+(.more.)
+
+* From its documentation
+
+jpro is a new technology which brings Java back into the browser -
+without Java Plugin. To achieve that, jpro runs [[https://docs.oracle.com/javafx/][JavaFX]] on the server
+and maps its scenegraph directly into the browser. The client side
+rendering is highly optimized with browser side approximations to get
+a smooth user experience free of lags.

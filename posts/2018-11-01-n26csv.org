@@ -1,0 +1,78 @@
+----
+title: N26 CSV to KMyMoney
+modified: 2018-11-01
+meta_description: 
+tags: Computer, Software, Linux, Windows, Functional, Clojure, ClojureScript, Financial
+----
+
+Converts [[https://www.n26.com/][N26]] banking CSV exported files to format suited for [[https://kmymoney.org/][KMyMoney]]
+import -- [[https://github.com/maridonkers/n26csv][N26-CSV]] (by *[[https://github.com/maridonkers][Mari Donkers]]*)
+
+Similar to [[./2016-11-13-rabobank-sepa-csv-to-kmymoney.html][Rabobank SEPA CSV to KMyMoney]] but for N26 bank. Do note
+that for N26 the dot (.) is used as a decimal separator.
+
+(.more.)
+
+* N26 CSV
+   :PROPERTIES:
+   :CUSTOM_ID: n26-csv
+   :END:
+
+The format that N26 (an internet bank based in Germany) uses for its
+export feature. 
+
+* KMyMoney
+The [[https://kmymoney.org/][KMyMoney]] program is a personal finance
+manager.
+
+* Converter
+   :PROPERTIES:
+   :CUSTOM_ID: converter
+   :END:
+
+A command line converter program that takes files in N26 CSV format
+and converts them to a CSV format that can be imported by KMyMoney.
+
+The converter program is written in [[http://clojurescript.org/][ClojureScript]] and can be executed
+by the cross-platform [[https://github.com/anmonteiro/lumo][Lumo]] REPL, which can be installed as instructed
+[[https://github.com/anmonteiro/lumo#installation][here]].
+
+The converter program can be downloaded from [[https://raw.githubusercontent.com/maridonkers/n26csv/master/n26-csv.cljs][n26-csv.cljs]] (the
+downloaded file can be renamed to anything). If you're going to use
+the program for your personal finance then take note of the disclaimer
+in the downloaded source code (it's a quick hack, which I do use
+myself but nonetheless: caveat emptor).
+
+* Installation
+   :PROPERTIES:
+   :CUSTOM_ID: installation
+   :END:
+
+Under Linux simply make the downloaded file executable, put it
+somewhere in your $PATH and execute via (more than one filename and
+wildcards are allowed):
+
+#+BEGIN_SRC sh
+  n26-csv inputfilename
+#+END_SRC
+
+Under Windows execute via (more than one filename is allowed):
+
+#+BEGIN_SRC sh
+  lumo n26-csv inputfilename
+#+END_SRC
+
+* Converter usage
+   :PROPERTIES:
+   :CUSTOM_ID: converter-usage
+   :END:
+
+The converter program is called from the command line with one or more
+input files (which are in N26 CSV format). It generates an output file
+(or output files), which is (are) named =inputfilename#kmymoney.csv=
+
+#+BEGIN_SRC sh
+  $ n26-csv 2018-04-01_2018-06-30.csv
+  2018-04-01_2018-06-30.csv:
+      kmymoney
+#+END_SRC

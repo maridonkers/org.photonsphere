@@ -1,0 +1,39 @@
+----
+title: NixOS
+modified: 2017-10-03
+meta_description: 
+tags: Computer, Software, Linux, Functional, NixOS
+----
+
+The *Purely Functional* Linux Distribution -- [[https://nixos.org/][NixOS]] (by *[[http://nixos.org/~eelco/pubs/iscsd-scm11-final.pdf][Dolstra,
+Eelco]]*).
+
+NixOS is a Linux distribution with a unique approach to package and
+configuration management. Built on top of the [[https://nixos.org/nix][Nix package manager]], it
+is completely declarative, makes upgrading systems reliable, and has
+[[https://nixos.org/nixos/about.html][many other advantages]].
+
+(.more.)
+
+* Research project
+   :PROPERTIES:
+   :CUSTOM_ID: research-project
+   :END:
+
+NixOS started as a research project ([[http://nixos.org/~eelco/pubs/iscsd-scm11-final.pdf][Dolstra, Eelco. "Integrating
+Software Construction and Software Deployment"]]), but it is a fully
+functional and usable operating system.
+
+* From its documentation:
+   :PROPERTIES:
+   :CUSTOM_ID: from-its-documentation
+   :END:
+
+[[https://nixos.org/nixos/about.html][NixOS]] is a GNU/Linux distribution that aims to improve the state of
+the art in system configuration management. In existing distributions,
+actions such as upgrades are dangerous: upgrading a package can cause
+other packages to break, upgrading an entire system is much less
+reliable than reinstalling from scratch, you can't safely test what
+the results of a configuration change will be, you cannot easily undo
+changes to the system, and so on. We want to change that. NixOS has
+many innovative features.

@@ -1,0 +1,33 @@
+----
+title: xmonad tiling window manager
+modified: 2020-06-12
+meta_description: 
+tags: Computer, Software, Linux, Functional, Haskell, GUI, Tiling Window Manager
+----
+
+Because I have been wanting to start using [[https://en.wikipedia.org/wiki/Tiling_window_manager][tiling window managers]] and
+want to learn some [[https://www.haskell.org/][Haskell]].
+
+(.more.)
+
+* xmonad
+    :PROPERTIES:
+    :CUSTOM_ID: xmonad
+    :END:
+
+The [[https://xmonad.org/][xmonad]] tiling window manager is fast and configurable.
+
+* dotfiles
+    :PROPERTIES:
+    :CUSTOM_ID: dotfiles
+    :END:
+
+My [[https://github.com/maridonkers/dotfiles][dotfiles]] at GitHub with a.o. [[https://xmonad.org/][xmonad]] and [[https://hackage.haskell.org/package/xmobar][xmobar]] configuration.
+
+* Already on GitHub
+    :PROPERTIES:
+    :CUSTOM_ID: already-on-github
+    :END:
+
+- [[https://github.com/maridonkers/nixos-configuration][NixOS configuration]]
+- [[https://github.com/maridonkers/emacs-config][Emacs configuration]]

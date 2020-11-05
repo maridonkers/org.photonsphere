@@ -1,0 +1,108 @@
+----
+title: Fulcro development with Emacs+Cider
+modified: 2017-12-08
+meta_description: 
+tags: Computer, Software, Clojure, ClojureScript, Functional, Server, Client, Database, GUI, Internet, JavaScript, Web, Emacs, IDE
+----
+
+Using Emacs+Cider for development with [[http://fulcro.fulcrologic.com/][Fulcro]]. To set up Emacs for
+[[http://clojure.org/][Clojure]] and [[http://clojurescript.org/][ClojureScript]] development with Cider see e.g.: [[./2017-04-13-emacs-config.html][My Emacs
+configuration]]
+
+(.more.)
+
+* Start headless REPL
+    :PROPERTIES:
+    :CUSTOM_ID: start-headless-repl
+    :END:
+
+Start a headless REPL.
+
+#+BEGIN_SRC sh
+  JVM_OPTS="-Ddev" lein repl :headless
+#+END_SRC
+
+Jot down the port on which the nREPL server started.
+
+* Connect to REPL (for Clojure)
+    :PROPERTIES:
+    :CUSTOM_ID: connect-to-repl-for-clojure
+    :END:
+
+In Emacs use =M-x cider-connect= to connect to the REPL. Normally you
+can use the default (localhost) and also press ENTER for the port
+number (which automatically finds the port number). If it doesn't work
+then use the jotted down port number.
+
+* Start the server in the Clojure REPL
+    :PROPERTIES:
+    :CUSTOM_ID: start-the-server-in-the-clojure-repl
+    :END:
+
+#+BEGIN_SRC clojure
+  (go)
+#+END_SRC
+
+* Create a second connection to the REPL (for ClojureScript)
+    :PROPERTIES:
+    :CUSTOM_ID: create-a-second-connection-to-the-repl-for-clojurescript
+    :END:
+
+In Emacs use =M-x cider-connect= to again connect to the REPL. On the
+question =REPL buffer already exists (*cider-repl localhost*). Do you
+really want to create a new one? (y or n)= answer y.
+
+* Initialize the ClojureScript REPL
+    :PROPERTIES:
+    :CUSTOM_ID: initialize-the-clojurescript-repl
+    :END:
+
+In the ClojureScript REPL type the following command:
+
+#+BEGIN_SRC clojure
+  (start-figwheel)
+#+END_SRC
+
+* Load or reload the page
+    :PROPERTIES:
+    :CUSTOM_ID: load-or-reload-the-page
+    :END:
+
+The ClojureScript REPL reports =Prompt will show when Figwheel
+connects to your application=, which occurs when the page with the
+ClojureScript code is loaded or reloaded.
+
+* Get initial- and current state
+    :PROPERTIES:
+    :CUSTOM_ID: get-initial--and-current-state
+    :END:
+
+Sidetracking, on how to get initial- and current state in the [[https://github.com/fulcrologic/fulcro-template][Fulcro template project]].
+
+To see the initial state, use the following from a cljs repl:
+
+#+BEGIN_SRC clojure
+  (fulcro.client.primitives/get-initial-state fulcro-template.ui.root/Root {})
+#+END_SRC
+
+To see the current state, use the following from a cljs repl:
+
+#+BEGIN_SRC clojure
+  @(fulcro.client.primitives/app-state (get @fulcro-template.client/app :reconciler))
+#+END_SRC
+
+* Manage repl connections
+    :PROPERTIES:
+    :CUSTOM_ID: manage-repl-connections
+    :END:
+
+Sometimes you require a specific repl to be the active connection for
+a source file. E.g. for .cljc files. There is a section in the CIDER
+documentation on this: [[https://github.com/clojure-emacs/cider/blob/master/doc/managing_connections.md][Managing Connections]].
+
+* Screendump with Fulcro template project
+    :PROPERTIES:
+    :CUSTOM_ID: screendump-with-fulcro-template-project
+    :END:
+
+[[../images/fulcro-template.png]]

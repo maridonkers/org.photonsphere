@@ -1,0 +1,49 @@
+----
+title: Citrus for Rum
+modified: 2018-11-27
+meta_description: 
+tags: Computer, Software, GUI, Functional, Clojure, ClojureScript
+----
+
+Have simple [[https://github.com/Day8/re-frame][re-frame]] like state management facilities for building web
+apps with [[https://github.com/tonsky/rum/][Rum]] for [[http://clojure.org/][Clojure]] and [[http://clojurescript.org/][ClojureScript]] while leveraging its API
+-- [[https://github.com/roman01la/citrus][Citrus]] (by *[[https://github.com/roman01la][Roman Liutikov]]*).
+
+(.more.)
+
+/From its documentation:/
+
+* Features
+   :PROPERTIES:
+   :CUSTOM_ID: features
+   :END:
+
+- Decoupled application state in a single atom
+- No global state, everything lives in Reconciler instance
+- A notion of a controller to keep application domains separate
+- Reactive queries
+- Side-effects are described as data
+- Async batched updates for better performance
+- Server-side rendering with convenient state hydration
+
+* How it works
+   :PROPERTIES:
+   :CUSTOM_ID: how-it-works
+   :END:
+
+With Citrus you build everything around a well known architecture
+pattern in modern SPA development:
+
+- Model application state (with reconciler)
+- Dispatch events (with dispatch!, dispatch-sync!, broadcast! and broadcast-sync!)
+- Handle events (with :controllers functions)
+- Handle side effects (with :effect-handlers functions)
+- Query state reactively (with subscription, rum/react and rum/reactive)
+- Render (automatic & efficient ! profit +1)
+
+* RealWorld example appl
+   :PROPERTIES:
+   :CUSTOM_ID: realworld-example-appl
+   :END:
+
+There is a [[https://github.com/roman01la/cljs-rum-realworld-example-app][cljs-rum-realworld-example-app]] on GitHub.

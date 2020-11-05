@@ -1,0 +1,21 @@
+----
+title: MIT 6.001 Structure and Interpretation
+modified: 2017-02-01
+meta_description: 
+tags: Computer, Software, Emacs, Lisp, Functional, Clojure, ClojureScript, Racket
+----
+
+* Overview and Introduction to Lisp
+"Computer science is a terrible name. First, it's not a science. And
+it's also not about computers. People in the future will recognize that
+people were really formalizing intuitions about process -- how to do
+things. Talking precisely about how to knowledge. As opposed to geometry
+that talks about what is true."
+
+(.more.)
+
+* Copyright
+Despite the copyright notice on the screen, this course is now offered under a Creative Commons license: BY-NC-SA. -- [[https://www.youtube.com/playlist?list=PL8FE88AA54363BC46][MIT 6.001 Structure and Interpretation, 1986]] (by [[https://www.youtube.com/channel/UCEBb1b%3Ci%3EL6zDS3xTUrIALZOw][MIT OpenCourseWare]]).
+
+* Book
+[[https://mitpress.mit.edu/sicp/full-text/book/book.html][Structure and Interpretation of Computer Programs]].

@@ -1,0 +1,69 @@
+----
+title: Janet and Carp
+modified: 2019-02-16
+meta_description: 
+tags: Computer, Software, Functional, GUI, Lisp, Janet, Carp
+----
+
+Two Lisps. [[https://janet-lang.org/][Janet]] and [[https://github.com/carp-lang/Carp][Carp]].
+
+(.more.)
+
+* Janet
+   :PROPERTIES:
+   :CUSTOM_ID: janet
+   :END:
+
+[[https://janet-lang.org/][Janet]] is a functional and imperative programming language. It runs on
+Windows, Linux, macOS, and should run on other systems with some
+porting. The entire language (core library, interpreter, compiler,
+assembler) is about 200-300 kB and should run on many constrained
+systems. (by *[[https://github.com/janet-lang][janet-lang]]*)
+
+Features:
+
+- Minimal setup - one binary and you are good to go!
+- First class closures
+- Garbage collection
+- First class green threads (continuations)
+- Python style generators (implemented as a plain macro)
+- Mutable and immutable arrays (array/tuple)
+- Mutable and immutable hashtables (table/struct)
+- Mutable and immutable strings (buffer/string)
+- Lisp Macros
+- Byte code interpreter with an assembly interface, as well as bytecode
+  verification
+- Tailcall Optimization
+- Direct interop with C via abstract types and C functions
+- Dynamically load C libraries
+- Functional and imperative standard library
+- Lexical scoping
+- Imperative programming as well as functional
+- REPL
+- Parsing Expression Grammars built in to the core library
+- 300+ functions and macros in the core library
+- Interactive environment with detailed stack traces
+
+* Carp
+   :PROPERTIES:
+   :CUSTOM_ID: carp
+   :END:
+
+[[https://github.com/carp-lang/Carp][Carp]] is a small programming language designed to work well for
+interactive and performance sensitive use cases like games, sound
+synthesis and visualizations. (by *[[https://github.com/carp-lang][carp-lang]]*)
+
+The key features of Carp are the following:
+
+Automatic and deterministic memory management (no garbage collector or
+VM) Inferred static types for great speed and reliability Ownership
+tracking enables a functional programming style while still using
+mutation of cache-friendly data structures under the hood No hidden
+performance penalties -- allocation and copying are explicit
+Straightforward integration with existing C code
+
+is a functional and imperative programming language. It runs on
+Windows, Linux, macOS, and should run on other systems with some
+porting. The entire language (core library, interpreter, compiler,
+assembler) is about 200-300 kB and should run on many constrained
+systems.

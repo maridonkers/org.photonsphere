@@ -1,0 +1,264 @@
+----
+title: NNTP - Accessing Usenet with Clojure
+modified: 2017-07-15
+meta_description: 
+tags: Computer, Software, Functional, Clojure, Server, Internet, NNTP, Usenet
+----
+
+[[https://en.wikipedia.org/wiki/Usenet][Usenet]] is a worldwide distributed discussion system available on
+computers and can be accessed via the [[https://en.wikipedia.org/wiki/Network_News_Transfer_Protocol][NNTP]] protocol. For [[https://clojure.org/][Clojure]]
+there's the [[https://github.com/ogrim/clj-nntp][clj-nntp]] library (by [[http://ogrim.no/][Aleksander Skjæveland Larsen
+(ogrim)]]).
+
+(.more.)
+
+Because it's in early stages of development (thus incomplete) I have
+simply copied its source code into my project and extended it with
+article enumeration and enhanced post headers.
+
+* The extended clj-nntp library
+   :PROPERTIES:
+   :CUSTOM_ID: the-extended-clj-nntp-library
+   :END:
+
+#+BEGIN_SRC clojure
+  (ns nntp-client
+    "A Clojure NNTP library wrapping Apache Commons Net NNTP. Based on
+    clj-nttp library by Aleksander Skjæveland Larsen (ogrim)."
+    (:require [clojure.string :as string])
+    (:import (java.io FileReader BufferedReader)
+             (org.apache.commons.net.io DotTerminatedMessageReader)
+             (org.apache.commons.net.nntp NNTPClient
+                                          ReplyIterator
+                                          NewsgroupInfo
+                                          SimpleNNTPHeader
+                                          ArticleInfo)))
+
+  (defn connect-and-authenticate ^NNTPClient [server]
+    (let [client ^NNTPClient (NNTPClient.)
+          hostname (:hostname server)
+          username (:username server)
+          password (:password server)]
+      (.connect client hostname)
+      (if (and (seq username) (seq password))
+        (.authenticate client username password))
+      client))
+
+  (defmacro with-connection
+    [[varname server] & body]
+    `(let [^NNTPClient ~varname (connect-and-authenticate ~server)
+           result# ~@body]
+       (.logout ~varname)
+       (.disconnect ~varname)
+       result#))
+
+  (defn newsgroups [server]
+    (with-connection [client server]
+      (doall (map #(.getNewsgroup ^NewsgroupInfo %) (.iterateNewsgroups client)))))
+
+  (defn articles
+    "Gets articles from group."
+    [server group]
+    (with-connection [client server]
+      (let [newsgroup (NewsgroupInfo. )
+            selected? (.selectNewsgroup client group newsgroup)]
+        (when selected?
+          (let [article-first (.getFirstArticleLong newsgroup)
+                article-last (.getLastArticleLong newsgroup)]
+            (doall (vec (.iterateArticleInfo client
+                                             article-first
+                                             article-last))))))))
+
+  (defn post-article
+    "Posts article to specified newsgroup (in article)."
+    [server article]
+    (with-connection [client server]
+      (let [header (SimpleNNTPHeader. (:from article) (:subject article))
+            organization (:organization article)
+            in-reply-to (:in-reply-to article)
+            references (:references article)
+            body (:body article)]
+        (.addNewsgroup header (:newsgroup article))
+        (when (some? organization)
+          (.addHeaderField header "Organization" organization))
+        (when (some? in-reply-to)
+          (.addHeaderField header "In-Reply-To" in-reply-to))
+        (when (seq references)
+          (.addHeaderField header "References" references))
+        
+        ;; Messages for debugging your attempted posts.
+        (println (.toString header))
+        (println body)
+
+        ;; Uncomment to actually post (be careful here to not flood Usenet with erroneous posts).
+        #_(if (.isAllowedToPost client)
+          (let [writer (.postArticle client)]
+            (if writer
+              (do (.write writer ^String (.toString header))
+                  (.write writer ^String body)
+                  (.close writer)
+                  (if (.completePendingCommand client) true false))))))))
+#+END_SRC
+
+* Usage of the extended clj-nntp library
+   :PROPERTIES:
+   :CUSTOM_ID: usage-of-the-extended-clj-nntp-library
+   :END:
+
+** Namespace declaration
+    :PROPERTIES:
+    :CUSTOM_ID: namespace-declaration
+    :END:
+
+#+BEGIN_SRC clojure
+  (ns nntp-example
+    "NNTP example."
+    (:require [clj-time.core :as t]
+              [clj-time.format :as f]
+              [clj-time.local :as l]
+              [clj-time.coerce :as c]
+              [clojure.string :as string]
+              [nntp-client :as nntp])
+    (:import [java.util Locale])
+    (:gen-class))
+#+END_SRC
+
+** Server and other definitions
+    :PROPERTIES:
+    :CUSTOM_ID: server-and-other-definitions
+    :END:
+
+#+BEGIN_SRC clojure
+  (def server
+    {:hostname "your-usenet-server"
+     :port 119
+     ;; :username ""
+     ;; :password ""
+     })
+     
+  (def EMAIL "- charter - <charters@nl>")
+  (def AUTOREPLY-GROUP "nl.comp.os.linux.discussie")
+  (def ENUMERATE-GROUP "nl.comp.os.linux.techniek")
+#+END_SRC
+
+** Some formatting and time stuff
+    :PROPERTIES:
+    :CUSTOM_ID: some-formatting-and-time-stuff
+    :END:
+
+#+BEGIN_SRC clojure
+  (def article-formatter (f/formatter "dd-MM-YYYY HH:mm"))
+
+  ;; A few RFC 822 formats (non exhaustive).
+  (def nntp-formatters [(f/with-locale (f/formatter "EEE, dd MMM yyyy HH:mm:ss Z")
+                          java.util.Locale/US)
+                        (f/with-locale (f/formatter "EEE, dd MMM yyyy HH:mm:ss z")
+                          java.util.Locale/US)
+                        (f/with-locale (f/formatter "dd MMM yyyy HH:mm:ss Z")
+                          java.util.Locale/US)
+                        (f/with-locale (f/formatter "dd MMM yyyy HH:mm:ss z")
+                          java.util.Locale/US)])
+
+  (defn parse-rfc822-datetime
+    "Parses date time (which can be in various formats). When none of
+    the formatters work then, depending on the now? parameter,
+    1970-01-01T00:00:00.000Z or now is returned."
+    [datetime now?]
+    (let [dts (for [formatter nntp-formatters]
+                (try (f/parse formatter datetime)
+                     (catch Exception e nil)))
+          dts (remove nil? dts)]    
+      (if (empty? dts)
+        (if now? (t/now) (c/from-long 0))
+        (first dts))))
+
+  (defn local-time
+    "Returns local time for tm. It's somewhat biased so you
+    may want to change this to your timezone."
+    [tm]
+    (t/to-time-zone tm (t/time-zone-for-id "Europe/Amsterdam")))
+#+END_SRC
+
+** Finding posts to reply to
+    :PROPERTIES:
+    :CUSTOM_ID: finding-posts-to-reply-to
+    :END:
+
+#+BEGIN_SRC clojure
+  (defn ^:private autoreplier
+    "NNTP autoreplier, which autoreplies to posts from an
+    example poster in group ENUMERATE-GROUP, 'after' date and
+    time and not (already) posted in group AUTOREPLY-GROUP (where
+    autoreplies are posted)."
+    [after]
+    (let [autoreply-group (->> (nntp/articles server AUTOREPLY-GROUP)
+                               (filter #(= (.getFrom %) EMAIL))
+                               (map #(last (.getReferences %))))
+          articles (->> (nntp/articles server ENUMERATE-GROUP)
+                        (filter #(= (.getFrom %) EMAIL))
+                        (filter #(t/after? (parse-rfc822-datetime (.getDate %) false) after))
+                        (remove #(some (partial = (.getArticleId %)) autoreply-group)))]
+
+      (doall (map post-reply articles))))
+
+  (defn ^:private usage
+    "Prints usage instructions."
+    []
+    (println (str "Usage: java -jar nntp-example.jar \"2 Apr 2016 08:45:30 +0200\"\n"
+                  "\n"
+                  "Where the date and time are used to specify when to start\n"
+                  "with the Usenet autoreplying.")))
+                  
+  (defn -main
+    "Autoreply starting after current timestamp."
+    [& args]
+
+    (if (and (empty? args))
+      (usage)
+      (let [after (local-time (parse-rfc822-datetime (first args) true))]
+        (println (str "Autoresponding to posts after: " after))
+        (autoreplier after))))
+#+END_SRC
+
+** Posting replies
+    :PROPERTIES:
+    :CUSTOM_ID: posting-replies
+    :END:
+
+#+BEGIN_SRC clojure
+  (defn ^:private post-reply
+    "Post a reply to article."
+    [article]
+
+    (let [article-date (.getDate article)
+
+          article-subject (.getSubject article)
+          subject (if (string/starts-with? article-subject "Re:")
+                    article-subject
+                    (str "Re: " article-subject))
+
+          article-id (.getArticleId article)
+          article-references (apply str
+                                    (interpose " "
+                                               (.getReferences article)))
+          references (apply str
+                            article-references
+                            " "
+                            article-id)
+
+          body (str "On "
+                    (f/unparse article-formatter (parse-rfc822-datetime article-date false))
+                    "Someone wrote:\n"
+                    "> something\n\n"
+                    "And our reply is as follows. (TODO)\n\n")
+          
+          response {:from EMAIL
+                    :subject subject
+                    :body body
+                    :newsgroup AUTOREPLY-GROUP
+                    :organization "Our organisation"
+                    :in-reply-to article-id
+                    :references references}]
+      
+      (nntp/post-article server response)))
+#+END_SRC

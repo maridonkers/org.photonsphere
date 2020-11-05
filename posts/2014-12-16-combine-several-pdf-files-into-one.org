@@ -1,0 +1,19 @@
+----
+title: Combine several PDF-files into one
+modified: 2014-12-16
+meta_description: 
+tags: Computer, Linux, PDF, Software, Shell Script
+----
+
+Ever wanted to combine several PDF-files into a single file? Under
+Linux a simple command can be used to accomplish this.
+
+(.more.)
+
+Use the command given below:
+
+#+BEGIN_SRC sh
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=output.pdf input1.pdf input2.pdf
+#+END_SRC
+
+(Note: this requires ghostscript to be installed.)

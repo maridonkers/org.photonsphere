@@ -1,0 +1,40 @@
+----
+title: Neocons - Clojure client for Neo4J
+modified: 2017-03-06
+meta_description: 
+tags: Computer, Software, Functional, Database, Graph, Clojure, Graph Database
+----
+
+Neocons - an idiomatic, feature rich [[http://clojure.org/][Clojure]] client for [[https://neo4j.com/][Neo4J]] REST API
+-- [[http://clojureneo4j.info/][Neocons]] (by *Michael S. Klishin*, *Alex Petrov*, and the
+*ClojureWerkz team*).
+
+(.more.)
+
+* From its documentation
+
+** Neocons Overview
+    :PROPERTIES:
+    :CUSTOM_ID: neocons-overview
+    :END:
+
+Neocons is an idiomatic Clojure client for the Neo4J Server REST API.
+It is simple and easy to use, strives to support every Neo4J Server
+feature, makes working with [[https://neo4j.com/developer/cypher-query-language/][Cypher]] queries a joy, takes a "batteries
+included" approach and is well maintained.
+
+** What Neocons is not
+    :PROPERTIES:
+    :CUSTOM_ID: what-neocons-is-not
+    :END:
+
+Neocons is a [[https://en.wikipedia.org/wiki/Representational_state_transfer][REST]] API client, it currently does not support working
+with [[https://neo4j.com/docs/java-reference/current/#tutorials-java-embedded][embedded Neo4J databases]]. Neocons was designed for commercial
+products and using embedded open source Neo4J editions is not legal
+without obtaining a commercial license or open sourcing your entire
+application.
+
+Neocons is not an ORM/ODM. It does not provide graph visualization
+features, although this is an interesting area to explore in the
+future versions. Neocons may or may not be Web Scale and puts
+correctness and productivity above sky high benchmarks.

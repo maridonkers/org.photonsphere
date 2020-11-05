@@ -1,0 +1,28 @@
+----
+title: Random line from a text file
+modified: 2018-08-28
+meta_description: 
+tags: Computer, Software, Clojure, Functional, IO
+----
+
+About getting a random line from a text file in [[http://clojure.org/][Clojure]].
+
+(.more.)
+
+* Clojure code
+    :PROPERTIES:
+    :CUSTOM_ID: clojure-code
+    :END:
+
+#+BEGIN_SRC clojure
+  (time (let [path "/usr/share/dict/american-english-insane"
+              cnt (with-open [rdr (clojure.java.io/reader path)]
+                    (count (line-seq rdr)))
+              idx (int (rand cnt))
+              word (with-open [rdr (clojure.java.io/reader path)]
+                     (nth (line-seq rdr) idx))]
+          (println (str "Word #" idx ": " word " (from " cnt " words)."))))
+#+END_SRC
+
+Word #371611: kneecappings (from 650722 words). "Elapsed time:
+201.590254 msecs"

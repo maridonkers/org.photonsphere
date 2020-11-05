@@ -1,0 +1,21 @@
+----
+title: ClojureScript apps for iOS and Android devices
+modified: 2016-08-17
+meta_description: 
+tags: Computer, Software, GUI, Mobile, Android, iOS, Embedded, Functional, Clojure, ClojureScript
+----
+
+For [[http://leiningen.org][Leiningen]]: A fork of [[https://github.com/dmotz/natal][dmotz/natal]] by Dan Motzenbecker with the goal
+of generating skeleton of native app for iOS and Android based on
+[[https://github.com/reagent-project/reagent][Reagent]] + [[https://github.com/Day8/re-frame][re-frame]], [[https://github.com/omcljs/om/wiki/Quick-Start-(om.next)][Om.Next]] or [[https://github.com/tonsky/rum][Rum]] -- [[https://github.com/drapanjanas/re-natal][Re-Natal]] (by *Artur Girenko*).
+
+(.more.)
+
+For [[https://github.com/boot-clj/boot][Boot]]: Provides several tasks that helps integrate ClojureScript
+with the React Native packager and build process -- [[https://github.com/mjmeintjes/boot-react-native][Boot React Native]]
+(by *Matt Meintjes*). 
+
+* Videos
+
+- [[https://youtu.be/6IYm34nDL64][Native mobile apps with ClojureScript]] - Viktor Eriksson
+- [[https://www.youtube.com/watch?v=-zM5fDN_AHY][Using Clojurescript to launch iOS/Android apps to 1M users]] - Emin Hasanov
