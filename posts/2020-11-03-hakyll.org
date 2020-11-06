@@ -15,7 +15,7 @@ The source for this site is on GitHub: [[https://github.com/maridonkers/org.phot
 
 * org-mode
 
-I had to add teaser support for org-mode because the =<!--more-->= that is used for Markdown is escaped by [[https://pandoc.org/][Pandoc]] during conversion to [[https://en.wikipedia.org/wiki/HTML][HMTL]]. See [[https://github.com/maridonkers/org.photonsphere/blob/master/site.hs][site.hs]] on GitHub.
+I had to add teaser support for [[https://orgmode.org/][org-mode]] because the =<!--more-->= that is used for Markdown is escaped by [[https://pandoc.org/][Pandoc]] in conversion from [[https://orgmode.org/][org-mode]] to [[https://en.wikipedia.org/wiki/HTML][HMTL]]. See [[https://github.com/maridonkers/org.photonsphere/blob/master/site.hs][site.hs]] on GitHub.
 
 So =teaserFieldWithSeparator= is used instead of =teaserField=.
 
