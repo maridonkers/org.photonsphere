@@ -168,7 +168,7 @@ replaceTeaserSeparatorWith :: String  -- ^ teaser separator to replace
                            -> String  -- ^ HTML to replace in
                            -> String  -- ^ Resulting HTML
 replaceTeaserSeparatorWith tsFrom tsTo html =
-    T.unpack $ T.replace tsf tst tsh
-    where tsf = T.pack tsFrom
-          tst = T.pack tsTo
-          tsh = T.pack html
+    T.unpack $ T.replace tsFrom' tsTo' html'
+    where tsFrom' = T.pack tsFrom
+          tsTo' = T.pack tsTo
+          html' = T.pack html
