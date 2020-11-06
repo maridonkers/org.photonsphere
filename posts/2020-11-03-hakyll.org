@@ -28,6 +28,10 @@ teaserFieldWithSeparator "(.MORE.)" "teaser" "content"
 And I've added a function =replaceTeaserSeparator= to replace the teaser separator with the regular HTML-comment version in the output.
 
 #+BEGIN_SRC haskell
+import qualified Data.Text as T
+
+...
+
 >>= replaceTeaserSeparator "(.MORE.)" "<!--more-->"
 
 ...
