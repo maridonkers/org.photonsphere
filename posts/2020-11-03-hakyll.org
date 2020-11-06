@@ -49,7 +49,7 @@ replaceTeaserSeparatorWith :: String  -- ^ teaser separator to replace
                            -> String  -- ^ replacement teaser separator
                            -> String  -- ^ HTML to replace in
                            -> String  -- ^ Resulting HTML
-replaceTeaserSeparatorWith tsFrom' tsTo' html' =
+replaceTeaserSeparatorWith tsFrom tsTo html =
     T.unpack $ T.replace tsFrom' tsTo' html'
     where tsFrom' = T.pack tsFrom
           tsTo' = T.pack tsTo
