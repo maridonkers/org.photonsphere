@@ -27,10 +27,5 @@ server: build
 clean:
 	nix-shell --run "./site clean"
 
-# Determine which files to upload...
-diff-reset:
-	rm -rf __site
-	cp -a _site __site
-
-diff:
-	diff -rbq _site __site
+upload:
+	(cd _site ; lftp -u ftp@donkersautomatisering.nl --env-password -e "mirror -R -n -v .; bye" ftp.donkersautomatisering.nl/domains/photonsphere.org/public_html)
