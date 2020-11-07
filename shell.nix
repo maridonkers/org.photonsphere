@@ -9,7 +9,7 @@ let
   #inherit (nixpkgs) pkgs;
   pkgs = import (builtins.fetchGit {
     # Descriptive name to make the store path easier to identify
-    name = "my-old-revision";
+    name = "nixos-20.03";
     url = "https://github.com/nixos/nixpkgs-channels/";
     ref = "refs/heads/nixpkgs-20.03-darwin";
     rev = "1975b8687474764c157e6a220fdcad2c5dc348a1";
