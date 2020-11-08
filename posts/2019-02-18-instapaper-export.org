@@ -2,7 +2,7 @@
 title: Remove duplicates from Instapaper HTML export
 modified: 2019-02-18
 meta_description: 
-tags: Computer, Software, Internet, Mobile, Web, Functional, Clojure
+tags: Computer, Software, Internet, Mobile, Web, Functional, Clojure, HTML
 ----
 
 [[https://www.instapaper.com/help][Instapaper]] turns web content -- articles, stories, posts, videos, and
