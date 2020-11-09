@@ -265,7 +265,7 @@ footer h2 {
   letter-spacing: 0;
 }
 
-ul {
+.article-body ul {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   list-style-type: circle;
