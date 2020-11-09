@@ -2,7 +2,7 @@
 title: Hakyll
 modified: 2020-11-05
 meta_description: 
-tags: Computer, Software, Linux, Windows, Functional, Clojure, Haskell, Hakyll, Static Site Generator, HTML, CSS
+tags: Computer, Software, Linux, Windows, Functional, Clojure, Haskell, Hakyll, Static Site Generator, HTML, CSS, Web
 ----
 
 Because I have been wanting to use [[https://orgmode.org/][org-mode]] instead of [[https://en.wikipedia.org/wiki/Markdown][Markdown]] for this site, I started using the [[https://jaspervdj.be/hakyll/][Hakyll]] static site generator and converted all my content to org-mode. The [[https://blog.thjread.com/#about/][Thomas Read's blog]] (that I used as a template) even has [[https://www.mathjax.org/][MathJax]] support implemented. Support for $\LaTeX$ is also possible with [[https://jaspervdj.be/hakyll/][Hakyll]], I read online.

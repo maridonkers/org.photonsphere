@@ -2,7 +2,7 @@
 title: Emacs editing in an October CMS Docker container
 modified: 2018-11-22
 meta_description: 
-tags: Computer, Software, Linux, PHP, CMS, Server, Client, GUI, Web, Emacs, IDE, Docker
+tags: Computer, Software, Linux, PHP, CMS, Server, Client, GUI, Web, Emacs, IDE, Docker, HTML, CSS
 ----
 
 Create an [[https://octobercms.com][October CMS]] [[https://www.docker.com/][Docker]] image with support for [[https://www.gnu.org/software/emacs/][Emacs]] editing set

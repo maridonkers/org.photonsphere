@@ -2,7 +2,7 @@
 title: Emacs editing in a Drupal Docker container
 modified: 2019-09-06
 meta_description: 
-tags: Computer, Software, Linux, PHP, CMS, Server, Client, GUI, Web, Emacs, IDE, Docker, Drupal
+tags: Computer, Software, Linux, PHP, CMS, Server, Client, GUI, Web, Emacs, IDE, Docker, Drupal, HTML, CSS
 ----
 
 Create a [[https://www.drupal.org/][Drupal]] [[https://www.docker.com/][Docker]] image with support for [[https://www.gnu.org/software/emacs/][Emacs]] editing set up
