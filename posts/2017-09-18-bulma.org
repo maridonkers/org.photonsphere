@@ -2,7 +2,7 @@
 title: Bulma
 modified: 2017-09-18
 meta_description: 
-tags: Computer, Software, Functional, Clojure, ClojureScript, JavaScript, CSS, GUI
+tags: Computer, Software, Functional, JavaScript, HTML, CSS, GUI
 ----
 
 Modern CSS framework based on [[https://en.wikipedia.org/wiki/CSS_Flex_Box_Layout][Flexbox]] -- [[https://github.com/jgthms/bulma][Bulma]] (by *[[https://github.com/jgthms][Jeremy Thomas]]*).
