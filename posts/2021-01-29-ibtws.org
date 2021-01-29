@@ -5,7 +5,7 @@ meta_description:
 tags: Computer, Software, Linux, Server, Client, GUI, Docker, Financial, Trading, Broker, IBTWS
 ----
 
-Create an Interactive Brokers' [[Trader Workstation platform][Trader Workstation platform]] [[https://www.docker.com/][Docker]] image that displays its GUI on the Docker host computer. This is based on [[https://github.com/alekna/docker-ib-tws][alekna/docker-ib-tws]] Docker image (by [[https://github.com/alekna][Laurynas Alekna]]).
+Create an Interactive Brokers' [[Trader Workstation platform][Trader Workstation platform]] [[https://www.docker.com/][Docker]] image that displays its GUI on the Docker host computer. This is based on [[https://github.com/alekna/docker-ib-tws][alekna/docker-ib-tws]] Docker image (by [[https://github.com/alekna][Laurynas Alekna]]), but the version in this repository displays the GUI directly on your host computer.
 
 (.more.)
 On the Docker host computer, do not forget to use =xhost= to allow access to the X-server, as follows.
