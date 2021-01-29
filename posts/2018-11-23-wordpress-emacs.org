@@ -185,7 +185,7 @@ First enable access for X-Windows:
 Attach to a bash shell in the container and set up Emacs.
 
 #+BEGIN_SRC sh
-  $ docker attach docker attach wordpress_wordpress-development_1
+  $ docker attach wordpress_wordpress-development_1
 #+END_SRC
 
 From the bash shell in the container:

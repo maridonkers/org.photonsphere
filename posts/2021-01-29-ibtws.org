@@ -1,0 +1,134 @@
+----
+title: Interactive Brokers' Trader Workstation (TWS) container with GUI
+modified: 2021-01-29
+meta_description: 
+tags: Computer, Software, Linux, Server, Client, GUI, Docker, Financial, Trading, Broker, IBTWS
+----
+
+Create an Interactive Brokers' [[Trader Workstation platform][Trader Workstation platform]] [[https://www.docker.com/][Docker]] image that displays its GUI on the Docker host computer. This is based on [[https://github.com/alekna/docker-ib-tws][alekna/docker-ib-tws]] Docker image (by [[https://github.com/alekna][Laurynas Alekna]]).
+
+(.more.)
+On the Docker host computer, do not forget to use =xhost= to allow access to the X-server, as follows.
+#+BEGIN_SRC sh
+xhost +LOCAL:
+#+END_SRC
+See the Makefile for the commands to build and start the container.
+
+The below project is on github: [[https://github.com/maridonkers/ib-tws-docker][maridonkers/ib-tws-docker]].
+
+* Define the image via a Dockerfile
+   :PROPERTIES:
+   :CUSTOM_ID: define-the-image-via-a-dockerfile
+   :END:
+
+The =Dockerfile=:
+
+#+BEGIN_SRC dockerfile
+# Interactive Brokers' Trader Workstation (TWS) container with GUI
+# displaying on the Docker host's X-server.
+#
+# This is based on alekna/ib-tws Interactive Brokers' Trader Workstation (TWS)
+# docker container, which uses VNC to access the GUI.
+#
+
+FROM debian:buster
+
+# Timezone is also in docker-compose file.
+ENV HOME /root
+ENV TZ Europe/Amsterdam
+ENV SHELL /bin/bash
+
+# Install basic Desktop environment for ibtws.
+RUN apt-get update; \
+    apt-get upgrade -y; \
+        apt-get install -y procps sudo curl zip openbox tint2 pcmanfm xfce4-terminal; \
+    apt-get clean
+
+# A web browser is required IB TWS to e.g. display help.
+RUN apt-get update; \
+    apt-get install -y firefox-esr; \
+    apt-get clean
+
+# Create a non-root account to run IB TWS with.
+RUN useradd -ms /bin/bash --uid 1000 --gid 100 tws
+# RUN echo "tws ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+USER tws
+WORKDIR /home/tws
+ENV HOME /home/tws
+
+# Retrieve and install IB TWS (and its embedded JRE).
+RUN mkdir /home/tws/Desktop; \
+    cd /home/tws ; \
+    curl -sO https://download2.interactivebrokers.com/installers/tws/latest/tws-latest-linux-x64.sh; \
+    echo "/home/tws/Jts" | sh ./tws-latest-linux-x64.sh; \
+        rm ./tws-latest-linux-x64.sh
+
+# The DISPLAY variable is required to display ibtws on your desktop.
+ENV PS1='$ '
+ENV DISPLAY=":0"
+
+# Start the installed Interactive Brokers TWS. Its GUI will display on
+# the computer that is hosting the Docker container. Be sure to allow
+# access to its X-server via the following command:
+#   xhost +LOCAL:
+#
+ENTRYPOINT ["Jts/tws"]
+#+END_SRC
+
+* The Docker compose file
+   :PROPERTIES:
+   :CUSTOM_ID: the-docker-compose-file
+   :END:
+
+#+BEGIN_SRC dockerfile
+version: "2.0"
+services:
+  "tws":
+    image: ib-tws
+    build: .
+    stdin_open: true
+    tty: true
+    environment:
+      - TZ=Europe/Amsterdam
+    network_mode: host
+    volumes:
+      - tws:/home/tws:rw
+
+volumes:
+  tws:
+#+END_SRC
+
+* Compose up
+   :PROPERTIES:
+   :CUSTOM_ID: compose-up
+   :END:
+
+To build images and bring them up.
+
+#+BEGIN_SRC makefile
+# Brings up the Docker container, which automatically starts IB TWS.
+# The attach can be used to connect to the command prompt in the
+# container, where e.g. a Ctrl-c can be used to force a stop.
+#
+all: up 
+
+up:
+	xhost +LOCAL:
+	docker-compose up -d
+
+down:
+	docker-compose down
+
+build:
+	xhost +LOCAL:
+	docker-compose up -d --build
+
+attach:
+	xhost +LOCAL:
+	docker attach ib_tws_1
+#+END_SRC
+
+* IB TWS running
+
+[[../images/ib-tws.png]]
