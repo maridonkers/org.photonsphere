@@ -5,7 +5,7 @@ meta_description:
 tags: Computer, Software, Linux, Server, Client, GUI, Docker, Financial, Trading, Broker, IBTWS
 ----
 
-Create an Interactive Brokers' [[Trader Workstation platform][Trader Workstation platform]] [[https://www.docker.com/][Docker]] image that displays its GUI on the Docker host computer. This is based on [[https://github.com/alekna/docker-ib-tws][alekna/docker-ib-tws]] Docker image (by [[https://github.com/alekna][Laurynas Alekna]]), but the version in this repository displays the GUI directly on your host computer.
+Create an Interactive Brokers' [[Trader Workstation platform][Trader Workstation platform]] [[https://www.docker.com/][Docker]] image that displays its GUI on the Docker host computer. This is based on [[https://github.com/alekna/docker-ib-tws][alekna/docker-ib-tws]] Docker image (by [[https://github.com/alekna][Laurynas Alekna]]), but the version in this repository displays the GUI directly on your host computer. Which is a lot snappier and more robust.
 
 (.more.)
 On the Docker host computer, do not forget to use =xhost= to allow access to the X-server, as follows.
@@ -14,7 +14,7 @@ xhost +LOCAL:
 #+END_SRC
 See the Makefile for the commands to build and start the container.
 
-The below project is on github: [[https://github.com/maridonkers/ib-tws-docker][maridonkers/ib-tws-docker]].
+The below project is on github: [[https://github.com/maridonkers/ib-tws-docker][maridonkers/ib-tws-docker]]. I use it under NixOS to run the latest IB TWS.
 
 * Define the image via a Dockerfile
    :PROPERTIES:
@@ -99,12 +99,12 @@ volumes:
   tws:
 #+END_SRC
 
-* Compose up
+* Build and run.
    :PROPERTIES:
    :CUSTOM_ID: compose-up
    :END:
 
-To build images and bring them up.
+Use the make to build the Docker container and bring them up. The =Makefile= is shown below. Initially use =make build= to create and run the docker container. In subsequent sessions simply use =make= to run it. To bring it down completely use =make down=.
 
 #+BEGIN_SRC makefile
 # Brings up the Docker container, which automatically starts IB TWS.
@@ -130,5 +130,11 @@ attach:
 #+END_SRC
 
 * IB TWS running
+
+#+BEGIN_SRC sh
+make build
+#+END_SRC
+
+After a lot of downloading and building the Docker container is ready and executes. Subsequent runs use the then already built container and will be much faster.
 
 [[../images/ib-tws.png]]
