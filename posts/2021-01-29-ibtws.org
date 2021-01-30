@@ -131,10 +131,18 @@ attach:
 
 * IB TWS running
 
+First time run:
+
 #+BEGIN_SRC sh
 make build
 #+END_SRC
 
-After a lot of downloading and building the Docker container is ready and executes. Subsequent runs use the then already built container and will be much faster.
+Subsequent runs:
+
+#+BEGIN_SRC sh
+make
+#+END_SRC
+
+After a lot of downloading and building the Docker container is ready and executes. Subsequent runs use the then already built container and will therefore be much faster.
 
 [[../images/ib-tws.png]]
