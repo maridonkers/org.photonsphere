@@ -16,9 +16,10 @@ is completely declarative, makes upgrading systems reliable, and has
 
 Also, earlier on this site: [[./2017-10-03-nixos.html][NixOS]].
 
-* My configuration.nix
+* My configuration
+** configuration.nix
     :PROPERTIES:
-    :CUSTOM_ID: my-configuration.nix
+    :CUSTOM_ID: configuration.nix
     :END:
 
 #+BEGIN_SRC haskell
@@ -41,15 +42,17 @@ in {
       ./fs-configuration.nix
       ./network-configuration.nix
       ./env-configuration.nix
+      ./vpn-configuration.nix
       ./cachix.nix
     ];
 
+  # Disable automatic storage optimization (computer needs to be responsive at all times).
   # https://nixos.wiki/wiki/Storage_optimization
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 31d";
-  };
+  #nix.gc = {
+  #  automatic = true;
+  #  dates = "weekly";
+  #  options = "--delete-older-than 31d";
+  #};
 
   # nix.extraOptions = ''
   #   min-free = ${toString (5 * 1024 * 1024 * 1024)} # 5 GB
@@ -70,18 +73,25 @@ in {
   boot.kernelParams = [ "acpi_osi=Linux" ];
 
   # Obelisk/Reflex -- https://github.com/obsidiansystems/obelisk
-  nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
-  nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
+  nix = {
+    binaryCaches = [
+      "https://nixcache.reflex-frp.org"
+    ];
+    binaryCachePublicKeys = [
+      "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
+    ];
+  };
 
   programs.wireshark = {
     enable = true;
     package = pkgs.wireshark;
   };
 
-  services.clamav = {
-    # daemon.enable = true;
-    updater.enable = true;
-  };
+  # Disable automatic refresh of ClamAV signatures database (do this manually).
+  #services.clamav = {
+  #  # daemon.enable = true;
+  #  updater.enable = true;
+  #};
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -129,8 +139,10 @@ in {
   # List packages installed in system profile. To search, run:
   # `nix search wget`
   environment.systemPackages = with pkgs; [
+    android-file-transfer
     apktool
     appimage-run
+    arandr
     ark
     ascii
     aspellDicts.en
@@ -140,10 +152,13 @@ in {
     banner
     beep
     binutils-unwrapped
+    bpytop
     btrfs-progs
     cabal-install
     cabal2nix
     cachix
+    calibre
+    castnow
     ccache
     chromium
     clamav
@@ -151,12 +166,15 @@ in {
     cmus
     cowsay
     cryptsetup
+    darcs
     #digikam
     docker
     docker_compose
+    dos2unix
     e2fsprogs
     emacs
     entr
+    ffmpeg
     figlet
     file
     filezilla
@@ -182,7 +200,7 @@ in {
     hlint
     html-tidy
     htop
-    jdk11
+    #jdk11
     jitsi
     #kdiff3-qt5
     keepassxc
@@ -198,18 +216,19 @@ in {
     mercurial
     metasploit
     microcodeIntel
+    mkvtoolnix
     mpv-with-scripts
     mupdf
-    neovim
+    nix-index
     nix-prefetch-scripts
     nmap
+    nodejs
     nomacs
     notmuch
     offlineimap
     openh264
     openssl
-    openvpn
-    opera
+    ormolu
     p7zip
     pandoc
     par
@@ -223,6 +242,7 @@ in {
     rawtherapee
     restic
     rmlint
+    sabnzbd
     screen
     scrot
     silver-searcher
@@ -230,39 +250,44 @@ in {
     snapper
     speedtest-cli
     sshfs
-    stylish-haskell
+    stack
+    subdl
     tcpdump
     telnet
     texlive.combined.scheme-full
+    xfce.thunar-volman
     thunderbird
-    tmux
-    tor-browser-bundle-bin
+    #tmux  # TODO tmux server crashes after a while...
     tree
     unzip
     usbutils
     vim
     virtmanager
+    vlc
     wcalc
     wget
     wirelesstools
     wmctrl
     wmctrl
+    wpa_supplicant
     xclip
     xdotool
+    xlockmore
     xmobar
     #xmonad-with-packages
     xorg.xdpyinfo
     xorg.xev
     xorg.xeyes
     xorg.xhost
+    xorg.xinit
     xorg.xkill
     xorg.xmessage
     xorg.xmodmap
     xorg.xwininfo
     xsane
-    xscreensaver
     yara
     youtube-dl
+    zoom-us
   ];
 
   services.fwupd.enable = true;
@@ -334,14 +359,17 @@ in {
   };
   location.provider = "geoclue2";
 
-  # Power saving settings.
-  networking.networkmanager.wifi.powersave = true;
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us"; 
-  services.xserver.xkbVariant = "altgr-intl"; 
-  services.xserver.xkbOptions = "eurosign:e";
+  # services.xserver.xkbVariant = "altgr-intl"; 
+  #services.xserver.xkbOptions = "eurosign:e";
+  # services.xserver.xkbOptions = "compose:caps,shift:both_capslock";
+  services.xserver.xkbOptions = "compose:sclk";
+
+  # Legacy video driver for NVIDIA GeForce 335M (?) support.
+  # TODO Package is marked as broken in NixOS stable 20.09 (...)
+  #services.xserver.videoDrivers = [ "nvidiaLegacy304" ];
 
   # https://nixos.wiki/wiki/Android
   programs.adb.enable = true;
@@ -361,24 +389,31 @@ in {
       
   # Graphical environment.
   services.xserver = {
+    desktopManager = {
+      xterm.enable = false;
+      xfce.enable = true;
+    };
+    displayManager.defaultSession = "xfce";
+
     # Enable the KDE Desktop Environment.
     #displayManager.sddm.enable = true;
     #desktopManager.plasma5.enable = true;
 
     # Enable xmonad tiling window manager.
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      extraPackages = haskellPackages: [
-        haskellPackages.xmonad-contrib
-        haskellPackages.xmonad-extras
-        haskellPackages.xmonad
-      ];
-    };
+    # windowManager.xmonad = {
+    #   enable = true;
+    #   enableContribAndExtras = true;
+    #   extraPackages = haskellPackages: [
+    #     haskellPackages.xmonad-contrib
+    #     haskellPackages.xmonad-extras
+    #     haskellPackages.xmonad
+    #   ];
+    # };
+
     # https://nixos.wiki/wiki/Using_X_without_a_Display_Manager
     #displayManager.startx.enable = true; # BEWARE: lightdm doesn't start with this enabled.
     displayManager.lightdm.enable = true;
-    displayManager.defaultSession = "none+xmonad";
+    #displayManager.defaultSession = "none+xmonad";
 
     #displayManager.sessionCommands = with pkgs; lib.mkAfter
     #  ''
@@ -388,6 +423,7 @@ in {
 
  # https://nixos.wiki/wiki/Fonts
   fonts.fonts = with pkgs; [
+    hack-font
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -404,13 +440,13 @@ in {
   users.users.mdo = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "libvirtd" "kvm"
-                    "audio" "disk" "video" "networkmanager"
+                    "audio" "disk" "video" "network"
                     "systemd-journal" "lp" "scanner" "adbusers" ];
   };
 
   users.users.csp = {
     isNormalUser = true;
-    extraGroups = [ "audio" "disk" "video" "networkmanager" ];
+    extraGroups = [ "audio" "disk" "video" ];
   };
 
   # This value determines the NixOS release with which your system is to be
@@ -421,9 +457,36 @@ in {
 }
 #+END_SRC
 
-* My fs-configuration.nix
+These are also on GitHub: [[https://github.com/maridonkers/nixos-configuration][My NixOS configuration files]].
+
+** hardware-configuration.nix
     :PROPERTIES:
-    :CUSTOM_ID: my-hardware-configuration.nix
+    :CUSTOM_ID: hardware-configuration.nix
+    :END:
+
+#+BEGIN_SRC haskell
+# Do not modify this file!  It was generated by ‘nixos-generate-config’
+# and may be overwritten by future invocations.  Please make changes
+# to /etc/nixos/configuration.nix instead.
+{ config, lib, pkgs, ... }:
+
+{
+  imports =
+    [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+    ];
+
+  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" "rtsx_pci_sdmmc" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
+
+  nix.maxJobs = lib.mkDefault 4;
+}
+#+END_SRC
+
+** fs-configuration.nix
+    :PROPERTIES:
+    :CUSTOM_ID: fs-configuration.nix
     :END:
 
 #+BEGIN_SRC haskell
@@ -435,6 +498,7 @@ in {
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/8be69c44-b987-4eb8-a1b6-c67ed80c9512";
       fsType = "btrfs";
+      options = [ "noatime" "space_cache" ];
     };
 
   # Boot filesystem.
@@ -453,7 +517,7 @@ in {
   fileSystems."/home" =
     { device = "/dev/mapper/cr-home";
       fsType = "btrfs";
-      options = [ "noatime" "space_cache" "autodefrag" ];
+      options = [ "noatime" "space_cache" ];
     };
 
   # Swap partition.
@@ -461,8 +525,104 @@ in {
   swapDevices =
     [ { device = "/dev/disk/by-uuid/99be5bc9-fac4-4386-83c0-63632edef9dc"; }
     ];
+
+
+  # Enable NTFS support.
+  boot.supportedFilesystems = [ "ntfs" ];
 }
 #+END_SRC
 
-These are also on GitHub: [[https://github.com/maridonkers/nixos-configuration][My NixOS configuration files]].
+** network-configuration.nix
+    :PROPERTIES:
+    :CUSTOM_ID: network-configuration.nix
+    :END:
 
+#+BEGIN_SRC haskell
+{ config, pkgs, ... }:
+
+{
+  #networking.networkmanager.enable = true;
+  #networking.networkmanager.wifi.powersave = false;
+
+  networking.hostName = "yourhostname"; # Define your hostname.
+  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
+  networking.wireless.enable = false;  # Wireless support via wpa_supplicant.
+  networking.wireless.networks = {
+    "home" = {
+      psk = "home wireless network pre-shared-key";
+    };
+    #free.wifi = {};            # Public wireless network
+  };
+  networking.wireless.userControlled = {
+    enable = true;
+    group = "network";
+  };
+
+  # Open ports in the firewall.
+  networking.firewall.allowedTCPPorts = [ 22 80 443 ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.enable = true;
+
+  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+  # Per-interface useDHCP will be mandatory in the future, so this generated config
+  # replicates the default behaviour.
+  networking.useDHCP = false;
+  networking.interfaces.ens5.useDHCP = true;
+  networking.interfaces.wlp3s0.useDHCP = true;
+
+  # Workaround for the no network after resume bug.
+  powerManagement.resumeCommands = ''
+    ${pkgs.systemd}/bin/systemctl restart wpa_supplicant
+  '';
+
+  # https://github.com/NixOS/nixpkgs/issues/49630
+  # (the suggested --load-media-router-component-extension=1 appears to be no longer required.)
+  services.avahi.enable = true;
+}
+#+END_SRC
+
+** env-configuration.nix
+    :PROPERTIES:
+    :CUSTOM_ID: env-configuration.nix
+    :END:
+
+#+BEGIN_SRC haskell
+{ config, pkgs, ... }:
+
+{
+  # Environment variables.
+  environment.variables = {
+    #PATH="$PATH:$HOME/bin";
+    TERM = "xterm-256color";
+    # PS1 = "\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] ";
+    EDITOR = "vi";
+    HISTCONTROL = "ignoredups:erasedups";
+    QT_LOGGING_RULES = "*=false";
+    FREETYPE_PROPERTIES = "truetype:interpreter-version=38";
+
+  environment.interactiveShellInit = ''
+    #alias config='git --git-dir=/home/mdo/.cfg/ --work-tree=/home/mdo'
+  '';
+}
+#+END_SRC
+
+** vpn-configuration.nix
+    :PROPERTIES:
+    :CUSTOM_ID: vpn-configuration.nix
+    :END:
+
+Disclaimer: didn't test this configuratiion yet.
+
+#+BEGIN_SRC haskell
+{ config, pkgs, ... }:
+
+{
+  # https://nixos.wiki/wiki/OpenVPN
+  services.openvpn.servers = {
+    nl1VPN  = { config = '' config /root/vpn/nl1-mdonkers.ovpn ''; autoStart = false;};
+    fr1VPN  = { config = '' config /root/vpn/fr1-mdonkers.ovpn ''; autoStart = false;};
+    es1VPN  = { config = '' config /root/vpn/es1-mdonkers.ovpn ''; autoStart = false;};
+    us1VPN  = { config = '' config /root/vpn/us1-mdonkers.ovpn''; autoStart = false;};
+  };
+}
+#+END_SRC
