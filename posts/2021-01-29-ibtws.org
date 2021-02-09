@@ -5,7 +5,7 @@ meta_description:
 tags: Computer, Software, Linux, Server, Client, GUI, Docker, Financial, Trading, Broker, IBTWS
 ----
 
-Create an Interactive Brokers' [[Trader Workstation platform][Trader Workstation platform]] [[https://www.docker.com/][Docker]]
+Create an Interactive Brokers' [[https://www.interactivebrokers.com/en/index.php?f=14099][Trader Workstation]] platform [[https://www.docker.com/][Docker]]
 image that uses your computer's native GUI. This can be useful when
 your operating system is not supported by Trader Workstation or no
 recent version is available.
