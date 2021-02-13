@@ -187,6 +187,8 @@ shell:
 
 * IB TWS running
 
+If it fails then check Interactive Brokers' [[https://www.interactivebrokers.com/en/index.php?f=2225][server status]] page to see if there's e.g. any scheduled maintenace.
+
 First time run:
 
 #+BEGIN_SRC sh
