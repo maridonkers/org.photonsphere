@@ -28,6 +28,9 @@ See the Makefile for the commands to build and start the container.
 
 The below project is on github: [[https://github.com/maridonkers/ib-tws-docker][maridonkers/ib-tws-docker]]. I use it under NixOS to run the latest IB TWS.
 
+* Disclaimer
+Read the Interactive Brokers' [[https://www.interactivebrokers.com/en/index.php?f=297][Warnings and Disclosures]] information. Also beware: this method of deploying IB TWS via a Docker container. is not endorsed nor supported by IB. Caveat emptor.
+
 * Define the image via a Dockerfile
    :PROPERTIES:
    :CUSTOM_ID: define-the-image-via-a-dockerfile
