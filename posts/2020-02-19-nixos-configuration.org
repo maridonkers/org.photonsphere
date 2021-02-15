@@ -14,6 +14,8 @@ is completely declarative, makes upgrading systems reliable, and has
 
 (.more.)
 
+The configuration is also on GitHub: [[https://github.com/maridonkers/nixos-configuration][My NixOS configuration files]].
+
 Also, earlier on this site: [[./2017-10-03-nixos.html][NixOS]].
 
 * My configuration
@@ -456,8 +458,6 @@ in {
   system.stateVersion = "20.03"; # Did you read the comment?
 }
 #+END_SRC
-
-These are also on GitHub: [[https://github.com/maridonkers/nixos-configuration][My NixOS configuration files]].
 
 ** hardware-configuration.nix
     :PROPERTIES:
