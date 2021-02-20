@@ -55,11 +55,14 @@ ENV HOME /root
 ENV TZ Europe/Amsterdam
 ENV SHELL /bin/bash
 
+
 # Install basic Desktop environment for ibtws.
 RUN apt-get update; \
     apt-get upgrade -y; \
     apt-get install -y procps sudo curl less vim-nox zip openbox tint2 pcmanfm xfce4-terminal; \
     apt-get clean
+
+RUN sed -i "s#\smain\s*\$# main contrib non-free#" /etc/apt/sources.list
 
 # A web browser is required IB TWS to e.g. display help.
 #
@@ -95,7 +98,8 @@ WORKDIR /home/tws
 ENV HOME /home/tws
 
 RUN mkdir -p /home/tws/Downloads; \
-    mkdir -p /home/tws/Desktop
+    mkdir -p /home/tws/Desktop; \
+    mkdir -p /home/tws/bin
 
 # Retrieve and install IB TWS (and its embedded JRE).
 # curl -sO https://download2.interactivebrokers.com/installers/tws/latest/tws-latest-linux-x64.sh; \
@@ -104,17 +108,20 @@ RUN cd /home/tws ; \
     echo "/home/tws/Jts" | sh ./tws-stable-linux-x64.sh; \
     rm ./tws-stable-linux-x64.sh
 
-# The DISPLAY variable is required to display ibtws on your desktop.
+# The DISPLAY variable is required to display IB TWS on your desktop.
 ENV PS1='$ '
 ENV DISPLAY=":0"
 
-# Start the installed Interactive Brokers TWS. Its GUI will display on
+# Start the installed Interactive Brokers' TWS. Its GUI will display on
 # the computer that is hosting the Docker container. Be sure to allow
 # access to its X-server via the following command:
 #   xhost +LOCAL:
 #
-#ENTRYPOINT ["/bin/bash"]
-ENTRYPOINT ["Jts/tws"]
+RUN echo "" >> /home/tws/.bashrc \
+    echo "echo \"Press Ctrl+C within 5 seconds to abort IB's TWS start...\""  >> /home/tws/.bashrc \
+    echo "sleep 5" >> /home/tws/.bashrc \
+    echo "Jts/tws" >> /home/tws/.bashrc
+ENTRYPOINT ["/bin/bash"]
 #+END_SRC
 
 * The Docker compose file
@@ -140,16 +147,13 @@ services:
       - TZ=Europe/Amsterdam
     network_mode: host
     volumes:
-      - tws:/home/tws:rw
+      - "./data:/home/tws/data:rw"
       - "/tmp/.X11-unix/:/tmp/.X11-unix/:ro"
       - "~/.Xauthority:/home/tws/.Xauthority:rw"
       - "/etc/asound.conf:/etc/asound.conf"
-
-volumes:
-  tws:
 #+END_SRC
 
-* Build and run.
+* Makefile
    :PROPERTIES:
    :CUSTOM_ID: compose-up
    :END:
@@ -165,7 +169,7 @@ all: up
 
 up:
 	xhost +LOCAL:
-	docker-compose up -d
+	docker-compose up
 
 down:
 	docker-compose down
@@ -174,10 +178,14 @@ ls:
 	docker ps -a
 
 # Get custom seccomp profile (the wget) for Chromium sound.
-build:
+rebuild:
 	wget https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json -O ./chrome.json
 	xhost +LOCAL:
-	docker-compose up -d --build
+	docker-compose build --no-cache
+
+build:
+	xhost +LOCAL:
+	docker-compose build
 
 attach:
 	xhost +LOCAL:
@@ -192,15 +200,21 @@ shell:
 
 If it fails then check Interactive Brokers' [[https://www.interactivebrokers.com/en/index.php?f=2225][server status]] page to see if there's e.g. any scheduled maintenace.
 
-First time run:
+First time build:
+
+#+BEGIN_SRC sh
+make rebuild
+#+END_SRC
+
+After a lot of downloading and building the Docker container is ready. Subsequent builds use the then already built container and will therefore be much faster.
+
+Subsequent builds (required only when you change the Docker files):
 
 #+BEGIN_SRC sh
 make build
 #+END_SRC
 
-After a lot of downloading and building the Docker container is ready and executes. Subsequent runs use the then already built container and will therefore be much faster.
-
-Subsequent runs:
+Running the container:
 
 #+BEGIN_SRC sh
 make
