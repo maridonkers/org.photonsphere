@@ -135,7 +135,8 @@ ENTRYPOINT ["/bin/bash"]
 #+END_SRC
 
 The =pulse-client.conf= file:
-#+BEGIN_SRC conf
+
+#+BEGIN_SRC sh
 # Connect to the host's server using the mounted UNIX socket
 default-server = unix:/run/user/1000/pulse/native
 
