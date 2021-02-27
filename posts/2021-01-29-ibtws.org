@@ -24,7 +24,7 @@ On the Docker host computer, do not forget to use =xhost= to allow access to the
 #+BEGIN_SRC sh
 xhost +LOCAL:
 #+END_SRC
-See the Makefile for the commands to build and start the container.
+See the =Makefile= for the commands to build and start the container.
 
 The below project is on github: [[https://github.com/maridonkers/ib-tws-docker][maridonkers/ib-tws-docker]]. I use it under NixOS to run IB TWS stable.
 
@@ -182,7 +182,7 @@ services:
    :CUSTOM_ID: compose-up
    :END:
 
-Use the make to build the Docker container and bring them up. The =Makefile= is shown below. Initially use =make build= to create and run the docker container. In subsequent sessions simply use =make= to run it. To bring it down completely use =make down=.
+Use the make to build the Docker container and bring them up. The =Makefile= is shown below. Initially use =make rebuild= to create the container. Then simply use =make= to run it (leave the command prompt window open). After exit of TWS use CTRL+C to abort the container. To bring it down completely, use =make down=.
 
 #+BEGIN_SRC makefile
 # Brings up the Docker container, which automatically starts IB TWS.
