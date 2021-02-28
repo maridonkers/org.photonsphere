@@ -20,16 +20,19 @@ https://tpaschalis.github.io/sandboxed-browser-with-docker for the
 browser sandbox from a container and sound problems (?) fix.
 
 (.more.)
-On the Docker host computer, do not forget to use =xhost= to allow access to the X-server, as follows.
+On the Docker host computer, if you run the container manually, do not forget to use =xhost= to allow access to the X-server, as follows.
 #+BEGIN_SRC sh
 xhost +LOCAL:
 #+END_SRC
-See the =Makefile= for the commands to build and start the container.
+See the =Makefile= for an easier way to to build and start the container.
 
 The below project is on github: [[https://github.com/maridonkers/ib-tws-docker][maridonkers/ib-tws-docker]]. I use it under NixOS to run IB TWS stable.
 
 * Disclaimer
-Read the Interactive Brokers' [[https://www.interactivebrokers.com/en/index.php?f=297][Warnings and Disclosures]] information. Also beware: this method of deploying IB TWS (via a Docker container) is not endorsed nor supported by IB. Caveat emptor.
+Read Interactive Brokers' [[https://www.interactivebrokers.com/en/index.php?f=297][Warnings and Disclosures]] information. Also beware: this method of deploying IB TWS (via a Docker container) is not endorsed nor supported by IB. Caveat emptor.
+
+* Shared files with container
+This is done via the =data= subdirectory. Check if your uid is 1000 via the =id= command. If it is not then find and change all uid instances in the files of the project and change the 1000 to your uid value.
 
 * Define the image via a Dockerfile
    :PROPERTIES:
@@ -183,7 +186,7 @@ services:
    :CUSTOM_ID: compose-up
    :END:
 
-Use the make to build the Docker container and bring them up. The =Makefile= is shown below. Initially use =make rebuild= to create the container. Then simply use =make= to run it (leave the command prompt window open). After exit of TWS use CTRL+C to abort the container. To bring it down completely, use =make down=.
+Use the =make= command to build the Docker container and bring them up. The =Makefile= is shown below. Initially use =make rebuild= to create the container. Then simply use =make= to run it (leave the command prompt window open). After exit of TWS use CTRL+C to abort the container. To bring it down completely, use =make down=.
 
 #+BEGIN_SRC makefile
 # Brings up the Docker container, which automatically starts IB TWS.
@@ -234,7 +237,7 @@ make rebuild
 
 After a lot of downloading and building the Docker container is ready.
 Subsequent builds (normally not necessary) use the then already built
-container and will therefore be much faster.
+container and will therefore be much faster. Simply running it does not require a new build.
 
 Running the container:
 
