@@ -186,7 +186,7 @@ services:
    :CUSTOM_ID: compose-up
    :END:
 
-Use the =make= command to build the Docker container and bring them up. The =Makefile= is shown below. Initially use =make rebuild= to create the container. Then simply use =make= to run it (leave the command prompt window open). After exit of TWS use CTRL+C to abort the container. To bring it down completely, use =make down=.
+Use the =make= command to build the Docker container and bring it up. The =Makefile= is shown below. Initially use =make rebuild= to create the container. Then simply use =make= to run it (leave the command prompt window open). After exit of TWS use CTRL+C to abort the container. To bring it down completely, use =make down=.
 
 #+BEGIN_SRC makefile
 # Brings up the Docker container, which automatically starts IB TWS.
