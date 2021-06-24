@@ -265,4 +265,4 @@ NOTE: To configure the browser enter =/usr/bin/firefox= in TWS settings.
 [[../images/ib-tws.png]]
 
 * Graphical problems
-In case of e.g. xfwm4 crashes, disable the compositor in settings and re-login.
+In case problems, try disabling the compositor in desktop settings and re-login. I specifically had problems with xfwm4 (the XFCE window manager) and disabling the compositor didn't help, so I switched back to KDE.
