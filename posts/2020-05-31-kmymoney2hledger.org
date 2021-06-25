@@ -10,6 +10,9 @@ needed a conversion from [[https://kmymoney.org/][KMyMoney]] software to [[https
 
 (.more.)
 
+* WAIT!
+Just use [[https://github.com/isabekov/kmymoney2ledgers][isabekov / kmymoney2ledgers]] by [[https://github.com/isabekov][Altynbek Isabekov]] instead of my conversion program! (It's much better!)
+
 * Command line Clojure tool
     :PROPERTIES:
     :CUSTOM_ID: command-line-clojure-tool
