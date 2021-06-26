@@ -265,4 +265,4 @@ NOTE: To configure the browser enter =/usr/bin/firefox= in TWS settings.
 [[../images/ib-tws.png]]
 
 * Graphical problems
-In case problems, try disabling the compositor in desktop settings and re-login. I specifically had problems with xfwm4 (the XFCE window manager) and disabling the compositor didn't help, so I switched back to KDE Plasma, which is lightweight these days (didn't even need to disable compositor with KDE).
+In case of problems, try disabling the compositor in desktop settings and re-login. I specifically had problems with xfwm4 (the XFCE window manager) and disabling the compositor didn't help, so I switched back to KDE Plasma, which is lightweight these days. Also KDE feels much snappier, is apparently more robust and more feature rich. Why on earth did I switch to XMonad and then xfce? (It was something about KDE being heavy on resources, which is apparently no longer true nowadays.)
