@@ -1,0 +1,33 @@
+----
+title: Stack build nuisance under Nix?
+modified: 2021-08-30
+meta_description: 
+tags: Computer, Software, Linux, Docker, Haskell, Stack, Nix, NixOS
+----
+
+Fed up with the nuisance of using =stack build= under Nix/NixOS? e.g. Getting errors like this:
+
+#+BEGIN_SRC sh
+  $ stack build
+  error: attribute 'ghc8106' missing, at (string):1:43
+  (use '--show-trace' to show detailed location information)
+#+END_SRC
+
+(.more.)
+Simply use the following command as a workaround (it builds anything!):
+
+#+BEGIN_SRC sh
+stack build --docker --no-nix
+#+END_SRC
+
+Or change your =stack.yaml= file as follows:
+
+#+BEGIN_SRC yaml
+docker:
+    enable: true
+
+nix:
+    enable: false
+#+END_SRC
+
+I have not yet determined how to do this in =package.yaml= when using [[https://github.com/sol/hpack][hpack]] (hence the =stack build --docker --no-nix= command given above).
