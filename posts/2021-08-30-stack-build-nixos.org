@@ -14,7 +14,7 @@ Fed up with the nuisance of using =stack build= under Nix/NixOS? e.g. Getting er
 #+END_SRC
 
 (.more.)
-Simply use the following command as a workaround (it builds anything!):
+Simply use the following command as a workaround:
 
 #+BEGIN_SRC sh
 stack build --docker --no-nix
