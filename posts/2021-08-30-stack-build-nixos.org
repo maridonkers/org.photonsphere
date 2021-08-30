@@ -29,5 +29,3 @@ docker:
 nix:
     enable: false
 #+END_SRC
-
-I have not yet determined how to do this in =package.yaml= when using [[https://github.com/sol/hpack][hpack]] (hence the =stack build --docker --no-nix= command given above).
