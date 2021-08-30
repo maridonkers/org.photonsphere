@@ -1,11 +1,11 @@
 ----
-title: Stack build nuisance under Nix?
+title: Stack build nuisance with Nix?
 modified: 2021-08-30
 meta_description: 
 tags: Computer, Software, Linux, Docker, Haskell, Stack, Nix, NixOS
 ----
 
-Fed up with the nuisance of using =stack build= under Nix/NixOS? e.g. Getting errors like this:
+Fed up with the nuisance of using =stack build= in combination with Nix/NixOS? e.g. Getting errors like this:
 
 #+BEGIN_SRC sh
   $ stack build
