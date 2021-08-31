@@ -14,13 +14,29 @@ Fed up with the nuisance of using =stack build= in combination with Nix/NixOS? e
 #+END_SRC
 
 (.more.)
-Simply use the following command as a workaround:
+* Command line
+Try using the following command as a workaround:
 
 #+BEGIN_SRC sh
 stack build --docker --no-nix
 #+END_SRC
 
-Or change your =stack.yaml= file as follows:
+If you get an error like this:
+
+#+BEGIN_SRC sh
+Resolver not supported for Docker images:
+    no resolver specified
+Use an LTS resolver, or set the 'image' explicitly, in your configuration file.
+#+END_SRC
+
+Then use the =-resolver= command line switch, e.g. as follows:
+
+#+BEGIN_SRC sh
+stack --docker --no-nix --resolver lts-18.6 ...rest-of-your-stack-command-...
+#+END_SRC
+
+* Configuration file
+Alternatively change your =stack.yaml= file as follows:
 
 #+BEGIN_SRC yaml
 docker:
