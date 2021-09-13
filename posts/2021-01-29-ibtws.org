@@ -10,8 +10,6 @@ image that uses your computer's native GUI. This can be useful when
 your operating system is not supported by Trader Workstation or no
 recent version is available.
 
-(.more.)
-
 The docker image is based on [[https://github.com/alekna/docker-ib-tws][alekna/docker-ib-tws]] Docker image (by
 [[https://github.com/alekna][Laurynas Alekna]]), but this derived version displays the GUI directly
 on your host computer. Which is a lot snappier and more robust. It is
