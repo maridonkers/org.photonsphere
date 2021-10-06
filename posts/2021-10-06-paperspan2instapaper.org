@@ -1,0 +1,28 @@
+----
+title: Paperspan export (HTML) to Instapaper import (CSV) convertor.
+modified: 2021-10-06
+meta_description: 
+tags: Computer, Software, Linux, Docker, NixOS, Haskell, CSV, HTML
+----
+
+A [[https://haskell.org][Haskell]] program to convert the [[https://www.paperspan.com][Paperspan]] HTML export format to an [[https://instapaper.com][Instapaper]] CVS import format. 
+
+(.more.)
+
+Paperspan HTML export to Instapaper CSV import. With folders.yaml
+configuration file, which contains Instapaper target folder names (for
+output file) and regular expressions for url of text in Paperspan
+export (which is input).
+    
+Usage: see the Makefile.
+
+* GitHub
+
+  The source code for the convertor program is on GitHub: [[https://github.com/maridonkers/paperspan2instapaper][maridonkers/paperspan2instapaper]].
+
+Disclaimer: this is a 'one shot' (excuse my Haskell) program that I've used only once to import an export of my 27689 Paperspan article links into Instapaper.
+
+* Earlier
+  Earlier this [[https://photonsphere.org/posts/2019-02-18-instapaper-export.html][2019-02-18-instapaper-export]] was used for an Instpaper HTML export to Paperspan import.
+
+  (Hopping back and forth between these excellent read-later/archiving solutions.)
