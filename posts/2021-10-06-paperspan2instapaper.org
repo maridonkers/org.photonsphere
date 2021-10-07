@@ -1,8 +1,8 @@
 ----
-title: Paperspan export (HTML) to Instapaper import (CSV) convertor.
+title: Paperspan export (HTML) to Instapaper import (CSV) convertor
 modified: 2021-10-06
 meta_description: 
-tags: Computer, Software, Linux, Docker, NixOS, Haskell, CSV, HTML
+tags: Computer, Software, Internet, Linux, NixOS, Haskell, CSV, HTML, RegExp
 ----
 
 A [[https://haskell.org][Haskell]] program to convert the [[https://www.paperspan.com][Paperspan]] HTML export format to an
