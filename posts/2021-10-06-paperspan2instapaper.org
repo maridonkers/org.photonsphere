@@ -53,11 +53,11 @@ folderName (also in [[https://github.com/maridonkers/paperspan2instapaper/blob/m
 and the following CSV line is the result:
 
 #+BEGIN_SRC csv
-      https://news360.com/article/563394549,
-     "Stop prescribing hydroxychloroquine for Covid-19, warn researchers | Stop News – India TV",
-    https://news360.com/article/563394549,
-   "Biology Health",
-  1630495255000,
+  https://news360.com/article/563394549,
+  "Stop prescribing hydroxychloroquine for Covid-19, warn researchers | Stop News – India TV",
+  https://news360.com/article/563394549,
+  "Biology Health",
+  1630495255000
 #+END_SRC
 
 * GitHub
