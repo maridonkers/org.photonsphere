@@ -23,7 +23,7 @@ configuration file (I have hundreds) is matched against the URL or
 text of the Paperspan link being imported, until a match is found and
 an associated folder can be designated to it. This is very useful when
 you have a lot of unorganized links in your Paperspan (which you did
-not already move to a folder in).
+not yet move to a folder).
 
 e.g. the Paperspan link
 
@@ -65,7 +65,7 @@ and the following CSV line is the result:
   The source code for the convertor program is on GitHub:
   [[https://github.com/maridonkers/paperspan2instapaper][maridonkers/paperspan2instapaper]].
 
-Disclaimer: this is a 'one shot' (excuse my Haskell) program that I've
+Disclaimer: this is a 'one shot' program (excuse my Haskell) that I've
 used only once to import an export of my /27689/ Paperspan article
 links into Instapaper.
 
