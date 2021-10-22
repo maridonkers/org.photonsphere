@@ -7,15 +7,17 @@ tags: Computer, Software, Internet, Linux, NixOS, Haskell, CSV, HTML, RegExp
 
 A [[https://haskell.org][Haskell]] program to convert the [[https://www.paperspan.com][Paperspan]] HTML export format to an
 [[https://instapaper.com][Instapaper]] CVS import format with automatic --configuration file
-driven-- designation to folders.
+driven-- designation to folders. The [[https://wiki.haskell.org/HXT][HXT]] library is used to parse the Paperspan HTML file and the CSV result is written to standard output.
 
 (.more.)
 
 Usage: see the [[https://github.com/maridonkers/paperspan2instapaper/blob/master/Makefile][Makefile]].
 
-* Automatic designation to folders
+* Paperspan folders
+  Existing Paperspan folders are taken over by the conversion program. If the =Read Later= folder is encountered then an automatic designation to folders (via regular expression rules, which are provided in a configuration file) is done. See the next section for details on this.
 
-Paperspan HTML export to Instapaper CSV import. With [[https://github.com/maridonkers/paperspan2instapaper/blob/master/folders-example.yaml][folders.yaml]]
+* Automatic designation to folders
+  Paperspan HTML export to Instapaper CSV import. With [[https://github.com/maridonkers/paperspan2instapaper/blob/master/folders-example.yaml][folders.yaml]]
 configuration file, which contains Instapaper target folder names (for
 output file) and [[https://github.com/niklongstone/regular-expression-cheat-sheet][regular expressions (PCRE)]] for =URL= or =text= in
 Paperspan export (which is input). Each of the selectors in the
