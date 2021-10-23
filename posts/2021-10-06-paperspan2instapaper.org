@@ -68,8 +68,8 @@ and the following CSV line is the result:
   [[https://github.com/maridonkers/paperspan2instapaper][maridonkers/paperspan2instapaper]].
 
 Disclaimer: this is a 'one shot' program (excuse my Haskell) that I've
-used only once to import an export of my /27689/ Paperspan article
-links into Instapaper.
+used only once to import an export of my /27,689/ Paperspan article
+links into Instapaper. Update: still /2,140/ undesignated links left; refining program; adding more rules.
 
 * Earlier
   Earlier this [[https://photonsphere.org/posts/2019-02-18-instapaper-export.html][2019-02-18-instapaper-export]] was used for an Instpaper
