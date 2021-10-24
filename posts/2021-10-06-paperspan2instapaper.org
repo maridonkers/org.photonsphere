@@ -2,7 +2,7 @@
 title: Paperspan export (HTML) to Instapaper import (CSV) convertor
 modified: 2021-10-06
 meta_description: 
-tags: Computer, Software, Internet, Linux, NixOS, Haskell, CSV, HTML, RegExp
+tags: Computer, Software, Internet, Linux, NixOS, Haskell, CSV, HTML, YAML, RegExp
 ----
 
 A [[https://haskell.org][Haskell]] program to convert the [[https://www.paperspan.com][Paperspan]] HTML export format to an
@@ -13,14 +13,43 @@ driven-- designation to folders. The [[https://wiki.haskell.org/HXT][HXT]] libra
 
 Usage: see the [[https://github.com/maridonkers/paperspan2instapaper/blob/master/Makefile][Makefile]].
 
+* Paperspan format
+#+BEGIN_SRC html
+  <!DOCTYPE html>
+  <html>
+   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>PaperSpan Export</title>
+   </head>
+   <body>
+    <h1>Unread</h1>
+    <ul>
+     <h2>Read Later</h2>
+     <ul>
+       <li><a href="https://thisisalink" time_added="1630506259000">This is a <i>description</i>.</a></li>
+       ...
+     </ul>
+    </ul>
+  ...
+    <h1>Read</h1>
+   <ul>
+    <h2>Read Later</h2>
+    <ul>
+      <li> ...</li>
+      ...
+    </ul>
+   </ul>
+  </body>
+#+END_SRC
+
 * Paperspan folders
   Existing Paperspan folders are taken over by the conversion program. If the =Read Later= folder is encountered then an automatic designation to folders (via regular expression rules, which are provided in a configuration file) is done. See the next section for details on this.
 
 * Automatic designation to folders
-  Paperspan HTML export to Instapaper CSV import. With [[https://github.com/maridonkers/paperspan2instapaper/blob/master/folders-example.yaml][folders.yaml]]
+  A [[https://github.com/maridonkers/paperspan2instapaper/blob/master/folders-example.yaml][folders.yaml]]
 configuration file, which contains Instapaper target folder names (for
 output file) and [[https://github.com/niklongstone/regular-expression-cheat-sheet][regular expressions (PCRE)]] for =URL= or =text= in
-Paperspan export (which is input). Each of the selectors in the
+Paperspan export (which is input). Each of the selector rules in the
 configuration file (I have hundreds) is matched against the URL or
 text of the Paperspan link being imported, until a match is found and
 an associated folder can be designated to it. This is very useful when
@@ -69,7 +98,7 @@ and the following CSV line is the result:
 
 Disclaimer: this is a 'one shot' program (excuse my Haskell) that I've
 used only once to import an export of my /27,689/ Paperspan article
-links into Instapaper. Update: still /2,140/ undesignated links left; refining program; adding more rules.
+links into Instapaper. Update: still /2,140/ undesignated links left; further refining program; adding more selector rules.
 
 * Earlier
   Earlier this [[https://photonsphere.org/posts/2019-02-18-instapaper-export.html][2019-02-18-instapaper-export]] was used for an Instpaper
