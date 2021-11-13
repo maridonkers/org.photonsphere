@@ -1,0 +1,105 @@
+----
+title: The return of xmonad and screen zombies
+modified: 2021-11-13
+meta_description: 
+tags: Computer, Software, Linux, Functional, Haskell, GUI, Tiling Window Manager
+----
+
+In the past I have used the [[https://xmonad.org/][xmonad]] [[https://en.wikipedia.org/wiki/Tiling_window_manager][tiling window manager]] but
+eventually returned to [[https://kde.org/][KDE]], because I had some problems with truncated
+text in terminal windows and thought there was not that much
+difference in performance. But my system slowed down more and more
+under KDE, hence this new attempt to tackle xmonad.
+
+(.more.)
+
+* xmonad
+    :PROPERTIES:
+    :CUSTOM_ID: xmonad
+    :END:
+
+** Introduction
+The documentation reads that the [[https://xmonad.org/][xmonad]] tiling window manager is fast
+and configurable.
+
+** terminal emulator
+*** xterm
+   The [[https://en.wikipedia.org/wiki/Xterm][xterm]] terminal emulator starts up very quickly and for me this
+compensates for its lack of tabs (but if I ever find a really
+lightweight and fast terminal emulator with tabs then I'll certainly
+switch to that).
+
+*** text truncation
+If an =xterm= window is small in size and later resized to a bigger window
+the output is truncated instead of reflowed. This has always been a
+big nuisance to me, but I didn't manage to find a solution earlier.
+
+*** screen
+If in the =xmonad.hs= configuration file the following code is used to
+define a terminal with the =screen= command then the text in the
+window is no longer truncated and reflows in a resized window.
+
+#+BEGIN_SRC haskell
+  myTerminal :: String
+  myTerminal = "xterm -e \"exec screen\""
+
+  myFloatingTerminal :: String
+  myFloatingTerminal = "xterm -title \"floatterm\" -e \"exec screen\""
+
+  --...
+
+  keysAdditional =
+      [ ("M-C-<Return>", spawn myFloatingTerminal)
+      ,
+      
+  -- ...
+    xmonad $ def {
+      terminal = myTerminal,
+#+END_SRC
+
+*** zombies
+There is changed behaviour however. Because all terminals now run
+automatically with a =screen= command and will continue to execute
+even when killed with e.g. a =M-<Backspace>=, they can become screen
+zombies.
+
+#+BEGIN_SRC haskell
+  keysAdditional =
+        [...
+         , ("M-<Backspace>", kill)
+#+END_SRC
+
+With a =screen -ls= screens are listed. I have aliases to list screens
+and screen zombies and a to reattach to a zombie screen.
+
+*** aliases
+The screen zombie aliases definitions are given below:
+   #+BEGIN_SRC sh
+alias r="screen -DR"
+alias s="screen -ls"
+alias z="screen -ls | grep '(Detached)'"
+   #+END_SRC
+
+Simply reattach to a zombie screen by its listed name and use an
+=exit= command or =Ctrl-D= to exit and terminate it.
+
+* Performance gains
+My system is indeed noticeably faster under [[https://xmonad.org/][xmonad]] than it was under
+[[https://kde.org/][KDE]] and I now don't quite understand how I came to a different
+conclusion before. It must have been annoyance-bias over the terminal
+output truncate problem.
+
+* dotfiles
+    :PROPERTIES:
+    :CUSTOM_ID: dotfiles
+    :END:
+
+My [[https://github.com/maridonkers/dotfiles][dotfiles]] at GitHub with a.o. [[https://xmonad.org/][xmonad]] and [[https://hackage.haskell.org/package/xmobar][xmobar]] configuration.
+
+* Already on GitHub
+    :PROPERTIES:
+    :CUSTOM_ID: already-on-github
+    :END:
+
+- [[https://github.com/maridonkers/nixos-configuration][NixOS configuration]]
+- [[https://github.com/maridonkers/emacs-config][Emacs configuration]]

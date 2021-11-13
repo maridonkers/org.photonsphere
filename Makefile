@@ -1,4 +1,4 @@
-all: site
+all: help
 
 shell:
 	nix-shell
@@ -6,8 +6,11 @@ shell:
 edit:
 	nix-shell --run emacs &
 
-hlint:
+lint:
 	nix-shell --run "hlint site.hs"
+
+formatter:
+	nix-shell --run "stylish-haskell -i site.hs"
 
 clean-site: clean
 	rm -f ./site
@@ -29,3 +32,6 @@ clean:
 
 upload:
 	(cd _site ; lftp -u ftp@donkersautomatisering.nl --env-password -e "mirror -R -n -v .; bye" ftp.donkersautomatisering.nl/domains/photonsphere.org/public_html)
+
+help:
+	@grep '^[^ 	#:]\+:' Makefile | sed -e 's/:[^:]*//g'
