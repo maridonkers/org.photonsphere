@@ -2,7 +2,7 @@
 title: The return of xmonad and screen zombies
 modified: 2021-11-13
 meta_description: 
-tags: Computer, Software, Linux, Functional, Haskell, GUI, Tiling Window Manager
+tags: Computer, Software, Linux, Functional, Haskell, GUI, Tiling Window Manager, xmonad, Termonad
 ----
 
 In the past I have used the [[https://xmonad.org/][xmonad]] [[https://en.wikipedia.org/wiki/Tiling_window_manager][tiling window manager]] but
@@ -84,7 +84,10 @@ Simply reattach to a zombie screen by its listed name and use an
 =exit= command or =Ctrl-D= to exit and terminate it.
 
 ** Slaying the zombies with Termonad
-Update: revisiting the [[https://github.com/cdepillabout/termonad][Termonad]] terminal emulator, which is indeed blazingly fast and also has tabs! So Now I'm using =Termonad= again and the above text on =xterm= only applies to my floating terminals.
+Update: revisiting the [[https://github.com/cdepillabout/termonad][Termonad]] terminal emulator, which is indeed
+blazingly fast and also has tabs! (Distrotube video [[https://www.youtube.com/watch?v=TLNr_gBv5HY][here]]). So Now I'm
+using =Termonad= again and the above text on =xterm= only applies to
+my floating terminals.
 
 Installing vanilla Termonad under [[https://nixos.org/][NixOS]] from GitHub: [[https://github.com/cdepillabout/termonad][cdepillabout/termonad]], using commands given below:
 
