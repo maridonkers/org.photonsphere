@@ -130,7 +130,7 @@ output truncate problem.
     :CUSTOM_ID: dotfiles
     :END:
 
-My [[https://github.com/maridonkers/dotfiles][dotfiles]] at GitHub with a.o. [[https://xmonad.org/][xmonad]] and [[https://hackage.haskell.org/package/xmobar][xmobar]] configuration.
+My [[https://github.com/maridonkers/dotfiles][dotfiles]] at GitHub with a.o. [[https://xmonad.org/][xmonad]], [[https://hackage.haskell.org/package/xmobar][xmobar]] and [[https://github.com/cdepillabout/termonad][Termonad]] configuration.
 
 * Already on GitHub
     :PROPERTIES:
