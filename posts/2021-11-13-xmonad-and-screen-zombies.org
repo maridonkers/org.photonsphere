@@ -2,7 +2,7 @@
 title: The return of xmonad and screen zombies
 modified: 2021-11-13
 meta_description: 
-tags: Computer, Software, Linux, Functional, Haskell, GUI, Tiling Window Manager, xmonad, Termonad
+tags: Computer, Software, Linux, NixOS, Functional, Haskell, GUI, Tiling Window Manager, xmonad, Termonad
 ----
 
 In the past I have used the [[https://xmonad.org/][xmonad]] [[https://en.wikipedia.org/wiki/Tiling_window_manager][tiling window manager]] but
