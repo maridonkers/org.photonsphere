@@ -25,9 +25,7 @@ and configurable.
 ** terminal emulator
 *** xterm
    The [[https://en.wikipedia.org/wiki/Xterm][xterm]] terminal emulator starts up very quickly and for me this
-compensates for its lack of tabs (see but if I ever find a really
-lightweight and fast terminal emulator with tabs then I'll certainly
-switch to that).
+compensates for its lack of tabs (update: see [[#slayingthezombieswithtermonad][Slaying the zombies with Termonad]] below).
 
 *** text truncation
 If an =xterm= window is small in size and later resized to a bigger window
@@ -84,6 +82,10 @@ Simply reattach to a zombie screen by its listed name and use an
 =exit= command or =Ctrl-D= to exit and terminate it.
 
 ** Slaying the zombies with Termonad
+    :PROPERTIES:
+    :CUSTOM_ID: slayingthezombieswithtermonad
+    :END:
+    
 Update: revisiting the [[https://github.com/cdepillabout/termonad][Termonad]] terminal emulator, which is indeed
 blazingly fast and also has tabs! (Distrotube video [[https://www.youtube.com/watch?v=TLNr_gBv5HY][here]]). So Now I'm
 using =Termonad= again and the above text on =xterm= only applies to
