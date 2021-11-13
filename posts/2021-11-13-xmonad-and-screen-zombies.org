@@ -25,7 +25,7 @@ and configurable.
 ** terminal emulator
 *** xterm
    The [[https://en.wikipedia.org/wiki/Xterm][xterm]] terminal emulator starts up very quickly and for me this
-compensates for its lack of tabs (but if I ever find a really
+compensates for its lack of tabs (see but if I ever find a really
 lightweight and fast terminal emulator with tabs then I'll certainly
 switch to that).
 
@@ -82,6 +82,19 @@ alias z="screen -ls | grep '(Detached)'"
 
 Simply reattach to a zombie screen by its listed name and use an
 =exit= command or =Ctrl-D= to exit and terminate it.
+
+** Slaying the zombies with Termonad
+Update: revisiting the [[https://github.com/cdepillabout/termonad][Termonad]] terminal emulator, which is indeed blazingly fast and also has tabs! So Now I'm using =Termonad= again and the above text on =xterm= only applies to my floating terminals.
+
+=xmonad.hs=:
+#+BEGIN_SRC haskell
+  myTerminal :: String
+  -- myTerminal = "xterm -e \"exec screen\""
+  myTerminal = "~/bin/termonad"
+
+  myFloatingTerminal :: String
+  myFloatingTerminal = "xterm -title \"floatterm\" -e \"exec screen\""
+#+END_SRC
 
 * Performance gains
 My system is indeed noticeably faster under [[https://xmonad.org/][xmonad]] than it was under
