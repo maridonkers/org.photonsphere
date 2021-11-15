@@ -87,11 +87,12 @@ Simply reattach to a detached screen by its listed name and use an
     :END:
     
 Update: revisiting the [[https://github.com/cdepillabout/termonad][Termonad]] terminal emulator, which is indeed
-blazingly fast and also has tabs! (Distrotube video [[https://www.youtube.com/watch?v=TLNr_gBv5HY][here]]). So Now I'm
-using =Termonad= again and the above text on =xterm= only applies to
+blazingly fast and also has tabs! (Distrotube video [[https://www.youtube.com/watch?v=TLNr_gBv5HY][here]]). I'm now
+using =Termonad= (again) and the above text on =xterm= only applies to
 my floating terminals.
 
-Installing vanilla Termonad under [[https://nixos.org/][NixOS]] from GitHub: [[https://github.com/cdepillabout/termonad][cdepillabout/termonad]], using commands given below:
+Installing vanilla =Termonad= under [[https://nixos.org/][NixOS]] from GitHub:
+[[https://github.com/cdepillabout/termonad][cdepillabout/termonad]], using commands given below:
 
 #+BEGIN_SRC sh
   mkdir -p ~/lib
@@ -101,7 +102,8 @@ Installing vanilla Termonad under [[https://nixos.org/][NixOS]] from GitHub: [[h
   nix-build
 #+END_SRC
 
-The build results is under the =result= subdirectory, so a symbolic link can be created for it, as follows:
+The build results is under the =result= subdirectory, so a symbolic
+link can be created for it, as follows:
 
 #+BEGIN_SRC sh
   mkdir -p ~/bin
@@ -109,7 +111,8 @@ The build results is under the =result= subdirectory, so a symbolic link can be 
   ln -s /home/mdo/lib/termonad/result/bin/termonad
 #+END_SRC
 
-You can edit e.g. your =~/.bashrc= to add =~/bin= to your =PATH= (or simply specify the full path in your =xmonad.hs= configuration file.
+You can edit e.g. your =~/.bashrc= to add =~/bin= to your =PATH= (or
+simply specify the full path in your =xmonad.hs= configuration file.
 
 =xmonad.hs=:
 #+BEGIN_SRC haskell
