@@ -10,19 +10,19 @@ want to learn some [[https://www.haskell.org/][Haskell]].
 
 (.more.)
 
-* xmonad
+* xmonad, xmobar
     :PROPERTIES:
     :CUSTOM_ID: xmonad
     :END:
 
-The [[https://xmonad.org/][xmonad]] tiling window manager is fast and configurable.
+The [[https://xmonad.org/][xmonad]] tiling window manager is fast and configurable; [[https://xmobar.org/][xmobar]] - a minimalistic status bar.
 
 * dotfiles
     :PROPERTIES:
     :CUSTOM_ID: dotfiles
     :END:
 
-My [[https://github.com/maridonkers/dotfiles][dotfiles]] at GitHub with a.o. [[https://xmonad.org/][xmonad]] and [[https://hackage.haskell.org/package/xmobar][xmobar]] configuration.
+My [[https://github.com/maridonkers/dotfiles][dotfiles]] at GitHub with a.o. [[https://github.com/maridonkers/dotfiles/tree/master/xmonadconfig][xmonad]] and [[https://github.com/maridonkers/dotfiles/tree/master/.config/xmobar][xmobar]] configuration.
 
 * Already on GitHub
     :PROPERTIES:

@@ -13,14 +13,14 @@ there was not that much difference in performance.
 
 (.more.)
 
-* xmonad
+* xmonad, xmobar
     :PROPERTIES:
     :CUSTOM_ID: xmonad
     :END:
 
 ** Introduction
 The documentation reads that the [[https://xmonad.org/][xmonad]] tiling window manager is fast
-and configurable.
+and configurable; [[https://xmobar.org/][xmobar]] - a minimalistic status bar.
 
 ** terminal emulator
 *** xterm
