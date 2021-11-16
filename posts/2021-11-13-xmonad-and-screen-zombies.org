@@ -125,10 +125,10 @@ simply specify the full path in your =xmonad.hs= configuration file.
 #+END_SRC
 
 * Performance gains
-My system is indeed noticeably faster under [[https://xmonad.org/][xmonad]] than it was under
-[[https://kde.org/][KDE]] and I now don't quite understand how I came to a different
-conclusion before. It must have been annoyance-bias over the terminal
-output truncate problem.
+My system is indeed **significantly** snappier and faster in general under
+[[https://xmonad.org/][xmonad]] than it was under [[https://kde.org/][KDE]] and I now don't quite understand how I
+came to a different conclusion before. It must have been
+annoyance-bias over the terminal output truncate problem.
 
 * dotfiles
     :PROPERTIES:

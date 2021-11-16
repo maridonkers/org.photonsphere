@@ -2,7 +2,7 @@
 title: xmonad tiling window manager
 modified: 2020-06-12
 meta_description: 
-tags: Computer, Software, Linux, Functional, Haskell, GUI, Tiling Window Manager
+tags: Computer, Software, Linux, Functional, Haskell, GUI, Tiling Window Manager, xmonad, Termonad
 ----
 
 Because I have been wanting to start using [[https://en.wikipedia.org/wiki/Tiling_window_manager][tiling window managers]] and
