@@ -5,7 +5,7 @@ meta_description:
 tags: Computer, Software, Linux, NixOS, Functional, Haskell, Android
 ----
 
-Install a full Haskell development environment (including hpack and cabal) on your Android phone. The command prompt runs via AnLinux + Termux.
+Install a full [[https://www.haskell.org/][Haskell]] development environment (including [[https://github.com/sol/hpack][hpack]] and [[https://www.haskell.org/cabal/][cabal]]) on your [[https://www.android.com/][Android]] phone. The command prompt runs via [[https://f-droid.org/en/packages/exa.lnx.a/][AnLinux]] + [[https://f-droid.org/en/packages/com.termux/][Termux]].
 (.more.)
 
 * F-Droid
@@ -18,7 +18,7 @@ Install F-Droid from [[https://www.f-droid.org/][f-droid.org]] (follow instructi
     :PROPERTIES:
     :CUSTOM_ID: anlinuxtermux
     :END:
-First install the [[https://www.f-droid.org/][Termux]] package and then the [[https://f-droid.org/en/packages/exa.lnx.a/][AnLinux]] package (both via F-Droid) and select a distribution in AnLinux (I use [[https://www.debian.org/][Debian]]).
+First install the [[https://f-droid.org/en/packages/com.termux/][Termux]] package and then the [[https://f-droid.org/en/packages/exa.lnx.a/][AnLinux]] package (both via F-Droid) and select a distribution in AnLinux (I use [[https://www.debian.org/][Debian]]).
 
 * Debian packages
     :PROPERTIES:
