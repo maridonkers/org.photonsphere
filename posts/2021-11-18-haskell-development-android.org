@@ -47,6 +47,7 @@ Use the commands below to get and build my Paperspan export (HTML) to Instapaper
   cabal new-run . -- yourpaperspanexportfile.html
 #+END_SRC
 
-Note: depending on your phone the cabal update and build make take a while to complete.
+Note: depending on your phone the =cabal update= and =cabal new-build= may take a while to complete.
 
+* Screen dump
 [[../images/AnLinuxDemo.png]]
