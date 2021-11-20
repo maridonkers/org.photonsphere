@@ -28,7 +28,7 @@ A number of Debian packages are required and useful for your Haskell development
 
 #+BEGIN_SRC sh
   apt-get update
-  apt-get install build-essential curl vim-nox silversearcher-ag git ghc cabal-install hpack hlint stylish-haskell
+  apt-get install build-essential curl vim-nox silversearcher-ag git ghc cabal-install hpack hlint stylish-haskell libghc-zlib-dev
 #+END_SRC
 
 * Demonstration
