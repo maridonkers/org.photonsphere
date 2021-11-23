@@ -20,7 +20,8 @@ periods without images available).
   {-# LANGUAGE ScopedTypeVariables #-}
   module ImageDownloader where
 
-  import qualified Control.Monad            as M
+  import           Control.Exception        (throwIO)
+  import           Control.Monad            (unless, void, when)
   import           Control.Monad.IO.Class   (liftIO)
   import           Data.Conduit             (runConduitRes, (.|))
   import qualified Data.Conduit.Binary      as CB
@@ -28,7 +29,12 @@ periods without images available).
   import qualified Data.Conduit.List        as CL
   import           Data.List.Split          (chunksOf)
   import           Data.Time
+  import           Network.HTTP.Client      (BodyReader, HttpException,
+                                             HttpExceptionContent (StatusCodeException),
+                                             checkResponse, responseBody,
+                                             responseStatus)
   import           Network.HTTP.Simple
+  import           Network.HTTP.Types       (statusCode)
   import           System.Directory         (doesFileExist)
 
   outputDir :: String
@@ -61,16 +67,29 @@ periods without images available).
     in
       pyy' ++ show' pmm ++ show' pdd
 
+  -- | Throw 'HttpException' exception on server errors (not 2xx and not 404).
+  checkHttpResponse :: Request -> Response BodyReader -> IO ()
+  checkHttpResponse request response =
+    let sc = statusCode (responseStatus response)
+    in
+      when (sc `div` 100 /= 2 && sc /= 404)
+        $ throwIO
+          $ HttpExceptionRequest
+            request
+            (StatusCodeException (void response) mempty)
+
   processUrl' :: String -> String -> String -> String -> IO ()
   processUrl' yyNow url dat ext = do
     let pathName = outputDir ++ dat ++ ext
     fe <- doesFileExist pathName
-    M.unless fe $ do
-      rq <- parseRequest fullUrl
+    unless fe $ do
+      -- rq <- parseRequest fullUrl
+      rq' <- parseRequest fullUrl
+      let rq = rq' { checkResponse = checkHttpResponse }
       rs <- runConduitRes
         $ httpSource rq getSrc
         .| CC.sinkList
-      M.unless (null rs) $
+      unless (null rs) $
         runConduitRes
           $ CL.sourceList rs
           .| CB.sinkFile pathName
@@ -80,7 +99,7 @@ periods without images available).
       getSrc res = do
         let sc = getResponseStatusCode res
         -- Only when status valid; empty result otherwise.
-        M.when (sc == statusValid) $ do
+        when (sc == statusValid) $ do
           getResponseBody res
           liftIO $ print (fullUrl, getResponseStatus res, getResponseHeaders res)
 
