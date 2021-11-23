@@ -143,47 +143,48 @@ main = do
 * package.yaml
   Use the =hpack= command to generate a cabal file for the project.
   #+BEGIN_SRC yaml
-name: imagedownloader
-version: 0.0.0.1
-synopsis: Image downloader
-description: |
-    Downloads images with date in URL.
-category: HTML, CSV
-license: GPL-3
-stability: development
+    name: imagedownloader
+    version: 0.0.0.1
+    synopsis: Image downloader
+    description: |
+        Downloads images with date in URL.
+    category: HTML, CSV
+    license: GPL-3
+    stability: development
 
-ghc-options:
-- -Wall
-- -fno-warn-unused-do-bind
-- -fno-warn-name-shadowing
-- -fno-warn-missing-signatures
-- -fno-warn-type-defaults
-- -fno-warn-orphans
+    ghc-options:
+    - -Wall
+    - -fno-warn-unused-do-bind
+    - -fno-warn-name-shadowing
+    - -fno-warn-missing-signatures
+    - -fno-warn-type-defaults
+    - -fno-warn-orphans
 
-library:
-  source-dirs: src
-  ghc-options: [-threaded]
-  dependencies:
-    - base
-    - bytestring
-    - conduit
-    - conduit-extra
-    - directory
-    - http-conduit
-    - resourcet
-    - split
-    - streaming-commons
-    - time
+    library:
+      source-dirs: src
+      dependencies:
+        - base
+        - bytestring
+        - conduit
+        - conduit-extra
+        - directory
+        - http-client
+        - http-conduit
+        - http-types
+        - resourcet
+        - split
+        - streaming-commons
+        - time
 
-executables:
-  imagedownloader:
-    main: Main.hs
-    source-dirs: app
-    ghc-options: [-threaded]
-    dependencies:
-    - base
-    - optparse-applicative
-    - imagedownloader
+    executables:
+      imagedownloader:
+        main: Main.hs
+        source-dirs: app
+        ghc-options: [-threaded]
+        dependencies:
+        - base
+        - optparse-applicative
+        - imagedownloader
   #+END_SRC
 
 * Build and execute
