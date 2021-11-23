@@ -5,83 +5,90 @@ meta_description:
 tags: Computer, Software, Internet, Linux, NixOS, Haskell, CSV, HTML, YAML, RegExp
 ----
 
-A [[https://haskell.org][Haskell]] program that uses the [[https://github.com/snoyberg/conduit][Conduit]] library to retrieve and store image files, which are accessible via an URL with a date in it. The images are stored in an =images= subdirectory with the date in the filename. The program skips URLs that do not return a HTTP status code of =200= (e.g. weekends, holidays, or other periods without images available).
+A [[https://haskell.org][Haskell]] program that uses the [[https://github.com/snoyberg/conduit][Conduit]] library to retrieve and store
+image files with [[https://hackage.haskell.org/package/http-conduit-2.3.8/docs/Network-HTTP-Conduit.html][Network.HTTP.Conduit]], which are accessible via an URL
+with a date in it. The images are stored in an =images= subdirectory
+with the date in the filename. The program skips URLs that do not
+return a HTTP status code of =200= (e.g. weekends, holidays, or other
+periods without images available).
 
 (.more.)
 
 * src/ImageDownloader.hs
+  Note the =sinkList= and =sourceList=, which are a nice =Conduit= feature.
 #+BEGIN_SRC haskell
-{-# LANGUAGE ScopedTypeVariables #-}
-module ImageDownloader where
+  {-# LANGUAGE ScopedTypeVariables #-}
+  module ImageDownloader where
 
-import qualified Control.Monad            as M
-import           Control.Monad.IO.Class   (liftIO)
-import           Data.Conduit             (runConduitRes, (.|))
-import qualified Data.Conduit.Binary      as CB
-import qualified Data.Conduit.Combinators as CC
-import qualified Data.Conduit.List        as CL
-import           Data.List.Split          (chunksOf)
-import           Data.Time
-import           Network.HTTP.Simple
-import           System.Directory         (doesFileExist)
+  import qualified Control.Monad            as M
+  import           Control.Monad.IO.Class   (liftIO)
+  import           Data.Conduit             (runConduitRes, (.|))
+  import qualified Data.Conduit.Binary      as CB
+  import qualified Data.Conduit.Combinators as CC
+  import qualified Data.Conduit.List        as CL
+  import           Data.List.Split          (chunksOf)
+  import           Data.Time
+  import           Network.HTTP.Simple
+  import           System.Directory         (doesFileExist)
 
-outputDir :: String
-outputDir = "images/"
+  outputDir :: String
+  outputDir = "images/"
 
-statusValid :: Int
-statusValid = 200
+  statusValid :: Int
+  statusValid = 200
 
-previousDay :: Day -> Day
-previousDay = addDays (-1)
+  previousDay :: Day -> Day
+  previousDay = addDays (-1)
 
-show' :: Int -> String
-show' n
-  | length (show n) == 1 = "0" ++ show n
-  | otherwise = show n
+  show' :: Int -> String
+  show' n
+    | length (show n) == 1 = "0" ++ show n
+    | otherwise = show n
 
-previousDate :: String -> String -> String
-previousDate dat yyNow =
-  let
-    [yy,mm,dd] = chunksOf 2 $ dat
-    (year :: Integer) = read $ yy
-    (month :: Int) = read $ mm
-    (day :: Int) = read $ dd
-    (thisYear :: Integer) = read yyNow
-    year' = if year > thisYear then 1900 + year else 2000 + year
-    days = fromGregorian year' month day
-    pDays = previousDay days
-    (pyy,pmm,pdd) = toGregorian pDays
-    [_,pyy'] = chunksOf 2 $ (show pyy)
-  in
-    pyy' ++ show' pmm ++ show' pdd
+  previousDate :: String -> String -> String
+  previousDate dat yyNow =
+    let
+      [yy,mm,dd] = chunksOf 2 $ dat
+      (year :: Integer) = read $ yy
+      (month :: Int) = read $ mm
+      (day :: Int) = read $ dd
+      (thisYear :: Integer) = read yyNow
+      year' = if year > thisYear then 1900 + year else 2000 + year
+      days = fromGregorian year' month day
+      pDays = previousDay days
+      (pyy,pmm,pdd) = toGregorian pDays
+      [_,pyy'] = chunksOf 2 $ (show pyy)
+    in
+      pyy' ++ show' pmm ++ show' pdd
 
-processUrl' :: String -> String -> String -> String -> IO ()
-processUrl' yyNow url dat ext = do
-  let pathName = outputDir ++ dat ++ ext
-  fe <- doesFileExist pathName
-  M.unless fe $ do
-    rq <- parseRequest fullUrl
-    rs <- runConduitRes
-      $ httpSource rq getSrc
-      .| CC.sinkList
-    M.unless (null rs) $
-      runConduitRes
-        $ CL.sourceList rs
-        .| CB.sinkFile pathName
-  processUrl' yyNow url (previousDate dat yyNow) ext
-  where
-    fullUrl = url ++ dat ++ ext
-    getSrc res = do
-      let sc = getResponseStatusCode res
-      M.when (sc == statusValid) $ do
-        getResponseBody res
-        liftIO $ print (fullUrl, getResponseStatus res, getResponseHeaders res)
+  processUrl' :: String -> String -> String -> String -> IO ()
+  processUrl' yyNow url dat ext = do
+    let pathName = outputDir ++ dat ++ ext
+    fe <- doesFileExist pathName
+    M.unless fe $ do
+      rq <- parseRequest fullUrl
+      rs <- runConduitRes
+        $ httpSource rq getSrc
+        .| CC.sinkList
+      M.unless (null rs) $
+        runConduitRes
+          $ CL.sourceList rs
+          .| CB.sinkFile pathName
+    processUrl' yyNow url (previousDate dat yyNow) ext
+    where
+      fullUrl = url ++ dat ++ ext
+      getSrc res = do
+        let sc = getResponseStatusCode res
+        -- Only when status valid; empty result otherwise.
+        M.when (sc == statusValid) $ do
+          getResponseBody res
+          liftIO $ print (fullUrl, getResponseStatus res, getResponseHeaders res)
 
-processUrl :: String -> String -> String -> IO ()
-processUrl url dat ext = do
-  now <- getCurrentTime
-  let yyNow = formatTime defaultTimeLocale "%y" now
-  processUrl' yyNow url dat ext
+  processUrl :: String -> String -> String -> IO ()
+  processUrl url dat ext = do
+    now <- getCurrentTime
+    let yyNow = formatTime defaultTimeLocale "%y" now
+    processUrl' yyNow url dat ext
 #+END_SRC
 
 * app/main.hs
