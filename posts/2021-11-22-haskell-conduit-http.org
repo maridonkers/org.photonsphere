@@ -2,7 +2,7 @@
 title: Haskell Conduit HTTP
 modified: 2021-11-22
 meta_description: 
-tags: Computer, Software, Internet, Linux, NixOS, Haskell, CSV, HTML, YAML, RegExp
+tags: Computer, Software, Internet, Linux, Haskell, HTML
 ----
 
 A [[https://haskell.org][Haskell]] program that uses the [[https://github.com/snoyberg/conduit][Conduit]] library to retrieve and store
