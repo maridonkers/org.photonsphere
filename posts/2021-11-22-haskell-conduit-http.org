@@ -11,8 +11,9 @@ with a date in it. The images are stored in an =images= subdirectory
 with the date in the filename. The program skips URLs that do not
 return a HTTP status code of =200= (e.g. weekends, holidays, or other
 periods without images available) and generates an exception if the
-status code is not in the =2xx= range. This has no practical use at
-all but I wanted to see how exceptions are handled in conduits.
+status code is not in the =2xx= range. The exception is rethrown when
+the status code is not =404=. This all has no practical use at all but
+I wanted to see how exceptions are handled in conduits.
 
 (.more.)
 
@@ -95,7 +96,7 @@ all but I wanted to see how exceptions are handled in conduits.
                let HttpExceptionRequest _ (StatusCodeException ersp _) = e
                    erspsc = statusCode (responseStatus ersp)
                liftIO $ putStrLn $ " CAUGHT EXCEPTION (HTTP status code=" ++ show erspsc ++ ")"
-               when (erspsc == 404) $
+               when (erspsc /= 404) $
                    liftIO $ throwIO
                      $ HttpExceptionRequest
                        rq
