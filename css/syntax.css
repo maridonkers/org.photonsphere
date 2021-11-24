@@ -63,7 +63,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 code span {
-    font-family: monospace;
-    font-size: 0.85em;
+    font-family: 'Inconsolata', monospace;
+    font-size: 17px;
     font-weight: 500;
 }
