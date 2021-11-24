@@ -92,8 +92,14 @@ all but I wanted to see how exceptions are handled in conduits.
       rs <- runConduitRes
         $ (httpSource rq getSrc `catchC`
           (\(e :: HttpException) -> do
-               let HttpExceptionRequest _ (StatusCodeException ers _) = e
-               liftIO $ putStrLn $ " CAUGHT EXCEPTION: " ++ show ers))
+               let HttpExceptionRequest _ (StatusCodeException ersp _) = e
+                   erspsc = statusCode (responseStatus ersp)
+               liftIO $ putStrLn $ " CAUGHT EXCEPTION (HTTP status code=" ++ show erspsc ++ ")"
+               when (erspsc == 404) $
+                   liftIO $ throwIO
+                     $ HttpExceptionRequest
+                       rq
+                       (StatusCodeException (void ersp) mempty)))
         .| CC.sinkList
       unless (null rs) $
         runConduitRes
