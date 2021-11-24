@@ -11,13 +11,14 @@ with a date in it. The images are stored in an =images= subdirectory
 with the date in the filename. The program skips URLs that do not
 return a HTTP status code of =200= (e.g. weekends, holidays, or other
 periods without images available) and generates an exception if the
-status code is not in the 2xx range and not 404 (page not found). This
-is not useful at all but I wanted to see how exceptions are handled.
+status code is not in the =2xx= range. This has no practical use at
+all but I wanted to see how exceptions are handled in conduits.
 
 (.more.)
 
 * src/ImageDownloader.hs
-  Note the =sinkList= and =sourceList=, which are a nice =Conduit= feature.
+  Note the =sinkList= and =sourceList=, which are a nice =Conduit=
+  feature and the use of =catchC=.
 #+BEGIN_SRC haskell
   {-# LANGUAGE ScopedTypeVariables #-}
   module ImageDownloader where
@@ -25,7 +26,7 @@ is not useful at all but I wanted to see how exceptions are handled.
   import           Control.Exception        (throwIO)
   import           Control.Monad            (unless, void, when)
   import           Control.Monad.IO.Class   (liftIO)
-  import           Data.Conduit             (runConduitRes, (.|))
+  import           Data.Conduit             (catchC, runConduitRes, (.|))
   import qualified Data.Conduit.Binary      as CB
   import qualified Data.Conduit.Combinators as CC
   import qualified Data.Conduit.List        as CL
@@ -69,12 +70,12 @@ is not useful at all but I wanted to see how exceptions are handled.
     in
       pyy' ++ show' pmm ++ show' pdd
 
-  -- | Throw 'HttpException' exception on server errors (not 2xx and not 404).
+  -- | Throw 'HttpException' exception on server errors (not 2xx).
   checkHttpResponse :: Request -> Response BodyReader -> IO ()
   checkHttpResponse request response =
     let sc = statusCode (responseStatus response)
     in
-      when (sc `div` 100 /= 2 && sc /= 404)
+      when (sc `div` 100 /= 2)
         $ throwIO
           $ HttpExceptionRequest
             request
@@ -89,7 +90,9 @@ is not useful at all but I wanted to see how exceptions are handled.
       rq' <- parseRequest fullUrl
       let rq = rq' { checkResponse = checkHttpResponse }
       rs <- runConduitRes
-        $ httpSource rq getSrc
+        $ (httpSource rq getSrc `catchC`
+           (\(e :: HttpException) ->
+             liftIO $ putStrLn $ " CAUGHT EXCEPTION: " ++ show e))
         .| CC.sinkList
       unless (null rs) $
         runConduitRes
@@ -200,4 +203,8 @@ main = do
 cabal new-run . -- http://www.yoursitename.com/images/image 211122 .jpg
  #+END_SRC
 
-Which will retrieve all images from the specified date in =yymmdd= format (i.e. 2021, November 22th) backwards in time. Use Ctrl+C to abort the program when there are no more images to download. Watch the output of the program to determine this. The program will not redownload already downloaded images on a subsequent run.
+Which will retrieve all images from the specified date in =yymmdd=
+format (i.e. 2021, November 22th) backwards in time. Use Ctrl+C to
+abort the program when there are no more images to download. Watch the
+output of the program to determine this. The program will not
+redownload already downloaded images on a subsequent run.
