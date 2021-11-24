@@ -1,5 +1,5 @@
 ----
-title: Haskell Conduit HTTP
+title: Network.HTTP.Conduit
 modified: 2021-11-22
 meta_description: 
 tags: Computer, Software, Internet, Linux, Haskell, HTML
