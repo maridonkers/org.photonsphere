@@ -64,5 +64,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 code span {
     font-family: 'Inconsolata', monospace;
+    font-size: 1em;
     font-weight: 300;
 }
