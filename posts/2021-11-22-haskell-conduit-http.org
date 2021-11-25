@@ -161,7 +161,7 @@ main = do
     synopsis: Image downloader
     description: |
         Downloads images with date in URL.
-    category: HTML, CSV
+    category: HTML
     license: GPL-3
     stability: development
 
@@ -208,7 +208,7 @@ main = do
 
  and to execute, use e.g.:
  #+BEGIN_SRC sh
-cabal new-run . -- http://www.yoursitename.com/images/image 211122 .jpg
+cabal new-run . -- http://www.yoursitename.com/images/image 211125 .jpg
  #+END_SRC
 
 Which will retrieve all images from the specified date in =yymmdd=
