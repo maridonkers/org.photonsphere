@@ -11,11 +11,14 @@ import           Text.Pandoc.Options
 main :: IO ()
 main =
   do prod <- isJust <$> lookupEnv "PROD"
-     let myDefaultContext = mconcat
+     let config :: Configuration
+         config = defaultConfiguration
+                   { previewPort = 9001 }
+         myDefaultContext = mconcat
                             [ boolField "prod" (const prod)
                             , constField "root" root
                             , defaultContext ]
-     hakyll $ do
+     hakyllWith config $ do
        match "images/*" $ do
          route   idRoute
          compile copyFileCompiler
