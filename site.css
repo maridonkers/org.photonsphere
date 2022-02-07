@@ -22,7 +22,7 @@ img {
 }
 
 code.verbatim {
-    @apply bg-blue-100;
+    @apply bg-gray-200;
 }
 
 a.footnote-back {
