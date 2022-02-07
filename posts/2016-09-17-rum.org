@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, GUI, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 Simple, decomplected, isomorphic HTML UI library for [[http://clojure.org/][Clojure]] and
 [[http://clojurescript.org/][ClojureScript]] -- [[https://github.com/tonsky/rum][Rum]] (by *Nikita Prokopov*)
 
@@ -16,13 +18,12 @@ Rum is a client/server library for HTML UI. In ClojureScript, it works
 as [[https://facebook.github.io/react/][React]] wrapper, in Clojure, it is a static HTML generator.
 
 Rum:
-- does not dictate how to store your state;
-- has server-side rendering;
-- is much smaller.
+- o does not dictate how to store your state;
+- o has server-side rendering;
+- o is much smaller.
 
 * Videos
 
-- [[https://youtu.be/2fLx4fu9VV8][Isomorphic web apps with Rum]] - Nikita Prokopov;
-- [[https://youtu.be/RqHnxkU9TZE][Rum workshop]] - Nikita Prokopov;
-- [[https://youtu.be/4lfJ0FVa6Zg][Creating reactive components using ClojureScript React wrappers]]
-  - Konrad Szydlo.
+- o [[https://youtu.be/2fLx4fu9VV8][Isomorphic web apps with Rum]] - Nikita Prokopov;
+- o [[https://youtu.be/RqHnxkU9TZE][Rum workshop]] - Nikita Prokopov;
+- o [[https://youtu.be/4lfJ0FVa6Zg][Creating reactive components using ClojureScript React wrappers]] - Konrad Szydlo.

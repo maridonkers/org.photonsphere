@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, GUI, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 A do-it-yourself [[https://en.wikipedia.org/wiki/Internationalization_and_localization][i18n]] library for [[http://clojure.org/][Clojure]] and [[http://clojurescript.org/][ClojureScript]] -- [[https://github.com/tonsky/tongue][Tongue]]
 (by *Nikita Prokopov*).
 
@@ -13,14 +15,14 @@ A do-it-yourself [[https://en.wikipedia.org/wiki/Internationalization_and_locali
 * From its documentation
 
 Tongue is very simple yet capable:
-- Dictionaries are just Clojure maps.
-- Translations are either strings, template strings or arbitrary
+- o Dictionaries are just Clojure maps.
+- o Translations are either strings, template strings or arbitrary
   functions.
-- No additional build steps, no runtime resource loading.
-- It comes with no built-in knowledge of world locales. It has all the
+- o No additional build steps, no runtime resource loading.
+- o It comes with no built-in knowledge of world locales. It has all the
   tooling for you to define locales yourself though.
-- Pure Clojure implementation, no dependencies.
-- Can be used from both Clojure and ClojureScript.
+- o Pure Clojure implementation, no dependencies.
+- o Can be used from both Clojure and ClojureScript.
 
 In contrast with other i18n solutions relying on complex and limiting
 string-based syntax for defining pluralization, wording, special cases

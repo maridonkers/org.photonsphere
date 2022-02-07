@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Gentoo, Linux, Software
 ----
 
+#+OPTIONS: ^:nil
+
 If a low-level backup is required then use these instructions.
 
 (.more.)

@@ -20,8 +20,7 @@ The GNU Privacy Handbook has a section [[https://www.gnupg.org/gph/en/manual/x11
 The GNU Privacy Handbook has a section [[https://www.gnupg.org/gph/en/manual/x135.html][Making and verifying signatures]].
 
 * My public key
-
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC sh
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQINBFmBrKoBEACqb6MfcV5mHsnnE0A91DjH512NpOo5X1Ti1IGRcJpFbd17h+m+
@@ -86,4 +85,4 @@ KiXskwuqboXP98zo6KrrWdDtTksGGzOasGd3CV+1Vpb8+SoeI7FdDko9RUWdOA1q
 3fvM7k0B/Yc49xtFm5L+354=
 =Via4
 -----END PGP PUBLIC KEY BLOCK-----
-#+END_EXAMPLE
+#+END_SRC

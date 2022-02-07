@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, GUI, KDE, IDE, Emacs, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 A dark theme approach for Emacs running under KDE (Debian Linux).
 
 (.more.)

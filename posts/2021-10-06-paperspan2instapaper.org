@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Internet, Linux, NixOS, Haskell, CSV, HTML, YAML, RegExp
 ----
 
+#+OPTIONS: ^:nil
+
 A [[https://haskell.org][Haskell]] program to convert the [[https://www.paperspan.com][Paperspan]] HTML export format to an
 [[https://instapaper.com][Instapaper]] CSV import format with automatic --configuration file
 driven-- designation to folders. The [[https://wiki.haskell.org/HXT][HXT]] library is used to parse the Paperspan HTML file and the CSV result is written to standard output.

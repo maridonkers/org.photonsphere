@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, GUI, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 Have simple [[https://github.com/Day8/re-frame][re-frame]] like state management facilities for building web
 apps with [[https://github.com/tonsky/rum/][Rum]] for [[http://clojure.org/][Clojure]] and [[http://clojurescript.org/][ClojureScript]] while leveraging its API
 -- [[https://github.com/roman01la/citrus][Citrus]] (by *[[https://github.com/roman01la][Roman Liutikov]]*).
@@ -18,13 +20,13 @@ apps with [[https://github.com/tonsky/rum/][Rum]] for [[http://clojure.org/][Clo
    :CUSTOM_ID: features
    :END:
 
-- Decoupled application state in a single atom
-- No global state, everything lives in Reconciler instance
-- A notion of a controller to keep application domains separate
-- Reactive queries
-- Side-effects are described as data
-- Async batched updates for better performance
-- Server-side rendering with convenient state hydration
+- o Decoupled application state in a single atom
+- o No global state, everything lives in Reconciler instance
+- o A notion of a controller to keep application domains separate
+- o Reactive queries
+- o Side-effects are described as data
+- o Async batched updates for better performance
+- o Server-side rendering with convenient state hydration
 
 * How it works
    :PROPERTIES:
@@ -34,12 +36,12 @@ apps with [[https://github.com/tonsky/rum/][Rum]] for [[http://clojure.org/][Clo
 With Citrus you build everything around a well known architecture
 pattern in modern SPA development:
 
-- Model application state (with reconciler)
-- Dispatch events (with dispatch!, dispatch-sync!, broadcast! and broadcast-sync!)
-- Handle events (with :controllers functions)
-- Handle side effects (with :effect-handlers functions)
-- Query state reactively (with subscription, rum/react and rum/reactive)
-- Render (automatic & efficient ! profit +1)
+- o Model application state (with reconciler)
+- o Dispatch events (with dispatch!, dispatch-sync!, broadcast! and broadcast-sync!)
+- o Handle events (with :controllers functions)
+- o Handle side effects (with :effect-handlers functions)
+- o Query state reactively (with subscription, rum/react and rum/reactive)
+- o Render (automatic & efficient ! profit +1)
 
 * RealWorld example appl
    :PROPERTIES:

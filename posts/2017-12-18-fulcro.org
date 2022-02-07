@@ -5,8 +5,10 @@ meta_description:
 tags: Computer, Software, Clojure, ClojureScript, Functional, Server, Client, Database, GUI, Internet, JavaScript, Web
 ----
 
+#+OPTIONS: ^:nil
+
 A library for development of single-page full-stack web applications
-in [[http://clojure.org/][Clojure]] / [[http://clojurescript.org/][ClojureScript]] -- [[http://fulcro.fulcrologic.com/][Fulcro]] (by *[[http://www.fulcrologic.com/][Fulcrologic, LLC]]*).
+in [[http://clojure.org/][Clojure]] / [[http://clojurescript.org/][ClojureScript]] -- [[http://fulcro.fulcrologic.com/][Fulcro]] (by [[http://www.fulcrologic.com/][Fulcrologic, LLC]]).
 
 Fulcro 2.0 is a library for building data-driven full-stack
 applications for the web. It uses React, is written in Clojure and

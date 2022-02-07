@@ -5,8 +5,10 @@ meta_description:
 tags: Computer, Software, Linux, Functional, NixOS
 ----
 
-The *Purely Functional* Linux Distribution -- [[https://nixos.org/][NixOS]] (by *[[http://nixos.org/~eelco/pubs/iscsd-scm11-final.pdf][Dolstra,
-Eelco]]*).
+#+OPTIONS: ^:nil
+
+The *Purely Functional* Linux Distribution -- [[https://nixos.org/][NixOS]] (by [[http://nixos.org/~eelco/pubs/iscsd-scm11-final.pdf][Dolstra,
+Eelco]]).
 
 NixOS is a Linux distribution with a unique approach to package and
 configuration management. Built on top of the [[https://nixos.org/nix][Nix package manager]], it

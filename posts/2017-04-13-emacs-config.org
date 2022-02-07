@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Emacs, Lisp, Emacs Lisp
 ----
 
+#+OPTIONS: ^:nil
+
 My [[https://github.com/maridonkers/emacs-config][emacs-config]], which is using [[http://orgmode.org/][org-mode]] and has been based on Arjen
 Wiersma's [[https://gitlab.com/buildfunthings/emacs-config][emacs-config]], Sacha Chua's [[http://pages.sachachua.com/.emacs.d/Sacha.html][Emacs Configuration]], Daniel Mai's
 [[https://github.com/danielmai/.emacs.d][Mai Emacs Configuration]] and [[https://github.com/daedreth/UncleDavesEmacs/blob/master/config.org][Uncle Dave's Emacs]] configuration.
@@ -24,9 +26,9 @@ with Emacs 25.{1,2} under Linux.
    :CUSTOM_ID: usage
    :END:
 
-- rename your existing ~/.emacs.d directory as a backup;
-- check that there's no ~/.emacs file (rename it if there is);
-- git clone https://github.com/maridonkers/emacs-config.git ~/.emacs.d
+- o rename your existing ~/.emacs.d directory as a backup;
+- o check that there's no ~/.emacs file (rename it if there is);
+- o git clone https://github.com/maridonkers/emacs-config.git ~/.emacs.d
 
 Start Emacs and wait until packages are all retrieved and installed.
 

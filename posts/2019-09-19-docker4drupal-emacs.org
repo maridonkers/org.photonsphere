@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, PHP, CMS, Server, Client, GUI, Web, Emacs, IDE, Docker, Drupal, HTML, CSS
 ----
 
+#+OPTIONS: ^:nil
+
 Create a [[https://github.com/wodby/docker4drupal][Docker4Drupal]] image with support for [[https://www.gnu.org/software/emacs/][Emacs]] editing set up
 ([[https://nl.wikipedia.org/wiki/HyperText_Markup_Language][HTML]], [[https://nl.wikipedia.org/wiki/Cascading_Style_Sheets][CSS]], [[http://www.php.net/][PHP]] files). Drupal4Docker has [[https://www.portainer.io/][Portainer]] support.
 

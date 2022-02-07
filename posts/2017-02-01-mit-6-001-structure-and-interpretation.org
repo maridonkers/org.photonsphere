@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Emacs, Lisp, Functional, Clojure, ClojureScript, Racket
 ----
 
+#+OPTIONS: ^:nil
+
 * Overview and Introduction to Lisp
 "Computer science is a terrible name. First, it's not a science. And
 it's also not about computers. People in the future will recognize that

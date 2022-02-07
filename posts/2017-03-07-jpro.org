@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Functional, Server, Internet, GUI, Java, JavaFX
 ----
 
+#+OPTIONS: ^:nil
+
 JavaFX in the Browser - NO PLUGINS - EVERYWHERE -- [[https://www.jpro.io/][JPRO]] (by *jpro
 technologies AG*).
 

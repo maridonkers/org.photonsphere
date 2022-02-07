@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Gentoo
 ----
 
+#+OPTIONS: ^:nil
+
 To configure specific compiler switches per package in Gentoo use
 these instructions.
 

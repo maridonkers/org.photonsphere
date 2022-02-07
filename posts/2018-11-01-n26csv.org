@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Windows, Functional, Clojure, ClojureScript, Financial
 ----
 
+#+OPTIONS: ^:nil
+
 Converts [[https://www.n26.com/][N26]] banking CSV exported files to format suited for [[https://kmymoney.org/][KMyMoney]]
 import -- [[https://github.com/maridonkers/n26csv][N26-CSV]] (by *[[https://github.com/maridonkers][Mari Donkers]]*)
 

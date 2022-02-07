@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, GUI, KDE, Linux, Shell Script, Software
 ----
 
+#+OPTIONS: ^:nil
+
 The KDE desktop environment supports environment variables. These are
 active when logged in to KDE. Contrary to regular bash environment
 variables, which are active only when a bash shell is started.

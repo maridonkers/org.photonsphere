@@ -30,3 +30,4 @@ diagrams-orig/*.~
 /.emacs.desktop
 /.emacs.desktop.lock
 /site
+/node_modules/

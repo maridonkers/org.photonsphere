@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Linux, Shell Script, Software
 ----
 
+#+OPTIONS: ^:nil
+
 Under Linux, you can use the [[http://www.syslinux.org/wiki/index.php/Isohybrid][isohybrid]] command to attempt to fix an
 ISO intended for a USB-stick, but that does not boot (because e.g. it
 expects a real DVD).

@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Lisp, Functional, Racket
 ----
 
+#+OPTIONS: ^:nil
+
 Racket is a general-purpose programming language as well as the
 world's first ecosystem for developing and deploying new languages. --
 [[http://racket-lang.org/][Racket]] (by *[[http://felleisen.org/matthias/manifesto/index.html][The Racket Manifesto]]*).

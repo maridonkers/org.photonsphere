@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, GUI, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 * Introduction
     :PROPERTIES:
     :CUSTOM_ID: introduction
@@ -24,10 +26,10 @@ This example code is on github: [[https://github.com/maridonkers/om-next-datascr
 
 Updates:
 
-- have also found this on GitHub: [[https://github.com/swannodette/om-next-demo][Om TodoMVC Example]] (by David Nolen);
-- my routing solution is not as advised ([[https://github.com/omcljs/om/wiki/Routing-Support][Routing Support]]); another
+- o have also found this on GitHub: [[https://github.com/swannodette/om-next-demo][Om TodoMVC Example]] (by David Nolen);
+- o my routing solution is not as advised ([[https://github.com/omcljs/om/wiki/Routing-Support][Routing Support]]); another
   implementation using the suggested approach is here: [[./2016-01-29-om-next-routing-with-om-nextset-query.html][Routing with set-query!]];
-- information on routing hooks soon to
+- o information on routing hooks soon to
   come: [[https://github.com/omcljs/om/wiki/Routing-Hooks]].
 
 * project.clj

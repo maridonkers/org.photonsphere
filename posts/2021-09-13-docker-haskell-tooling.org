@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, GUI, Docker, NixOS, Debian, Haskell
 ----
 
+#+OPTIONS: ^:nil
+
 Create a [[https://www.docker.com/][Docker]] image with [[https://www.debian.org/][Debian]] Linux in which you can install and use Haskell tooling (e.g. [[https://docs.haskellstack.org/en/stable/install_and_upgrade/][Stack]]) and that uses your computer's native GUI. This can be useful because using Stack under [[https://nixos.org/][NixOS]] can be somewhat cumbersome.
 
 (.more.)

@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Clojure, ClojureScript, Functional, Server, Client, GUI, Internet, JavaScript, Web
 ----
 
+#+OPTIONS: ^:nil
+
 A fulcro.ui.bootstrap3 inspired [[http://clojure.org/][Clojure]]/[[http://clojurescript.org/][ClojureScript]] library for
 [[https://github.com/jgthms/bulma][Bulma]], to be used with the [[http://fulcro.fulcrologic.com/][Fulcro]] framework -- [[https://github.com/maridonkers/fulcro-bulma][Fulcro-Bulma]] (by *Mari
 Donkers*).

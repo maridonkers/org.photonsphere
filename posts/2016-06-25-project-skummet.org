@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Android, Embedded, Functional, Clojure
 ----
 
+#+OPTIONS: ^:nil
+
 Experimental Clojure compiler with small memory footprint, fast
 loading time and reduced binary size -- [[http://clojure-android.info/skummet/][Project Skummet]] (by *Alex
 Yakushev*)

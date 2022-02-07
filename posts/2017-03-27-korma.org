@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Functional, Server, Database, SQL, Clojure
 ----
 
+#+OPTIONS: ^:nil
+
 [[http://clojure.org/][Clojure]] is beautiful. It can make [[https://en.wikipedia.org/wiki/SQL][SQL]] beautiful too -- [[http://sqlkorma.com/][Korma]] (by
 *Chris Granger*).
 

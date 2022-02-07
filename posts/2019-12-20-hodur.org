@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Clojure, ClojureScript, Functional, Client, GUI, Internet, Modeling, Architecture
 ----
 
+#+OPTIONS: ^:nil
+
 Hodur is a descriptive domain modeling approach and related collection
 of libraries for [[http://clojure.org/][Clojure]] -- [[https://github.com/hodur-org/hodur-engine][Hodur]] (by *[[https://github.com/luchiniatwork][Tiago Luchini]]*).
 
@@ -30,27 +32,27 @@ functional manner.
 
 For visualization/documentation:
 
-- hodur-graphviz-schema: generates beautiful GraphViz diagrams of your
+- o hodur-graphviz-schema: generates beautiful GraphViz diagrams of your
   domain
-- hodur-visualizer-schema: generates a dynamically, hot-reloaded
+- o hodur-visualizer-schema: generates a dynamically, hot-reloaded
   version of your domain on a web browser
 
 Schemas for persistent systems:
 
-- hodur-datomic-schema: generates Datomic Cloud compatible schemas
-- hodur-contentful-schema: generates Contentful compatible schemas
+- o hodur-datomic-schema: generates Datomic Cloud compatible schemas
+- o hodur-contentful-schema: generates Contentful compatible schemas
 
 Schemas for inbound interfaces:
 
-- hodur-lacinia-schema: generates Lacinia (GraphQL) schemas
+- o hodur-lacinia-schema: generates Lacinia (GraphQL) schemas
 
 Schemas for validation/data-generation:
 
-- hodur-spec-schema: generates Clojure Spec schemas
+- o hodur-spec-schema: generates Clojure Spec schemas
 
 Experimental adapters:
 
-- hodur-lacinia-datomic-adapter: experimental utilities for bridging
+- o hodur-lacinia-datomic-adapter: experimental utilities for bridging
   GraphQL queries and mutations into Datomic
 
 * YouTube

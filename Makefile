@@ -3,6 +3,8 @@ all: help
 shell:
 	nix-shell
 
+prod: build _site/css/site.css
+
 edit:
 	emacs &
 
@@ -21,11 +23,20 @@ site:
 build: site
 	./site build
 
+tailwind-dev: build
+	npx tailwindcss -i ./site.css -o ./_site/css/site.css --watch
+
+_site/css/site.css:
+	NODE_ENV=production npx tailwindcss -i ./site.css -o ./_site/css/site.css --minify
+
 check: build
 	./site check
 
 server: build
 	./site server
+
+watch: build
+	./site watch
 
 clean:
 	./site clean

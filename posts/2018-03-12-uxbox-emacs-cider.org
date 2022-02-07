@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Functional, Clojure, ClojureScript, Server, Client, Database, GUI, Internet, JavaScript, Web, Emacs, IDE, Docker
 ----
 
+#+OPTIONS: ^:nil
+
 The [[http://clojure.org/][Clojure]] and [[http://clojurescript.org/][ClojureScript]] application, which is impressive in its
 functionality and beautifully structured source code -- [[https://github.com/uxbox/uxbox][UXBOX]] (by
 *[[https://www.uxbox.io/][uxbox.io]]*).

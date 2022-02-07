@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Internet, Mobile, Web, Functional, Clojure, HTML
 ----
 
+#+OPTIONS: ^:nil
+
 [[https://www.instapaper.com/help][Instapaper]] turns web content -- articles, stories, posts, videos, and
 even long emails -- into a great reading experience.
 
@@ -36,8 +38,8 @@ When adding links to Instapaper, sometimes duplicates are stored.
 These will also be in an Instapaper HTML export file.
 
 A tool (built with Hickory) to remove duplicate hyperlinks from
-[[https://www.instapaper.com/][Instapaper]] HTML export files -- [[https://github.com/maridonkers/instapaper][maridonkers / instapaper]] (by *[[https://github.com/maridonkers][Mari
-Donkers]]*)
+[[https://www.instapaper.com/][Instapaper]] HTML export files -- [[https://github.com/maridonkers/instapaper][maridonkers / instapaper]] (by [[https://github.com/maridonkers][Mari
+Donkers]])
 
 * Binary download
    :PROPERTIES:

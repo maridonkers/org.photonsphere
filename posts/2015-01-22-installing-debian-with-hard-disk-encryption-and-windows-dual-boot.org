@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, KDE, Encryption, Windows
 ----
 
+#+OPTIONS: ^:nil
+
 The goal of the instructions in this article is to install [[https://www.debian.org/][Debian]] on a
 hard disk that already has a functioning Windows 7 installation (with
 a master boot record -- MBR). Here [[https://www.debian.org/releases/sid/][Debian Sid]] (a.k.a. Debian Unstable)

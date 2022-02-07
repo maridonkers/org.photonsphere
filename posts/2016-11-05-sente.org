@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Server, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 Realtime web comms for Clojure/Script -- [[https://github.com/ptaoussanis/sente][Sente]] (by *Peter Taoussanis*)
 
 (.more.)

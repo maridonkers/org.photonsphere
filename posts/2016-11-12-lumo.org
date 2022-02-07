@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Shell Script, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 The fastest Clojure REPL in the world -- [[https://anmonteiro.com/2016/11/the-fastest-clojure-repl-in-the-world/][Lumo]] (by *António Nuno
 Monteiro*)
 

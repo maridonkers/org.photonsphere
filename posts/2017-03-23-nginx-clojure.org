@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Functional, Server, Internet, GUI, Clojure, Java, Nginx
 ----
 
+#+OPTIONS: ^:nil
+
 [[http://nginx.org/][Nginx]] module for embedding [[http://clojure.org/][Clojure]] / [[http://openjdk.java.net/][Java]] / [[http://groovy-lang.org/][Groovy]] programs, typically
 those [[https://github.com/ring-clojure/ring/blob/master/SPEC][Ring]] based handlers -- [[http://nginx-clojure.github.io/][Nginx-Clojure]] (by *Zhang, Yuexiang
 (xfeep)*).
@@ -22,13 +24,13 @@ project hosted on Github. With it we can develope high performance
 Clojure/Java web apps on Nginx without any Java web server and with
 several benefits:
 
-- Clojure/Java controlled static files will get almost the same
+- o Clojure/Java controlled static files will get almost the same
   performance with Nginx static file service;
-- we just deploy one Nginx (compiled with Nginx-Clojure module) server
+- o we just deploy one Nginx (compiled with Nginx-Clojure module) server
   instead of Nginx + some Java web server, eg. Tomcat, Jetty etc.;
-- [[https://github.com/ring-clojure/ring/blob/master/SPEC][Ring Handler]] is dead easy compared to Java Servlet;
-- we can use Nginx modules such as GZip, Image Filter etc. with our
+- o [[https://github.com/ring-clojure/ring/blob/master/SPEC][Ring Handler]] is dead easy compared to Java Servlet;
+- o we can use Nginx modules such as GZip, Image Filter etc. with our
   static and dynamic content on the fly without any cost of Proxy
   level;
-- we can use Java rewrite handler + proxy_pass to implement a dynamic
+- o we can use Java rewrite handler + proxy_pass to implement a dynamic
   proxy/balancer very quickly.

@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Windows, Functional, Clojure, ClojureScript, Financial, CSV
 ----
 
+#+OPTIONS: ^:nil
+
 Conversion program from Rabobank SEPA CSV export format to KMyMoney import format.
 
 (.more.)

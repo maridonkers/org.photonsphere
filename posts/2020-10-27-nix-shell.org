@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Functional, NixOS, Nix, Hakyll, SDL, C, Haskell
 ----
 
+#+OPTIONS: ^:nil
+
 A [[https://nixos.wiki/wiki/Development_environment_with_nix-shell][nix-shell]] can be used to quickly set up ad-hoc development
 environments with all required dependencies in place.
 
@@ -135,5 +137,5 @@ NixOS 20.03.
     :CUSTOM_ID: already-on-github
     :END:
 
-- [[https://github.com/maridonkers/nixos-configuration][NixOS configuration]]
-- [[https://github.com/maridonkers/emacs-config][Emacs configuration]]
+- o [[https://github.com/maridonkers/nixos-configuration][NixOS configuration]]
+- o [[https://github.com/maridonkers/emacs-config][Emacs configuration]]

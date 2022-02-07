@@ -5,10 +5,12 @@ meta_description:
 tags: Computer, Software, Numerical, Machine Learning, AI, Data Science, Scientific Computing, Julia
 ----
 
+#+OPTIONS: ^:nil
+
 A high-level, high-performance dynamic programming language for
 numerical computing. It provides a sophisticated compiler, distributed
 parallel execution, numerical accuracy, and an extensive mathematical
-function library. -- [[https://github.com/JuliaLang/julia][Julia]] (by *[[https://julialang.org/][JuliaLang]]*).
+function library. -- [[https://github.com/JuliaLang/julia][Julia]] (by [[https://julialang.org/][JuliaLang]]).
 
 (.more.)
 
@@ -66,5 +68,5 @@ and parallel computing.
     :CUSTOM_ID: articles
     :END:
 
-- [[https://www.infoworld.com/article/3241107/python/julia-vs-python-julia-language-rises-for-data-science.html][Julia vs. Python: Julia language rises for data science]]
-- [[https://juliacomputing.com/domains/ml-and-ai.html][Machine Learning and Artificial Intelligence]]
+- o [[https://www.infoworld.com/article/3241107/python/julia-vs-python-julia-language-rises-for-data-science.html][Julia vs. Python: Julia language rises for data science]]
+- o [[https://juliacomputing.com/domains/ml-and-ai.html][Machine Learning and Artificial Intelligence]]

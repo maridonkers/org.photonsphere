@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, GUI, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 A lightweight [[https://en.wikipedia.org/wiki/Internationalization_and_localization][i18n]] solution for use with [[https://github.com/Day8/re-frame][re-frame]]. It's inspired
 by [[https://github.com/ptaoussanis/tower][Tower, a Clojure/Script i18n & L10n library]].
 

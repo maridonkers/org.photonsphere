@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Clojure, ClojureScript, Functional, Client, GUI, Internet, JavaScript, Web
 ----
 
+#+OPTIONS: ^:nil
+
 When using [[http://clojurescript.org/][ClojureScript]] with a React library *beware* that the
 =:value= for an =:input= needs to be of type string. If this is not
 the case then screen updates initiated from the code sometimes fail.

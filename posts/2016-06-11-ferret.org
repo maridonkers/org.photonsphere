@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, C++, Embedded, Real-Time, Functional, Clojure
 ----
 
+#+OPTIONS: ^:nil
+
 Ferret is a free software Clojure implementation, it compiles a
 restricted subset of the Clojure language to self contained /ISO
 C++11/ which allows for the use of Clojure in real time embedded

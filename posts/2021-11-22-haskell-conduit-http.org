@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Internet, Linux, Haskell, HTML
 ----
 
+#+OPTIONS: ^:nil
+
 A [[https://haskell.org][Haskell]] program that uses the [[https://github.com/snoyberg/conduit][Conduit]] library to retrieve and store
 image files with [[https://hackage.haskell.org/package/http-conduit-2.3.8/docs/Network-HTTP-Conduit.html][Network.HTTP.Conduit]], which are accessible via an URL
 with a date in it. The images are stored in an =images= subdirectory

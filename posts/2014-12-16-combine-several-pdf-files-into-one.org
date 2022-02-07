@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Linux, PDF, Software, Shell Script
 ----
 
+#+OPTIONS: ^:nil
+
 Ever wanted to combine several PDF-files into a single file? Under
 Linux a simple command can be used to accomplish this.
 

@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, GUI, KDE, Linux, Shell Script, Docker
 ----
 
+#+OPTIONS: ^:nil
+
 Once upon a time, while using Debian I had a problem with Docker containers and suspend/resume.
 
 * Docker resume/thaw problems?

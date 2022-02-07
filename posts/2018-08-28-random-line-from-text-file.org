@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Clojure, Functional, IO
 ----
 
+#+OPTIONS: ^:nil
+
 About getting a random line from a text file in [[http://clojure.org/][Clojure]].
 
 (.more.)

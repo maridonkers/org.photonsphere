@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Java, Software, IO
 ----
 
+#+OPTIONS: ^:nil
+
 This article will delve into the details involved in serializing and
 deserializing arbitrarily sized objects to- and from a byte array. The
 contents of the byte array are stored in a random access file. An

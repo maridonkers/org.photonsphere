@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Clojure, ClojureScript, Functional, Server, Client, Database, GUI, Internet, JavaScript, Web, Emacs, IDE
 ----
 
+#+OPTIONS: ^:nil
+
 Adding [[https://juxt.pro/crux/index.html][Crux]] database to a [[http://fulcro.fulcrologic.com/][Fulcro]] template project. To set up Emacs for
 [[http://clojure.org/][Clojure]] and [[http://clojurescript.org/][ClojureScript]] development with Cider see e.g.: [[./2017-04-13-emacs-config.html][My Emacs configuration]]
 

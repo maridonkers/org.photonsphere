@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Functional, GUI, Lisp, Janet, Carp
 ----
 
+#+OPTIONS: ^:nil
+
 Two Lisps. [[https://janet-lang.org/][Janet]] and [[https://github.com/carp-lang/Carp][Carp]].
 
 (.more.)
@@ -22,27 +24,27 @@ systems. (by *[[https://github.com/janet-lang][janet-lang]]*)
 
 Features:
 
-- Minimal setup - one binary and you are good to go!
-- First class closures
-- Garbage collection
-- First class green threads (continuations)
-- Python style generators (implemented as a plain macro)
-- Mutable and immutable arrays (array/tuple)
-- Mutable and immutable hashtables (table/struct)
-- Mutable and immutable strings (buffer/string)
-- Lisp Macros
-- Byte code interpreter with an assembly interface, as well as bytecode
+- o Minimal setup - one binary and you are good to go!
+- o First class closures
+- o Garbage collection
+- o First class green threads (continuations)
+- o Python style generators (implemented as a plain macro)
+- o Mutable and immutable arrays (array/tuple)
+- o Mutable and immutable hashtables (table/struct)
+- o Mutable and immutable strings (buffer/string)
+- o Lisp Macros
+- o Byte code interpreter with an assembly interface, as well as bytecode
   verification
-- Tailcall Optimization
-- Direct interop with C via abstract types and C functions
-- Dynamically load C libraries
-- Functional and imperative standard library
-- Lexical scoping
-- Imperative programming as well as functional
-- REPL
-- Parsing Expression Grammars built in to the core library
-- 300+ functions and macros in the core library
-- Interactive environment with detailed stack traces
+- o Tailcall Optimization
+- o Direct interop with C via abstract types and C functions
+- o Dynamically load C libraries
+- o Functional and imperative standard library
+- o Lexical scoping
+- o Imperative programming as well as functional
+- o REPL
+- o Parsing Expression Grammars built in to the core library
+- o 300+ functions and macros in the core library
+- o Interactive environment with detailed stack traces
 
 * Carp
    :PROPERTIES:
@@ -51,7 +53,7 @@ Features:
 
 [[https://github.com/carp-lang/Carp][Carp]] is a small programming language designed to work well for
 interactive and performance sensitive use cases like games, sound
-synthesis and visualizations. (by *[[https://github.com/carp-lang][carp-lang]]*)
+synthesis and visualizations. (by [[https://github.com/carp-lang][carp-lang]])
 
 The key features of Carp are the following:
 

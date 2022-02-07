@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, NixOS, Functional, Haskell, GUI, Tiling Window Manager, xmonad, Termonad
 ----
 
+#+OPTIONS: ^:nil
+
 In the past I have used the [[https://xmonad.org/][xmonad]] tiling window manager but
 eventually returned to [[https://kde.org/][KDE]], because I had some problems with truncated
 text in terminal windows, needed to be able to run a complicated GUI
@@ -142,5 +144,5 @@ My [[https://github.com/maridonkers/dotfiles][dotfiles]] at GitHub with a.o. [[h
     :CUSTOM_ID: already-on-github
     :END:
 
-- [[https://github.com/maridonkers/nixos-configuration][NixOS configuration]]
-- [[https://github.com/maridonkers/emacs-config][Emacs configuration]]
+- o [[https://github.com/maridonkers/nixos-configuration][NixOS configuration]]
+- o [[https://github.com/maridonkers/emacs-config][Emacs configuration]]

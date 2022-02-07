@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Functional, Database, Graph, Clojure, Graph Database
 ----
 
+#+OPTIONS: ^:nil
+
 Neocons - an idiomatic, feature rich [[http://clojure.org/][Clojure]] client for [[https://neo4j.com/][Neo4J]] REST API
 -- [[http://clojureneo4j.info/][Neocons]] (by *Michael S. Klishin*, *Alex Petrov*, and the
 *ClojureWerkz team*).

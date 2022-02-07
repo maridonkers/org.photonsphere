@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Functional, Haskell, GUI, Tiling Window Manager, xmonad, Termonad
 ----
 
+#+OPTIONS: ^:nil
+
 Because I have been wanting to start using [[https://en.wikipedia.org/wiki/Tiling_window_manager][tiling window managers]] and
 want to learn some [[https://www.haskell.org/][Haskell]].
 
@@ -29,5 +31,5 @@ My [[https://github.com/maridonkers/dotfiles][dotfiles]] at GitHub with a.o. [[h
     :CUSTOM_ID: already-on-github
     :END:
 
-- [[https://github.com/maridonkers/nixos-configuration][NixOS configuration]]
-- [[https://github.com/maridonkers/emacs-config][Emacs configuration]]
+- o [[https://github.com/maridonkers/nixos-configuration][NixOS configuration]]
+- o [[https://github.com/maridonkers/emacs-config][Emacs configuration]]

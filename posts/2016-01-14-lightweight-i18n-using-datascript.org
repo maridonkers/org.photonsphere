@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, GUI, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 A lightweight ;-) i18n solution for [[https://github.com/clojure/clojurescript][ClojureScript]] that uses a
 [[https://github.com/tonsky/datascript][DataScript]] database. It's inspired by [[https://github.com/ptaoussanis/tower][Tower, a Clojure/Script i18n & L10n library]].
 

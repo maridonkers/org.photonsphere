@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Server, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 An integrated suite of [[http://clojure.org/][Clojure]] libraries backed by [[http://undertow.io/][Undertow]] for web,
 [[http://jboss.org/hornetq/][HornetQ]] for messaging, [[http://infinispan.org/][Infinispan]] for caching, [[http://quartz-scheduler.org/][Quartz]] for scheduling,
 and [[http://www.jboss.org/narayana][Narayana]] for transactions.

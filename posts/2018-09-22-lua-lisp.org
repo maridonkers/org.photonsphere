@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Lua, Embedded, Functional, Lisp, JavaScript
 ----
 
+#+OPTIONS: ^:nil
+
 Some Lisps targeting [[https://www.lua.org/][Lua]] are: [[https://fennel-lang.org/][Fennel]]; [[https://github.com/sctb/lumen/][Lumen]] and [[https://github.com/SquidDev/urn/blob/master/README.md][Urn]].
 
 (.more.)
@@ -16,20 +18,20 @@ Some Lisps targeting [[https://www.lua.org/][Lua]] are: [[https://fennel-lang.or
 
 Fennel is a programming language that brings together the speed,
 simplicity, and reach of [[https://www.lua.org/][Lua]] with the flexibility of a [[https://en.wikipedia.org/wiki/Lisp_(programming_language)][lisp syntax and
-macro system]]. -- [[https://fennel-lang.org/][Fennel]] (by *Calvin Rose and [[https://github.com/bakpakin/Fennel/graphs/contributors][contributors]].*)
+macro system]]. -- [[https://fennel-lang.org/][Fennel]] (by *Calvin Rose* and [[https://github.com/bakpakin/Fennel/graphs/contributors][contributors]].)
 
 ** From its documentation
     :PROPERTIES:
     :CUSTOM_ID: from-its-documentation
     :END:
 
-- Full Lua compatibilty: Easily call any Lua function or library from
+- o Full Lua compatibilty: Easily call any Lua function or library from
   Fennel and vice-versa.
-- Zero overhead: Compiled code should be just as or more efficient than
+- o Zero overhead: Compiled code should be just as or more efficient than
   hand-written Lua.
-- Compile-time macros: Ship compiled code with no runtime dependency on
+- o Compile-time macros: Ship compiled code with no runtime dependency on
   Fennel.
-- Embeddable: Fennel is a one-file library as well as an executable.
+- o Embeddable: Fennel is a one-file library as well as an executable.
   Embed it in other programs to support runtime extensibility and
   interactive development.
 
@@ -41,7 +43,7 @@ Anywhere you can run Lua code, you can run Fennel code.
    :END:
 
 Lumen Lumen is a very small, self-hosted Lisp for [[https://www.lua.org/][Lua]] and JavaScript.
--- [[https://github.com/sctb/lumen/][Lumen]] (by *[[https://github.com/sctb][Scott Bell]] with [[https://github.com/gruseom][Daniel Gackle]] and [[https://github.com/shawwn][Shawn Presser]].*)
+-- [[https://github.com/sctb/lumen/][Lumen]] (by [[https://github.com/sctb][Scott Bell]] with [[https://github.com/gruseom][Daniel Gackle]] and [[https://github.com/shawwn][Shawn Presser]].)
 
 ** From its documentation
     :PROPERTIES:
@@ -60,7 +62,7 @@ or LuaJIT installed.
    :END:
 
 Urn is a Lisp dialect with a focus on minimalism which compiles to
-[[https://www.lua.org/][Lua]]. -- [[https://github.com/SquidDev/urn/blob/master/README.md][Urn]] (by *[[https://github.com/SquidDev][SquidDev]], and [[https://github.com/zardyh][demhydraz]]*.)
+[[https://www.lua.org/][Lua]]. -- [[https://github.com/SquidDev/urn/blob/master/README.md][Urn]] (by [[https://github.com/SquidDev][SquidDev]], and [[https://github.com/zardyh][demhydraz]].)
 
 ** From its documentation
     :PROPERTIES:

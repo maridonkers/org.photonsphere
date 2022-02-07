@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, GUI, Mobile, Android, iOS, Embedded, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 For [[http://leiningen.org][Leiningen]]: A fork of [[https://github.com/dmotz/natal][dmotz/natal]] by Dan Motzenbecker with the goal
 of generating skeleton of native app for iOS and Android based on
 [[https://github.com/reagent-project/reagent][Reagent]] + [[https://github.com/Day8/re-frame][re-frame]], [[https://github.com/omcljs/om/wiki/Quick-Start-(om.next)][Om.Next]] or [[https://github.com/tonsky/rum][Rum]] -- [[https://github.com/drapanjanas/re-natal][Re-Natal]] (by *Artur Girenko*).

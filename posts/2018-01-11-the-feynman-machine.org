@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Clojure, Functional, C++, Machine Learning, Mathematics
 ----
 
+#+OPTIONS: ^:nil
+
 The [[https://arxiv.org/abs/1609.03971][Feynman Machine]]: AI architecture in [[https://clojure.org][Clojure]] / [[http://neanderthal.uncomplicate.org/][Neanderthal]] -- [[http://2017.euroclojure.org/the-feynman-machine/][The
 Feynman Machine]] (by *[[https://ogma.ai][Fergal Byrne]]* and *[[https://twitter.com/louiseklodt][Louise Klodt]]*)
 
@@ -33,6 +35,6 @@ Laukien, Richard Crowder, Fergal Byrne]].
     :CUSTOM_ID: videos
     :END:
 
-- [[https://youtu.be/um2uq5oURT8][The Feynman Machine: AI architecture in Clojure/Neanderthal - Fergal Byrne]];
-- [[https://youtu.be/9GNbVkMb8Qw][World's Smallest Self-Driving Car - a Raspberry Pi Zero on wheels]];
-- [[https://youtu.be/0ibVhtuQkZA][Self Driving Car Learns Online and On-board on Raspberry Pi 3]].
+- o [[https://youtu.be/um2uq5oURT8][The Feynman Machine: AI architecture in Clojure/Neanderthal - Fergal Byrne]];
+- o [[https://youtu.be/9GNbVkMb8Qw][World's Smallest Self-Driving Car - a Raspberry Pi Zero on wheels]];
+- o [[https://youtu.be/0ibVhtuQkZA][Self Driving Car Learns Online and On-board on Raspberry Pi 3]].

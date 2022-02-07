@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Linux, Debian
 ----
 
+#+OPTIONS: ^:nil
+
 Where *stable* actually means *stable*! -- [[https://www.debian.org/][Debian]] (by *[[https://www.spi-inc.org/][Software in the
 Public Interest]]*).
 

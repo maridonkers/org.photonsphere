@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, GUI, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 GitHub's [[http://electron.atom.io/][Electron]] is used to build cross platform desktop apps with
 web technologies like JavaScript, HTML, and CSS. The text editor
 [[https://atom.io/][Atom]] and the [[https://slack.com/is][Slack]] application are written using Electron.

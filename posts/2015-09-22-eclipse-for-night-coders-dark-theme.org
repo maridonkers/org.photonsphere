@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, GUI, Linux, KDE, IDE, Eclipse, Functional, Clojure, ClojureScript
 ----
 
+#+OPTIONS: ^:nil
+
 With my Eclipse running under KDE (Debian Linux) the dark themes in
 Eclipse suffer from side effects. Like the disappearance of the little
 menu in the title area of the window's tabs.

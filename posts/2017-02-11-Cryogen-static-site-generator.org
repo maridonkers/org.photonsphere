@@ -5,6 +5,8 @@ meta_description:
 tags: Computer, Software, Functional, Internet, Clojure, ClojureScript, Static Site Generator, HTML, CSS, Web
 ----
 
+#+OPTIONS: ^:nil
+
 Cryogen is a simple static site generator built with [[http://clojure.org/][Clojure]] ---
 [[http://cryogenweb.org/][Cryogen]] (by *Carmen La*).
 

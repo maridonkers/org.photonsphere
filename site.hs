@@ -13,7 +13,8 @@ main =
   do prod <- isJust <$> lookupEnv "PROD"
      let config :: Configuration
          config = defaultConfiguration
-                   { previewPort = 9001 }
+                   { previewHost = "0.0.0.0",
+                     previewPort = 9001 }
          myDefaultContext = mconcat
                             [ boolField "prod" (const prod)
                             , constField "root" root
@@ -26,6 +27,11 @@ main =
        match "css/*" $ do
          route   idRoute
          compile compressCssCompiler
+
+       -- TODO JavaScript (compiler?)
+       forM_ ["js/*"] $ \f -> match f $ do
+         route idRoute
+         compile copyFileCompiler
 
        match (fromList ["CNAME", "favicon.ico", "robots.txt"]) $ do
          route   idRoute
