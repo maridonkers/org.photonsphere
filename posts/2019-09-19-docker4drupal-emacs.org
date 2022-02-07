@@ -55,7 +55,7 @@ To build images and bring them up.
 Allow for some time to let it settle.
 
 Visit [[http://drupal.docker.localhost:8000/]] for your site. Visit
-[[http://portainer.drupal.docker.localhost:8000/]] for the Portainer
+[[http://portainer.drupal.docker.localhost:8000/][http://portainer.aboveurl/]] for the Portainer
 interface.
 
 * Connect to development image

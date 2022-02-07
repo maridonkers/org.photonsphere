@@ -23,7 +23,10 @@ Ctrl-Meta-U to activate it for the Eclipse window (which uses the
 regular light theme). This gives a very nice dark theme like effect,
 which is perfect for coding when it's dark! You may want to adjust the
 =Selection background= color in the Eclipse settings, which can be
-found under =Window->Preferences->General->Editors->Text Editors=.
+found under
+#+BEGIN_SRC sh
+Window->Preferences->General->Editors->Text Editors
+#+END_SRC
 
 * Screendump
     :PROPERTIES:

@@ -40,7 +40,9 @@ environment (JRE) is required.
 #+END_SRC
 
 It writes the converted output to
-=yourdecompressedkmymoneyinputfile.kmy.journal=.
+#+BEGIN_SRC sh
+yourdecompressedkmymoneyinputfile.kmy.journal
+#+END_SRC
 
 * CSV importers
     :PROPERTIES:
