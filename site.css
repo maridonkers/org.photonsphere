@@ -21,6 +21,10 @@ img {
     @apply rounded-lg;
 }
 
+code.verbatim {
+    @apply bg-blue-100;
+}
+
 a.footnote-back {
     @apply bg-white;
     @apply placeholder-black;
