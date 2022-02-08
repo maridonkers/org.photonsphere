@@ -18,7 +18,6 @@ main =
          myDefaultContext = mconcat
                             [ boolField "prod" (const prod)
                             , constField "root" root
-                            , constField "keywords" keywords
                             , defaultContext ]
      hakyllWith config $ do
        match "images/*" $ do
@@ -140,9 +139,6 @@ main =
 
 root :: String
 root = "https://photonsphere.org"
-
-keywords :: String
-keywords = "mari donkers,maridonkers,donkers,nederland,netherlands,eindhoven,computer,software,software development,blog,photonsphere,photon sphere,internet,linux,nixos,nix,html,css,clojure,clojurescript,haskell,hakyll,functional,functional programming,docker,gui,python,perl,php,c,c++,rust"
 
 customPandocCompiler :: Compiler (Item String)
 customPandocCompiler =
