@@ -37,7 +37,7 @@ A number of Debian packages are required and useful for your Haskell development
     :PROPERTIES:
     :CUSTOM_ID: demonstration
     :END:
-Use the commands below to get and build my Paperspan export (HTML) to Instapaper import (CSV) convertor -- [[https://github.com/maridonkers/paperspan2instapaper][maridonkers/paperspan2instapaper]].
+Use the commands below to get and build my Paperspan export (HTML) to Instapaper import (CSV) convertor -- [[https://photonsphere.org/posts/2021-10-06-paperspan2instapaper.html][Paperspan export (HTML) to Instapaper import (CSV) convertor]].
 
 #+BEGIN_SRC sh
   git clone https://github.com/maridonkers/paperspan2instapaper.git

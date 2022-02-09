@@ -2,7 +2,6 @@
 
 h1 {
     @apply w-fit;
-    @apply uppercase;
     @apply border-b-2 md:border-b-4;
     @apply border-red-800;
 }
