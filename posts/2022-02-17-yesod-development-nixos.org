@@ -18,8 +18,10 @@ Install required and/or useful packages using the commands given below.
   nix-env -iA nixos.cabal2nix
   nix-env -iA nixos.ghc
   nix-env -iA nixos.stack
+  nix-env -iA nixos.hlint
   nix-env -iA nixos.stylish-haskell
   nix-env -iA nixos.ormolu
+  nix-env -iA nixos.silver-searcher
   nix-env -iA nixos.haskellPackages.yesod-bin
 #+END_SRC
 * Scaffolding
