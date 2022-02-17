@@ -366,4 +366,4 @@ During development a source code change detecting server can be used. Run =make 
 
   Refresh the site at: [[http://localhost:3000/]]
 
-  After an initial period with it showing (in the browser) the site is being built it should show the site and pick up changes to the Haskell source code or to Shakespearean templates.
+  After an initial period with it showing (in the browser) the site is being built, it should show the site and pick up changes to the Haskell source code or to Shakespearean templates.
