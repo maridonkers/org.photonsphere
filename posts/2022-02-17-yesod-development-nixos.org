@@ -341,22 +341,6 @@ Use a =make database-ls= command to see if a database is running and to see its 
     packages: [ postgresql zlib]
 #+END_SRC
 
-* Emacs .dir-locals.el
-See: [[https://stackoverflow.com/questions/26419321/ghci-cannot-find-modules-of-my-program][GHCi cannot find modules of my program]].
-
-This file contains =Emacs= configuration but to prevent module not found errors, make sure ="ghci"= in =("ghci")= is replaced with =("cabal" "new-repl")=, as follows:
-
-=.dir-locals.el=:
-#+BEGIN_SRC lisp
-  ((haskell-mode . ((haskell-indent-spaces . 4)
-                    (haskell-process-use-ghci . t)))
-   (hamlet-mode . ((hamlet/basic-offset . 4)
-                   (haskell-process-use-ghci . t)))
-   (nil
-    (dante-repl-command-line . ("cabal" "new-repl"))
-    (haskell-process-type . ghci)))
-#+END_SRC
-
 * Development server (source code change detecting)
   First execute a =make shell= to enter a Nix shell in which tooling (e.g. hpack) is properly configured.
   
