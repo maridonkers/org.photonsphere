@@ -322,7 +322,7 @@ Enter password =projectname= when prompted below; see the =config/settings.yml= 
   createdb projectname_test
 #+END_SRC
 
-Use =make database-ls= to see if a database is running an to see its id. To stop it use a =docker stop id= command (use a =docker start id= command to start it again). To remove it use a =docker rm id= command.
+Use a =make database-ls= command to see if a database is running and to see its id. To stop it, use a =docker stop id= command (use a =docker start id= command to start it again). To remove it, use a =docker rm id= command.
 
 * The pg_config not found error
   The full error reads as follows:
