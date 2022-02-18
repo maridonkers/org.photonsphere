@@ -2,7 +2,11 @@
 title: Yesod development environment under NixOS
 modified: 2022-02-17
 meta_description: 
+<<<<<<< HEAD
 tags: Computer, Software, Internet, Linux, NixOS, Haskell, Functional, Yesod, HTML, CSS, JavaScript, Web
+=======
+tags: Computer, Software, Internet, Linux, NixOS, Haskell, Stack, Cabal, Functional, Yesod, HTML, CSS, JavaScript, Web
+>>>>>>> develop
 ----
 
 #+OPTIONS: ^:nil
@@ -16,6 +20,7 @@ Install required and/or useful packages using the commands given below.
 #+BEGIN_SRC sh
   nix-env -iA nixos.cabal-install
   nix-env -iA nixos.cabal2nix
+<<<<<<< HEAD
   nix-env -iA nixos.ghc
   nix-env -iA nixos.stack
   nix-env -iA nixos.hlint
@@ -26,6 +31,13 @@ Install required and/or useful packages using the commands given below.
 #+END_SRC
 * Scaffolding
 [[https://www.yesodweb.com/book/scaffolding-and-the-site-template][Scaffolding]] generates a =package.yaml= file (=hpack=) that can be used with =stack= but also =cabal= (which is good because in my experience using =stack= is cumbersome under NixOS).
+=======
+  nix-env -iA nixos.stack
+  nix-env -iA nixos.silver-searcher
+#+END_SRC
+* Scaffolding
+[[https://www.yesodweb.com/book/scaffolding-and-the-site-template][Scaffolding]] generates a =package.yaml= file (=hpack=) that can be used with =stack= and =cabal=.
+>>>>>>> develop
 
 For example to generate a =yesodweb/postgres= project =projectname=, use the following command:
 #+BEGIN_SRC sh
@@ -33,6 +45,7 @@ For example to generate a =yesodweb/postgres= project =projectname=, use the fol
 #+END_SRC
 Which generates a =Yesod= project in a =projectname= subdirectory, with a =package.yaml= file generated. If you use another name then replace =projectname= with your project's name in the rest of these instructions.
 
+<<<<<<< HEAD
 Output of the above scaffolding command is given below.
 #+BEGIN_SRC sh
   Downloading template "yesodweb/postgres" to create project "projectname" in projectname/ ...
@@ -307,6 +320,89 @@ Edit variables if you use another name than =projectname= for your project. Alwa
     help:
             @grep '^[^ 	#:]\+:' Makefile | sed -e 's/:[^:]*//g'
             @echo -e "\nRun make shell prior to building site.hs.\n"
+=======
+* Edit stack.yaml  
+  In your project's =stack.yaml= add the following section:
+#+BEGIN_SRC yaml
+  # pg_config not found error when running yesod devel
+  nix:
+    pure: true
+    enable: true
+    packages: [ postgresql zlib]
+#+END_SRC
+
+Otherwise you may get problems with =zlib= and =pg_config=, e.g. like this:
+
+  #+BEGIN_SRC sh
+    Configuring postgresql-libpq-0.9.1.1...
+    setup: The program 'pg_config' is required but it could not be found.
+  #+END_SRC
+  See: [[https://stackoverflow.com/questions/39603903/haskell-stack-does-not-build-postgresql-libpq-on-nixos][Haskell Stack does not build postgresql-libpq on Nixos]].
+  
+* Yesod prerequisites
+  Make sure to have =~/.local/bin= at the start of your PATH variable; e.g. by putting the following to your =~/.bashrc= (or something similar):
+  #+BEGIN_SRC sh
+    export PATH="~/.local/bin:${PATH}"
+  #+END_SRC
+
+  Then use the stack command to install Yesod prerequisites.
+  #+BEGIN_SRC sh
+    stack install hpack hlint stylish-haskell yesod-bin
+  #+END_SRC
+
+* Makefile
+  When creating this file, do make sure to use TAB characters in this Makefile where appropriate.
+  #+BEGIN_SRC makefile
+all: help
+
+edit:
+	@emacs &
+
+build:
+	stack build
+
+clean:
+	stack clean
+
+rebuild: clean
+	stack build
+
+repl:
+	stack repl
+
+devel:
+	yesod devel
+
+# https://hub.docker.com/_/postgres
+database:
+	docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+
+# Enter password `projectname` when prompted below; also see:
+#   config/settings.yml
+#
+# Use `su - postgres` before the following commands (to initialize), as follows:
+#   su - postgres
+#   createuser projectname --pwprompt --superuser
+#   createdb projectname
+#   createdb projectname_test
+#
+database-shell:
+	xhost +LOCAL:
+	docker exec -it some-postgres /bin/bash
+
+database-ls:
+	docker ps
+
+lint:
+	ag --haskell -l | xargs hlint -v
+
+formatter:
+	ag --haskell -l | xargs stylish-haskell -i
+
+help:
+	@grep '^[^ 	#:]\+:' Makefile | sed -e 's/:[^:]*//g'
+	@echo -e "\nRun make shell prior to building site.hs.\n"
+>>>>>>> develop
   #+END_SRC
 
 * Database creation and initialization
@@ -326,6 +422,7 @@ Enter password =projectname= when prompted below; see the =config/settings.yml= 
 
 Use a =make database-ls= command to see if a database is running and to see its id. To stop it, use a =docker stop id= command (use a =docker start id= command to start it again). To remove it, use a =docker rm id= command.
 
+<<<<<<< HEAD
 * The pg_config not found error
   The full error reads as follows:
   #+BEGIN_SRC sh
@@ -349,6 +446,12 @@ Use a =make database-ls= command to see if a database is running and to see its 
   Because the [[https://www.yesodweb.com/book/shakespearean-templates][Shakespearean template]] files (=.hamlet=, =.julius= and =.lucius=) need to be processed when changed, a =make rebuild= should always be done before a production deployment.
 
 During development a source code change detecting server can be used. Run =make clean=, =make build= and =make devel= to start it. See the [[Makefile]] section. You may have to abort and retry the =make devel= if it doesn't work properly the first time(s).
+=======
+* Development server (source code change detecting)
+  Because the [[https://www.yesodweb.com/book/shakespearean-templates][Shakespearean template]] files (=.hamlet=, =.julius= and =.lucius=) need to be processed when changed, a =make rebuild= should always be done before a production deployment.
+
+During development a source code change detecting server can be used. Run =make rebuild= and =make devel= to start it. See the [[Makefile]] section. You may have to abort and retry the =make devel= if it doesn't work properly the first time(s). If that doesn't work then keep it running and execute a =make build= from a separate shell prompt.
+>>>>>>> develop
 
   Refresh the site at: [[http://localhost:3000/]]
 
