@@ -125,6 +125,8 @@ Enter password =projectname= when prompted below; see the =config/settings.yml= 
   createdb projectname_test
 #+END_SRC
 
+Exit the database shell with Ctrl-D (twice) to return to your regular command prompt.
+
 Use a =make database-ls= command to see if a database is running and to see its id. To stop it, use a =docker stop id= command (use a =docker start id= command to start it again). To remove it, use a =docker rm id= command.
 
 * Development server (source code change detecting)
