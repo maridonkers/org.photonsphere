@@ -108,7 +108,6 @@ formatter:
 
 help:
 	@grep '^[^ 	#:]\+:' Makefile | sed -e 's/:[^:]*//g'
-	@echo -e "\nRun make shell prior to building site.hs.\n"
   #+END_SRC
 
 * Database creation and initialization
