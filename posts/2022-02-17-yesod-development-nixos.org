@@ -2,11 +2,7 @@
 title: Yesod development environment under NixOS
 modified: 2022-02-17
 meta_description: 
-<<<<<<< HEAD
-tags: Computer, Software, Internet, Linux, NixOS, Haskell, Functional, Yesod, HTML, CSS, JavaScript, Web
-=======
 tags: Computer, Software, Internet, Linux, NixOS, Haskell, Stack, Cabal, Functional, Yesod, HTML, CSS, JavaScript, Web
->>>>>>> develop
 ----
 
 #+OPTIONS: ^:nil
@@ -20,24 +16,11 @@ Install required and/or useful packages using the commands given below.
 #+BEGIN_SRC sh
   nix-env -iA nixos.cabal-install
   nix-env -iA nixos.cabal2nix
-<<<<<<< HEAD
-  nix-env -iA nixos.ghc
-  nix-env -iA nixos.stack
-  nix-env -iA nixos.hlint
-  nix-env -iA nixos.stylish-haskell
-  nix-env -iA nixos.ormolu
-  nix-env -iA nixos.silver-searcher
-  nix-env -iA nixos.haskellPackages.yesod-bin
-#+END_SRC
-* Scaffolding
-[[https://www.yesodweb.com/book/scaffolding-and-the-site-template][Scaffolding]] generates a =package.yaml= file (=hpack=) that can be used with =stack= but also =cabal= (which is good because in my experience using =stack= is cumbersome under NixOS).
-=======
   nix-env -iA nixos.stack
   nix-env -iA nixos.silver-searcher
 #+END_SRC
 * Scaffolding
 [[https://www.yesodweb.com/book/scaffolding-and-the-site-template][Scaffolding]] generates a =package.yaml= file (=hpack=) that can be used with =stack= and =cabal=.
->>>>>>> develop
 
 For example to generate a =yesodweb/postgres= project =projectname=, use the following command:
 #+BEGIN_SRC sh
@@ -45,282 +28,6 @@ For example to generate a =yesodweb/postgres= project =projectname=, use the fol
 #+END_SRC
 Which generates a =Yesod= project in a =projectname= subdirectory, with a =package.yaml= file generated. If you use another name then replace =projectname= with your project's name in the rest of these instructions.
 
-<<<<<<< HEAD
-Output of the above scaffolding command is given below.
-#+BEGIN_SRC sh
-  Downloading template "yesodweb/postgres" to create project "projectname" in projectname/ ...
-  Looking for .cabal or package.yaml files to use to init the project.           
-  Using cabal packages:                                                          
-  - projectname/                                                                 
-
-  Selecting the best among 20 snapshots...                                       
-
-  ,* Partially matches https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/18/25.yaml
-      aeson version 1.5.6.0 found                                                
-          - projectname requires ==1.4.*
-      classy-prelude-yesod not found
-          - projectname requires ==1.5.*
-      persistent version 2.13.3.0 found
-          - projectname requires >=2.9 && <2.11
-      persistent-postgresql version 2.13.4.0 found
-          - projectname requires >=2.9 && <2.11
-      persistent-template version 2.12.0.0 found
-          - projectname requires >=2.5 && <2.9
-      wai-extra version 3.1.8 found
-          - projectname requires ==3.0.*
-      yesod-form version 1.7.0 found
-          - projectname requires ==1.6.*
-      Using package flags:
-          - projectname: FlagName "dev" = False, FlagName "library-only" = False
-
-  ,* Partially matches https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2022/2/16.yaml
-      aeson version 2.0.3.0 found                                                
-          - projectname requires ==1.4.*
-      fast-logger version 3.1.1 found
-          - projectname requires >=2.2 && <3.1
-      persistent version 2.13.3.0 found
-          - projectname requires >=2.9 && <2.11
-      persistent-postgresql version 2.13.4.0 found
-          - projectname requires >=2.9 && <2.11
-      persistent-template version 2.12.0.0 found
-          - projectname requires >=2.5 && <2.9
-      wai-extra version 3.1.8 found
-          - projectname requires ==3.0.*
-      wai-logger version 2.4.0 found
-          - projectname requires >=2.2 && <2.4
-      yesod-form version 1.7.0 found
-          - projectname requires ==1.6.*
-      Using package flags:
-          - projectname: FlagName "dev" = False, FlagName "library-only" = False
-
-  ,* Partially matches https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/17/15.yaml
-      aeson version 1.5.6.0 found                                                
-          - projectname requires ==1.4.*
-      classy-prelude-yesod not found
-          - projectname requires ==1.5.*
-      persistent version 2.11.0.4 found
-          - projectname requires >=2.9 && <2.11
-      persistent-postgresql version 2.11.0.1 found
-          - projectname requires >=2.9 && <2.11
-      persistent-template version 2.9.1.0 found
-          - projectname requires >=2.5 && <2.9
-      wai-extra version 3.1.6 found
-          - projectname requires ==3.0.*
-      Using package flags:
-          - projectname: FlagName "dev" = False, FlagName "library-only" = False
-
-  ,* Matches https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/16/31.yaml
-
-  Selected resolver: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/16/31.yaml
-  Initialising configuration using resolver: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/16/31.yaml
-  Total number of user packages considered: 1                                    
-  Writing configuration to file: projectname/stack.yaml                          
-  All done.                                                                      
-  /home/username/.stack/templates/yesodweb/postgres.hsfiles:  537.08 KiB downloaded...
-#+END_SRC
-
-* package.yaml
-The =package.yaml= file that is generated by the [[https://www.yesodweb.com/book/scaffolding-and-the-site-template][scaffolding]] is given below.
-#+BEGIN_SRC yaml
-name:    projectname
-version: "0.0.0"
-
-dependencies:
-
-- base >=4.9.1.0 && <5
-- yesod >=1.6 && <1.7
-- yesod-core >=1.6 && <1.7
-- yesod-auth >=1.6 && <1.7
-- yesod-static >=1.6 && <1.7
-- yesod-form >=1.6 && <1.7
-- classy-prelude >=1.5 && <1.6
-- classy-prelude-conduit >=1.5 && <1.6
-- classy-prelude-yesod >=1.5 && <1.6
-- bytestring >=0.10 && <0.11
-- text >=0.11 && <2.0
-- persistent >=2.9 && <2.11
-- persistent-postgresql >=2.9 && <2.11
-- persistent-template >=2.5 && <2.9
-- template-haskell
-- shakespeare >=2.0 && <2.1
-- hjsmin >=0.1 && <0.3
-- monad-control >=0.3 && <1.1
-- wai-extra >=3.0 && <3.1
-- yaml >=0.11 && <0.12
-- http-client-tls >=0.3 && <0.4
-- http-conduit >=2.3 && <2.4
-- directory >=1.1 && <1.4
-- warp >=3.0 && <3.4
-- data-default
-- aeson >=1.4 && <1.5
-- conduit >=1.0 && <2.0
-- monad-logger >=0.3 && <0.4
-- fast-logger >=2.2 && <3.1
-- wai-logger >=2.2 && <2.4
-- file-embed
-- safe
-- unordered-containers
-- containers
-- vector
-- time
-- case-insensitive
-- wai
-- foreign-store
-
-# The library contains all of our application code. The executable
-# defined below is just a thin wrapper.
-library:
-  source-dirs: src
-  when:
-  - condition: (flag(dev)) || (flag(library-only))
-    then:
-      ghc-options:
-      - -Wall
-      - -fwarn-tabs
-      - -O0
-      cpp-options: -DDEVELOPMENT
-    else:
-      ghc-options:
-      - -Wall
-      - -fwarn-tabs
-      - -O2
-
-# Runnable executable for our application
-executables:
-  projectname:
-    main: main.hs
-    source-dirs: app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - projectname
-    when:
-    - condition: flag(library-only)
-      buildable: false
-
-# Test suite
-tests:
-  projectname-test:
-    main: Spec.hs
-    source-dirs: test
-    ghc-options: -Wall
-    dependencies:
-    - projectname
-    - hspec >=2.0.0
-    - yesod-test
-
-# Define flags used by "yesod devel" to make compilation faster
-flags:
-  library-only:
-    description: Build for use with "yesod devel"
-    manual: false
-    default: false
-  dev:
-    description: Turn on development settings, like auto-reload templates.
-    manual: false
-    default: false
-#+END_SRC
-* shell.nix
-  #+BEGIN_SRC nix
-    # This file is NixOS specific and allows to use `nix-shell` to load up
-    # Haskell context (e.g. hpack) for this project. Also see the Makefile.
-    #
-    { pkgs ? import <nixpkgs> {} }:
-
-    (pkgs.haskellPackages.callCabal2nix "projectname" ./. {}).env
-  #+END_SRC
-  
-* Makefile
-Edit variables if you use another name than =projectname= for your project. Always execute a =make shell= first, before using other commands (with the exception of the database commands).
-  #+BEGIN_SRC makefile
-    # Always run `make shell` first to enter a Nix shell. If you start
-    # Emacs from within a Nix shell then its Haskell support works with
-    # the project.
-    #
-
-    PROJECT="projectname"
-    EXECUTABLE="exe:projectname"
-    LIBRARY="lib:projectname"
-
-    all: help
-
-    # Always use `make shell` first, before other commands (except for the database commands).
-    shell:
-            LC_ALL=C.UTF-8 nix-shell
-
-    edit:
-            @emacs &
-
-    build:
-            hpack
-            cabal new-build
-
-    rebuild:
-            cabal new-clean
-            rm $(PROJECT).cabal
-            cabal new-update
-            hpack
-            cabal new-build
-
-    clean:
-            cabal new-clean
-
-    repl:
-            cabal new-repl
-
-    # Prerequisite is:
-    #   nix-env -iA nixos.haskellPackages.yesod-bin
-    #
-    # Also see:
-    #   https://chrisdone.com/posts/ghci-reload/
-    #
-    devel:
-            cabal new-exec -- yesod devel
-
-    # Execute the result after having started via `make database` and
-    # initialized via `make database-shell` and access the website via
-    #
-    #   http://localhost:3000/
-    #
-    # During development enable in settings.yml, as follows:
-    #
-    #   development: true
-    #
-    ls:
-            @cabal list-bin ${EXECUTABLE}
-
-    # https://hub.docker.com/_/postgres
-    database:
-            docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
-
-    # Enter password `projectname` when prompted below; also see:
-    #   config/settings.yml
-    #
-    # Use `su - postgres` before the following commands (to initialize), as follows:
-    #   su - postgres
-    #   createuser projectname --pwprompt --superuser
-    #   createdb projectname
-    #   createdb projectname_test
-    #
-    database-shell:
-            xhost +LOCAL:
-            docker exec -it some-postgres /bin/bash
-
-    database-ls:
-            docker ps
-
-    lint:
-            ag --haskell -l | xargs hlint -v
-
-    formatter:
-            ag --haskell -l | xargs stylish-haskell -i
-
-    help:
-            @grep '^[^ 	#:]\+:' Makefile | sed -e 's/:[^:]*//g'
-            @echo -e "\nRun make shell prior to building site.hs.\n"
-=======
 * Edit stack.yaml  
   In your project's =stack.yaml= add the following section:
 #+BEGIN_SRC yaml
@@ -402,7 +109,6 @@ formatter:
 help:
 	@grep '^[^ 	#:]\+:' Makefile | sed -e 's/:[^:]*//g'
 	@echo -e "\nRun make shell prior to building site.hs.\n"
->>>>>>> develop
   #+END_SRC
 
 * Database creation and initialization
@@ -422,36 +128,10 @@ Enter password =projectname= when prompted below; see the =config/settings.yml= 
 
 Use a =make database-ls= command to see if a database is running and to see its id. To stop it, use a =docker stop id= command (use a =docker start id= command to start it again). To remove it, use a =docker rm id= command.
 
-<<<<<<< HEAD
-* The pg_config not found error
-  The full error reads as follows:
-  #+BEGIN_SRC sh
-    Configuring postgresql-libpq-0.9.1.1...
-    setup: The program 'pg_config' is required but it could not be found.
-  #+END_SRC
-  See: [[https://stackoverflow.com/questions/39603903/haskell-stack-does-not-build-postgresql-libpq-on-nixos][Haskell Stack does not build postgresql-libpq on Nixos]].
-  
-  To fix the error, in your project's =stack.yaml= add the following section:
-#+BEGIN_SRC yaml
-  # pg_config not found error when running yesod devel
-  nix:
-    pure: true
-    enable: true
-    packages: [ postgresql zlib]
-#+END_SRC
-
-* Development server (source code change detecting)
-  First execute a =make shell= to enter a Nix shell in which tooling (e.g. hpack) is properly configured.
-  
-  Because the [[https://www.yesodweb.com/book/shakespearean-templates][Shakespearean template]] files (=.hamlet=, =.julius= and =.lucius=) need to be processed when changed, a =make rebuild= should always be done before a production deployment.
-
-During development a source code change detecting server can be used. Run =make clean=, =make build= and =make devel= to start it. See the [[Makefile]] section. You may have to abort and retry the =make devel= if it doesn't work properly the first time(s).
-=======
 * Development server (source code change detecting)
   Because the [[https://www.yesodweb.com/book/shakespearean-templates][Shakespearean template]] files (=.hamlet=, =.julius= and =.lucius=) need to be processed when changed, a =make rebuild= should always be done before a production deployment.
 
 During development a source code change detecting server can be used. Run =make rebuild= and =make devel= to start it. See the [[Makefile]] section. You may have to abort and retry the =make devel= if it doesn't work properly the first time(s). If that doesn't work then keep it running and execute a =make build= from a separate shell prompt.
->>>>>>> develop
 
   Refresh the site at: [[http://localhost:3000/]]
 
