@@ -86,6 +86,7 @@ Otherwise you may get problems with =zlib= and =pg_config=, e.g. like this:
     # Use ~/.local/bin/yesod if make: yesod: No such file or directory is reported.
     devel:
             yesod devel
+            # stack exec -- yesod devel
 
     # https://hub.docker.com/_/postgres
     database:
