@@ -80,6 +80,9 @@ Otherwise you may get problems with =zlib= and =pg_config=, e.g. like this:
     repl:
             stack repl
 
+    test:
+            stack test
+
     # Use ~/.local/bin/yesod if make: yesod: No such file or directory is reported.
     devel:
             yesod devel
