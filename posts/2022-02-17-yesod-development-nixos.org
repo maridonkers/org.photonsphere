@@ -54,8 +54,11 @@ Otherwise you may get problems with =zlib= and =pg_config=, e.g. like this:
 
   Then use the stack command to install Yesod prerequisites.
   #+BEGIN_SRC sh
-    stack install hpack hlint stylish-haskell yesod-bin
+    stack install hpack hlint stylish-haskell
+    stack install yesod-bin --install-ghc
   #+END_SRC
+
+  Also see the [[https://www.yesodweb.com/page/quickstart][Yesod quick start guide]] and [[https://www.yesodweb.com/book/deploying-your-webapp][Deploying your Webapp]].
 
 * Makefile
   When creating this file, do make sure to use TAB characters in this Makefile where appropriate.
