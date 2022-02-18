@@ -60,54 +60,55 @@ Otherwise you may get problems with =zlib= and =pg_config=, e.g. like this:
 * Makefile
   When creating this file, do make sure to use TAB characters in this Makefile where appropriate.
   #+BEGIN_SRC makefile
-all: help
+    all: help
 
-edit:
-	@emacs &
+    edit:
+            @emacs &
 
-build:
-	stack build
+    build:
+            stack build
 
-clean:
-	stack clean
+    clean:
+            stack clean
 
-rebuild: clean
-	stack build
+    rebuild: clean
+            stack build
 
-repl:
-	stack repl
+    repl:
+            stack repl
 
-devel:
-	yesod devel
+    # Use ~/.local/bin/yesod if make: yesod: No such file or directory is reported.
+    devel:
+            yesod devel
 
-# https://hub.docker.com/_/postgres
-database:
-	docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+    # https://hub.docker.com/_/postgres
+    database:
+            docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
 
-# Enter password `projectname` when prompted below; also see:
-#   config/settings.yml
-#
-# Use `su - postgres` before the following commands (to initialize), as follows:
-#   su - postgres
-#   createuser projectname --pwprompt --superuser
-#   createdb projectname
-#   createdb projectname_test
-#
-database-shell:
-	xhost +LOCAL:
-	docker exec -it some-postgres /bin/bash
+    # Enter password `projectname` when prompted below; also see:
+    #   config/settings.yml
+    #
+    # Use `su - postgres` before the following commands (to initialize), as follows:
+    #   su - postgres
+    #   createuser projectname --pwprompt --superuser
+    #   createdb projectname
+    #   createdb projectname_test
+    #
+    database-shell:
+            xhost +LOCAL:
+            docker exec -it some-postgres /bin/bash
 
-database-ls:
-	docker ps
+    database-ls:
+            docker ps
 
-lint:
-	ag --haskell -l | xargs hlint -v
+    lint:
+            ag --haskell -l | xargs hlint -v
 
-formatter:
-	ag --haskell -l | xargs stylish-haskell -i
+    formatter:
+            ag --haskell -l | xargs stylish-haskell -i
 
-help:
-	@grep '^[^ 	#:]\+:' Makefile | sed -e 's/:[^:]*//g'
+    help:
+            @grep '^[^ 	#:]\+:' Makefile | sed -e 's/:[^:]*//g'
   #+END_SRC
 
 * Database creation and initialization
