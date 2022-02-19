@@ -70,7 +70,7 @@ Otherwise you may get problems with =zlib= and =pg_config=, e.g. like this:
     export PATH="~/.local/bin:${PATH}"
   #+END_SRC
 
-  Then use the stack command to install Yesod prerequisites.
+  Then use the stack command to install additional packages.
   #+BEGIN_SRC sh
     stack install hpack hlint stylish-haskell
     stack install yesod-bin --install-ghc
