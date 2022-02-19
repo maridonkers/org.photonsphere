@@ -11,14 +11,32 @@ Set up a [[https://www.yesodweb.com/][Yesod Web Framework]] development environm
 
 (.more.)
 
-* NixOS prerequisites
-Install required and/or useful packages using the commands given below.
-#+BEGIN_SRC sh
-  nix-env -iA nixos.cabal-install
-  nix-env -iA nixos.cabal2nix
-  nix-env -iA nixos.stack
-  nix-env -iA nixos.silver-searcher
+* NixOS
+See: https://github.com/taezos/real-world-yesod
+
+=shell.nix=
+#+BEGIN_SRC nix
+  { nixpkgs ? import <nixpkgs> {}, compiler ? "default", doBenchmark ? false }:
+  let
+    inherit (nixpkgs) pkgs;
+    inherit (pkgs) haskellPackages;
+  in
+  pkgs.mkShell {
+    name = "projectname";
+    buildInputs = [
+      haskellPackages.stack
+      haskellPackages.ghc
+      haskellPackages.yesod-bin
+      haskellPackages.ghcid
+      pkgs.libpqxx
+      pkgs.postgresql
+      pkgs.zlib
+      pkgs.silver-searcher
+    ];
+    LC_ALL = "C.UTF-8";
+  }
 #+END_SRC
+  
 * Scaffolding
 [[https://www.yesodweb.com/book/scaffolding-and-the-site-template][Scaffolding]] generates a =package.yaml= file (=hpack=) that can be used with =stack= and =cabal=.
 
@@ -61,9 +79,15 @@ Otherwise you may get problems with =zlib= and =pg_config=, e.g. like this:
   Also see the [[https://www.yesodweb.com/page/quickstart][Yesod quick start guide]] and [[https://www.yesodweb.com/book/deploying-your-webapp][Deploying your Webapp]].
 
 * Makefile
-  When creating this file, do make sure to use TAB characters in this Makefile where appropriate.
+  When creating this file, do make sure to use TAB characters in this
+  Makefile where appropriate. When using it always first execute a
+  =make shell=, before using other commands (with the exception of the
+  database commands).
   #+BEGIN_SRC makefile
     all: help
+
+    shell:
+            nix-shell
 
     edit:
             @emacs &
@@ -116,6 +140,7 @@ Otherwise you may get problems with =zlib= and =pg_config=, e.g. like this:
 
     help:
             @grep '^[^ 	#:]\+:' Makefile | sed -e 's/:[^:]*//g'
+            @echo -e "\nAlways use a make shell first (except for the database commands).\n"
   #+END_SRC
 
 * Database creation and initialization
