@@ -214,7 +214,7 @@ cabal new-run . -- http://www.yoursitename.com/images/image 211125 .jpg
  #+END_SRC
 
 Which will retrieve all images from the specified date in =yymmdd=
-format (i.e. 2021, November 22th) backwards in time. Use Ctrl+C to
+format (i.e. 2021, November 25th) backwards in time. Use Ctrl+C to
 abort the program when there are no more images to download. Watch the
 output of the program to determine this. The program will not
 redownload already downloaded images on a subsequent run.
