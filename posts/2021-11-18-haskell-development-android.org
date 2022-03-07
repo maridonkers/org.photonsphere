@@ -2,12 +2,12 @@
 title: Haskell development environment on Android phone
 modified: 2021-11-18
 meta_description: 
-tags: Computer, Software, Linux, NixOS, Functional, Haskell, Android
+tags: Computer, Software, Linux, NixOS, Functional, Haskell, Android, Termux
 ----
 
 #+OPTIONS: ^:nil
 
-Install a full [[https://www.haskell.org/][Haskell]] development environment (including [[https://github.com/sol/hpack][hpack]] and [[https://www.haskell.org/cabal/][cabal]]) on your [[https://www.android.com/][Android]] phone. The command prompt runs via [[https://f-droid.org/en/packages/exa.lnx.a/][AnLinux]] + [[https://f-droid.org/en/packages/com.termux/][Termux]].
+Install a full [[https://www.haskell.org/][Haskell]] development environment (including [[https://github.com/sol/hpack][hpack]] and [[https://www.haskell.org/cabal/][cabal]]) on your [[https://www.android.com/][Android]] phone. The command prompt runs via [[https://f-droid.org/en/packages/com.termux/][Termux]] and its [[https://wiki.termux.com/wiki/PRoot][PRoot]].
 (.more.)
 
 * F-Droid
@@ -16,17 +16,29 @@ Install a full [[https://www.haskell.org/][Haskell]] development environment (in
     :END:
 Install F-Droid from [[https://www.f-droid.org/][f-droid.org]] (follow instructions).
 
-* AnLinux + Termux
+* Termux + PRoot
     :PROPERTIES:
-    :CUSTOM_ID: anlinuxtermux
+    :CUSTOM_ID: termuxproot
     :END:
-First install the [[https://f-droid.org/en/packages/com.termux/][Termux]] package and then the [[https://f-droid.org/en/packages/exa.lnx.a/][AnLinux]] package (both via F-Droid) and select a distribution in AnLinux (I use [[https://www.debian.org/][Debian]]).
+First install the [[https://f-droid.org/en/packages/com.termux/][Termux]] package and then follow the [[https://wiki.termux.com/wiki/PRoot][PRoot]] instructions to install a Linux distribution on your phone (I use [[https://www.debian.org/][Debian]]).
+
+#+BEGIN_SRC sh
+  pkg install proot
+  pkg install proot-distro
+  proot-distro install debian
+#+END_SRC
+
+After installation has completed use the following to get a Debian prompt:
+
+#+BEGIN_SRC sh
+  proot-distro login debian
+#+END_SRC
 
 * Debian packages
     :PROPERTIES:
     :CUSTOM_ID: debian
     :END:
-A number of Debian packages are required and useful for your Haskell development environment. To install them start up Debian Linux under Termux (per instructions with AnLinux) and type the following commands:
+A number of Debian packages are required and useful for your Haskell development environment. To install them start up Debian Linux under Termux (per instructions with PRoot) and type the following commands:
 
 #+BEGIN_SRC sh
   apt-get update
@@ -54,4 +66,4 @@ Notes:
 - depending on your phone the =cabal new-update= and =cabal new-build= may take a while to complete.
 
 * Screen dump
-[[../images/AnLinuxDemo.png]]
+[[../images/TermuxLinuxDemo.png]]
