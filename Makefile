@@ -3,6 +3,7 @@ all: help
 shell:
 	nix-shell
 
+# To build for production use `make -B prod`
 prod: build _site/css/site.css
 
 edit:
