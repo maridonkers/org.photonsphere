@@ -1,0 +1,155 @@
+* Websites
+
+My business websites are listed below:
+
+  - • [[https://donkersautomatisering.nl/][Donkers Automatisering]]
+  - • [[https://donkersphotography.com/][Donkers Photography]]
+
+* Various websites
+
+A long list — gathered throughout the years — with websites on diverse interests and subjects.
+
+** Operating systems, virtualisation-programs, application servers
+
+- • [[https://www.nixos.org/][NixOS]] — NixOS is a Linux distribution based on Nix package manager (Nix is a purely functional package manager that takes a unique approach to package management and system configuration).
+- • [[https://www.gentoo.org/][Gentoo Linux]] — a highly flexible, source-based Linux; allegedly Google uses it as development Linux distribution for [[https://www.zdnet.com/the-secret-origins-of-googles-chrome-os-7000012215/][Chrome OS]].
+- • [[https://www.calculate-linux.org/][Calculate Linux]] — business oriented; graphical installer; based on- and 100% compatible with: [[https://www.gentoo.org/][Gentoo Linux]].
+- • [[https://www.debian.org/][Debian]] — The Universal Operating System, well known for its stability, and  smooth upgrade processes of both packages and the entire distribution and is also widely used by software and hardware developers, because it runs on numerous architectures and devices, offers a public bug tracker and other tools for developers.
+- • [[https://community.kde.org/Windows][KDE on Windows]] an initiative to bring KDE to Microsoft Windows.
+- • [[https://www.cygwin.com][Cygwin]] — Linux-like environment for Windows.
+- • [[https://www.virtualbox.org][VirtualBox]] — general-purpose full virtualizer for x86 hardware.
+- • [[https://www.alfresco.com][Alfresco]] — team collaboration (free SharePoint alternative).
+- • [[https://www.nuxeo.com/][Nuxeo]] — platform for the Software-Defined Enterprise.
+- • [[https://www.liferay.com/][Liferay]] — enterprise open source portal and collaboration software.
+- • [[https://www.zentyal.org/][Zentyal]] — the Linux Small Business Server.
+
+** Content Management Systems, bLog publishing, eCommerce
+
+- • [[https://www.magnolia-cms.com][Magnolia CMS]] — headless Content Management System (Java).
+- • [[http://www.opencms.org][OpenCMS]] — professional Content Management
+easy to use, open source, reliable (Java).
+- • [[https://umbraco.org/][Umbraco CMS]] — flexible Content Management System (.NET).
+- • [[https://drupal.org][Drupal CMS]] — Digital Experience Platform (PHP).
+- • [[https://www.pimcore.org/][Pimcore Platform™]] — Enterprise Open Source software for managing any digital data and customer experiences for any channel and device (PHP, Zend Framework, ExtJS).
+- • [[https://typo3.org/][TYPO3 CMS]] — professional, flexible Content Management System (PHP).
+- • [[https://www.ibexa.co/][Ibexa DXP]] — Digital Experience Platform (PHP).
+- • [[https://www.joomla.org/][Joomla!]] — Content Management System (PHP).
+- • [[https://wordpress.org/][Wordpress]] — powers more than 43% of the web (PHP).
+- • [[https://plone.org][Plone CMS]] — the Ultimate Enterprise Content Management System ([[https://python.org/][Python]]; [[https://www.zope.org][Zope]].
+- • [[https://www.webgui.org/][WebGUI]] — all-in-one Content Management System (Perl).
+- • [[https://www.konakart.com/][KonaKart]] — Enterprise Java eCommerce.
+- • [[https://www.icdevgroup.org][Interchange]] — web-based application server (Perl).
+
+** Functional programming
+
+- • [[http://www.gotw.ca/publications/concurrency-ddj.htm][The free lunch is over]] — a Fundamental Turn Toward Concurrency in Software.
+- • [[https://www.huffingtonpost.com/dustin-whitney/moores-law-and-the-progra_b_4059796.html][Moore's Law and the Programming Language Renaissance]] — within select academic communities, programming languages have been developed that make multicore programming far less daunting.
+- • [[https://programminghints.com/2016/04/need-functional-programming/][The Need for… Functional
+    Programming]] — suddenly, due to the change applied by hardware manufacturers, software developers must rethink the design of their programs.
+- • [[https://www.intertech.com/why-functional-programming-is-on-the-rise-again/][Why Functional Programming Is on the Rise Again]] — in recent years, the number of articles touting the benefits of functional programming and the number of projects using functional languages has been on the rise.
+
+** Software development
+
+- • [[https://www.haskell.org/][Haskell]] — advanced, purely functional programming language; [[https://github.com/sol/hpack][hpack]] a modern format for Haskell packages; [[https://www.haskell.org/cabal/][Cabal]] common architecture for building applications and libraries; [[https://github.com/mrkkrp/megaparsec][Megaparsec]] an industrial-strength monadic parser combinator library, for an introduction see the [[https://markkarpov.com/tutorial/megaparsec.html][Megaparsec tutorial]], which is the most complete and should provide sufficient guidance to help you start with your parsing tasks; [[https://github.com/snoyberg/conduit][Conduit]] a framework for dealing with streaming data, such as reading raw bytes from a file, parsing a CSV response body from an HTTP request, or performing an action on all files in a directory tree (it standardizes various interfaces for streams of data, and allows a consistent interface for transforming, manipulating, and consuming that data); [[https://www.yesodweb.com/book/persistent][Persistent]] and on GitHub [[https://github.com/yesodweb/persistent][yesodweb/persistent]] a backend agnostic Haskell datastore that strives to catch every possible error at compile-time, and it comes close to that (supports PostgreSql, Sqlite, MongoDB, Redis, ZooKeeper, and many other databases via [[https://github.com/gbwey/persistent-odbc][persistent-odbc]] and also see [[http://hackage.haskell.org/package/esqueleto][Esqueleto]] type-safe EDSL for SQL queries on persistent backends); [[https://wiki.haskell.org/HXT][Haskell XML Toolbox (HXT)]] a collection of tools for processing XML with Haskell; [[https://www.yesodweb.com/][Yesod Web Framework]] and on GitHub [[https://github.com/yesodweb/yesod][yesodweb/yesod]] Yesod is a Haskell web framework for productive development of type-safe, RESTful, high performance web applications; [[https://haskell-miso.org/][miso]] and on GitHub [[https://github.com/dmjio/miso][dmjio/miso]] a small, production-ready, "[[http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/][isomorphic]]" [[https://www.haskell.org/][Haskell]] front-end framework for quickly building highly interactive single-page web applications. It features a virtual-dom, recursive diffing / patching algorithm, attribute and property normalization, event delegation, event batching, SVG, Server-sent events, Websockets, type-safe [[https://haskell-servant.github.io/][servant]]-style routing and an extensible Subscription-based subsystem; [[https://ihp.digitallyinduced.com/][Integrated Haskell Platform (IHP)]] and on GitHub [[https://github.com/digitallyinduced/ihp][digitallyinduced/ihp]] is a modern batteries-included haskell web framework, built on top of Haskell and Nix; [[https://github.com/obsidiansystems/obelisk][Obelisk]] allows you to build high-quality web and mobile applications very quickly using [[https://reflex-frp.org/][Reflex FRP]] (in minutes from an empty directory to an interactive application that works on web, iOS, and Android, all sharing the same Haskell codebase! Obelisk's development environment also enables extremely rapid development and feedback, you can take advantage of Haskell's type system across the frontend and backend boundary, which means changes to your backend that would break your frontend are immediately detected during development and vice versa); [[https://keera.co.uk/2013/03/08/keera-hails-event-driven-programming-of-desktop-applications-in-haskell/][Keera Hails]] and on GitHub [[https://github.com/keera-studios/keera-hails][keera-studios/keera-hails]] functional event-driven programming of desktop applications in Haskell, a toolkit to create Reactive Applications in Haskell. It facilitates combining User Interfaces, external devices, network connections, files and, optionally, FRP networks. It ismodular and extensible. It is cross platform (Windows, Linux, MacOSX, iOS, Android, GHCJS), UI-agnostic (Gtk+, WX, Qt, iOS native UIs, Android Native toolkit, HTML DOM), FRP-agnostic and device-agnostic (Wiimote, Webcams, etc).
+- • [[https://clojure.org/][Clojure]] / [[https://clojurescript.org/][ClojureScript]] — a robust, practical, and fast programming language with a set of useful features that together form a simple, coherent, and powerful tool; [[https://xtdb.com/][XTDB]] and on GitHub [[https://github.com/xtdb/xtdb][xtdb/xtdb]] a general purpose database with graph-oriented bitemporal indexes. Datalog, SQL & EQL queries are supported, and Java, HTTP & Clojure APIs are provided; [[https://fulcro.fulcrologic.com][Fulcro]] and on GitHub [[https://github.com/fulcrologic/fulcro][fulcrologic/fulcro]] a library for building data-driven full-stack applications for the web, native, and desktop (via electron); it uses React and is written in Clojure and Clojurescript; [[https://luminusweb.com/][Luminus]] a Clojure micro-framework based on a set of lightweight libraries. It aims to provide a robust, scalable, and easy to use platform.
+- • [[https://www.erlang.org/][Erlang]] — practical functional programming for a parallel world.
+- • [[https://souffle-lang.github.io/][Soufflé]] — rapid-prototyping for your analysis problems with logic; enabling deep design-space explorations; designed for large-scale static analysis; e.g., points-to analysis for Java, taint-analysis, security checks (Soufflé is a variant of [[https://en.wikipedia.org/wiki/Datalog][Datalog]] for tool designers crafting analyses in Horn clauses); [[https://github.com/luc-tielen/souffle-haskell][Souffle-Haskell]] provides Haskell bindings for performing analyses with the [[https://github.com/souffle-lang/souffle][Soufflé Datalog language]] and this library combines both functional programming (Haskell), logic programming (Datalog / Souffle) and imperative / OO programming (C / C++);
+- • [[https://github.com/vmware/differential-datalog][Differential Datalog (DDlog)]] a programming language for incremental computation, which is well suited for writing programs that continuously update their output in response to input changes, so that, with DDlog, the programmer does not need to worry about writing incremental algorithms and instead specifies the desired input-output mapping in a declarative manner, using a dialect of [[https://en.wikipedia.org/wiki/Datalog][Datalog]].
+- • [[https://research.microsoft.com/en-us/projects/fsharp/default.aspx][F#]] — a succinct, expressive, and efficient functional and object-oriented language for Microsoft .NET that helps you write simple code to solve complex problems.
+- • [[https://www.scala-lang.org/][Scala]] — the Scala programming language combines object-oriented and functional programming in one concise, high-level language (JVM and JavaScript runtimes); [[http://www.playframework.org/][Play framework]] high velocity web framework for Java and Scala.
+- • [[https://openjdk.java.net/][Java]] — an open-source implementation of the [[https://www.oracle.com/technetwork/java/javase/overview/index.html][Java Platform]], [[https://www.oracle.com/technetwork/java/javase/overview/index.html][Standard Edition]], and related projects.
+- • [[https://python.org][Python]] — a programming language that lets you work quickly and integrate systems more effectively; [[https://www.djangoproject.com][Django Web Framework]] a high-level Python web framework that encourages rapid development and clean, pragmatic design.
+- • [[https://www.rust-lang.org/][Rust]] — blazingly fast and memory-efficient: with no runtime or garbage collector, it can power performance-critical services, run on embedded devices, and easily integrate with other languages. 
+- • [[https://julialang.org/][Julia]] — designed from the beginning for high performance (computational, data science).
+- • [[https://www.perl.org][Perl]] — the Perl programming language; [[https://www.perl.com][Perl.com]] quality articles about Perl programming, news and culture; [[https://www.perldancer.org/][Dancer]] simple but powerful web application framework for Perl; [[https://plackperl.org/][PSGI/Plack]] superglue interface between perl web application frameworks and web servers.
+- • [[https://www.php.net][PHP]] — a popular general-purpose scripting language that is especially suited to web development; [[https://getlaminas.org/][Laminas Project]] the enterprise-ready PHP Framework and components (a community-supported, open source continuation of Zend Framework); [[https://github.com/cakephp/cakephp][CakePHP]] a rapid development framework for PHP which uses commonly known design patterns like Associative Data Mapping, Front Controller, and MVC; [[https://laravel.com/][Laravel]] PHP Framework for Web Artisans; [[https://symfony.com/][Symfony]] a set of PHP Components, a Web Application framework, a Philosophy, and a Community; [[https://www.doctrine-project.org/][Doctrine]] several PHP libraries primarily focused on database storage and object mapping.
+
+** Cloud computing-, application framework development
+
+- • [[https://www.heroku.com/][Heroku]] — cloud application platform, built for developers, by developers.
+- • [[https://www.openshift.com/][Red Hat<sup>®</sup> OpenShift<sup>®</sup>]] — an enterprise-ready Kubernetes container platform built for an open hybrid cloud strategy.
+- • [[https://www.cloudbees.com/][CloudBees]] — leading DevOps solutions for large and compliance-first organizations.
+- • [[https://jelastic.com/][Jelastic]] — multi-cloud PaaS with Full Interoperability.
+- • [[https://aws.amazon.com/][Amazon Web Services]] — cloud services | Amazon Web Services (AWS).
+- • [[https://code.google.com/appengine/][Google App Engine]] — app engine application platform | Google Cloud.
+- • [[https://www.microsoft.com/windowsazure/][Windows Azure]] — Cloud Computing Services | Microsoft Azure.
+
+** Build- and Integrated Development Environments, Modeling and Design tools
+
+- • [[https://www.gnu.org/software/emacs/][Emacs]] — extensible, customizable, free/libre text editor — and more; [[https://orgmode.org/][Org Mode]] a GNU Emacs major mode for keeping notes, authoring documents, computational notebooks, literate programming, maintaining to-do lists, planning projects, and more — in a fast and effective plain text system.
+- • [[https://www.vim.org][Vim — the ubiquitous text editor]] — a highly configurable text editor built to make creating and changing any kind of text very efficient; [[https://vim.wikia.com][Vim Tips Wiki]] a wiki about Vim, an open-source, powerful and configurable text editor, aiming to exchange tips and tricks with other Vim users.
+- • [[https://www.eclipse.org][Eclipse]] — open development platform; [[https://marketplace.eclipse.org][Eclipse Marketplace]] Eclipse Plugins, Bundles and Products; [[https://www.eclipsepluginsite.com][Eclipse Plugin Development]] WideSkills article about Eclipse plugin development.
+- • [[https://www.netbeans.org][NetBeans IDE]] — Development Environment, Tooling Platform and Application Framework.
+- • [[https://www.sparxsystems.com][Enterprise Architect]] — fast Intuitive Modeling & Design.
+- • [[https://maven.apache.org][Apache Maven]] — a software project management and comprehension tool; [[https://ant.apache.org][Apache Ant]] a Java library and command-line tool whose mission is to drive processes described in build files as targets and extension points dependent upon each other.
+- • [[https://www.cmake.org][CMake]] — an open-source, cross-platform family of tools designed to build, test and package software; [[https://www.gnu.org/software/autoconf][GNU Autoconf]] an extensible package of M4 macros that produce shell scripts to automatically configure software source code packages; [[https://www.gnu.org/software/automake][GNU Automake]] is a tool for automatically generating Makefile.in files compliant with the GNU Coding Standards.
+
+** Internet and standards
+
+- • [[https://cve.mitre.org][Common Vulnerabilities and Exposures (CVE<sup>®</sup>)]] — mission of the CVE® Program is to identify, define, and catalog publicly disclosed cybersecurity vulnerabilities.
+- • [[https://www.ietf.org][The Internet Engineering Task Force]] — mission of the IETF is to make the Internet work better by producing high quality, relevant technical documents that influence the way people design, use, and manage the Internet.
+- • [[https://www.w3.org][World Wide Web Consortium - Web Standards]] — is an international community that develops open standards to ensure the long-term growth of the Web.
+- • [[http://xml.coverpages.org][The CoverPages]] — a comprehensive, online reference collection supporting the XML family of markup language standards, XML vocabularies, and related structured information standards.
+- • [[https://www.ecma-international.org][Ecma International]] — an industry association dedicated to the standardization of information and communication systems.
+- • [[https://www.iso.org][ISO]] — International Organization for Standardization.
+- • [[https://standards.ieee.org][IEEE]] — Standards Association.
+- • [[https://www.ansi.org][ANSI]] — American National Standards Institute.
+- • [[https://www.incits.org][INCITS]] — InterNational Committee for Information TechnologyStandards.
+- • [[https://www.etsi.org][ETSI]] — European Telecommunications Standards Institute.
+- • [[https://www.eff.org][EFF]] — Electronic Frontier Foundation.
+
+** Software engineering, -architecture
+
+- • [[https://xlinux.nist.gov/dads/][Dictionary of Algorithms and Data Structures]] — a dictionary of algorithms, algorithmic techniques, data structures, archetypal problems, and related definitions.
+- • [[https://www.hillside.net/patterns][Hillside.net — Patterns home page]] — a source for information about all aspects of software patterns and pattern languages.
+- • [[https://www.uml.org][UML]] — Object Management Group - UML.
+- • [[https://www.sei.cmu.edu][Software Engineering Institute]] — Carnegie Mellon<sup>®</sup> Software Engineering Institute (SEI).
+- • [[https://www.agileconnection.com/][Agile Connection]] — your online home for all things agile.
+- • [[https://openmp.org/][OpenMP]] — the OpenMP API specification for parallel programming; [[https://en.wikipedia.org/wiki/OpenMP][OpenMP (Open Multi-Processing)]] OpenMP (Open Multi-Processing) is an application programming interface (API) that supports multi-platform shared-memory multiprocessing programming.
+- • [[https://cyclonedds.io/][Cyclone DDS™]] — a high performing, OMG-DDS standard based data sharing technology which allows system designers to create digital twins of their systems’ entities to share their states, events, data-streams and messages on the network in real-time and fault-tolerant way; [[https://github.com/eclipse-cyclonedds/cyclonedds][eclipse-cyclonedds / cyclonedds]] Eclipse Cyclone DDS is a very performant and robust open-source DDS implementation; [[https://www.omg.org/spec/DDS][Data Distribution Service for Real-time Systems]] — the DDS specification describes a Data-Centric Publish-Subscribe (DCPS) model for distributed application communication and integration.
+
+** Mathematics and Computer Science online books
+
+- • [[https://onlinebooks.library.upenn.edu/webbin/book/browse?type=lccn&amp;key=QA][The Online Books Page]] — Mathematics and Computer Science.
+- • [[https://arxiv.org][arXiv.org]] — e-Print archive.
+- • [[https://freecomputerbooks.com][FreeComputerBooks.com]] — free computer, programming, engineering, mathematics, technical books, lecture notes and tutorials.
+- • [[https://www.freetechbooks.com][freetechbooks.com]] — database of free / open access online computer science books, textbooks, and lecture notes.
+- • [[https://www.techbooksforfree.com][techbooksforfree.com]] — free books on technology, computers, science.
+- • [[https://www.freebookcentre.net][freebookcentre.net]] — contains links to thousands of free online technical books, which Include core computer science, networking, programming languages, Systems Programming books, Linux books and many more.
+
+** Mathematics and Computer Science Research
+
+- • [[https://www.r-project.org][The R Project for Statistical Computing]] — a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
+- • [[https://ptolemy.eecs.berkeley.edu][The Ptolemy project]] — studies modeling, simulation, and design of concurrent, real-time, embedded systems.
+- • [[https://www.baeldung.com/java-rule-engine-jess-jsr-94][Jess Rule Engine and JSR 94]] — [[http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/index.html][Jess]] is one of the earliest rule engines to be easily integrated with Java. Jess uses an enhanced implementation of the highly efficient [[https://en.wikipedia.org/wiki/Rete_algorithm][Rete algorithm]], making it much faster than a simple Java loop for most scenarios.
+- • [[http://www.clipsrules.net][CLIPS]] — developed at NASA’s Johnson Space Center from 1985 to 1996, the C Language Integrated Production System (CLIPS) is a rule-based programming language useful for creating expert systems and other programs where a heuristic solution is easier to implement and maintain than an algorithmic solution.
+- • [[https://github.com/rorchard/FuzzyCLIPS][FuzzyCLIPS]] — a fuzzy logic extension of the CLIPS (C Language Integrated Production System) expert system shell from NASA, which enhances CLIPS by providing a fuzzy reasoning capability that is fully integrated with CLIPS facts and inference engine allowing one to represent and manipulate fuzzy facts and rules, so it can deal with exact, fuzzy (or inexact), and combined reasoning, allowing fuzzy and normal terms to be freely mixed in the rules and facts of an expert system.
+- • [[https://github.com/emer/emergent][emergent reboot in Go]] — the new home of the emergent neural network simulation software, developed primarily by the CCN lab, originally at CU Boulder, and now at UC Davis: https://ccnlab.org We have decided to completely reboot the entire enterprise from the ground up, with a much more open, general-purpose design and approach.
+- • [[https://www.deepnetts.com/][Deep Netts]] — enables software developers to build and embed AI in Java.
+- • [[https://www.gnu.org/software/octave/][GNU Octave]] — scientific programming language (MATLAB equivalent).
+- • [[http://maxima.sourceforge.net/][Maxima CAS]] — a Computer Algebra System; [[http://maxima.sourceforge.io/docs/maximabook/maximabook-19-Sept-2004.pdf][Maxima Book (PDF)]] Paulo Ney de Souza, Richard J. Fateman, Joel Moses, Cliff Yapp — 19th September 2004.
+- • [[https://www.sagemath.org][SageMath]] — a free open-source mathematics software system licensed under the GPL. It builds on top of many existing open-source packages: [[https://numpy.org][NumPy]], [[https://scipy.org][SciPy]], [[https://matplotlib.org][matplotlib]], [[https://www.sympy.org][Sympy]], [[http://maxima.sourceforge.net][Maxima]], [[https://www.gap-system.org][GAP]], [[https://www.flintlib.org][FLINT]], [[https://www.r-project.org][R]] and [[https://www.sagemath.org/links-components.html][many more]] — mission: creating a viable free open source alternative to Magma, Maple, Mathematica and Matlab.
+- • [[https://www-fourier.ujf-grenoble.fr/%7Eparisse/giac.html][Giac/Xcas]] — the swiss knife for mathematics, a free computer algebra system.
+- • [[https://www.scilab.org][Scilab]] — open source platform for numerical computation.
+- • [[https://gephi.org/][Gephi]] — an open source graph visualization and manipulation software.
+- • [[https://www.coin-or.org][COIN|OR]] — COmputational INfrastructure for Operations Research.
+
+** Useful Software
+- • [[https://smath.com][SMath Studio]] — tiny, powerful, free mathematical program with WYSIWYG editor and complete units of measurements support. It provides numerous computing features and rich user interface translated into about 40 different languages. Application also contains integrated mathematical reference book. (Desktop, Android, iOS)
+- • [[https://notebloc-shop.com/pages/descarga-app-notebloc-libretas-digitales][Notebloc]] the next generation brand of notebooks. We believe that even one of the most traditional writing and design tools, as a notebook is, can be innovative and technologically enhanced. (Android)
+- • [[https://philipp.crocoll.net/keepass2android/index.php][Keepass2Android]] — an open source password manager application for Android. It is compatible with the popular KeePass 2.x Password Safe for Windows and aims at simple synchronization between devices. (Android)
+- • [[https://dynamicg.ch/timerecording/home_en.html][Time Recording]] — one of the most downloaded and highest rated time sheet apps in Play Store. Simple to use but very powerful, with many extra features and customization options. (Android)
+- • [[https://simplemind.eu/][SimpleMind]] the world leader in cross-platform Mind Mapping tools. (Desktop, Android, iOS)
+- • [[https://github.com/yanus171/Handy-News-Reader][Handy News Reader]] — Handy News Reader is a light and modern Android feed reader, based on Flym News Reader (Android)
+- • [[https://github.com/tateisu/SubwayTooter][Subway Tooter]] — a superior Mastodon client app for Android phone/tablet. (Android)
+
+** (Open Source) Software
+
+- • [[https://www.opensource.org][OSI]] — Open Source Initiative.
+- • [[https://www.bacula.org][Bacula]] — the open source, enterprise ready, network backup tool.
+- • [[https://filezilla-project.org][FileZilla]] — the free FTP solution.
+- • [[https://plaintextaccounting.org][plain text accounting]] — plain text accounting means doing accounting with plain text data formats and scriptable software, in the style of [[https://www.ledger-cli.org][Ledger]], [[https://hledger.org][hledger]], [[https://github.com/beancount][Beancount]], [[https://tackler.e257.fi][Tackler]], [[https://monescript.github.io/][monescript]], [[https://github.com/SitanHuang/ledg][ledg]], [[https://mandoc.bsd.lv/pta][pta]], [[https://prudent.me/][Prudent]].
+- • [[https://www.digikam.org][digikam]] — manage your photographs like a professional with the power of Open Source.
+- • [[https://photivo.org/photivo/start][Photivo]] — free and open source photo processor, which handles your RAW files as well as your bitmap files (TIFF, JPEG, BMP, PNG and many more) in a non-destructive 16 bit processing pipe with gimp workflow integration and batch mode.
+- • [[https://www.gimp.org][Gimp]] — a cross-platform image editor available for GNU/Linux, macOS, Windows and more operating systems.
+- • [[https://calibre-ebook.com][Calibre]] — a powerful and easy to use e-book manager.
