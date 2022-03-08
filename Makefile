@@ -22,7 +22,7 @@ site:
 	ghc --make site.hs
 
 build: site
-	./site build
+	./site -v build
 
 tailwind-dev: build
 	npx tailwindcss -i ./site.css -o ./_site/css/site.css --watch
@@ -31,16 +31,16 @@ _site/css/site.css:
 	NODE_ENV=production npx tailwindcss -i ./site.css -o ./_site/css/site.css --minify
 
 check: build
-	./site check
+	./site -v check
 
 server: build
-	./site server
+	./site -v server
 
 watch: build
-	./site watch
+	./site -v watch
 
 clean:
-	./site clean
+	./site -v clean
 
 upload:
 	(cd _site ; lftp -u ftp@donkersautomatisering.nl --env-password -e "mirror -R -n -v .; bye" ftp.donkersautomatisering.nl/domains/photonsphere.org/public_html)
