@@ -9,7 +9,7 @@ let
   inherit (nixpkgs) pkgs;
    myPkgs = import (builtins.fetchGit {
      url = "https://github.com/NixOS/nixpkgs";
-     ref = "refs/tags/20.03";
+     ref = "refs/tags/21.11";
   }) {};
 
   # myPkgs = nixpkgs;
