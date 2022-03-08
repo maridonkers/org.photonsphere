@@ -7,20 +7,14 @@ tags: Computer, Software, Linux, NixOS, Functional, Haskell, Android, Termux
 
 #+OPTIONS: ^:nil
 
-Install a full [[https://www.haskell.org/][Haskell]] development environment (including [[https://github.com/sol/hpack][hpack]] and [[https://www.haskell.org/cabal/][cabal]]) on your [[https://www.android.com/][Android]] phone. The command prompt runs via [[https://f-droid.org/en/packages/com.termux/][Termux]] and its [[https://wiki.termux.com/wiki/PRoot][PRoot]].
+Install a full [[https://www.haskell.org/][Haskell]] development environment (including [[https://github.com/sol/hpack][hpack]] and [[https://www.haskell.org/cabal/][cabal]]) on your [[https://www.android.com/][Android]] phone. The command prompt runs via [[https://f-droid.org/en/packages/com.termux/][Termux]] and its [[https://wiki.termux.com/wiki/PRoot][PRoot]] (i.e. =proot-distro=).
 (.more.)
 
 * F-Droid
-    :PROPERTIES:
-    :CUSTOM_ID: fdroid
-    :END:
 Install F-Droid from [[https://www.f-droid.org/][f-droid.org]] (follow instructions).
 
 * Termux + PRoot
-    :PROPERTIES:
-    :CUSTOM_ID: termuxproot
-    :END:
-First install the [[https://f-droid.org/en/packages/com.termux/][Termux]] package and then follow the [[https://wiki.termux.com/wiki/PRoot][PRoot]] instructions to install a Linux distribution on your phone (I use [[https://www.debian.org/][Debian]]).
+First install the [[https://f-droid.org/en/packages/com.termux/][Termux]] package via [[F-Droid][F-Droid]] and then follow the [[https://wiki.termux.com/wiki/PRoot][PRoot]] instructions to install a Linux distribution on your phone (I use [[https://www.debian.org/][Debian]]).
 
 #+BEGIN_SRC sh
   pkg install proot
@@ -35,10 +29,7 @@ After installation has completed use the following to get a Debian prompt:
 #+END_SRC
 
 * Debian packages
-    :PROPERTIES:
-    :CUSTOM_ID: debian
-    :END:
-A number of Debian packages are required and useful for your Haskell development environment. To install them start up Debian Linux under Termux (per instructions with PRoot) and type the following commands:
+A number of Debian packages are required and useful for your Haskell development environment. To install them start up Debian Linux under Termux (per instructions with [[Termux + PRoot][PRoot]]) and type the following commands:
 
 #+BEGIN_SRC sh
   apt-get update
@@ -62,9 +53,9 @@ Use the commands below to get and build my Paperspan export (HTML) to Instapaper
 #+END_SRC
 
 Notes:
-- use the =cabal new-= commands (e.g. =cabal new-update=, =cabal new-build=, =cabal new-run=) because the regular ones appear to be not working;
-- depending on your phone the =cabal new-update= and =cabal new-build= may take a while to complete;
-- if the build fails then simply start it again (I had to start it again once).
+- o use the =cabal new-= commands (e.g. =cabal new-update=, =cabal new-build=, =cabal new-run=) because the regular ones appear to be not working;
+- o depending on your phone the =cabal new-update= and =cabal new-build= may take a while to complete;
+- o if the build fails then simply start it again (I had to start it again once).
 
 * Screen dump
 [[../images/TermuxLinuxDemo.png]]
