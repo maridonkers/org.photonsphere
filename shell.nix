@@ -5,18 +5,18 @@
 
 let
 
-  # TODO Hakyll is marked as broken in NixOS 20.09 so for now use 20.03's.
-  #inherit (nixpkgs) pkgs;
-  # pkgs = import (builtins.fetchGit {
-  #   # Descriptive name to make the store path easier to identify
-  #   name = "nixos-20.03";
-  #   url = "https://github.com/nixos/nixpkgs-channels/";
-  #   ref = "refs/heads/nixpkgs-20.03-darwin";
-  #   rev = "1975b8687474764c157e6a220fdcad2c5dc348a1";
-  # }) {};
+  # TODO Hakyll is marked as broken in NixOS 21.11 so for now use 20.03's.
+  inherit (nixpkgs) pkgs;
+   myPkgs = import (builtins.fetchGit {
+     # Descriptive name to make the store path easier to identify
+     name = "nixos-20.03";
+     url = "https://github.com/nixos/nixpkgs-channels/";
+     ref = "refs/heads/nixpkgs-20.03-darwin";
+     rev = "1975b8687474764c157e6a220fdcad2c5dc348a1";
+  }) {};
 
-  pkgs = nixpkgs;
-  myPkg = pkgs.haskellPackages.hakyll;
+  # pkgs = nixpkgs;
+  myPkg = myPkgs.haskellPackages.hakyll;
 
   f = { mkDerivation, base, hakyll, pandoc, stdenv }:
       mkDerivation {
@@ -31,13 +31,13 @@ let
       };
 
   haskellPackages = if compiler == "default"
-                       then pkgs.haskellPackages
-                       else pkgs.haskell.packages.${compiler};
+                       then myPkgs.haskellPackages
+                       else myPkgs.haskell.packages.${compiler};
 
-  variant = if doBenchmark then pkgs.haskell.lib.doBenchmark else pkgs.lib.id;
+  variant = if doBenchmark then myPkgs.haskell.lib.doBenchmark else myPkgs.lib.id;
 
   drv = variant (haskellPackages.callPackage f {});
 
 in
 
-  if pkgs.lib.inNixShell then drv.env else drv
+  if myPkgs.lib.inNixShell then drv.env else drv

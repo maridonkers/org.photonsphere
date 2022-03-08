@@ -67,7 +67,7 @@ easy to use, open source, reliable (Java).
 ** Cloud computing-, application framework development
 
 - • [[https://www.heroku.com/][Heroku]] — cloud application platform, built for developers, by developers.
-- • [[https://www.openshift.com/][Red Hat^® OpenShift^®]] — an enterprise-ready Kubernetes container platform built for an open hybrid cloud strategy.
+- • [[https://www.openshift.com/][Red Hat® OpenShift®]] — an enterprise-ready Kubernetes container platform built for an open hybrid cloud strategy.
 - • [[https://www.cloudbees.com/][CloudBees]] — leading DevOps solutions for large and compliance-first organizations.
 - • [[https://jelastic.com/][Jelastic]] — multi-cloud PaaS with Full Interoperability.
 - • [[https://aws.amazon.com/][Amazon Web Services]] — cloud services | Amazon Web Services (AWS).
@@ -86,7 +86,7 @@ easy to use, open source, reliable (Java).
 
 ** Internet and standards
 
-- • [[https://cve.mitre.org][Common Vulnerabilities and Exposures (CVE^®)]] — mission of the CVE® Program is to identify, define, and catalog publicly disclosed cybersecurity vulnerabilities.
+- • [[https://cve.mitre.org][Common Vulnerabilities and Exposures (CVE®)]] — mission of the CVE® Program is to identify, define, and catalog publicly disclosed cybersecurity vulnerabilities.
 - • [[https://www.ietf.org][The Internet Engineering Task Force]] — mission of the IETF is to make the Internet work better by producing high quality, relevant technical documents that influence the way people design, use, and manage the Internet.
 - • [[https://www.w3.org][World Wide Web Consortium - Web Standards]] — is an international community that develops open standards to ensure the long-term growth of the Web.
 - • [[http://xml.coverpages.org][The CoverPages]] — a comprehensive, online reference collection supporting the XML family of markup language standards, XML vocabularies, and related structured information standards.
@@ -103,7 +103,7 @@ easy to use, open source, reliable (Java).
 - • [[https://xlinux.nist.gov/dads/][Dictionary of Algorithms and Data Structures]] — a dictionary of algorithms, algorithmic techniques, data structures, archetypal problems, and related definitions.
 - • [[https://www.hillside.net/patterns][Hillside.net — Patterns home page]] — a source for information about all aspects of software patterns and pattern languages.
 - • [[https://www.uml.org][UML]] — Object Management Group - UML.
-- • [[https://www.sei.cmu.edu][Software Engineering Institute]] — Carnegie Mellon^® Software Engineering Institute (SEI).
+- • [[https://www.sei.cmu.edu][Software Engineering Institute]] — Carnegie Mellon® Software Engineering Institute (SEI).
 - • [[https://www.agileconnection.com/][Agile Connection]] — your online home for all things agile.
 - • [[https://openmp.org/][OpenMP]] — the OpenMP API specification for parallel programming; [[https://en.wikipedia.org/wiki/OpenMP][OpenMP (Open Multi-Processing)]] OpenMP (Open Multi-Processing) is an application programming interface (API) that supports multi-platform shared-memory multiprocessing programming.
 - • [[https://cyclonedds.io/][Cyclone DDS™]] — a high performing, OMG-DDS standard based data sharing technology which allows system designers to create digital twins of their systems’ entities to share their states, events, data-streams and messages on the network in real-time and fault-tolerant way; [[https://github.com/eclipse-cyclonedds/cyclonedds][eclipse-cyclonedds / cyclonedds]] Eclipse Cyclone DDS is a very performant and robust open-source DDS implementation; [[https://www.omg.org/spec/DDS][Data Distribution Service for Real-time Systems]] — the DDS specification describes a Data-Centric Publish-Subscribe (DCPS) model for distributed application communication and integration.
