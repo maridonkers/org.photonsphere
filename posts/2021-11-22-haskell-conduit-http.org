@@ -125,7 +125,7 @@ I wanted to see how exceptions are handled in conduits.
     processUrl' yyNow url dat ext
 #+END_SRC
 
-* app/main.hs
+* app/Main.hs
 #+BEGIN_SRC haskell
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
