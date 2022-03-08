@@ -26,8 +26,7 @@ A long list — gathered throughout the years — with websites on diverse inter
 ** Content Management Systems, bLog publishing, eCommerce
 
 - • [[https://www.magnolia-cms.com][Magnolia CMS]] — headless Content Management System (Java).
-- • [[http://www.opencms.org][OpenCMS]] — professional Content Management
-easy to use, open source, reliable (Java).
+- • [[http://www.opencms.org][OpenCMS]] — professional Content Management easy to use, open source, reliable (Java).
 - • [[https://umbraco.org/][Umbraco CMS]] — flexible Content Management System (.NET).
 - • [[https://drupal.org][Drupal CMS]] — Digital Experience Platform (PHP).
 - • [[https://www.pimcore.org/][Pimcore Platform™]] — Enterprise Open Source software for managing any digital data and customer experiences for any channel and device (PHP, Zend Framework, ExtJS).

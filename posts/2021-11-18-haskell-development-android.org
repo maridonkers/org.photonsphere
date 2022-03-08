@@ -53,9 +53,9 @@ Use the commands below to get and build my Paperspan export (HTML) to Instapaper
 #+END_SRC
 
 Notes:
-- o use the =cabal new-= commands (e.g. =cabal new-update=, =cabal new-build=, =cabal new-run=) because the regular ones appear to be not working;
-- o depending on your phone the =cabal new-update= and =cabal new-build= may take a while to complete;
-- o if the build fails then simply start it again (I had to start it again once).
+- • use the =cabal new-= commands (e.g. =cabal new-update=, =cabal new-build=, =cabal new-run=) because the regular ones appear to be not working;
+- • depending on your phone the =cabal new-update= and =cabal new-build= may take a while to complete;
+- • if the build fails then simply start it again (I had to start it again once).
 
 * Screen dump
 [[../images/TermuxLinuxDemo.png]]
