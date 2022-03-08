@@ -5,22 +5,18 @@
 
 let
 
-  # TODO Hakyll is marked as broken in NixOS 21.11 so for now use 20.03's.
+  # TODO Hakyll is sometimes marked as broken in NixOS, so use a pinned one.
   inherit (nixpkgs) pkgs;
    myPkgs = import (builtins.fetchGit {
-     # Descriptive name to make the store path easier to identify
-     name = "nixos-20.03";
-     url = "https://github.com/nixos/nixpkgs-channels/";
-     ref = "refs/heads/nixpkgs-20.03-darwin";
-     rev = "1975b8687474764c157e6a220fdcad2c5dc348a1";
+     url = "https://github.com/NixOS/nixpkgs";
+     ref = "refs/tags/20.03";
   }) {};
 
-  # pkgs = nixpkgs;
-  myPkg = myPkgs.haskellPackages.hakyll;
+  # myPkgs = nixpkgs;
 
   f = { mkDerivation, base, hakyll, pandoc, stdenv }:
       mkDerivation {
-        pname = "photonsphere";
+        pname = "org.photonsphere";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;
