@@ -73,10 +73,9 @@ set -g window-status-format "#{?window_start_flag,, }#I:#W#{?window_flags,#F, } 
 set -g window-status-current-format "#{?window_start_flag,, }#I:#W#{?window_flags,#F, } "
 #+END_SRC
 
-*** screen
-If in the =xmonad.hs= configuration file the following code is used to
-define a terminal with the =screen= command then the text in the
-window is no longer truncated and reflows in a resized window.
+*** xterm
+In the =xmonad.hs= configuration file the following code is used to
+define a terminal and a floating terminal with the =xterm= command.
 
 #+BEGIN_SRC haskell
   myTerminal :: String
