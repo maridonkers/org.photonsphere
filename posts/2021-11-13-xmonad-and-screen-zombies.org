@@ -28,8 +28,8 @@ and configurable; [[https://xmobar.org/][xmobar]] - a minimalistic status bar.
 *** xterm
    The [[https://en.wikipedia.org/wiki/Xterm][xterm]] terminal emulator starts up very quickly and for me this
 compensates for its lack of tabs. Besides: =tmux= can be configured to
-use tabs. Note: to select things in =tmux=, press the Shift key when
-using the mouse to selecting text.
+use tabs. Note: to select things with the mouse in =tmux=, press the Shift key when
+using the mouse.
 
 =~/.tmux.conf=
 #+BEGIN_SRC sh
