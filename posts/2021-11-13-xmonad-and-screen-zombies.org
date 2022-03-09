@@ -1,8 +1,8 @@
 ----
-title: xmonad with xterm+screen and Termonad
+title: xmonad with xterm
 modified: 2021-11-15
 meta_description: 
-tags: Computer, Software, Linux, NixOS, Functional, Haskell, GUI, Tiling Window Manager, xmonad, Termonad
+tags: Computer, Software, Linux, NixOS, Functional, Haskell, GUI, Tiling Window Manager, xmonad
 ----
 
 #+OPTIONS: ^:nil
@@ -27,12 +27,51 @@ and configurable; [[https://xmobar.org/][xmobar]] - a minimalistic status bar.
 ** terminal emulator
 *** xterm
    The [[https://en.wikipedia.org/wiki/Xterm][xterm]] terminal emulator starts up very quickly and for me this
-compensates for its lack of tabs (update: see [[#termonad][Termonad]] below).
+compensates for its lack of tabs. Besides: =tmux= can be configured to
+use tabs.
 
-*** text truncation
-If an =xterm= window is small in size and later resized to a bigger window
-the output is truncated instead of reflowed. This has always been a
-big nuisance to me, but I didn't manage to find a solution earlier.
+=~/.tmux.conf=
+#+BEGIN_SRC sh
+set-option -g prefix C-z
+unbind-key C-b
+bind-key C-z send-prefix
+set -g mouse on
+set -g history-limit 9999
+set -g default-terminal "screen-256color"
+
+# https://gist.github.com/william8th/faf23d311fc842be698a1d80737d9631
+# Set new panes to open in current directory
+# bind c new-window -c "#{pane_current_path}"
+# bind '"' split-window -c "#{pane_current_path}"
+# bind % split-window -h -c "#{pane_current_path}"
+
+# https://www.seanh.cc/2020/12/30/how-to-make-tmux's-windows-behave-like-browser-tabs/#:~:text=Key%20bindings&text=conf%20file%20to%20get%20browser,and%20C%2DS%2DTab%20in%20tmux.
+set -g base-index 1       # Start numbering windows at 1, not 0.
+set -g pane-base-index 1  # Start numbering panes at 1, not 0.
+bind -n C-t new-window
+bind -n C-PgDn next-window
+bind -n C-PgUp previous-window
+bind -n C-S-Left swap-window -t -1\; select-window -t -1
+bind -n C-S-Right swap-window -t +1\; select-window -t +1
+bind -n M-1 select-window -t 1
+bind -n M-2 select-window -t 2
+bind -n M-3 select-window -t 3
+bind -n M-4 select-window -t 4
+bind -n M-5 select-window -t 5
+bind -n M-6 select-window -t 6
+bind -n M-7 select-window -t 7
+bind -n M-8 select-window -t 8
+bind -n M-9 select-window -t:$
+bind -n C-M-w kill-window
+bind -n C-M-q confirm -p "Kill this tmux session?" kill-session
+bind -n F11 resize-pane -Z
+
+set -g status-style "bg=default"
+set -g window-status-current-style "bg=default,reverse"
+set -g window-status-separator ''  # No spaces between windows in the status bar.
+set -g window-status-format "#{?window_start_flag,, }#I:#W#{?window_flags,#F, } "
+set -g window-status-current-format "#{?window_start_flag,, }#I:#W#{?window_flags,#F, } "
+#+END_SRC
 
 *** screen
 If in the =xmonad.hs= configuration file the following code is used to
@@ -41,89 +80,20 @@ window is no longer truncated and reflows in a resized window.
 
 #+BEGIN_SRC haskell
   myTerminal :: String
-  myTerminal = "xterm -e \"exec screen\""
+  myTerminal = "xterm"
 
   myFloatingTerminal :: String
-  myFloatingTerminal = "xterm -title \"floatterm\" -e \"exec screen\""
+  myFloatingTerminal = "xterm -title \"floatterm\""
 
   --...
 
   keysAdditional =
       [ ("M-C-<Return>", spawn myFloatingTerminal)
       ,
-      
+
   -- ...
     xmonad $ def {
       terminal = myTerminal,
-#+END_SRC
-
-*** detached screens
-There is changed behaviour however. Because all terminals now run
-automatically with a =screen= command and will continue to execute
-even when killed with e.g. a =M-<Backspace>=, they can become
-detached.
-
-#+BEGIN_SRC haskell
-  keysAdditional =
-        [...
-         , ("M-<Backspace>", kill)
-#+END_SRC
-
-With a =screen -ls= screens are listed. I have aliases to list screens
-and detached screens only, and a to reattach to a detached screen.
-
-*** aliases
-The definitions for screen aliases are given below:
-   #+BEGIN_SRC sh
-alias r="screen -DR"
-alias s="screen -ls"
-alias z="screen -ls | grep '(Detached)'"
-   #+END_SRC
-
-Simply reattach to a detached screen by its listed name and use an
-=exit= command or =Ctrl-D= to exit and terminate it.
-
-** Termonad
-    :PROPERTIES:
-    :CUSTOM_ID: termonad
-    :END:
-    
-Update: revisiting the [[https://github.com/cdepillabout/termonad][Termonad]] terminal emulator, which is indeed
-blazingly fast and also has tabs! (Distrotube video [[https://www.youtube.com/watch?v=TLNr_gBv5HY][here]]). I'm now
-using =Termonad= (again) and the above text on =xterm= only applies to
-my floating terminals.
-
-Installing vanilla =Termonad= under [[https://nixos.org/][NixOS]] from GitHub:
-[[https://github.com/cdepillabout/termonad][cdepillabout/termonad]], using commands given below:
-
-#+BEGIN_SRC sh
-  mkdir -p ~/lib
-  cd ~/lib
-  git clone https://github.com/cdepillabout/termonad
-  cd termonad
-  nix-build
-#+END_SRC
-
-The build results is under the =result= subdirectory, so a symbolic
-link can be created for it, as follows:
-
-#+BEGIN_SRC sh
-  mkdir -p ~/bin
-  cd ~/bin
-  ln -s /home/mdo/lib/termonad/result/bin/termonad
-#+END_SRC
-
-You can edit e.g. your =~/.bashrc= to add =~/bin= to your =PATH= (or
-simply specify the full path in your =xmonad.hs= configuration file.
-
-=xmonad.hs=:
-#+BEGIN_SRC haskell
-  myTerminal :: String
-  -- myTerminal = "xterm -e \"exec screen\""
-  myTerminal = "~/bin/termonad"
-
-  myFloatingTerminal :: String
-  myFloatingTerminal = "xterm -title \"floatterm\" -e \"exec screen\""
 #+END_SRC
 
 * Performance gains
@@ -137,7 +107,7 @@ annoyance-bias over the terminal output truncate problem.
     :CUSTOM_ID: dotfiles
     :END:
 
-My [[https://github.com/maridonkers/dotfiles][dotfiles]] at GitHub with a.o. [[https://github.com/maridonkers/dotfiles/tree/master/xmonadconfig][xmonad]], [[https://github.com/maridonkers/dotfiles/tree/master/.config/xmobar][xmobar]] and [[https://github.com/maridonkers/dotfiles/tree/master/.config/termonad][Termonad]] configuration.
+My [[https://github.com/maridonkers/dotfiles][dotfiles]] at GitHub with a.o. [[https://github.com/maridonkers/dotfiles/tree/master/xmonadconfig][xmonad]], [[https://github.com/maridonkers/dotfiles/tree/master/.config/xmobar][xmobar]] configuration.
 
 * Already on GitHub
     :PROPERTIES:
