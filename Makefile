@@ -21,6 +21,9 @@ clean-site: clean
 site:
 	ghc --make site.hs
 
+rebuild: site
+	./site build
+
 build: site
 	./site build
 
