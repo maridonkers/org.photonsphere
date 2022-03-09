@@ -22,7 +22,7 @@ site:
 	ghc --make site.hs
 
 build: site
-	./site -v build
+	./site build
 
 tailwind-dev: build
 	npx tailwindcss -i ./site.css -o ./_site/css/site.css --watch
