@@ -139,7 +139,7 @@ A long list — gathered throughout the years — with websites on diverse inter
 - • [[https://philipp.crocoll.net/keepass2android/index.php][Keepass2Android]] — an open source password manager application for Android. It is compatible with the popular KeePass 2.x Password Safe for Windows and aims at simple synchronization between devices. (Android)
 - • [[https://dynamicg.ch/timerecording/home_en.html][Time Recording]] — one of the most downloaded and highest rated time sheet apps in Play Store. Simple to use but very powerful, with many extra features and customization options. (Android)
 - • [[https://simplemind.eu/][SimpleMind]] the world leader in cross-platform Mind Mapping tools. (Desktop, Android, iOS)
-- • [[https://github.com/yanus171/Handy-News-Reader][Handy News Reader]] — Handy News Reader is a light and modern Android feed reader, based on Flym News Reader (Android)
+- • [[https://gitlab.com/spacecowboy/Feeder][Feeder]] — a fully free/libre feed reader. It supports all common feed formats, including JSONFeed. It doesn't track you. It doesn't require any setup. It doesn't even need you to create an account! Just setup your feeds, or import them from your old reader via OPML, then get on with syncing and reading.
 - • [[https://github.com/tateisu/SubwayTooter][Subway Tooter]] — a superior Mastodon client app for Android phone/tablet. (Android)
 
 ** (Open Source) Software
