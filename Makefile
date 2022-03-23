@@ -4,7 +4,7 @@ shell:
 	nix-shell
 
 # To build for production use `make -B prod`
-prod: build _site/css/site.css
+prod: rebuild _site/css/site.css
 
 edit:
 	emacs &
@@ -16,16 +16,18 @@ formatter:
 	stylish-haskell -i site.hs
 
 clean-site: clean
-	rm -f ./site
+	cabal clean
 
 site:
-	ghc --make site.hs
+	cabal build
+	# ghc --make site.hs
 
 rebuild: site
-	./site build
+	rm -rf _site
+	cabal run . -- rebuild
 
 build: site
-	./site build
+	cabal run . -- build
 
 tailwind-dev: build
 	npx tailwindcss -i ./site.css -o ./_site/css/site.css --watch
@@ -34,16 +36,16 @@ _site/css/site.css:
 	NODE_ENV=production npx tailwindcss -i ./site.css -o ./_site/css/site.css --minify
 
 check: build
-	./site -v check
+	cabal run . --  -v check
 
 server: build
-	./site -v server
+	cabal run . --  server
 
 watch: build
-	./site -v watch
+	cabal run . --  -v watch
 
 clean:
-	./site -v clean
+	cabal run . --  -v clean
 
 upload:
 	(cd _site ; lftp -u ftp@donkersautomatisering.nl --env-password -e "mirror -R -n -v .; bye" ftp.donkersautomatisering.nl/domains/photonsphere.org/public_html)
