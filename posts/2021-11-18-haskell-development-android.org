@@ -45,17 +45,16 @@ Use the commands below to get and build my Paperspan export (HTML) to Instapaper
 #+BEGIN_SRC sh
   git clone https://github.com/maridonkers/paperspan2instapaper.git
   cd paperspan2instapaper
-  cabal new-update
+  cabal update
   hpack
-  cabal new-build
+  cabal build
   cp folders-example.yaml folders.yaml
-  cabal new-run . -- yourpaperspanexportfile.html
+  cabal run . -- yourpaperspanexportfile.html
 #+END_SRC
 
-Notes:
-- • use the =cabal new-= commands (e.g. =cabal new-update=, =cabal new-build=, =cabal new-run=) because the regular ones appear to be not working;
-- • depending on your phone the =cabal new-update= and =cabal new-build= may take a while to complete;
-- • if the build fails then simply start it again (I had to start it again once).
+Notes:  
+- • Depending on your phone the =cabal new-update= and =cabal new-build= may take a while to complete.
+- • If the build fails then simply start it again (I had to start it again once).
 
 * Screen dump
 [[../images/TermuxLinuxDemo.png]]
