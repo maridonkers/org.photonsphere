@@ -58,7 +58,7 @@ Notes:
 
 * OpenSSH and GUI
 ** sshd
-  These modern phones are multi-core powerhouses with loads of memory and I've compiled big projects on my 2013 phone (a Samsung Note 3). The small on screen keyboard is a bit of a nuisance so you can run a SSH-server on your phone and ssh into it from a computer with a regular keyboard. Termux documentation is here: [[https://wiki.termux.com/wiki/Remote_Access][Remote Access]].
+  Modern phones are multi-core powerhouses with loads of memory and I've compiled big projects on my 2013 phone (a Samsung Note 3). The small on screen keyboard is a bit of a nuisance so you can run a SSH-server on your phone and ssh into it from a computer with a regular keyboard. Termux documentation is here: [[https://wiki.termux.com/wiki/Remote_Access][Remote Access]].
 
 ** GUI
    You can also set up a graphical environment for your Termux installation, which enables you to run graphical programs from your termux prompt. Instructions here: [[https://wiki.termux.com/wiki/Graphical_Environment][Graphical Environment]].
