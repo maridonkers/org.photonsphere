@@ -56,7 +56,7 @@ Notes:
 * Termux sessions
   If you require additional command prompts then simply swipe in from the left of the Termux window, to get the menu.
 
-../images/TermuxSessions.png]]
+[[../images/TermuxLinuxDemo.png]]
 
   Select =NEW SESSION= in the menu.
 
