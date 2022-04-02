@@ -37,9 +37,6 @@ A number of Debian packages are required and useful for your Haskell development
 #+END_SRC
 
 * Demonstration
-    :PROPERTIES:
-    :CUSTOM_ID: demonstration
-    :END:
 Use the commands below to get and build my Paperspan export (HTML) to Instapaper import (CSV) convertor -- [[https://photonsphere.org/posts/2021-10-06-paperspan2instapaper.html][Paperspan export (HTML) to Instapaper import (CSV) convertor]].
 
 #+BEGIN_SRC sh
@@ -55,6 +52,13 @@ Use the commands below to get and build my Paperspan export (HTML) to Instapaper
 Notes:  
 - • Depending on your phone the =cabal new-update= and =cabal new-build= may take a while to complete.
 - • If the build fails then simply start it again (I had to start it again once).
+
+* Termux sessions
+  If you require additional command prompts then simply swipe in from the left of the Termux window, to get the menu.
+
+../images/TermuxSessions.png]]
+
+  Select =NEW SESSION= in the menu.
 
 * OpenSSH and GUI
 ** sshd
