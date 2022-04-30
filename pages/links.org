@@ -140,6 +140,7 @@ A long list — gathered throughout the years — with websites on diverse inter
 - • [[https://www.coin-or.org][COIN|OR]] — COmputational INfrastructure for Operations Research.
 
 ** Useful Software
+- • [[http://www.orgzly.com/][Orgzly]] — outliner for notes and to-do lists; uou can keep notebooks stored in plain-text and have them synchronized with a directory on your mobile device, SD card, Dropbox, or over WebDAV; notebooks are saved in Org mode's file format. “Org mode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.”; see [[http://orgmode.org][org-mode]] for more information
 - • [[https://smath.com][SMath Studio]] — tiny, powerful, free mathematical program with WYSIWYG editor and complete units of measurements support. It provides numerous computing features and rich user interface translated into about 40 different languages. Application also contains integrated mathematical reference book. (Desktop, Android, iOS)
 - • [[https://notebloc-shop.com/pages/descarga-app-notebloc-libretas-digitales][Notebloc]] the next generation brand of notebooks. We believe that even one of the most traditional writing and design tools, as a notebook is, can be innovative and technologically enhanced. (Android)
 - • [[https://philipp.crocoll.net/keepass2android/index.php][Keepass2Android]] — an open source password manager application for Android. It is compatible with the popular KeePass 2.x Password Safe for Windows and aims at simple synchronization between devices. (Android)

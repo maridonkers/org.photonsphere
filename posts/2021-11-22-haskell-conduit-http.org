@@ -60,16 +60,16 @@ I wanted to see how exceptions are handled in conduits.
   previousDate :: String -> String -> String
   previousDate dat yyNow =
     let
-      [yy,mm,dd] = chunksOf 2 $ dat
-      (year :: Integer) = read $ yy
-      (month :: Int) = read $ mm
-      (day :: Int) = read $ dd
+      [yy,mm,dd] = chunksOf 2 dat
+      (year :: Integer) = read yy
+      (month :: Int) = read mm
+      (day :: Int) = read dd
       (thisYear :: Integer) = read yyNow
       year' = if year > thisYear then 1900 + year else 2000 + year
       days = fromGregorian year' month day
       pDays = previousDay days
       (pyy,pmm,pdd) = toGregorian pDays
-      [_,pyy'] = chunksOf 2 $ (show pyy)
+      [_,pyy'] = chunksOf 2 $ show pyy
     in
       pyy' ++ show' pmm ++ show' pdd
 
