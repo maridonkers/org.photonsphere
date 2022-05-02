@@ -107,6 +107,19 @@ The configuration contains cert_fingerprint lines to store certificates, which g
     readonly = True
   #+END_EXAMPLE
 
+* Cloning the project and its submodules
+
+  #+BEGIN_SRC sh
+    git clone --recurse-submodules https://github.com/maridonkers/OfflineImapGenerator
+  #+END_SRC
+
+  If the =publicsuffix-haskell= submodule is not created, then clone it manually, as follows:
+
+  #+BEGIN_SRC sh
+    cd OfflineImapGenerator
+    git clone https://github.com/wereHamster/publicsuffix-haskell/
+  #+END_SRC
+  
 * Building and executing
 
   See the =Makefile=. Under NixOS first use a =make shell=.
