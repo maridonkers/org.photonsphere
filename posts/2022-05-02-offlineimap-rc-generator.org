@@ -2,7 +2,7 @@
 title: A generator that updates cert_fingerprints in .offlineimaprc
 modified: 2022-05-02
 meta_description: 
-tags: Computer, Software, Internet, Linux, Haskell, HTML, IMAP
+tags: Computer, Software, Internet, Linux, Haskell, EMail, IMAP
 ----
 
 #+OPTIONS: ^:nil
