@@ -127,7 +127,7 @@ cp ~/.offlineimaprc ~/.offlineimaprc.backup
     git clone https://github.com/wereHamster/publicsuffix-haskell/
   #+END_SRC
 
-  Note: =publicsuffix-haskell= is in a submodule because you may want to bump it (use =script/bump) to a more recent [[https://publicsuffix.org/][Public Suffix List]].
+  Note: =publicsuffix-haskell= is in a submodule because you may want to bump it (use =script/bump=) to a more recent [[https://publicsuffix.org/][Public Suffix List]].
   
 * Building and executing
 
