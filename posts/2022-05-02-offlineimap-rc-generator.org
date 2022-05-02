@@ -1,0 +1,125 @@
+----
+title: A generator that updates cert_fingerprints in .offlineimaprc
+modified: 2022-05-02
+meta_description: 
+tags: Computer, Software, Internet, Linux, Haskell, HTML, IMAP
+----
+
+#+OPTIONS: ^:nil
+
+A generator that updates =cert_fingerprint= lines in =.offlineimaprc= configuration file. [[http://www.offlineimap.org/][OfflineIMAP]] is a GPLv2 software to dispose your mailbox(es) as a local Maildir(s), which can be used with [[https://notmuchmail.org/][notmuch]] to retrieve mail from (several) IMAP servers and read and search through it.
+
+The configuration contains cert_fingerprint lines to store certificates, which get outdated frequently and need to be updated. The updating is a bit of a hassle, hence this automatic solution.
+
+(.more.)
+
+* .offlineimaprct template
+
+  Copy your =.offlineimaprc= file to =.offlineimaprct= and execute the generator program. Use the =-v= option to get verbose output.
+
+  =.offlineimaprct= (example)
+  #+BEGIN_EXAMPLE
+    # Sample configuration file
+    # Copyright (C) 2002-2011 John Goerzen & contributors
+    #
+    #    This program is free software; you can redistribute it and/or modify
+    #    it under the terms of the GNU General Public License as published by
+    #    the Free Software Foundation; either version 2 of the License, or
+    #    (at your option) any later version.
+    #
+    #    This program is distributed in the hope that it will be useful,
+    #    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    #    GNU General Public License for more details.
+    #
+    #    You should have received a copy of the GNU General Public License
+    #    along with this program; if not, write to the Free Software
+    #    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    # Looking for a quick start?  Take a look at offlineimap.conf.minimal.
+
+    ##################################################
+    # General definitions
+    ##################################################
+
+    [general]
+    metadata = ~/.offlineimap
+    accounts = Contact,Private
+
+    # Set to the number of accounts.
+    maxsyncaccounts = 2
+
+    ui = machineui 
+    ignore-readonly = no
+    [mbnames]
+    enabled = no
+    filename = ~/Mutt/muttrc.mailboxes
+    header = "mailboxes "
+    peritem = "+%(accountname)s/%(foldername)s"
+    sep = " "
+    footer = "\n"
+    [ui.Curses.Blinkenlights]
+    statuschar = .
+    postsynchook = ~/bin/offlineimap-postsync.sh
+
+    ##################################################
+    # Accounts
+    ##################################################
+
+    [Account Contact]
+    localrepository = LocalContact
+    remoterepository = RemoteContact
+    [Repository LocalContact]
+    type = Maildir
+    localfolders = ~/notmuch/contact
+    sep = .
+    restoreatime = no
+    [Repository RemoteContact]
+    type = IMAP
+    remotehost = mail.contactdomainname.com
+    ssl = yes
+    cert_fingerprint = hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh
+    remoteuser = contact@contactdomainname.com
+    remotepass = passwordgoeshere
+    maxconnections = 2
+    holdconnectionopen = no
+    subscribedonly = no
+    readonly = True
+
+    [Account Private]
+    localrepository = LocalPrivate
+    remoterepository = RemotePrivate
+    [Repository LocalPrivate]
+    type = Maildir
+    localfolders = ~/notmuch/private
+    sep = .
+    restoreatime = no
+    [Repository RemotePrivate]
+    type = IMAP
+    remotehost = mail.privatedomainname.com
+    ssl = yes
+    cert_fingerprint = hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh:hh
+    remoteuser = private@privatedomainname.com
+    remotepass = passwordgoeshere
+    maxconnections = 2
+    holdconnectionopen = no
+    subscribedonly = no
+    readonly = True
+  #+END_EXAMPLE
+
+* Building and executing
+
+  See the =Makefile=. Under NixOS first use a =make shell=.
+
+  #+BEGIN_SRC sh
+    make rebuild
+    make run
+  #+END_SRC
+
+  To get a full path to the built executable use =make ls= and e.g. =ln -s= to create a symbolic link.
+
+  See the source code at [[https://github.com/maridonkers/OfflineImapGenerator][maridonkers/OfflineImapGenerator]] on GitHub.
+
+* Disclaimer
+  This is a 'one shot' program (excuse my Haskell) that I'm
+using myself but have not checked extensively, not cleaned up the code. If I find some time or run into bugs then I'll clean it up (probably).
