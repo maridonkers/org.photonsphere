@@ -7,9 +7,9 @@ tags: Computer, Software, Internet, Linux, Haskell, EMail, IMAP
 
 #+OPTIONS: ^:nil
 
-A generator that updates =cert_fingerprint= lines in =.offlineimaprc= configuration file. [[http://www.offlineimap.org/][OfflineIMAP]] is a GPLv2 software to dispose your mailbox(es) as a local Maildir(s), which can be used with [[https://notmuchmail.org/][notmuch]] to retrieve mail from (several) IMAP servers and read and search through it.
+A generator that updates =cert_fingerprint= lines in =.offlineimaprc= configuration file. [[http://www.offlineimap.org/][OfflineIMAP]] is a GPLv2 software to dispose your mailbox(es) as a local Maildir(s), which can be used with [[https://notmuchmail.org/][notmuch]] to retrieve mail from (several) =IMAP= servers and read and search through it.
 
-The configuration contains cert_fingerprint lines to store certificates, which get outdated frequently and need to be updated. The updating is a bit of a hassle, hence this automated solution, which generates a =.offlineimaprc= file from a template file =.offlineimaprct= (created by you).
+The configuration contains =cert_fingerprint= lines to store certificates, which get outdated frequently and need to be updated. The updating is a bit of a hassle, hence this automated solution, which generates a =.offlineimaprc= file from a template file =.offlineimaprct= (created by you).
 
 (.more.)
 
@@ -126,6 +126,8 @@ cp ~/.offlineimaprc ~/.offlineimaprc.backup
     cd OfflineImapGenerator
     git clone https://github.com/wereHamster/publicsuffix-haskell/
   #+END_SRC
+
+  Note: =publicsuffix-haskell= is in a submodule because you may want to bump it (use =script/bump) to a more recent [[https://publicsuffix.org/][Public Suffix List]].
   
 * Building and executing
 
