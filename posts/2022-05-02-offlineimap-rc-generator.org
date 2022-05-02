@@ -9,7 +9,7 @@ tags: Computer, Software, Internet, Linux, Haskell, EMail, IMAP
 
 A generator that updates =cert_fingerprint= lines in =.offlineimaprc= configuration file. [[http://www.offlineimap.org/][OfflineIMAP]] is a GPLv2 software to dispose your mailbox(es) as a local Maildir(s), which can be used with [[https://notmuchmail.org/][notmuch]] to retrieve mail from (several) IMAP servers and read and search through it.
 
-The configuration contains cert_fingerprint lines to store certificates, which get outdated frequently and need to be updated. The updating is a bit of a hassle, hence this automatic solution.
+The configuration contains cert_fingerprint lines to store certificates, which get outdated frequently and need to be updated. The updating is a bit of a hassle, hence this automated solution.
 
 (.more.)
 
