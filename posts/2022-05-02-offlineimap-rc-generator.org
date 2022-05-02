@@ -134,5 +134,5 @@ The configuration contains cert_fingerprint lines to store certificates, which g
   See the source code at [[https://github.com/maridonkers/OfflineImapGenerator][maridonkers/OfflineImapGenerator]] on GitHub.
 
 * Disclaimer
-  This is a 'one shot' program (excuse my Haskell) that I'm
+  This is a 'one shot' program (excuse my [[https://haskell.org/][Haskell]]) that I'm
 using myself but have not checked extensively, not cleaned up the code. If I find some time or run into bugs then I'll clean it up (probably).
