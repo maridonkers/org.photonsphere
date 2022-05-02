@@ -132,6 +132,7 @@ cp ~/.offlineimaprc ~/.offlineimaprc.backup
   See the =Makefile=. Under NixOS first use a =make shell=.
 
   #+BEGIN_SRC sh
+    cd OfflineImapGenerator/offlineimapgenerator
     make rebuild
     make run
   #+END_SRC
