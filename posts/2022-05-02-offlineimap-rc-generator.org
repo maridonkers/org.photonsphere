@@ -14,7 +14,8 @@ The configuration contains =cert_fingerprint= lines to store certificates, which
 (.more.)
 
 * Turtle and openssl
-**  [[https://github.com/Gabriel439/turtle][Turtle]] is a reimplementation of the Unix command line environment in Haskell so that you can use Haskell as a scripting language or a shell. Think of turtle as coreutils embedded within the [[https://www.haskell.org/][Haskell]] language.
+** Turtle
+   [[https://github.com/Gabriel439/turtle][Turtle]] is a reimplementation of the Unix command line environment in Haskell so that you can use Haskell as a scripting language or a shell. Think of turtle as coreutils embedded within the [[https://www.haskell.org/][Haskell]] language.
 ** openssl
    [[https://github.com/openssl/openssl][OpenSSL]] is a robust, commercial-grade, full-featured Open Source Toolkit for the Transport Layer Security (TLS) protocol formerly known as the Secure Sockets Layer (SSL) protocol. The protocol implementation is based on a full-strength general purpose cryptographic library, which can also be used stand-alone.
 
