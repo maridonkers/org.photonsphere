@@ -1,3 +1,5 @@
+TAILWINDCSS = "$(HOME)/bin/tailwindcss"
+
 all: help
 
 shell:
@@ -30,10 +32,10 @@ build: site
 	cabal run . -- build
 
 tailwind-dev: build
-	npx tailwindcss -i ./site.css -o ./_site/css/site.css --watch
+	$(TAILWINDCSS) -i ./site.css -o ./_site/css/site.css --watch
 
 _site/css/site.css:
-	NODE_ENV=production npx tailwindcss -i ./site.css -o ./_site/css/site.css --minify
+	NODE_ENV=production $(TAILWINDCSS) -i ./site.css -o ./_site/css/site.css --minify
 
 check: build
 	cabal run . --  -v check
