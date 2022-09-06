@@ -61,6 +61,6 @@ Scotty ([[https://github.com/scotty-web/scotty][scotty-web/scotty]]).
 
 Examples of WebGear applications can be found at:
 
-- [[https://github.com/haskell-webgear/webgear-example-hello][Hello World]]
-- [[https://github.com/haskell-webgear/webgear-example-users][A basic CRUD app that operates on user resources]]
-- [[https://github.com/haskell-webgear/webgear-example-realworld][Realworld — a medium.com clone (called conduit)]]
+- • [[https://github.com/haskell-webgear/webgear-example-hello][Hello World]]
+- • [[https://github.com/haskell-webgear/webgear-example-users][A basic CRUD app that operates on user resources]]
+- • [[https://github.com/haskell-webgear/webgear-example-realworld][Realworld — a medium.com clone (called conduit)]]
