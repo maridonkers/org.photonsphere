@@ -6,13 +6,13 @@
 let
 
   # TODO Hakyll is sometimes marked as broken in NixOS, so use a pinned one.
-  inherit (nixpkgs) pkgs;
-   myPkgs = import (builtins.fetchGit {
-     url = "https://github.com/NixOS/nixpkgs";
-     ref = "refs/tags/21.11";
-  }) {};
+  ## inherit (nixpkgs) pkgs;
+  ## myPkgs = import (builtins.fetchGit {
+  ##   url = "https://github.com/NixOS/nixpkgs";
+  ##   ref = "refs/tags/21.11";
+  ## }) {};
 
-  # myPkgs = nixpkgs;
+  myPkgs = nixpkgs;
 
   f = { mkDerivation, base, hakyll, pandoc, stdenv }:
       mkDerivation {
