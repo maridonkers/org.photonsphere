@@ -7,12 +7,10 @@ tags: Computer, Software, Functional, Internet, Web, API, WebAPI, Haskell, Nix
 
 #+OPTIONS: ^:nil
 
-Composable, type-safe HTTP APIs in [[https://www.haskell.org/][Haskell]] -- [[https://haskell-webgear.github.io/][Webgear]] (by [[https://github.com/rkaippully][Raghu Kaippully]]).
-
-"WebGear is a high-performance framework to build composable,
+WebGear is a high-performance framework to build composable,
 type-safe HTTP APIs. It is designed to make common API development
 tasks easy. It is also easily extensible to add components needed by
-your project." — [[https://github.com/haskell-webgear/webgear][haskell-webgear/webgear]]
+your project. -- [[https://github.com/haskell-webgear/webgear][haskell-webgear/webgear]] (by [[https://github.com/rkaippully][Raghu Kaippully]]).
 
 (.more.)
 
