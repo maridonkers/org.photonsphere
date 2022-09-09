@@ -236,7 +236,7 @@ page = doctypehtml_ $ do
 lucid :: ServerHandler IO t Response
 lucid = proc _ -> do
   let h = page
-  unlinkA . respondA HTTP.ok200 "text/html"
+  unlinkA <<< respondA HTTP.ok200 "text/html"
     -< renderBS h
 
 hello :: ServerHandler
