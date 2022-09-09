@@ -2,7 +2,7 @@
 title: Webgear
 modified: 2022-09-06
 meta_description: 
-tags: Computer, Software, Functional, Internet, Web, API, WebAPI, Haskell, Nix
+tags: Computer, Software, Functional, Internet, Web, API, WebAPI, Haskell, Nix, Webgear
 ----
 
 #+OPTIONS: ^:nil
