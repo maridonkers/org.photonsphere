@@ -22,11 +22,10 @@ examples for Webgear and Halogen are used at respectively the server
 and client. The =ember.js= client in the Webgear example is replaced
 with the =Halogen= client.
 
-A subdirectory is created for the project and entered.
+A subdirectory is created for the project.
 
 #+BEGIN_SRC sh
   mkdir webgearhalogen
-  cd webgearhalogen
 #+END_SRC
 
 * Nix prerequisite
@@ -45,7 +44,7 @@ As per instructions in =README.md= a development shell is started and
 [[https://developer.mozilla.org/en-US/docs/Web/JavaScript][JavaScript]] dependencies are installed.
 
 #+BEGIN_SRC sh
-  cd client
+  cd webgearhalogen/client
   nix develop
   npm install
 #+END_SRC
@@ -100,7 +99,7 @@ The [[https://github.com/haskell-webgear/webgear-example-realworld][webgear-exam
 Delete =ui/index.html= and clear the =ui/assets= subdirectory. Create symlinks to the Halogen files.
 
 #+BEGIN_SRC sh
-  cd server
+  cd webgearhalogen/server
 
   cd ui
   ln -s ../../client/dist/index.html
@@ -113,6 +112,7 @@ Delete =ui/index.html= and clear the =ui/assets= subdirectory. Create symlinks t
 
 * Start the server
 
+** Configure server
 Add =hsPkgs.ghcid= to =server/flake.nix=. Also beware that the =nix develop= command may take a
 while to complete and uses lots of memory — this can be greatly
 reduced by commenting out =pkgs.haskell-language-server= in
@@ -161,15 +161,17 @@ ghc-options:        -threaded
                       -fshow-warning-groups
 #+END_SRC
 
-Start the server.
+** Start the server
 
 #+BEGIN_SRC
-  cd server
+  cd webgearhalogen/server
   nix develop
   ghcid -c 'cabal repl' -T Main.main --restart=./webgear-example-realworld.cabal
 #+END_SRC
 
-* Navigate to [[http://localhost:3000]]
+* Navigate to site
+
+Site at [[http://localhost:3000]]
 
 The client has some problems with submitting comments, which I've
 started attempting to fix in a fork at:
