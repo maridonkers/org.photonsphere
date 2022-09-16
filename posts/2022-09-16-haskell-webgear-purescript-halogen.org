@@ -110,8 +110,6 @@ Delete =ui/index.html= and clear the =ui/assets= subdirectory. Create symlinks t
   mkdir assets
   cd assets
   ln -s ../../../client/dist/main.js
-
-  exit
 #+END_SRC
 
 * Start the server
