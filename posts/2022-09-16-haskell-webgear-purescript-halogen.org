@@ -1,0 +1,181 @@
+----
+title: Webgear server + Halogen client
+modified: 2022-09-16
+meta_description: 
+tags: Computer, Software, Functional, Internet, Web, API, JavaScript, WebAPI, Haskell, PureScript, Nix, Webgear, Halogen
+----
+
+#+OPTIONS: ^:nil
+
+The [[https://github.com/haskell-webgear/webgear-example-realworld][Webgear realworld]] =Haskell= example (server) and the [[https://github.com/thomashoneyman/purescript-halogen-realworld][Real World
+Halogen]] =Purescript= example (client) combined into =Conduit=
+([[https://github.com/gothinkster/realworld][gothinkster/realworld]]) — what's described as "The mother of all demo
+apps" — Exemplary fullstack Medium.com clone powered by React,
+Angular, Node, Django, and many more.
+
+(.more.)
+
+* Introduction
+
+At the server [[https://www.haskell.org/][Haskell]] is used (i.e. the [[https://haskell-webgear.github.io/][Webgear]]) and at the client
+[[https://www.purescript.org/][PureScript]] (i.e. [[https://purescript-halogen.github.io/purescript-halogen/][Halogen]]). The =Conduit= ([[https://github.com/gothinkster/realworld][gothinkster/realworld]])
+examples for Webgear and Halogen are used at respectively the server
+and client. The =ember.js= client in the Webgear example is replaced
+with the =Halogen= client.
+
+A subdirectory is created for the project and entered.
+
+#+BEGIN_SRC sh
+  mkdir webgearhalogen
+  cd webgearhalogen
+#+END_SRC
+
+* Nix prerequisite
+
+You'll need to have =Nix= installed, per instructions [[https://nixos.org/download.html#download-nix][here]].
+
+* TODO Client (Halogen Purescript)
+
+The [[https://github.com/thomashoneyman/purescript-halogen-realworld][thomashoneyman/purescript-halogen-realworld]] example is cloned into a client subdirectory.
+
+#+BEGIN_SRC sh
+  git clone https://github.com/thomashoneyman/purescript-halogen-realworld client
+#+END_SRC
+
+As per instructions in =README.md= a development shell is started and
+[[https://developer.mozilla.org/en-US/docs/Web/JavaScript][JavaScript]] dependencies are installed.
+
+#+BEGIN_SRC sh
+  cd client
+  nix develop
+  npm install
+#+END_SRC
+
+The =baseUrl= is changed in the =src/Main.purs= file, so that
+=localhost= is served.
+
+=src/Main.purs=
+#+BEGIN_SRC purescript
+  let
+    -- baseUrl = BaseURL "https://api.realworld.io"
+    baseUrl = BaseURL ""
+    logLevel = Dev
+#+END_SRC
+
+Now the =PureScript= code is compiled to =JavaScript= code (producing a =dist/main.js= file).
+
+Change the =dist/index.html= file to refer to the =ui/assets/main.js= location.
+
+#+BEGIN_SRC html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Conduit</title>
+    <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="//fonts.googleapis.com/css?family=Titillium+Web:700|Source+Serif+Pro:400,700|Merriweather+Sans:400,700|Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//demo.productionready.io/main.css" />
+  </head>
+  <body>
+    <script src="ui/assets/main.js"></script>
+  </body>
+</html>
+#+END_SRC
+
+Compile the client and exit the client development shell.
+
+#+BEGIN_SRC sh
+  npm run bundle
+  exit
+#+END_SRC
+
+* TODO Server (Webgear Haskell)
+
+The [[https://github.com/haskell-webgear/webgear-example-realworld][webgear-example-realworld]] example is cloned into a server subdirectory.
+
+#+BEGIN_SRC sh
+  git clone https://github.com/haskell-webgear/webgear-example-realworld server
+#+END_SRC
+
+Delete =ui/index.html= and clear the =ui/assets= subdirectory. Create symlinks to the Halogen files.
+
+#+BEGIN_SRC sh
+  cd server
+
+  cd ui
+  ln -s ../../client/dist/index.html
+
+  rm -rf assets
+  mkdir assets
+  cd assets
+  ln -s ../../../client/dist/main.js
+
+  exit
+#+END_SRC
+
+* Start the server
+
+Add =hsPkgs.ghcid= to =server/flake.nix=. Also beware that the =nix develop= command may take a
+while to complete and uses lots of memory — this can be greatly
+reduced by commenting out =pkgs.haskell-language-server= in
+=flake.nix= prior to running =nix develop=.
+
+=flake.nix=
+#+BEGIN_SRC nix
+  devShells.default = hsPkgs.shellFor {
+    name = pkgName;
+    packages = pkgs: [ pkgs.${pkgName} ];
+    buildInputs = [
+      pkgs.cabal-install
+      pkgs.cabal2nix
+      hsPkgs.fourmolu
+      hsPkgs.ghc
+      pkgs.hlint
+      # pkgs.haskell-language-server
+      hsPkgs.ghcid
+   ];
+   src = null;
+  };
+#+END_SRC
+
+Change =server/webgear-example-realworld.cabal= to comment out
+=-Wunused-packages=. in =ghc-options=, because =ghcid= doesn't like
+it.
+
+=webgear-example-realworld.cabal=
+#+BEGIN_SRC cabal
+ghc-options:        -threaded
+                      -rtsopts
+                      -with-rtsopts=-N
+                      -Wall
+                      -Wno-unticked-promoted-constructors
+                      -Wcompat
+                      -Widentities
+                      -Wincomplete-record-updates
+                      -Wincomplete-uni-patterns
+                      -Wmissing-fields
+                      -Wmissing-home-modules
+                      -Wmissing-deriving-strategies
+                      -Wpartial-fields
+                      -Wredundant-constraints
+                      -- -Wunused-packages
+                      -Werror
+                      -fshow-warning-groups
+#+END_SRC
+
+Start the server.
+
+#+BEGIN_SRC
+  cd server
+  nix develop
+  ghcid -c 'cabal repl' -T Main.main --restart=./webgear-example-realworld.cabal
+#+END_SRC
+
+* Navigate to [[http://localhost:3000]]
+
+The client has some problems with submitting comments, which I've
+started attempting to fix in a fork at:
+[[https://github.com/maridonkers/purescript-halogen-realworld][maridonkers/purescript-halogen-realworld]] (an ongoing effort; to try
+it, clone it for the client, instead of
+https://github.com/thomashoneyman/purescript-halogen-realworld).
