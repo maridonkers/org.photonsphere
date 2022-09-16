@@ -10,8 +10,7 @@ tags: Computer, Software, Functional, Internet, Web, API, JavaScript, WebAPI, Ha
 The [[https://github.com/haskell-webgear/webgear-example-realworld][Webgear realworld]] =Haskell= example (server) and the [[https://github.com/thomashoneyman/purescript-halogen-realworld][Real World
 Halogen]] =Purescript= example (client) combined into =Conduit=
 ([[https://github.com/gothinkster/realworld][gothinkster/realworld]]) — what's described as "The mother of all demo
-apps" — Exemplary fullstack Medium.com clone powered by React,
-Angular, Node, Django, and many more.
+apps" — Exemplary fullstack Medium.com clone ...
 
 (.more.)
 
