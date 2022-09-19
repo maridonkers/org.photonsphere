@@ -174,7 +174,7 @@ ghc-options:        -threaded
 Site at [[http://localhost:3000]]
 
 The client has a problem with submitting comments, which I've
-attempted to fix — partial fix for [[https://github.com/thomashoneyman/purescript-halogen-realworld/issues/78][issue #78]] — in the =issue18= branch
-of a fork at: [[https://github.com/maridonkers/purescript-halogen-realworld/tree/issue18][maridonkers/purescript-halogen-realworld]] (to try it,
+attempted to fix — partial fix for [[https://github.com/thomashoneyman/purescript-halogen-realworld/issues/78][issue #78]] — in the =issue78= branch
+of a fork at: [[https://github.com/maridonkers/purescript-halogen-realworld/tree/issue78][maridonkers/purescript-halogen-realworld]] (to try it,
 clone it for the client, instead of
 https://github.com/thomashoneyman/purescript-halogen-realworld).
