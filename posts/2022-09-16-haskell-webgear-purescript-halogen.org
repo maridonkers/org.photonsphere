@@ -10,7 +10,7 @@ tags: Computer, Software, Functional, Internet, Web, API, JavaScript, WebAPI, Ha
 The [[https://github.com/haskell-webgear/webgear-example-realworld][Webgear realworld]] =Haskell= example (server) and the [[https://github.com/thomashoneyman/purescript-halogen-realworld][Real World
 Halogen]] =Purescript= example (client) combined into =Conduit=
 ([[https://github.com/gothinkster/realworld][gothinkster/realworld]]) — what's described as "The mother of all demo
-apps" — Exemplary fullstack Medium.com clone ...
+apps" (fullstack Medium.com clone)
 
 (.more.)
 
@@ -22,7 +22,8 @@ examples for Webgear and Halogen are used at respectively the server
 and client. The =ember.js= client in the Webgear example is replaced
 with the =Halogen= client.
 
-A subdirectory is created for the project.
+A folder is created for the project (in which [[Client (Halogen Purescript)][client]] and [[Server (Webgear Haskell)][server]]
+subdirectories will be created, further on in this text).
 
 #+BEGIN_SRC sh
   mkdir webgearhalogen
@@ -32,7 +33,7 @@ A subdirectory is created for the project.
 
 You'll need to have =Nix= installed, per instructions [[https://nixos.org/download.html#download-nix][here]].
 
-* TODO Client (Halogen Purescript)
+* Client (Halogen Purescript)
 
 The [[https://github.com/thomashoneyman/purescript-halogen-realworld][thomashoneyman/purescript-halogen-realworld]] example is cloned into a client subdirectory.
 
@@ -88,9 +89,9 @@ Compile the client and exit the client development shell.
   exit
 #+END_SRC
 
-* TODO Server (Webgear Haskell)
+* Server (Webgear Haskell)
 
-The [[https://github.com/haskell-webgear/webgear-example-realworld][webgear-example-realworld]] example is cloned into a server subdirectory.
+The [[https://github.com/haskell-webgear/webgear-example-realworld][webgear-example-realworld]] example is cloned into a server subdirectory (hence a sibling of the [[Client (Halogen Purescript)][client]] subdirectory).
 
 #+BEGIN_SRC sh
   git clone https://github.com/haskell-webgear/webgear-example-realworld server
@@ -171,7 +172,9 @@ ghc-options:        -threaded
 
 * Navigate to site
 
-Navigate to your site at [[http://localhost:3000]] and use one of the already precreated logins:
+Navigate to your site at [[http://localhost:3000]], where one of the
+already precreated logins can be used (also see the [[https://github.com/haskell-webgear/webgear-example-realworld][Webgear
+realworld]] example documentation).
 
 - • Email: `arya@winterfell.com` Password: `valar_morghulis`
 - • Email: `jon@winterfell.com` Password: `winter_is_coming`
