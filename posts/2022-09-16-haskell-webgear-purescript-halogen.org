@@ -103,6 +103,7 @@ Delete =ui/index.html= and clear the =ui/assets= subdirectory. Create symlinks t
   cd webgearhalogen/server
 
   cd ui
+  rm index.html
   ln -s ../../client/dist/index.html
 
   rm -rf assets
