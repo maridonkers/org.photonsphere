@@ -13,6 +13,8 @@ The configuration contains =cert_fingerprint= lines to store certificates, which
 
 (.more.)
 
+* GUIs, TUIs and CLUIs
+Although I strongly adhere to the "when there a TUI, don't use a GUI and when there's a CLUI, don't use a TUI" adage, there are good GUIs for web browsing and e-mail. But =OfflineIMAP= creates a great local backup of the e-mails on your server, which can be searched through very fast using =notmuch=.
 * Turtle and openssl
 ** Turtle
    [[https://github.com/Gabriel439/turtle][Turtle]] is a reimplementation of the Unix command line environment in Haskell so that you can use Haskell as a scripting language or a shell. Think of turtle as coreutils embedded within the [[https://www.haskell.org/][Haskell]] language.
