@@ -56,7 +56,7 @@ Notes:
 * Keys menu and colors
 Configuration of useful keys in the keys menu and readable colors via =Termux= configuration files.
 
-For =Termux= configuration:
+** Termux configuration
 
 =~/.termux/termux.properties=
 #+BEGIN_EXAMPLE
@@ -209,7 +209,7 @@ use-black-ui = true
 # ctrl-space-workaround = true
 #+END_EXAMPLE
 
-And for the color theme:
+** The color theme
 
 =~/.termux/colors.properties=
 #+BEGIN_EXAMPLE
