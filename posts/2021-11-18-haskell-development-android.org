@@ -56,6 +56,8 @@ Notes:
 * Keys menu and colors
 Configuration of useful keys in the keys menu and readable colors via =Termux= configuration files.
 
+For =Termux= configuration:
+
 =~/.termux/termux.properties=
 #+BEGIN_EXAMPLE
 ### After making changes and saving you need to run `termux-reload-settings`
@@ -206,6 +208,8 @@ use-black-ui = true
 ### ctrl+space (for marking text in emacs) does not work on some devices
 # ctrl-space-workaround = true
 #+END_EXAMPLE
+
+And for the color theme:
 
 =~/.termux/colors.properties=
 #+BEGIN_EXAMPLE
