@@ -1,0 +1,124 @@
+----
+title: Servant server + Halo client
+modified: 2022-10-30
+meta_description: 
+tags: Computer, Software, Functional, Internet, Web, API, JavaScript, WebAPI, Haskell, Servant, PureScript, Nix, Webgear, Halo
+----
+
+#+OPTIONS: ^:nil
+
+The [[https://github.com/nodew/haskell-realworld-example][Haskell-realworld-example]] =Haskell= example ([[https://docs.servant.dev/en/stable/][Servant]] based server)
+and the [[https://github.com/jonasbuntinx/purescript-react-realworld][Real World PureScript React]] =Purescript= example (client)
+combined into =Conduit= ([[https://github.com/gothinkster/realworld][gothinkster/realworld]]) — what's described as
+"The mother of all demo apps" (fullstack Medium.com clone)
+
+(.more.)
+
+* Introduction
+
+Haskell-realworld-example has a very nice implementation for [[https://blog.miniorange.com/what-is-jwt-json-web-token-how-does-jwt-authentication-work/][JWT authentication]], which combines nicely with the Real World PureScript React example (although there are some implementation differences to iron out).
+
+* Implementation differences
+** JWT
+*** Changes to the client
+In =Conduit.Data.Jwt= change =username= to =sub=.
+#+BEGIN_SRC purescript
+  type Jwt =
+  { sub :: Username
+  , exp :: Number
+  }
+  ...
+  CAR.object "Jwt"
+                { sub: usernameCodec -- username: usernameCodec -- TODO fix
+                , exp: CA.number
+                }
+#+END_SRC
+
+In =Conduit.Data.Auth= change =username= to =sub=.
+
+#+BEGIN_SRC purescript
+  { exp, username } <- hush $ Jwt.decode token
+  pure { token, username, expirationTime: fromMilliseconds $ Milliseconds $ exp * 1000.0, user }
+#+END_SRC
+
+*** Changes to the server
+
+In =Conduit.JWT= you'll problably want to change =mkClaims= to use your own names for =iss= and =aud=.
+#+BEGIN_SRC haskell
+mkClaims :: Username -> IO ClaimsSet
+mkClaims name = do
+    currentTime <- getCurrentTime
+    let expiredAt = addUTCTime nominalDay currentTime
+    pure $ emptyClaimsSet
+        & claimIss ?~ "conduit-server"
+        & claimAud ?~ Audience ["conduit-client"]
+        & claimIat ?~ NumericDate currentTime
+        & claimExp ?~ NumericDate expiredAt
+        & claimSub ?~ (fromString . T.unpack . getUsername) name
+#+END_SRC
+
+** Empty image field in login response
+The server returns apparently valid JSON — hence weird problem — with an empty =image= field,
+but the client reports a decoding error. If the image field is set to a value (by changing it directly in the users table in the database as a workaround) then it functions correctly; even though the =bio= field is also empty — even weirder.
+
+#+BEGIN_SRC json
+  {
+     "user" : {
+        "bio" : "",
+        "email" : "arya@winterfell.com",
+        "image" : "",
+        "token" : "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYWxkci1jbGllbnQiLCJleHAiOjEuNjY3MjA1NjIxMDE1MzQ5MzE5ZTksImlhdCI6MS42NjcxMTkyMjEwMTUzNDkzMTllOSwiaXNzIjoiYmFsZHItc2VydmVyIiwic3ViIjoiQXJ5YSAxIn0.TzhDvT9Mkmj9nalh_q7vGol-IbnRRoxoiGPQwlasaGQ",
+        "username" : "Arya 1"
+     }
+  }
+#+END_SRC
+
+Console error logging:
+#+BEGIN_EXAMPLE
+(DecodeError { body: "{\"user\":{\"email\":\"arya@winterfell.com\",\"password\":\"valar_morghulis\"}}", headers: [(ContentType (MediaType "application/json"))], method: POST, url: "/api/users/login" } { body: "{\"user\":{\"bio\":\"\",\"email\":\"arya@winterfell.com\",\"image\":\"\",\"token\":\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYWxkci1jbGllbnQiLCJleHAiOjEuNjY3MjA1NjIxMDE1MzQ5MzE5ZTksImlhdCI6MS42NjcxMTkyMjEwMTUzNDkzMTllOSwiaXNzIjoiYmFsZHItc2VydmVyIiwic3ViIjoiQXJ5YSAxIn0.TzhDvT9Mkmj9nalh_q7vGol-IbnRRoxoiGPQwlasaGQ\",\"username\":\"Arya 1\"}}", headers: [(ResponseHeader "connection" "keep-alive"),(ResponseHeader "content-type" "application/json;charset=utf-8"),(ResponseHeader "date" "Sun, 30 Oct 2022 08:40:21 GMT"),(ResponseHeader "server" "nginx/1.21.6"),(ResponseHeader "transfer-encoding" "chunked")], status: (StatusCode 200) } An error occurred while decoding a JSON value:
+  Under 'Response':
+  At object key user:
+  Under 'User':
+  At object key image:
+  Under 'Maybe':
+  Under 'Avatar':
+  Unexpected value "".)
+#+END_EXAMPLE
+
+The client code has different codecs for =image= and =bio=
+
+=Conduit.Data.Profile=
+#+BEGIN_SRC purescript
+-- | Codecs
+mkProfileRepCodec :: forall rest. CA.JPropCodec (Record rest) -> CA.JPropCodec { | ProfileRep rest }
+mkProfileRepCodec =
+  CA.recordProp (Proxy :: Proxy "username") usernameCodec
+    <<< CA.recordProp (Proxy :: Proxy "bio") (CAC.maybe CA.string)
+    <<< CA.recordProp (Proxy :: Proxy "image") (CAC.maybe avatarCodec)
+#+END_SRC
+
+but avatarCodec is also a string in the end
+
+=Conduit.Data.Avatar=
+#+BEGIN_SRC purescript
+-- | Codecs
+avatarCodec :: JsonCodec Avatar
+avatarCodec = CA.prismaticCodec "Avatar" fromString toString CA.string
+#+END_SRC
+
+hence weird.
+
+** Token in User update response
+The server doesn't return a =token= field, but the client expects it. The the [[https://realworld-docs.netlify.app/docs/specs/backend-specs/endpoints#update-user][update user]] section in the Realworld spec also mentions it (hence issue in server).
+
+#+BEGIN_EXAMPLE
+(DecodeError { body: "null", headers: [(ContentType (MediaType "application/json")),(RequestHeader "Authorization" "Token eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYWxkci1jbGllbnQiLCJleHAiOjEuNjY3MjA1NjM3MjcwMTAyMzcyZTksImlhdCI6MS42NjcxMTkyMzcyNzAxMDIzNzJlOSwiaXNzIjoiYmFsZHItc2VydmVyIiwic3ViIjoiQXJ5YSAxIn0.tQ4JqPXoBu7RDSjF0gJeBi8NDJFGp7w7D8cxjUXMUno")], method: GET, url: "/api/user" } { body: "{\"user\":{\"bio\":\"\",\"email\":\"arya@winterfell.com\",\"image\":\"smiley-cyrus.09f77aa9.jpg\",\"username\":\"Arya 1\"}}", headers: [(ResponseHeader "connection" "keep-alive"),(ResponseHeader "content-type" "application/json;charset=utf-8"),(ResponseHeader "date" "Sun, 30 Oct 2022 10:42:00 GMT"),(ResponseHeader "server" "nginx/1.21.6"),(ResponseHeader "transfer-encoding" "chunked")], status: (StatusCode 200) } An error occurred while decoding a JSON value:
+  Under 'UserResponse':
+  At object key user:
+  Under 'User':
+  At object key token:
+  No value was found.) index.b98cbc1b.js:1:50285
+#+END_EXAMPLE
+
+** Comments don't work
+Completely breaks the client; reload of page and re-login needed.
