@@ -25,23 +25,23 @@ Haskell-realworld-example has a very nice implementation for [[https://blog.mini
 
 In =Conduit.Data.Jwt= change =username= to =sub=.
  
-#+BEGIN_SRC purescript
-  type Jwt =
-  { sub :: Username
-  , exp :: Number
-  }
-  ...
-  CAR.object "Jwt"
-                { sub: usernameCodec -- username: usernameCodec -- TODO fix
-                , exp: CA.number
-                }
+#+BEGIN_SRC haskell
+type Jwt =
+{ sub :: Username
+, exp :: Number
+}
+...
+CAR.object "Jwt"
+              { sub: usernameCodec -- username: usernameCodec -- TODO fix
+              , exp: CA.number
+              }
 #+END_SRC
  
 In =Conduit.Data.Auth= change =username= to =sub=.
  
-#+BEGIN_SRC purescript
-  { exp, username } <- hush $ Jwt.decode token
-  pure { token, username, expirationTime: fromMilliseconds $ Milliseconds $ exp * 1000.0, user }
+#+BEGIN_SRC haskell
+{ exp, username } <- hush $ Jwt.decode token
+pure { token, username, expirationTime: fromMilliseconds $ Milliseconds $ exp * 1000.0, user }
 #+END_SRC
  
 *** Changes to the server
@@ -67,17 +67,19 @@ The server returns apparently valid JSON — hence weird problem — with an emp
 but the client reports a decoding error. If the image field is set to a value (by changing it directly in the users table in the database as a workaround) then it functions correctly; even though the =bio= field is also empty — even weirder.
 
 **This may be because an empty field should not be sent by the server (when it's an optional field).**
+
+Then again, if the server wants to send an optional empty field then that should be optional?
  
 #+BEGIN_SRC json
-  {
-     "user" : {
-        "bio" : "",
-        "email" : "arya@winterfell.com",
-        "image" : "",
-        "token" : "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYWxkci1jbGllbnQiLCJleHAiOjEuNjY3MjA1NjIxMDE1MzQ5MzE5ZTksImlhdCI6MS42NjcxMTkyMjEwMTUzNDkzMTllOSwiaXNzIjoiYmFsZHItc2VydmVyIiwic3ViIjoiQXJ5YSAxIn0.TzhDvT9Mkmj9nalh_q7vGol-IbnRRoxoiGPQwlasaGQ",
-        "username" : "Arya 1"
-     }
-  }
+{
+   "user" : {
+      "bio" : "",
+      "email" : "arya@winterfell.com",
+      "image" : "",
+      "token" : "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYWxkci1jbGllbnQiLCJleHAiOjEuNjY3MjA1NjIxMDE1MzQ5MzE5ZTksImlhdCI6MS42NjcxMTkyMjEwMTUzNDkzMTllOSwiaXNzIjoiYmFsZHItc2VydmVyIiwic3ViIjoiQXJ5YSAxIn0.TzhDvT9Mkmj9nalh_q7vGol-IbnRRoxoiGPQwlasaGQ",
+      "username" : "Arya 1"
+   }
+}
 #+END_SRC
  
 Console error logging:
@@ -97,7 +99,7 @@ The client code has different codecs for =image= and =bio=
  
 =Conduit.Data.Profile=
  
-#+BEGIN_SRC purescript
+#+BEGIN_SRC haskell
 -- | Codecs
 mkProfileRepCodec :: forall rest. CA.JPropCodec (Record rest) -> CA.JPropCodec { | ProfileRep rest }
 mkProfileRepCodec =
@@ -110,14 +112,27 @@ but avatarCodec is also a string in the end
  
 =Conduit.Data.Avatar=
  
-#+BEGIN_SRC purescript
+#+BEGIN_SRC haskell
 -- | Codecs
 avatarCodec :: JsonCodec Avatar
 avatarCodec = CA.prismaticCodec "Avatar" fromString toString CA.string
 #+END_SRC
  
 hence weird.
- 
+
+**WORKAROUND**
+
+In =Conduit.Data.Avatar= change fromString to the following:
+
+#+BEGIN_SRC haskell
+fromString :: String -> Maybe Avatar
+fromString str
+  | String.null str = Just (Avatar "")
+  | otherwise = Just (Avatar str)
+#+END_SRC
+
+Beware: now there's no longer no avatar (which might be bad, but still better than the alternative).
+
 ** Token in User update response
 The server doesn't return a =token= field, but the client expects it. The the [[https://realworld-docs.netlify.app/docs/specs/backend-specs/endpoints#update-user][update user]] section in the Realworld spec also mentions it (hence issue in server).
  

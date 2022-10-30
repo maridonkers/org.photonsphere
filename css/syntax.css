@@ -5,7 +5,7 @@ a.sourceLine:empty { height: 1.2em; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { padding-left: 1em;
-                 border-left: 2px solid darkgrey;
+                 border-left: 3px solid black;
                  border-style: dotted;
                }
 @media screen {
