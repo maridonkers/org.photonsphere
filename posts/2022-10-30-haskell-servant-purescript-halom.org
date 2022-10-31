@@ -122,7 +122,7 @@ hence weird.
 
 **WORKAROUND**
 
-In =Conduit.Data.Avatar= change fromString to the following:
+In =Conduit.Data.Avatar= change fromString to the following (^{*}):
 
 #+BEGIN_SRC haskell
 fromString :: String -> Maybe Avatar
@@ -133,8 +133,10 @@ fromString str
 
 Beware: now there's no longer no avatar (which might be bad, but still better than the alternative).
 
+^{*} One could even use =fromString str = Just (Avatar str)= but that would probably be even more confusing.
+
 ** Token in User update response
-The server doesn't return a =token= field, but the client expects it. The the [[https://realworld-docs.netlify.app/docs/specs/backend-specs/endpoints#update-user][update user]] section in the Realworld spec also mentions it (hence issue in server).
+The server doesn't return a =token= field, but the client expects it. The [[https://realworld-docs.netlify.app/docs/specs/backend-specs/endpoints#update-user][update user]] section in the Realworld spec also mentions it (hence issue in server).
 
 Also the password is changed to something you no longer know, hence logging in is impossible after a user update (it's a =bug= probably).
  
