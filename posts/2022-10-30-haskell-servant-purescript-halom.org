@@ -138,7 +138,7 @@ Beware: now there's no longer no avatar (which might be bad, but still better th
 ** Token in User update response
 The server doesn't return a =token= field, but the client expects it. The [[https://realworld-docs.netlify.app/docs/specs/backend-specs/endpoints#update-user][update user]] section in the Realworld spec also mentions it (hence issue in server).
 
-Also the password is changed to something you no longer know, hence logging in is impossible after a user update (it's a =bug= probably).
+Also the password is changed to something you no longer know, hence logging in is impossible after a user update (it's probably a =bug=).
  
 #+BEGIN_EXAMPLE
 (DecodeError { body: "null", headers: [(ContentType (MediaType "application/json")),(RequestHeader "Authorization" "Token eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYWxkci1jbGllbnQiLCJleHAiOjEuNjY3MjA1NjM3MjcwMTAyMzcyZTksImlhdCI6MS42NjcxMTkyMzcyNzAxMDIzNzJlOSwiaXNzIjoiYmFsZHItc2VydmVyIiwic3ViIjoiQXJ5YSAxIn0.tQ4JqPXoBu7RDSjF0gJeBi8NDJFGp7w7D8cxjUXMUno")], method: GET, url: "/api/user" } { body: "{\"user\":{\"bio\":\"\",\"email\":\"arya@winterfell.com\",\"image\":\"smiley-cyrus.09f77aa9.jpg\",\"username\":\"Arya 1\"}}", headers: [(ResponseHeader "connection" "keep-alive"),(ResponseHeader "content-type" "application/json;charset=utf-8"),(ResponseHeader "date" "Sun, 30 Oct 2022 10:42:00 GMT"),(ResponseHeader "server" "nginx/1.21.6"),(ResponseHeader "transfer-encoding" "chunked")], status: (StatusCode 200) } An error occurred while decoding a JSON value:
@@ -154,14 +154,18 @@ The server doesn't check if the characters in the title (which are used to creat
 
 =stack.yaml=
 #+BEGIN_SRC yaml
+resolver: lts-19.31
+...
 extra-deps:
   - slugger-0.1.0.1@sha256:b6c37b0d4c2d35a49ad20e9978bf0ce308a8c4455fc61d0b446db1f3971bdc28,2035
-  
+
 nix:
   pure: true
   enable: true
   packages: [ postgresql zlib icu]
 #+END_SRC
+
+(trying out =resolver: lts-19.31=)
 
 (The nix section is for use with =NixOS=)
 
