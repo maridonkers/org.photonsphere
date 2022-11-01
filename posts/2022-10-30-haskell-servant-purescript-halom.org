@@ -165,9 +165,7 @@ nix:
   packages: [ postgresql zlib icu]
 #+END_SRC
 
-(trying out =resolver: lts-19.31=)
-
-(The nix section is for use with =NixOS=)
+(trying out =resolver: lts-19.31= — the nix section is for use with =NixOS=)
 
 =package.yaml=
 #+BEGIN_SRC yaml
