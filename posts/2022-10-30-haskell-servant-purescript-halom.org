@@ -180,7 +180,7 @@ nix:
 =Conduit.Core.Article=
 #+BEGIN_SRC haskell
 ...
-import Data.Text.Slugger
+import Data.Text.Slugger (toSlug)
 ...
 mkSlug :: MonadIO m => Text -> m Slug
 mkSlug title = do
