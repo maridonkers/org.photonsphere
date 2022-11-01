@@ -148,6 +148,47 @@ Also the password is changed to something you no longer know, hence logging in i
   At object key token:
   No value was found.) index.b98cbc1b.js:1:50285
 #+END_EXAMPLE
+
+** Forbidden characters in slugs
+The server doesn't check if the characters in the title (which are used to create the slug) are valid. This can be fixed by e.g. using the =slugger= library.
+
+=stack.yaml=
+#+BEGIN_SRC yaml
+extra-deps:
+  - slugger-0.1.0.1@sha256:b6c37b0d4c2d35a49ad20e9978bf0ce308a8c4455fc61d0b446db1f3971bdc28,2035
+  
+nix:
+  pure: true
+  enable: true
+  packages: [ postgresql zlib icu]
+#+END_SRC
+
+(The nix section is for use with =NixOS=)
+
+=package.yaml=
+#+BEGIN_SRC yaml
+...
+  dependencies:
+...      
+  - slugger
+...
+#+END_SRC
+(Add slugger to depencies)
+
+=Conduit.Core.Article=
+#+BEGIN_SRC haskell
+...
+import Data.Text.Slugger
+...
+mkSlug :: MonadIO m => Text -> m Slug
+mkSlug title = do
+    rnd <- liftIO $ getRandomBytes 32
+    let hash = T.pack $ show $ hashWith SHA256 (rnd :: ByteString)
+    let title' = toSlug title
+    let slugText = T.intercalate "-" $ (T.words . T.toLower $ title') ++ [T.take 8 hash]
+    return $ Slug slugText
+...
+#+END_SRC
  
 ** Comments don't work
 
