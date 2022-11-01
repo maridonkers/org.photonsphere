@@ -150,7 +150,7 @@ Also the password is changed to something you no longer know, hence logging in i
 #+END_EXAMPLE
 
 ** Forbidden characters in slugs
-The server doesn't check if the characters in the title (which are used to create the slug) are valid. This can be fixed by e.g. using the =slugger= library.
+The server doesn't check if the characters in the title (which are used to create the slug) are valid. This can be fixed by e.g. using the [[https://github.com/rpearce/slugger][slugger]] library.
 
 =stack.yaml=
 #+BEGIN_SRC yaml
