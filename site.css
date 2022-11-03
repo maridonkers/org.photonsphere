@@ -24,6 +24,10 @@ code.verbatim {
     @apply bg-gray-200;
 }
 
+pre.example {
+    overflow: auto;
+}
+
 a.footnote-back {
     @apply bg-white;
     @apply placeholder-black;
