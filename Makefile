@@ -2,7 +2,7 @@ TAILWINDCSS = "$(HOME)/bin/tailwindcss"
 
 all: help
 
-shell:
+develop:
 	nix-shell
 
 # To build for production use `make -B prod`
