@@ -7,7 +7,7 @@ tags: Computer, Software, Functional, Internet, Web, API, WebAPI, Haskell, Nix, 
 
 #+OPTIONS: ^:nil
 
-A Haskell client library for the [[https://www.binance.com/][Binance]] cryptocurrency exchange API. The [[https://www.binance.com/en/binance-api][Binance API]] is documented here: [[https://binance-docs.github.io/apidocs/spot/en][Binance API documentation]]. The [[https://www.openapis.org/][OpenAPI]] ([[https://swagger.io/][Swagger]]) here: [[https://binance.github.io/binance-api-swagger/][binance.github.io/binance-api-swagger]].
+A Haskell client library for the [[https://www.binance.com/][Binance]] cryptocurrency exchange API. The [[https://www.binance.com/en/binance-api][Binance API]] is documented here: [[https://binance-docs.github.io/apidocs/spot/en][Binance API documentation]]. The [[https://www.openapis.org/][OpenAPI]] ([[https://swagger.io/][Swagger]]) here: [[https://binance.github.io/binance-api-swagger/][binance.github.io/binance-api-swagger]]. The library can be found here: [[https://github.com/maridonkers/binance-api][maridonkers/binance-api]].
 
 (.more.)
 
