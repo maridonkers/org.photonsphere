@@ -1,0 +1,259 @@
+----
+title: Encrypted fields in JSON settings file
+modified: 2022-11-25
+meta_description: 
+tags: Computer, Software, Functional, Internet, Haskell, JSON
+----
+
+#+OPTIONS: ^:nil
+
+The Haskell [[https://hackage.haskell.org/package/cryptonite][cryptonite]] package is used to allow for encrypted fields in a JSON settings file. Source code listed below.
+
+(.more.)
+
+* Settings.hs
+#+BEGIN_SRC haskell
+{-# LANGUAGE DeriveAnyClass #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell #-}
+
+module Mammon.Settings where
+
+import Control.Lens
+import Control.Monad (unless, when)
+import Crypto.Cipher.AES (AES256)
+import Data.Aeson
+import Data.ByteArray (unpack)
+import qualified Data.ByteString as BS
+import qualified Data.ByteString.Lazy as BL
+import qualified Data.Text as T
+import qualified Data.Text.Encoding as TE
+import GHC.Generics
+import qualified Mammon.Security as MS
+import qualified Mammon.Types as MT
+import qualified Mammon.Utils as MU
+import System.Directory (createDirectoryIfMissing, doesFileExist)
+import System.FilePath (addTrailingPathSeparator)
+
+settingsPath :: FilePath
+settingsPath = ".binance"
+
+settingsFile :: FilePath
+settingsFile = "binance-api-settings.json"
+
+data AppSettingsSecurity = AppSettingsSecurity
+  { _initIV :: T.Text,
+    _salt :: T.Text
+  }
+  deriving (Generic, Read, Show, FromJSON, ToJSON)
+
+makeLenses ''AppSettingsSecurity
+
+data AppSettings = AppSettings
+  { _apiKey :: T.Text,
+    _apiKeySecurity :: AppSettingsSecurity,
+    _apiSecret :: T.Text,
+    _apiSecretSecurity :: AppSettingsSecurity,
+    _dbConnectionUriPrefix :: T.Text,
+    _dbConnectionUriPostfix :: T.Text
+  }
+  deriving (Generic, Read, Show, FromJSON, ToJSON)
+
+makeLenses ''AppSettings
+
+mkAppSettings =
+  AppSettings
+    { _apiKey = "binance-api-key-goes-here",
+      _apiKeySecurity =
+        AppSettingsSecurity
+          { _initIV = "",
+            _salt = ""
+          },
+      _apiSecret = "binance-api-secret-goes-here",
+      _apiSecretSecurity =
+        AppSettingsSecurity
+          { _initIV = "",
+            _salt = ""
+          },
+      _dbConnectionUriPrefix = "sqlite://",
+      _dbConnectionUriPostfix = "db/binance-api.db"
+    }
+
+getAppBinanceApiKey :: Either String AppSettings -> T.Text
+getAppBinanceApiKey eas = case eas of
+  Left e -> T.pack e
+  Right a -> _apiKey a
+
+getAppBinanceApiKeySecurity :: Either String AppSettings -> (T.Text, T.Text)
+getAppBinanceApiKeySecurity eas = case eas of
+  Left e -> let pe = T.pack e in (pe, pe)
+  Right a ->
+    let ak = _apiKeySecurity a
+     in (_initIV ak, _salt ak)
+
+getAppBinanceApiSecret :: Either String AppSettings -> T.Text
+getAppBinanceApiSecret eas = case eas of
+  Left e -> T.pack e
+  Right a -> _apiSecret a
+
+getAppBinanceApiSecretSecurity :: Either String AppSettings -> (T.Text, T.Text)
+getAppBinanceApiSecretSecurity eas = case eas of
+  Left e -> let pe = T.pack e in (pe, pe)
+  Right a ->
+    let ak = _apiSecretSecurity a
+     in (_initIV ak, _salt ak)
+
+getAppBinanceDbUri :: FilePath -> Either String AppSettings -> T.Text
+getAppBinanceDbUri fp eas = case eas of
+  Left e -> T.pack e
+  Right a -> _dbConnectionUriPrefix a <> T.pack (addTrailingPathSeparator fp) <> _dbConnectionUriPostfix a
+
+readSettings :: FilePath -> MS.SecurityKey -> MT.Verbosity -> IO (Either String AppSettings)
+readSettings binanceApiHome securityKey verbosity = do
+  appSettings <- getSettingsFromFile binanceApiHome
+  decryptSettings appSettings
+  where
+    getSettingsFromFile bah = do
+      let sfd = addTrailingPathSeparator bah <> addTrailingPathSeparator settingsPath
+          sfn = sfd <> settingsFile
+      settingsExists <- checkSettingsExist sfd sfn
+      when (verbosity == MT.Verbose) $
+        putStrLn $
+          "Settings file "
+            <> sfn
+            <> " "
+            <> if settingsExists
+              then "EXISTS"
+              else "CREATING (now edit Binance secret and -key in your settings file; execute encodeSettings with chosen securityKey"
+      unless settingsExists $ do
+        BL.writeFile sfn $ encode mkAppSettings
+      (eitherDecode <$> getJSON sfn) :: IO (Either String AppSettings)
+    decryptSettings :: Either String AppSettings -> IO (Either String AppSettings)
+    decryptSettings as = do
+      let apk = getAppBinanceApiKey as
+          (apksi, apkss) = getAppBinanceApiKeySecurity as
+          aps = getAppBinanceApiSecret as
+          (apssi, apsss) = getAppBinanceApiSecretSecurity as
+      eak <- decryptWithSecurityKey securityKey apksi apkss (MU.b64ToBS apk)
+      let eakt = TE.decodeUtf8 eak
+      eas <- decryptWithSecurityKey securityKey apssi apsss (MU.b64ToBS aps)
+      let east = TE.decodeUtf8 eas
+      pure $ case as of
+        Left e -> Left e
+        Right appSettings'' -> Right $ appSettings'' & apiKey .~ eakt & apiSecret .~ east
+
+decryptWithSecurityKey :: MS.SecurityKey -> T.Text -> T.Text -> BS.ByteString -> IO BS.ByteString
+decryptWithSecurityKey sk pInitIV pSalt pd = do
+  mInitIV <- MS.mkIV (undefined :: AES256) $ MU.b64ToBS pInitIV
+  let salt = MU.b64ToBS pSalt
+      key = MS.deriveKey sk salt
+  case mInitIV of
+    Nothing -> error "Failed to generate an initialization vector (have you run with -e to encrypt plaintext Binance secret and -key?)"
+    Just initIV -> do
+      pure $ MS.decrypt key initIV pd
+
+encodeSettings :: FilePath -> MS.SecurityKey -> MT.Verbosity -> IO (Either String AppSettings)
+encodeSettings binanceApiHome securityKey verbosity = do
+  let sfd = addTrailingPathSeparator binanceApiHome <> addTrailingPathSeparator settingsPath
+      sfn = sfd <> settingsFile
+  appSettings <- initializeAppSettingsFile sfd sfn
+  encryptSettings appSettings sfn
+  where
+    initializeAppSettingsFile sfd sfn = do
+      settingsExists <- checkSettingsExist sfd sfn
+      unless settingsExists $ do
+        BL.writeFile sfn $ encode mkAppSettings
+      when (verbosity == MT.Verbose) $
+        putStrLn $
+          "Settings file "
+            <> sfn
+            <> " "
+            <> if settingsExists
+              then "EXISTS"
+              else "CREATING"
+      (eitherDecode <$> getJSON sfn) :: IO (Either String AppSettings)
+    encryptSettings :: Either String AppSettings -> FilePath -> IO (Either String AppSettings)
+    encryptSettings as sfn = do
+      let apk = getAppBinanceApiKey as
+          aps = getAppBinanceApiSecret as
+      (ik, sk, eak) <- encryptWithSecurityKey securityKey (TE.encodeUtf8 apk)
+      (is, ss, eas) <- encryptWithSecurityKey securityKey (TE.encodeUtf8 aps)
+      case as of
+        Left e -> pure $ Left e
+        Right as' ->
+          do
+            let as'' =
+                  as'
+                    & apiKey .~ MU.b64FromBS eak
+                    & apiKeySecurity .~ AppSettingsSecurity {_initIV = ik, _salt = sk}
+                    & apiSecret .~ MU.b64FromBS eas
+                    & apiSecretSecurity .~ AppSettingsSecurity {_initIV = is, _salt = ss}
+            BL.writeFile sfn $ encode as''
+            pure $ Right as''
+
+encryptWithSecurityKey :: MS.SecurityKey -> BS.ByteString -> IO (T.Text, T.Text, BS.ByteString)
+encryptWithSecurityKey sk pd = do
+  salt <- MS.random MS.saltSize
+  mInitIV <- MS.genRandomIV (undefined :: AES256)
+  case mInitIV of
+    Nothing -> error "Failed to generate a random initialization vector (check your software source code)."
+    Just initIV -> do
+      let key = MS.deriveKey sk salt
+      let initIV' = MU.b64FromW8Array $ unpack initIV
+      let salt' = MU.b64FromBS salt
+      pure (initIV', salt', MS.encrypt key initIV pd)
+
+-- | Checks for existing settings.
+checkSettingsExist sfd sfn = do
+  createDirectoryIfMissing True sfd
+  doesFileExist sfn
+
+-- | Get JSON from file denoted by path.
+getJSON :: FilePath -> IO BL.ByteString
+getJSON = BL.readFile
+#+END_SRC
+
+* Utils.hs
+#+BEGIN_SRC haskell
+module Mammon.Utils where
+
+import Data.ByteArray.Encoding (Base (Base64), convertFromBase, convertToBase)
+import qualified Data.ByteString as BS
+import qualified Data.Text as T
+import qualified Data.Text.Encoding as TE
+import GHC.Word (Word8)
+
+b64FromBS :: BS.ByteString -> T.Text
+b64FromBS bs = TE.decodeUtf8 (convertToBase Base64 bs :: BS.ByteString)
+
+b64ToBS :: T.Text -> BS.ByteString
+b64ToBS ts = case convertFromBase Base64 (TE.encodeUtf8 ts) :: Either String BS.ByteString of
+  Left e -> TE.encodeUtf8 (T.pack e)
+  Right bs -> bs
+
+b64FromW8Array :: [Word8] -> T.Text
+b64FromW8Array = b64FromBS . BS.pack
+
+b64ToW8Array :: T.Text -> [Word8]
+b64ToW8Array = BS.unpack . b64ToBS
+
+#+END_SRC
+
+* Types.hs
+#+BEGIN_SRC haskell
+module Mammon.Types where
+
+data Verbosity = Normal | Verbose deriving (Eq)
+
+data Connection = Connected | Disconnected deriving (Eq)
+
+data Trading = Unarmed | Armed deriving (Eq)
+#+END_SRC
+
+* Disclaimer
+
+[[https://onzetaal.nl/taalloket/ter-leering-ende-vermaeck][Ter leering ende vermaeck]]
+
+I have not yet battle tested this source code myself (it appears to work), so no guarantees are given at all!. Use this software at your own risk — [[https://www.law.cornell.edu/wex/caveat_emptor][caveat emptor]]!
