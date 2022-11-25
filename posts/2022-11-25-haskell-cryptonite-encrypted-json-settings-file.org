@@ -11,6 +11,11 @@ The Haskell [[https://hackage.haskell.org/package/cryptonite][cryptonite]] packa
 
 (.more.)
 
+* Example JSON settings file
+#+BEGIN_SRC json
+{"_apiKey":"f0KBfirFsznsAr/4s3q4TYpawUumsVGeBg==","_apiKeySecurity":{"_initIV":"nyT7ZdnFD4+8BJ9rHFMrFQ==","_salt":"1uEgA3kzWZBU5vqr/AKhhtwhCCCkuXZmTsVVbILilcU="},"_apiSecret":"y1UGRtm3IGMDKPb4I9pR/KmO8+gjyMScxeRBfw==","_apiSecretSecurity":{"_initIV":"Bpj0VfEVtwor0GQzKRVraA==","_salt":"BnC1a9BlmnK+FzZIVRnZwub74lhyZQgdW8JClKLkxq4="},"_dbConnectionUriPostfix":"db/binance-api.db","_dbConnectionUriPrefix":"sqlite://"}
+#+END_SRC
+
 * Settings.hs
 #+BEGIN_SRC haskell
 {-# LANGUAGE DeriveAnyClass #-}
