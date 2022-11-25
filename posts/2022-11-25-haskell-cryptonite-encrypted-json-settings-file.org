@@ -142,7 +142,7 @@ readSettings binanceApiHome securityKey verbosity = do
       let east = TE.decodeUtf8 eas
       pure $ case as of
         Left e -> Left e
-        Right appSettings'' -> Right $ appSettings'' & apiKey .~ eakt & apiSecret .~ east
+        Right as' -> Right $ as' & apiKey .~ eakt & apiSecret .~ east
 
 decryptWithSecurityKey :: MS.SecurityKey -> T.Text -> T.Text -> BS.ByteString -> IO BS.ByteString
 decryptWithSecurityKey sk pInitIV pSalt pd = do
