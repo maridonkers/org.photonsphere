@@ -215,6 +215,76 @@ getJSON :: FilePath -> IO BL.ByteString
 getJSON = BL.readFile
 #+END_SRC
 
+* Security.hs
+#+BEGIN_SRC haskell
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+
+module Mammon.Security where
+
+import Crypto.Cipher.AES (AES256)
+import Crypto.Cipher.Types (BlockCipher (..), Cipher (..), IV, makeIV)
+import Crypto.Error (throwCryptoError)
+import Crypto.KDF.Scrypt (Parameters (..), generate)
+import Crypto.Random (getSystemDRG, randomBytesGenerate)
+import qualified Crypto.Random.Types as CRT
+import qualified Data.ByteString as BS
+import qualified Data.Text as T
+import qualified Data.Text.Encoding as TE
+import Data.Word
+
+saltSize :: Int
+saltSize = 32
+
+paramN = 16 :: Word64
+
+paramR = 8
+
+paramP = 1
+
+paramKeyLen = 32
+
+type SecurityKey = T.Text
+
+-- | AES256 encryption
+encrypt :: BS.ByteString -> IV AES256 -> BS.ByteString -> BS.ByteString
+encrypt key = ctrCombine ctx
+  where
+    ctx :: AES256
+    ctx = throwCryptoError $ cipherInit key
+
+-- | i.e. encrypt (because symmetrical)
+decrypt :: BS.ByteString -> IV AES256 -> BS.ByteString -> BS.ByteString
+decrypt = encrypt
+
+-- | Generate a random initialization vector for a given block cipher
+genRandomIV :: forall m c. (CRT.MonadRandom m, BlockCipher c) => c -> m (Maybe (IV c))
+genRandomIV _ = do
+  bytes :: BS.ByteString <- CRT.getRandomBytes $ blockSize (undefined :: c)
+  return $ makeIV bytes
+
+mkIV :: forall m c. (CRT.MonadRandom m, BlockCipher c) => c -> BS.ByteString -> m (Maybe (IV c))
+mkIV _ iv = do
+  let bytes :: BS.ByteString = iv
+  return $ makeIV bytes
+
+-- | Scrypt KDF
+--
+-- `password` security key
+-- `salt` salt value
+deriveKey :: T.Text -> BS.ByteString -> BS.ByteString
+deriveKey password = generate params (TE.encodeUtf8 password)
+  where
+    params = Parameters {n = paramN, r = paramR, p = paramP, outputLength = paramKeyLen}
+
+-- | For generating the salt
+random :: Int -> IO BS.ByteString
+random size = do
+  drg <- getSystemDRG
+  let (bytes, _) = randomBytesGenerate size drg
+  return bytes
+#+END_SRC
+
 * Utils.hs
 #+BEGIN_SRC haskell
 module Mammon.Utils where
@@ -256,4 +326,4 @@ data Trading = Unarmed | Armed deriving (Eq)
 
 [[https://onzetaal.nl/taalloket/ter-leering-ende-vermaeck][Ter leering ende vermaeck]]
 
-I have not yet battle tested this source code myself (it appears to work), so no guarantees are given at all!. Use this software at your own risk — [[https://www.law.cornell.edu/wex/caveat_emptor][caveat emptor]]!
+I have not yet battle tested this source code myself (it appears to work), so no guarantees are given at all! Use this software at your own risk — [[https://www.law.cornell.edu/wex/caveat_emptor][caveat emptor]]!

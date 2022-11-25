@@ -266,4 +266,4 @@ Another example of using generated code — not Binance API related — can be f
 
 * Disclaimer
 
-I have not yet tested this client library myself — aside from the small examples given above — so no guarantees are given at all!. Use this software at your own risk — [[https://www.law.cornell.edu/wex/caveat_emptor][caveat emptor]]!
+I have not yet tested this client library myself — aside from the small examples given above — so no guarantees are given at all! Use this software at your own risk — [[https://www.law.cornell.edu/wex/caveat_emptor][caveat emptor]]!
