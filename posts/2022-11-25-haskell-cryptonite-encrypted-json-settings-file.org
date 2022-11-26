@@ -331,4 +331,6 @@ data Trading = Unarmed | Armed deriving (Eq)
 
 [[https://onzetaal.nl/taalloket/ter-leering-ende-vermaeck][Ter leering ende vermaeck]]
 
-I have not yet battle tested this source code myself (it appears to work), so no guarantees are given at all! Use this software at your own risk — [[https://www.law.cornell.edu/wex/caveat_emptor][caveat emptor]]!
+This code appears to work, but I have not battle tested it, hence no guarantees are given at all! Specifically the =params= for =deriveKey= may need revising and also it's not wise to keep decrypted fields in memory (i.e. decrypt every time into ephemeral values when encrypted fields are required).
+
+Use this software at your own risk — [[https://www.law.cornell.edu/wex/caveat_emptor][caveat emptor]]!

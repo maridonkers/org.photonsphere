@@ -4,6 +4,6 @@
   (dante-repl-command-line . ("ghci"))
   (haskell-process-type . ghci)
   (format-all-formatters
-   ("Haskell" fourmolu)
-   ("Literate Haskell" fourmolu)
+   ("Haskell" ormolu)
+   ("Literate Haskell" ormolu)
    )))
