@@ -155,7 +155,7 @@ decryptWithSecurityKey sk pInitIV pSalt pd = do
   let salt = MU.b64ToBS pSalt
       key = MS.deriveKey sk salt
   case mInitIV of
-    Nothing -> error "Failed to generate an initialization vector (have you run with -e to encrypt plaintext Binance secret and -key?)"
+    Nothing -> error "Failed to read the initialization vector (have you run with -e to encrypt plaintext Binance secret and -key?)"
     Just initIV -> do
       pure $ MS.decrypt key initIV pd
 
