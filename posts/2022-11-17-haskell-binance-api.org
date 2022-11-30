@@ -211,6 +211,7 @@ trade verbose = do
     Right kls -> do
       let l = length kls
       putStrLn $ "(" <> show l <> ")"
+      putStrLn $ "[ Kline open time, Open price, High price, Low price, Close price, Volume, Kline Close time, Quote asset volume, Number of trades, Taker buy base asset volume, Taker buy quote asset volume, Unused field (ignore) ]"
       mapM_ (\(i, ks) -> putStrLn $ show i <> ": [ " <> printKline ks <> " ]") $ zip [1 ..] kls
   where
     printKline = foldl (\acc c -> acc <> (if null acc then "" else ", ") <> kLineToString c) ""
@@ -219,22 +220,6 @@ trade verbose = do
           Binance.GetApiV3KlinesResponseBody200Variant1 s -> show s
           Binance.GetApiV3KlinesResponseBody200Variant2 s -> T.unpack s
 
-    {-
-    [
-      [GetApiV3KlinesResponseBody200Variant1 1668666360000,       // Kline open time
-       GetApiV3KlinesResponseBody200Variant2 "16591.74000000",    // Open price
-       GetApiV3KlinesResponseBody200Variant2 "16592.06000000",    // High price
-       GetApiV3KlinesResponseBody200Variant2 "16583.62000000",    // Low price
-       GetApiV3KlinesResponseBody200Variant2 "16589.72000000",    // Close price
-       GetApiV3KlinesResponseBody200Variant2 "57.96618000",       // Volume
-       GetApiV3KlinesResponseBody200Variant1 1668666419999,       // Kline Close time
-       GetApiV3KlinesResponseBody200Variant2 "961540.25322330",   // Quote asset volume
-       GetApiV3KlinesResponseBody200Variant1 1219,                // Number of trades
-       GetApiV3KlinesResponseBody200Variant2 "29.84483000",       // Taker buy base asset volume
-       GetApiV3KlinesResponseBody200Variant2 "495075.60625770",   // Taker buy quote asset volume
-       GetApiV3KlinesResponseBody200Variant2 "0"]                 // Unused field, ignore.
-     ]
-    -}
     getKlines = do
       resp <-
         Binance.runWithConfiguration conf $
@@ -249,7 +234,8 @@ trade verbose = do
 Running this example code results in the following output (excerpt):
 
 #+BEGIN_EXAMPLE
-Binance API klines (500)                                                                                                                                                                       
+Binance API klines (500)
+[ Kline open time, Open price, High price, Low price, Close price, Volume, Kline Close time, Quote asset volume, Number of trades, Taker buy base asset volume, Taker buy quote asset volume, Unused field (ignore) ]
 1: [ 1668674700000, 16579.28000000, 16580.95000000, 16572.00000000, 16576.36000000, 55.90257000, 1668674759999, 926698.28532810, 1124, 25.76195000, 427075.54336190, 0 ]
 2: [ 1668674760000, 16576.36000000, 16580.35000000, 16567.78000000, 16570.00000000, 47.20438000, 1668674819999, 782390.60662060, 780, 19.95414000, 330747.43392430, 0 ]
 3: [ 1668674820000, 16570.00000000, 16574.23000000, 16565.37000000, 16568.04000000, 44.22206000, 1668674879999, 732752.61122150, 906, 26.58506000, 440518.72028710, 0 ]
