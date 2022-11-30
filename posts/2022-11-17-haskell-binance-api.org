@@ -211,7 +211,7 @@ trade verbose = do
     Right kls -> do
       let l = length kls
       putStrLn $ "(" <> show l <> ")"
-      putStrLn $ "[ Kline open time, Open price, High price, Low price, Close price, Volume, Kline Close time, Quote asset volume, Number of trades, Taker buy base asset volume, Taker buy quote asset volume, Unused field (ignore) ]"
+      putStrLn "[ Kline open time, Open price, High price, Low price, Close price, Volume, Kline Close time, Quote asset volume, Number of trades, Taker buy base asset volume, Taker buy quote asset volume, Unused field (ignore) ]"
       mapM_ (\(i, ks) -> putStrLn $ show i <> ": [ " <> printKline ks <> " ]") $ zip [1 ..] kls
   where
     printKline = foldl (\acc c -> acc <> (if null acc then "" else ", ") <> kLineToString c) ""
