@@ -1,0 +1,142 @@
+----
+title: NixOS Rust development environment (Docker based)
+modified: 2023-02-04
+meta_description: 
+tags: Computer, Software, Functional, Internet, Docker, Rust, NixOS
+----
+
+#+OPTIONS: ^:nil
+
+A [[https://www.rust-lang.org/][Rust]] programming language development environment can be somewhat cumbersome to set up under [[https://nixos.org/][NixOS]] (e.g. OpenSSL, clang issues), so a solution using a [[https://www.docker.com/][Docker]] container is described in this article. -- [[https://github.com/rust-lang][github.com/rust-lang]] (by [[https://github.com/orgs/rust-lang/people][rust-lang/people]]).
+
+(.more.)
+
+Use the Makefile to build the container =make rebuild= and subsequently start the container =make up= and enter a development shell =make shell= which has a =~/Development= binding (change to your path if needed).
+
+* Dockerfile
+
+#+BEGIN_SRC dockerfile
+# Rust development environment.
+
+FROM debian:bullseye
+
+# Timezone is also in docker-compose file.
+ENV HOME /root
+ENV TZ Europe/Amsterdam
+ENV SHELL /bin/bash
+
+RUN apt-get update; \
+    apt-get upgrade -y; \
+    apt-get install -y procps sudo curl less vim-nox zip git pkg-config libssl-dev llvm clang build-essential bat exa fd-find; \
+    apt-get clean
+
+RUN sed -i "s#\smain\s*\$# main contrib non-free#" /etc/apt/sources.list
+RUN apt-get update
+# RUN apt-get install -y ta-lib --no-install-recommends
+
+# Create a non-root account with your user's uid and guid.
+RUN useradd -ms /bin/bash --uid 1000 --gid 100 rust
+# usermod -G audio,video rust;
+
+RUN echo "rust ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Install ta-lib.
+COPY ta-lib-0.4.0-src.tar.gz ta-lib-0.4.0-src.tar.gz
+RUN tar xvzf ta-lib-0.4.0-src.tar.gz ; \
+    rm ta-lib-0.4.0-src.tar.gz ; \
+    cd ta-lib ; \
+    ./configure ; \
+    make ; \
+    make install
+
+USER rust
+WORKDIR /home/rust
+ENV HOME /home/rust
+
+# Install and run rustup.
+# RUN curl https://sh.rustup.rs -sSf | sh
+RUN curl https://sh.rustup.rs -o rustup.sh ; \
+    chmod u+x ./rustup.sh ; \
+    ./rustup.sh -y
+
+# The DISPLAY variable is required to display on your desktop.
+ENV PS1='$ '
+ENV DISPLAY=":0"
+ENV PATH="$PATH:$HOME/.cargo/bin"
+
+# For access to X-server use the following command:
+#   xhost +LOCAL:
+#
+# RUN todo
+ENTRYPOINT ["/bin/bash"]
+#+END_SRC
+
+* docker-compose.yaml
+#+BEGIN_SRC docker-compose
+version: "2.0"
+services:
+  "rustalgotrading":
+    image: rust-algotrading
+    build: .
+    stdin_open: true
+    tty: true
+    privileged: true
+    ipc: host
+    environment:
+      - TZ=Europe/Amsterdam
+    network_mode: host
+    volumes:
+      - "/tmp/.X11-unix/:/tmp/.X11-unix/:ro"
+      - "~/Development:/home/rust/Development:rw"
+      - "~/.Xauthority:/home/rust/.Xauthority:rw"
+#+END_SRC
+
+* Makefile
+#+BEGIN_SRC makefile
+# Brings up the Docker container, which automatically starts a rust
+# development environment. The attach can be used to connect to the
+# command prompt in the container, where e.g. a Ctrl-c can be used to
+# force a stop.
+#
+
+NAME="docker-rustalgotrading-1"
+
+all: help
+
+up:
+	xhost +LOCAL:
+	docker-compose up -d
+
+down:
+	sync
+	docker-compose down
+
+# If problems persist after a force-down then manually restart Docker daemon.
+force-down:
+	sync
+	docker rm -f $(NAME)
+
+ls:
+	docker ps -a
+
+rebuild:
+	curl -O http://deac-fra.dl.sourceforge.net/project/ta-lib/ta-lib/0.4.0/ta-lib-0.4.0-src.tar.gz
+	xhost +LOCAL:
+	docker-compose build --no-cache
+
+build:
+	xhost +LOCAL:
+	docker-compose build
+
+attach:
+	xhost +LOCAL:
+	docker attach $(NAME)
+
+shell:
+	xhost +LOCAL:
+	docker exec -it $(NAME) /bin/bash
+
+help:
+	@grep '^[^ 	#:]\+:' Makefile | sed -e 's/:[^:]*//g'
+	echo "Use make -s for silent execution (e.g. make -s ls)"
+#+END_SRC
