@@ -7,7 +7,7 @@ tags: Computer, Software, Functional, Internet, Docker, Rust, NixOS
 
 #+OPTIONS: ^:nil
 
-A [[https://www.rust-lang.org/][Rust]] programming language development environment can be somewhat cumbersome to set up under [[https://nixos.org/][NixOS]] (e.g. OpenSSL, clang issues), so a solution using a [[https://www.docker.com/][Docker]] container is described in this article. -- [[https://github.com/rust-lang][github.com/rust-lang]] (by [[https://github.com/orgs/rust-lang/people][rust-lang/people]]).
+A [[https://www.rust-lang.org/][Rust]] programming language development environment can be somewhat cumbersome to set up under [[https://nixos.org/][NixOS]] (e.g. to use [[https://github.com/CLevasseur/ta-lib-rust][CLevasseur/ta-lib-rust]]), so a solution using a [[https://www.docker.com/][Docker]] container is described in this article. -- [[https://github.com/rust-lang][github.com/rust-lang]] (by [[https://github.com/orgs/rust-lang/people][rust-lang/people]]).
 
 (.more.)
 
