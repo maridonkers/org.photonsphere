@@ -18,11 +18,15 @@ Normally a =shell.nix= as given below suffices to get =rustup= (see e.g. [[https
 # https://nixos.wiki/wiki/Rust
 
 let
-  # Pinned nixpkgs, deterministic. Last updated: 2/12/21.
-  # pkgs = import (fetchTarball("https://github.com/NixOS/nixpkgs/archive/a58a0b5098f0c2a389ee70eb69422a052982d990.tar.gz")) {};
+  # Pinned nixpkgs, deterministic. 
+  pkgs = import (builtins.fetchGit {
+    url = "https://github.com/NixOS/nixpkgs";
+    ref = "refs/tags/21.11";
+  }) {};
 
   # Rolling updates, not deterministic.
-  pkgs = import (fetchTarball("channel:nixpkgs-unstable")) {};
+  # pkgs = import (fetchTarball("channel:nixpkgs-unstable")) {};
+  
 in pkgs.mkShell {
   PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
 

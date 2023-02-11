@@ -1,3 +1,9 @@
+# Check out modern Rust based solution with Zola (convert org-mode to
+# Markdown using Emacs via: org-md-export-to-markdown
+#
+# https://www.getzola.org/documentation/getting-started/overview/
+#
+
 TAILWINDCSS = "$(HOME)/bin/tailwindcss"
 
 all: help
