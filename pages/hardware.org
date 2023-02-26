@@ -9,6 +9,7 @@ The [[https://tweakers.net/pricewatch/270517/asus-asus-n53jn/specificaties/][ASU
 
 [[../images/AsusN53Jn.jpg]]
 
+=lscpu=
 #+BEGIN_EXAMPLE
 CPU(s):                  4
 Vendor ID:               GenuineIntel
