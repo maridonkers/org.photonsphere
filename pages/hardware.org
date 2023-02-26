@@ -1,0 +1,138 @@
+* Hardware
+A summary of my computer hardware is given here.
+
+** Computer
+
+*** ASUS N53Jn notebook (8GiB)
+
+The [[https://tweakers.net/pricewatch/270517/asus-asus-n53jn/specificaties/][ASUS N53Jn]] installed with [[https://nixos.org/][NixOS]] (Linux) is my daily driver. The optical drive has been replaced with a hard drive caddy.
+
+[[../images/AsusN53Jn.jpg]]
+
+=lscpu=
+#+BEGIN_EXAMPLE
+Architecture:            x86_64
+  CPU op-mode(s):        32-bit, 64-bit
+  Address sizes:         36 bits physical, 48 bits virtual
+  Byte Order:            Little Endian
+CPU(s):                  4
+  On-line CPU(s) list:   0-3
+Vendor ID:               GenuineIntel
+  Model name:            Intel(R) Core(TM) i5 CPU       M 450  @ 2.40GHz
+    CPU family:          6
+    Model:               37
+    Thread(s) per core:  2
+    Core(s) per socket:  2
+    Socket(s):           1
+    Stepping:            5
+    Frequency boost:     enabled
+    CPU(s) scaling MHz:  71%
+    CPU max MHz:         2400.0000
+    CPU min MHz:         1199.0000
+    BogoMIPS:            4787.67
+    Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ht tm pbe syscall nx rdtscp lm constant_t
+                         sc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1
+                          sse4_2 popcnt lahf_lm pti tpr_shadow vnmi flexpriority ept vpid dtherm ida arat
+Virtualization features: 
+  Virtualization:        VT-x
+Caches (sum of all):     
+  L1d:                   64 KiB (2 instances)
+  L1i:                   64 KiB (2 instances)
+  L2:                    512 KiB (2 instances)
+  L3:                    3 MiB (1 instance)
+NUMA:                    
+  NUMA node(s):          1
+  NUMA node0 CPU(s):     0-3
+Vulnerabilities:         
+  Itlb multihit:         KVM: Mitigation: VMX disabled
+  L1tf:                  Mitigation; PTE Inversion; VMX conditional cache flushes, SMT vulnerable
+  Mds:                   Vulnerable: Clear CPU buffers attempted, no microcode; SMT vulnerable
+  Meltdown:              Mitigation; PTI
+  Mmio stale data:       Unknown: No mitigations
+  Retbleed:              Not affected
+  Spec store bypass:     Vulnerable
+  Spectre v1:            Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:            Mitigation; Retpolines, STIBP disabled, RSB filling, PBRSB-eIBRS Not affected
+  Srbds:                 Not affected
+  Tsx async abort:       Not affected
+#+END_EXAMPLE
+
+=lsscsi=
+#+BEGIN_EXAMPLE
+[0:0:0:0]    disk    ATA      WDC WD5000BEKT-6 1A01  /dev/sdb 
+[1:0:0:0]    disk    ATA      ST1000LM048-2E71 SDM1  /dev/sda 
+#+END_EXAMPLE
+*** HP Compaq DC7900 Ultra-slim Desktop PC (4GiB)
+
+I use the [[https://icecat.biz/p/hp/kp722av/pcs-workstations-Compaq+dc7900+Base+Model+Ultra-slim+Desktop+PC-1748699.html][HP Compaq DC7900 Ultra-slim Desktop PC]] installed with [[https://nixos.org/][NixOS]] (Linux) only sometimes (e.g. for burning CDs; server deployment tests).
+
+[[../images/HPCompaqDC7900.jpg]]
+
+=lscpu=
+#+BEGIN_EXAMPLE
+Architecture:            x86_64
+  CPU op-mode(s):        32-bit, 64-bit
+  Address sizes:         36 bits physical, 48 bits virtual
+  Byte Order:            Little Endian
+CPU(s):                  2
+  On-line CPU(s) list:   0,1
+Vendor ID:               GenuineIntel
+  Model name:            Intel(R) Core(TM)2 Duo CPU     E8400  @ 3.00GHz
+    CPU family:          6
+    Model:               23
+    Thread(s) per core:  1
+    Core(s) per socket:  2
+    Socket(s):           1
+    Stepping:            10
+    CPU(s) scaling MHz:  68%
+    CPU max MHz:         3000.0000
+    CPU min MHz:         1998.0000
+    BogoMIPS:            5985.42
+    Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mc
+                         a cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ht 
+                         tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts
+                          rep_good nopl cpuid aperfmperf pni dtes64 monitor ds_c
+                         pl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 xsave la
+                         hf_lm pti tpr_shadow vnmi flexpriority vpid dtherm
+Virtualization features: 
+  Virtualization:        VT-x
+Caches (sum of all):     
+  L1d:                   64 KiB (2 instances)
+  L1i:                   64 KiB (2 instances)
+  L2:                    6 MiB (1 instance)
+NUMA:                    
+  NUMA node(s):          1
+  NUMA node0 CPU(s):     0,1
+Vulnerabilities:         
+  Itlb multihit:         KVM: Mitigation: VMX disabled
+  L1tf:                  Mitigation; PTE Inversion; VMX EPT disabled
+  Mds:                   Vulnerable: Clear CPU buffers attempted, no microcode; 
+                         SMT disabled
+  Meltdown:              Mitigation; PTI
+  Mmio stale data:       Unknown: No mitigations
+  Retbleed:              Not affected
+  Spec store bypass:     Vulnerable
+  Spectre v1:            Mitigation; usercopy/swapgs barriers and __user pointer
+                          sanitization
+  Spectre v2:            Mitigation; Retpolines, STIBP disabled, RSB filling, PB
+                         RSB-eIBRS Not affected
+  Srbds:                 Not affected
+  Tsx async abort:       Not affected
+#+END_EXAMPLE
+
+=lsscsi=
+#+BEGIN_EXAMPLE
+[2:0:0:0]    disk    ATA      ST9160412AS      HPM1  /dev/sda 
+[3:0:0:0]    cd/dvd  hp       DVD A  DS8A3L    YH3B  /dev/sr0 
+#+END_EXAMPLE
+
+** Iiyama ProLite E2407HDS monitor
+The [[https://tweakers.net/pricewatch/230667/iiyama-prolite-e2407hds-1-zwart/specificaties/][E2407HDS]] monitor is primarily connected to my development notebook via HDMI (can switch to VGA input for my other computer).
+
+[[../images/IiyamaProliteE2407HDS.jpg]]
+
+** Printer
+
+The [[https://tweakers.net/pricewatch/284973/hp-laserjet-pro-m1217nfw-ce844a/specificaties/][M1217nfw]] printer is connected to my development laptop via an USB-cable (until I have time to reconfigure its WiFi-password, which I had to change because I accidentely published my full =NixOS= configuration on GitHub).
+
+[[../images/HPLaserjetM1217nfwMFP.jpg]]
