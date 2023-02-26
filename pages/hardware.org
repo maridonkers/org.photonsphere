@@ -135,7 +135,7 @@ The [[https://tweakers.net/pricewatch/230667/iiyama-prolite-e2407hds-1-zwart/spe
 
 Both from Logitech.
 
-[[images/images/MouseKeyboard.jpg]]
+[[../images/MouseKeyboard.jpg]]
 
 ** Printer
 
