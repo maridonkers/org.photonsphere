@@ -131,6 +131,12 @@ The [[https://tweakers.net/pricewatch/230667/iiyama-prolite-e2407hds-1-zwart/spe
 
 [[../images/IiyamaProliteE2407HDS.jpg]]
 
+** Mouse, Keyboard
+
+Both from Logitech.
+
+[[images/images/MouseKeyboard.jpg]]
+
 ** Printer
 
 The [[https://tweakers.net/pricewatch/284973/hp-laserjet-pro-m1217nfw-ce844a/specificaties/][M1217nfw]] printer is connected to my development laptop via an USB-cable (until I have time to reconfigure its WiFi-password, which I had to change because I accidentely published my full =NixOS= configuration on GitHub).
