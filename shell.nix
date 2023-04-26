@@ -26,8 +26,6 @@ let
         hydraPlatforms = stdenv.lib.platforms.none;
       };
 
-  buildInputs = [ myPkgs.zlib ];
-  
   haskellPackages = if compiler == "default"
                        then myPkgs.haskellPackages
                        else myPkgs.haskell.packages.${compiler};
