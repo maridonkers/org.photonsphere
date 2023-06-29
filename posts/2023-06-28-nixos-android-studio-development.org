@@ -145,3 +145,8 @@ help:
 	@echo "To start Android studio use make shell for an interactive shell and type the following command:"
 	@echo "/opt/android-studio/bin/studio.sh &"
 #+END_SRC
+
+* Demonstration
+See the screendump below.
+
+[[../images/AndroidStudioInDocker.jpg]]
