@@ -15,8 +15,17 @@ Normally instructions at [[https://nixos.wiki/wiki/Android][NixOS Android]] suff
 
 Hence this Docker based solution. Use the Makefile to build the container =make rebuild= and subsequently start the container =make up= and enter a development shell =make shell= which has a =~/Development= binding (change to your path if needed). From within the development shell use =/opt/android-studio/bin/studio.sh &= to start Android Studio (its GUI is displayed on your computer — beware: you'll probably need additional configuration if you're using [[https://wayland.freedesktop.org/][Wayland]]).
 
-* Dockerfile
+* Android Studio
+Download the appropriate tarball from [[https://developer.android.com/studio#downloads][https://developer.android.com/studio#downloads]] and save it next to your =Dockerfile= (in the same directory) and adjust the tarball's name in the =Dockerfile= (currently =android-studio-2022.2.1.20-linux.tar.gz=).
 
+=Dockerfile= section:
+#+BEGIN_SRC dockerfile
+COPY android-studio-2022.2.1.20-linux.tar.gz android-studio-2022.2.1.20-linux.tar.gz 
+RUN mkdir -p /opt; \
+    tar xvzf android-studio-2022.2.1.20-linux.tar.gz -C /opt
+#+END_SRC
+
+* Dockerfile
 #+BEGIN_SRC dockerfile
 # Android development environment.
 
