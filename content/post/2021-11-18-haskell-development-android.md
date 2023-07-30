@@ -1,9 +1,9 @@
 +++
-author = "Hugo Authors"
+author = "Mari Donkers"
 title = "Haskell development environment on Android phone"
 date = "2021-11-18"
 description = "Install a full Haskell development environment (including hpack and cabal) on your Android phone."
-featured = true
+featured = false
 tags = [
     "Computer",
     "Software",
