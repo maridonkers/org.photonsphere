@@ -19,8 +19,7 @@ thumbnail = "images/linux.jpg"
 +++
 
 Under Linux, you can use the [isohybrid](http://www.syslinux.org/wiki/index.php/Isohybrid) command to attempt to fix an ISO intended for a USB-stick, but that does not boot (because e.g. it expects a real DVD).
-
-(.more.)
+<!--more-->
 
 Warning and disclaimer: do make sure that you make a copy of your image file first and execute the isohybrid command on the copy.
 
