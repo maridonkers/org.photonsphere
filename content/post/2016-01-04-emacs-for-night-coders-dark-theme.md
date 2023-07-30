@@ -20,8 +20,6 @@ aliases = ["2016-01-04-emacs-for-night-coders-dark-theme"]
 thumbnail = "images/emacs.png"
 +++
 
-—- title: Emacs for night coders (dark theme) modified: 2016-01-04 meta<sub>description</sub>: tags: Computer, Software, Linux, GUI, KDE, IDE, Emacs, Functional, Clojure, ClojureScript —-
-
 A dark theme approach for Emacs running under KDE (Debian Linux).
 <!--more-->
 

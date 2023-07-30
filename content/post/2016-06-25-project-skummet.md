@@ -22,3 +22,5 @@ thumbnail = "images/clojure.svg"
 +++
 
 Experimental Clojure compiler with small memory footprint, fast loading time and reduced binary size – [Project Skummet](http://clojure-android.info/skummet/) (by **Alex Yakushev**)
+
+**BEWARE** project appears terminated (July 2023)
