@@ -30,6 +30,10 @@
   parent = "Links"
   name = "Donkers Photography"
   url = "https://donkersphotography.com"
+[[main]]
+  parent = "Links"
+  name = "Wikimedia Commons"
+  url = "https://commons.wikimedia.org"
 
 [[main]]
   name = "About"
