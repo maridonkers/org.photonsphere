@@ -24,7 +24,7 @@ aliases = ["2022-09-08-haskell-webgear-off-label-experimenting"]
 thumbnail = "/images/haskell.svg"
 +++
 
-Some quick 'off-label' experimentation with WebGear (a high-performance framework to build composable, type-safe HTTP APIs. It is designed to make common API development tasks easy. It is also easily extensible to add components needed by your project. – [haskell-webgear/webgear](https://github.com/haskell-webgear/webgear)). Also see earlier [Webgear](https://photonsphere.org/posts/2022-09-06-haskell-webgear.html) post.
+Some quick 'off-label' experimentation with WebGear (a high-performance framework to build composable, type-safe HTTP APIs. It is designed to make common API development tasks easy. It is also easily extensible to add components needed by your project. – [haskell-webgear/webgear](https://github.com/haskell-webgear/webgear)). Also see earlier [Webgear](http://photonsphere.org/post/2022-09-06-haskell-webgear/) post.
 <!--more-->
 
 # Introduction

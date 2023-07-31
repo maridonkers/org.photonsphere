@@ -20,16 +20,8 @@
   weight = -108
 [[main]]
   parent = "Links"
-  name = "Hyperlinks"
+  name = "Collection of Links"
   url = "links/"
-[[main]]
-  parent = "Links"
-  name = "Donkers Automatiserinig"
-  url = "https://donkersautomatisering.nl"
-[[main]]
-  parent = "Links"
-  name = "Donkers Photography"
-  url = "https://donkersphotography.com"
 [[main]]
   parent = "Links"
   name = "Wikimedia Commons"

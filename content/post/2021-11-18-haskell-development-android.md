@@ -58,7 +58,7 @@ apt-get install build-essential curl vim-nox silversearcher-ag git ghc cabal-ins
 
 # Demonstration
 
-Use the commands below to get and build my Paperspan export (HTML) to Instapaper import (CSV) convertor – [Paperspan export (HTML) to Instapaper import (CSV) convertor](https://photonsphere.org/posts/2021-10-06-paperspan2instapaper.html).
+Use the commands below to get and build my Paperspan export (HTML) to Instapaper import (CSV) convertor – [Paperspan export (HTML) to Instapaper import (CSV) convertor](http://photonsphere.org/post/2021-10-06-paperspan2instapaper/).
 
 ``` bash
 git clone https://github.com/maridonkers/paperspan2instapaper.git

@@ -20,8 +20,6 @@ aliases = ["2016-01-29-om-next-routing-with-om-nextset-query"]
 thumbnail = "/images/clojure.svg"
 +++
 
-—- title: Om Next routing with om.next/set-query! modified: 2016-01-29 meta<sub>description</sub>: tags: Computer, Software, GUI, Functional, Clojure, ClojureScript —-
-
 An implementation of client side routing using the client-side router library [secretary](https://github.com/gf3/secretary) and [om.next/set-query!](https://github.com/omcljs/om/wiki/Documentation-(om.next)#set-query). Note: this solution may become outdated when [Routing-Hooks](https://github.com/omcljs/om/wiki/Routing-Hooks) is made available. Further reading on Om Next routing, see: [Routing-Support](https://github.com/omcljs/om/wiki/Routing-Support).
 
 Also **take a look first at:** [Routing in Om Next — a Catalog of Approaches](http://anmonteiro.com/2016/02/routing-in-om-next-a-catalog-of-approaches/), which describes Om Next routing variants without third party client-side router libraries. (In fact this catalog of approaches obsoletes my article so you might as well stop reading and go the the above link directly.)
