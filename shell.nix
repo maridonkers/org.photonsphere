@@ -1,5 +1,3 @@
-# https://nixos.wiki/wiki/Rust
-
 let
   # Pinned nixpkgs, deterministic. 
   pkgs = import (builtins.fetchGit {
