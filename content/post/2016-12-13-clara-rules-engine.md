@@ -10,7 +10,9 @@ tags = [
     "Functional Programming",
     "Clojure",
     "ClojureScript",
-    "Expert Systems",
+    "Algorithm",
+    "Data Structure",
+    "Expert System",
     "Rules Engine",
 ]
 categories = [

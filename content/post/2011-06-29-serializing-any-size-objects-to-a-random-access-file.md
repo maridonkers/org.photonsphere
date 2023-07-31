@@ -16,7 +16,7 @@ categories = [
 ]
 series = ["Development", "Java"]
 aliases = ["2011-06-29-serializing-any-size-objects-to-a-random-access-file"]
-thumbnail = "/images/java.png"
+thumbnail = "/images/java.svg"
 +++
 
 This article will delve into the details involved in serializing and deserializing arbitrarily sized objects to- and from a byte array. The contents of the byte array are stored in a random access file. An index file is kept to allow for objects of varying size.

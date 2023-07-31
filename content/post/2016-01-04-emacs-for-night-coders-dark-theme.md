@@ -9,13 +9,14 @@ tags = [
     "Software",
     "KDE",
     "IDE",
+    "Editor",
     "Emacs",
 ]
 categories = [
     "linux",
-    "editors",
+    "editor",
 ]
-series = ["Linux"]
+series = ["Linux", "Editors"]
 aliases = ["2016-01-04-emacs-for-night-coders-dark-theme"]
 thumbnail = "/images/emacs.svg"
 +++

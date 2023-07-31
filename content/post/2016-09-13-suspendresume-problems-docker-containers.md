@@ -19,7 +19,7 @@ categories = [
 ]
 series = ["Linux", "Docker"]
 aliases = ["2016-09-13-suspendresume-problems-docker-containers"]
-thumbnail = "images/docker.svg"
+thumbnail = "/images/docker.svg"
 +++
 
 Once upon a time, while using Debian I had a problem with Docker containers and suspend/resume.

@@ -21,7 +21,7 @@ categories = [
 ]
 series = ["Linux", "Docker"]
 aliases = ["2021-11-18-haskell-development-android"]
-thumbnail = "images/android.png"
+thumbnail = "/images/android.png"
 +++
 
 Install a full [Haskell](https://www.haskell.org/) development environment (including [hpack](https://github.com/sol/hpack) and [cabal](https://www.haskell.org/cabal/)) on your [Android](https://www.android.com/) phone. The command prompt runs via [Termux](https://f-droid.org/en/packages/com.termux/) and its [PRoot](https://wiki.termux.com/wiki/PRoot) (i.e. [proot-distro](https://github.com/termux/proot-distro)).
