@@ -13,12 +13,14 @@ tags = [
     "ClojureScript",
     "Editor",
     "Emacs",
+    "Full Stack",
 ]
 categories = [
     "clojure",
     "editor",
+    "full stack",
 ]
-series = ["Clojure", "Editors"]
+series = ["Clojure", "Editors", "Full Stack"]
 aliases = ["2017-12-19-fulcro-emacs-cider"]
 thumbnail = "/images/emacs.svg"
 +++

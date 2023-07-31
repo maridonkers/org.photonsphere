@@ -16,9 +16,10 @@ tags = [
     "ClojureScript",
 ]
 categories = [
-    "linux",
+    "clojure",
+    "full stack",
 ]
-series = ["Clojure", "Internet"]
+series = ["Clojure", "Internet", "Full Stack"]
 aliases = ["2018-02-07-fulcro-bulma"]
 thumbnail = "/images/bulma.png"
 +++

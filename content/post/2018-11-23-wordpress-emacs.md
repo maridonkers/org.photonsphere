@@ -25,7 +25,7 @@ categories = [
 ]
 series = ["Linux", "Docker", "Editors", "CMS", "PHP"]
 aliases = ["2018-11-22-octobercms-emacs"]
-thumbnail = "/images/php.svg"
+thumbnail = "/images/wordpress.png"
 +++
 
 Create a [Wordpress](https://wordpress.org/) [Docker](https://www.docker.com/) image with [Emacs](https://www.gnu.org/software/emacs/) editing set up ([HTML](https://nl.wikipedia.org/wiki/HyperText_Markup_Language), [CSS](https://nl.wikipedia.org/wiki/Cascading_Style_Sheets), [PHP](http://www.php.net/) files). With [phpMyAdmin](https://www.phpmyadmin.net/) support. Under [Debian Linux](https://www.debian.org/) of course.
