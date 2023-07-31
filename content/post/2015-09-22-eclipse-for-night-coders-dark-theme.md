@@ -18,7 +18,7 @@ categories = [
 ]
 series = ["Linux"]
 aliases = ["2015-09-22-eclipse-for-night-coders-dark-theme"]
-thumbnail = "images/eclipse-ide.svg"
+thumbnail = "/images/eclipse-ide.svg"
 +++
 
 With my Eclipse running under KDE (Debian Linux) the dark themes in Eclipse suffer from side effects. Like the disappearance of the little menu in the title area of the window's tabs.

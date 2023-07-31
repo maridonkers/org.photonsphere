@@ -18,7 +18,7 @@ categories = [
 ]
 series = ["Linux", "Clojure"]
 aliases = ["2016-01-29-om-next-routing-with-om-nextset-query"]
-thumbnail = "images/clojure.svg"
+thumbnail = "/images/clojure.svg"
 +++
 
 —- title: Om Next routing with om.next/set-query! modified: 2016-01-29 meta<sub>description</sub>: tags: Computer, Software, GUI, Functional, Clojure, ClojureScript —-

@@ -17,7 +17,7 @@ categories = [
 ]
 series = ["Linux"]
 aliases = ["2016-01-04-emacs-for-night-coders-dark-theme"]
-thumbnail = "images/emacs.png"
+thumbnail = "/images/emacs.svg"
 +++
 
 A dark theme approach for Emacs running under KDE (Debian Linux).

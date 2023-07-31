@@ -20,7 +20,7 @@ categories = [
 ]
 series = ["Linux", "Clojure", "Android", "iOS"]
 aliases = ["2016-08-17-clojurescript-apps-for-ios-and-android-devices"]
-thumbnail = "images/clojure.svg"
+thumbnail = "/images/clojure.svg"
 +++
 
 For [Leiningen](http://leiningen.org): A fork of [dmotz/natal](https://github.com/dmotz/natal) by Dan Motzenbecker with the goal of generating skeleton of native app for iOS and Android based on [Reagent](https://github.com/reagent-project/reagent) + [re-frame](https://github.com/Day8/re-frame), [Om.Next](https://github.com/omcljs/om/wiki/Quick-Start-(om.next)) or [Rum](https://github.com/tonsky/rum) – [Re-Natal](https://github.com/drapanjanas/re-natal) (by **Artur Girenko**).

@@ -18,7 +18,7 @@ categories = [
 ]
 series = ["Linux", "Clojure"]
 aliases = ["2016-01-16-om-next-subcomponents-and-datascript"]
-thumbnail = "images/clojure.svg"
+thumbnail = "/images/clojure.svg"
 +++
 
 # Introduction
@@ -30,9 +30,9 @@ This example code is on github: <https://github.com/maridonkers/om-next-datascri
 
 Updates:
 
-- o have also found this on GitHub: [Om TodoMVC Example](https://github.com/swannodette/om-next-demo) (by David Nolen);
-- o my routing solution is not as advised ([Routing Support](https://github.com/omcljs/om/wiki/Routing-Support)); another implementation using the suggested approach is here: [Routing with set-query!](./2016-01-29-om-next-routing-with-om-nextset-query.html);
-- o information on routing hooks soon to come: <https://github.com/omcljs/om/wiki/Routing-Hooks>.
+- have also found this on GitHub: [Om TodoMVC Example](https://github.com/swannodette/om-next-demo) (by David Nolen);
+- my routing solution is not as advised ([Routing Support](https://github.com/omcljs/om/wiki/Routing-Support)); another implementation using the suggested approach is here: [Routing with set-query!](./2016-01-29-om-next-routing-with-om-nextset-query.html);
+- information on routing hooks soon to come: <https://github.com/omcljs/om/wiki/Routing-Hooks>.
 
 # project.clj
 

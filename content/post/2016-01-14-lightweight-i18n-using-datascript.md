@@ -18,7 +18,7 @@ categories = [
 ]
 series = ["Linux", "Clojure"]
 aliases = ["2016-01-14-lightweight-i18n-using-datascript"]
-thumbnail = "images/clojure.svg"
+thumbnail = "/images/clojure.svg"
 +++
 
 A lightweight ;-) i18n solution for [ClojureScript](https://github.com/clojure/clojurescript) that uses a [DataScript](https://github.com/tonsky/datascript) database. It's inspired by [Tower, a Clojure/Script i18n & L10n library](https://github.com/ptaoussanis/tower).

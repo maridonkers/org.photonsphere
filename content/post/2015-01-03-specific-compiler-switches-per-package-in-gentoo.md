@@ -15,7 +15,7 @@ categories = [
 ]
 series = ["Linux"]
 aliases = ["2015-01-03-specific-compiler-switches-per-package-in-gentoo"]
-thumbnail = "images/linux.jpg"
+thumbnail = "/images/linux.jpg"
 +++
 
 To configure specific compiler switches per package in Gentoo use these instructions.

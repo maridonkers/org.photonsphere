@@ -18,7 +18,7 @@ categories = [
 ]
 series = ["Linux", "Clojure"]
 aliases = ["2016-08-04-cross-platform-desktop-applications-in-clojurescript"]
-thumbnail = "images/clojure.svg"
+thumbnail = "/images/clojure.svg"
 +++
 
 GitHub's [Electron](http://electron.atom.io/) is used to build cross platform desktop apps with web technologies like JavaScript, HTML, and CSS. The text editor [Atom](https://atom.io/) and the [Slack](https://slack.com/is) application are written using Electron.

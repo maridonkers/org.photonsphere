@@ -17,7 +17,7 @@ categories = [
 ]
 series = ["Linux"]
 aliases = ["2014-12-19-kde-environment-variables"]
-thumbnail = "images/linux.jpg"
+thumbnail = "/images/linux.jpg"
 +++
 
 The KDE desktop environment supports environment variables. These are active when logged in to KDE. Contrary to regular bash environment variables, which are active only when a bash shell is started.

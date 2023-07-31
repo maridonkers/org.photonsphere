@@ -16,7 +16,7 @@ categories = [
 ]
 series = ["Linux"]
 aliases = ["2014-12-30-gentoo-linux-low-level-backup"]
-thumbnail = "images/linux.jpg"
+thumbnail = "/images/linux.jpg"
 +++
 
 If a low-level backup is required then use these instructions.

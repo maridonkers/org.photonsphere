@@ -18,7 +18,7 @@ categories = [
 ]
 series = ["Linux", "clojure"]
 aliases = ["2016-04-22-lightweight-i18n-using-re-frame"]
-thumbnail = "images/clojure.svg"
+thumbnail = "/images/clojure.svg"
 +++
 
 A lightweight [i18n](https://en.wikipedia.org/wiki/Internationalization_and_localization) solution for use with [re-frame](https://github.com/Day8/re-frame). It's inspired by [Tower, a Clojure/Script i18n & L10n library](https://github.com/ptaoussanis/tower).

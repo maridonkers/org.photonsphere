@@ -16,7 +16,7 @@ categories = [
 ]
 series = ["Linux"]
 aliases = ["2015-01-30-building-photivo-under-debian-linux "]
-thumbnail = "images/camera.jpg"
+thumbnail = "/images/camera.jpg"
 +++
 
 [Photivo](http://photivo.org/) is a free and open source (GPL3) photo processor. It handles your RAW files as well as your bitmap files (TIFF, JPEG, BMP, PNG and many more) in a non-destructive 16 bit processing pipe with gimp workflow integration and batch mode.

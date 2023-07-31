@@ -15,7 +15,7 @@ categories = [
 ]
 series = ["Linux"]
 aliases = ["2014-12-16-combine-several-pdf-files-info-one"]
-thumbnail = "images/linux.jpg"
+thumbnail = "/images/linux.jpg"
 +++
 
 —- title: Combine several PDF-files into one modified: 2014-12-16 meta<sub>description</sub>: tags: Computer, Linux, PDF, Software, Shell Script —-

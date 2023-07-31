@@ -16,9 +16,10 @@ tags = [
 ]
 categories = [
     "development",
+    "docker",
     "haskell",
 ]
-series = ["Docker"]
+series = ["Linux", "Docker"]
 aliases = ["2021-11-18-haskell-development-android"]
 thumbnail = "images/android.png"
 +++
@@ -71,8 +72,8 @@ cabal run . -- yourpaperspanexportfile.html
 
 Notes:
 
-- • Depending on your phone the `cabal new-update` and `cabal new-build` may take a while to complete.
-- • If the build fails then simply start it again (I had to start it again once).
+- Depending on your phone the `cabal new-update` and `cabal new-build` may take a while to complete.
+- If the build fails then simply start it again (I had to start it again once).
 
 # Keys menu and colors
 

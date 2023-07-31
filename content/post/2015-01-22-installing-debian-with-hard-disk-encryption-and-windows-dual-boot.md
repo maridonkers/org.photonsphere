@@ -13,7 +13,7 @@ categories = [
 ]
 series = ["Linux"]
 aliases = ["2015-01-22-installing-debian-with-hard-disk-encryption-and-windows-dual-boot"]
-thumbnail = "images/linux.jpg"
+thumbnail = "/images/linux.jpg"
 +++
 
 The goal of the instructions in this article is to install [Debian](https://www.debian.org/) on a hard disk that already has a functioning Windows 7 installation (with a master boot record – MBR). Here [Debian Sid](https://www.debian.org/releases/sid/) (a.k.a. Debian Unstable) –which is a rolling release distribution– is taken as an example but a regular Debian stable version can also be used (in that case skip the instructions in the `Conversion to Debian Sid via Debian Testing` section.
