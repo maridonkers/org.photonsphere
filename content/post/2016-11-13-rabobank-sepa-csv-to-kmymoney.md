@@ -19,7 +19,7 @@ categories = [
 ]
 series = ["Clojure", "Financial"]
 aliases = ["2016-11-13-rabobank-sepa-csv-to-kmymoney"]
-thumbnail = "/images/clojure.svg"
+thumbnail = "/images/rabobank.jpg"
 +++
 
 Conversion program from Rabobank SEPA CSV export format to KMyMoney import format.
