@@ -13,10 +13,9 @@ tags = [
     "GUI",
 ]
 categories = [
-    "linux",
     "clojure",
 ]
-series = ["Linux", "Clojure"]
+series = ["Clojure"]
 aliases = ["2016-01-29-om-next-routing-with-om-nextset-query"]
 thumbnail = "/images/clojure.svg"
 +++

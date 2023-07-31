@@ -13,10 +13,9 @@ tags = [
     "Android",
 ]
 categories = [
-    "linux",
     "clojure",
 ]
-series = ["Linux", "Clojure", "Android"]
+series = ["Clojure", "Android"]
 aliases = ["2016-06-25-project-skummet"]
 thumbnail = "/images/clojure.svg"
 +++

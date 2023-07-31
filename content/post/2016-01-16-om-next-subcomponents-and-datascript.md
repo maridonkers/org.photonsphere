@@ -13,10 +13,9 @@ tags = [
     "GUI",
 ]
 categories = [
-    "linux",
     "clojure",
 ]
-series = ["Linux", "Clojure"]
+series = ["Clojure"]
 aliases = ["2016-01-16-om-next-subcomponents-and-datascript"]
 thumbnail = "/images/clojure.svg"
 +++

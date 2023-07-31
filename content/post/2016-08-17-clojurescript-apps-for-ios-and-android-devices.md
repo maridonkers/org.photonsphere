@@ -15,10 +15,9 @@ tags = [
     "iOS",
 ]
 categories = [
-    "linux",
-    "Clojure",
+    "clojure",
 ]
-series = ["Linux", "Clojure", "Android", "iOS"]
+series = ["Clojure", "Android", "iOS"]
 aliases = ["2016-08-17-clojurescript-apps-for-ios-and-android-devices"]
 thumbnail = "/images/clojure.svg"
 +++

@@ -13,10 +13,9 @@ tags = [
     "Database",
 ]
 categories = [
-    "linux",
     "clojure",
 ]
-series = ["Linux", "Clojure"]
+series = ["Clojure"]
 aliases = ["2016-01-14-lightweight-i18n-using-datascript"]
 thumbnail = "/images/clojure.svg"
 +++
