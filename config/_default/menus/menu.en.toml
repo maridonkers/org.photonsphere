@@ -8,6 +8,11 @@
   url = "hardware/"
   weight = -109
 
+[[main]]
+  name = "Privacy"
+  url = "privacy/"
+  weight = -108
+
 # Submenus are done this way: parent -> identifier
 [[main]]
   name = "Links"
@@ -15,12 +20,16 @@
   weight = -108
 [[main]]
   parent = "Links"
-  name = "LinkedIn"
-  url = "https://www.linkedin.com/maridonkers"
+  name = "Hyperlinks"
+  url = "links/"
 [[main]]
   parent = "Links"
-  name = "Twitter"
-  url = "https://twitter.com/maridonkers"
+  name = "Donkers Automatiserinig"
+  url = "https://donkersautomatisering.nl"
+[[main]]
+  parent = "Links"
+  name = "Donkers Photography"
+  url = "https://donkersphotography.com"
 
 [[main]]
   name = "About"
