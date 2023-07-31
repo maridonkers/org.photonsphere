@@ -20,7 +20,7 @@ categories = [
 ]
 series = ["Clojure", "Editors"]
 aliases = ["2017-12-19-fulcro-emacs-cider"]
-thumbnail = "/images/clojure.svg"
+thumbnail = "/images/emacs.svg"
 +++
 
 Using Emacs+Cider for development with [Fulcro](http://fulcro.fulcrologic.com/). To set up Emacs for [Clojure](http://clojure.org/) and [ClojureScript](http://clojurescript.org/) development with Cider see e.g.: [My Emacs configuration](./2017-04-13-emacs-config.html)
