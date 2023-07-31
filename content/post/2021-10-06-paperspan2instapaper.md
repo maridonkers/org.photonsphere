@@ -108,6 +108,6 @@ Disclaimer: this is a 'one shot' program (excuse my Haskell) that I've used only
 
 # Earlier
 
-Earlier this [2019-02-18-instapaper-export](http://photonsphere.org/post/2019-02-18-instapaper-export/) was used for an Instpaper HTML export to Paperspan import.
+Earlier this [2019-02-18-instapaper-export](/post/2019-02-18-instapaper-export/) was used for an Instpaper HTML export to Paperspan import.
 
 (Hopping back and forth between these excellent read-later/archiving solutions.)
