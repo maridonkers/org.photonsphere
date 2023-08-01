@@ -25,7 +25,7 @@
 [[main]]
   parent = "Links"
   name = "Wikimedia Commons"
-  url = "https://commons.wikimedia.org"
+  url = "commons/"
 
 [[main]]
   name = "About"
@@ -39,6 +39,22 @@
   type = "social"
   weight = 1
   url = "https://github.com/maridonkers"
+[[social]]
+  name = "mastodon"
+  weight = 2
+  url = "https://fosstodon.org/@maridonkers"
+# [[social]]
+#   name = "nostr"
+#   weight = 2
+#   url = "https://nostrplebs.com/s/photonsphere"
+# [[social]]
+#   name = "facebook"
+#   weight = 2
+#   url = "https://www.facebook.com/a.h.m.donkers"
+# [[social]]
+#   name = "ello"
+#   weight = 2
+#   url = "https://ello.co/maridonkers"
 [[social]]
   name = "twitter"
   weight = 2
