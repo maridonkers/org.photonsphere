@@ -18,5 +18,6 @@ in pkgs.mkShell {
   
   buildInputs = with pkgs; [
     hugo
+    nodePackages.jsonlint
   ];
 }
