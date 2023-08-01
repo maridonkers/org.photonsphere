@@ -76,7 +76,6 @@ Now the `PureScript` code is compiled to `JavaScript` code (producing a `dist/ma
 Change the `dist/index.html` file to refer to the `ui/assets/main.js` location.
 
 ``` html
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />

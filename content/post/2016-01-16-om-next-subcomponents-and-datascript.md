@@ -647,7 +647,6 @@ Updates:
 # src/browser/resources/public/index.html
 
 ``` html
-<!DOCTYPE html>
 <html>
   <head lang="en">
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
