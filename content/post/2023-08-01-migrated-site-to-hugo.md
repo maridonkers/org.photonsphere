@@ -21,8 +21,8 @@ thumbnail = "/images/hugo.svg"
 The previous version of this site was generated using the [Hakyll](https://jaspervdj.be/hakyll/) static site generator. The new modernized site uses [Hugo](https://gohugo.io/) with the [Clarity](https://themes.gohugo.io/themes/hugo-clarity/) theme.
 <!--more-->
 
-* org-mode content conversion to markdown
-The [pandoc](https://pandoc.org/) program was used.
+# org-mode content
+The [pandoc](https://pandoc.org/) program was used to convert the [org-mode](https://orgmode.org/) content to [Markdown](https://daringfireball.net/projects/markdown/).
 
 ```bash
 #!/bin/sh
