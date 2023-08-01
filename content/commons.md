@@ -48,4 +48,5 @@ A list of the Wikimedia Commons- and other content used on this site, each with 
 | ![](/images/usenet.jpg)              | [Schéma usenet.jpg](https://commons.wikimedia.org/wiki/File:Sch%C3%A9ma_usenet.jpg)                                          |
 | ![](/images/wordpress.png)           | [Wordpress circle.png](https://commons.wikimedia.org/wiki/File:Wordpress_circle.png)                                         |
 | ![](/images/xmonad.svg)              | [Xmonad-logo.svg](https://commons.wikimedia.org/wiki/File:Xmonad-logo.svg)                                                   |
+| ![](/images/hugo.svg)                | [hugo-logo-wide](https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/static/images/hugo-logo-wide.svg)           |
 |                                      |                                                                                                                              |
