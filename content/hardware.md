@@ -6,13 +6,11 @@ aliases = ["hardware"]
 author = "Mari Donkers"
 +++
 
-# Hardware
-
 A summary of my computer hardware is given here.
 
-## Computer
+# Computer
 
-### ASUS N53Jn notebook (8GiB)
+## ASUS N53Jn notebook (8GiB)
 
 The [ASUS N53Jn](https://tweakers.net/pricewatch/270517/asus-asus-n53jn/specificaties/) installed with [NixOS](https://nixos.org/) (Linux) is my daily driver. The optical drive has been replaced with a hard drive caddy.
 
@@ -35,7 +33,7 @@ Vendor ID:               GenuineIntel
 [1:0:0:0]    disk    ATA      ST1000LM048-2E71 SDM1  /dev/sda 
 ```
 
-### HP Compaq DC7900 Ultra-slim Desktop PC (4GiB)
+## HP Compaq DC7900 Ultra-slim Desktop PC (4GiB)
 
 I use the [HP Compaq DC7900 Ultra-slim Desktop PC](https://icecat.biz/p/hp/kp722av/pcs-workstations-Compaq+dc7900+Base+Model+Ultra-slim+Desktop+PC-1748699.html) installed with [NixOS](https://nixos.org/) (Linux) only sometimes (e.g. for burning CDs; server deployment tests).
 
@@ -57,6 +55,9 @@ Vendor ID:               GenuineIntel
 [2:0:0:0]    disk    ATA      ST9160412AS      HPM1  /dev/sda 
 [3:0:0:0]    cd/dvd  hp       DVD A  DS8A3L    YH3B  /dev/sr0 
 ```
+
+
+# Peripherals
 
 ## Iiyama ProLite E2407HDS monitor
 
