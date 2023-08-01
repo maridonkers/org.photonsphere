@@ -1,0 +1,1 @@
+2011-06-29-serializing-any-size-objects-to-a-random-access-file.md
