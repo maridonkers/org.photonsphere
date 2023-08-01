@@ -1,0 +1,1 @@
+2015-01-30-building-photivo-under-debian-linux.md
