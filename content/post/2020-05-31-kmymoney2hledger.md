@@ -3,7 +3,7 @@ author = "Mari Donkers"
 title = "KMyMoney to HLedger"
 date = "2020-05-31"
 description = "Because I have been wanting to start using plain text accounting I needed a conversion from KMyMoney software to HLedger."
-featured = false
+featured = true
 tags = [
     "Computer",
     "Software",
