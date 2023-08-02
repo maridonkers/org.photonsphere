@@ -8,7 +8,7 @@ author = "Mari Donkers"
 
 A list of the Wikimedia Commons- and other content used on this site, each with link to its attribution source page.
 
-| Content                              | Source (link to Wikimedia Commons                                                                                            |
+| Content                              | Source (link to Wikimedia Commons)                                                                                           |
 |--------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | ![](/images/ai-hierarchy.svg)        | [AI hierarchy.svg](https://commons.wikimedia.org/wiki/File:AI_hierarchy.svg)                                                 |
 | ![](/images/android.png)             | [Android logo (2014-2019).png](https://commons.wikimedia.org/wiki/File:Android_logo_(2014-2019).png)                         |
