@@ -37,6 +37,6 @@ done
 
 # Mobile phone
 
-Hugo is very lightweight so I can now update my site on my mobile phone. First install the [Termux](https://f-droid.org/en/packages/com.termux/) package via <span class="spurious-link" target="F-Droid">*F-Droid*</span>. Then you can just run a =termux= shell and install Hugo using =pkg install hugo=. Install git via =pkg install git= and clone your repository. The =hugo= command compiles your site (see screendump below).
+Hugo is very lightweight so I can now update my site on my mobile phone. First install the [Termux](https://f-droid.org/en/packages/com.termux/) package via <span class="spurious-link" target="F-Droid">*F-Droid*</span>. Then you can just run a `termux` shell and install Hugo using `pkg install hugo`. Install git via `pkg install git` and clone your repository. The `hugo` command compiles your site (see screendump below).
 
 ![](/images/HugoAndroidTermux.png)
