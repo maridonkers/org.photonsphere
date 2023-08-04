@@ -11,7 +11,7 @@ A list of the Wikimedia Commons- and other content used on this site, each with 
 | Content                              | Source (link to Wikimedia Commons)                                                                                           |
 |--------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | ![](/images/ai-hierarchy.svg)        | [AI hierarchy.svg](https://commons.wikimedia.org/wiki/File:AI_hierarchy.svg)                                                 |
-| ![](/images/android.png)             | [Android logo (2014-2019).png](https://commons.wikimedia.org/wiki/File:Android_logo_(2014-2019).png)                         |
+| ![](/images/android.svg)             | [Android logo (2014-2019).png](https://commons.wikimedia.org/wiki/File:Android_robot.svg)                                    |
 | ![](/images/atom.svg)                | [Atom editor logo.svg](https://commons.wikimedia.org/wiki/File:Atom_editor_logo.svg)                                         |
 | ![](/images/binance.png)             | [Binance Logo.png](https://commons.wikimedia.org/wiki/File:Binance_Logo.png)                                                 |
 | ![](/images/bulma.png)               | [Bulma logo](https://bulma.io/images/bulma-logo.png)                                                                         |
