@@ -16,7 +16,7 @@ clean:
 	rm -rf public
 
 upload:
-	hugoincr
+	~/bin/hugoincr
 	(cd public ; lftp -u ftp@donkersautomatisering.nl --env-password -e "mirror -R -n -v .; bye" ftp.donkersautomatisering.nl/domains/photonsphere.org/public_html)
 
 help:
