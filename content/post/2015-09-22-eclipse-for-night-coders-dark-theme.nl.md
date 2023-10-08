@@ -1,1 +1,0 @@
-2015-09-22-eclipse-for-night-coders-dark-theme.md

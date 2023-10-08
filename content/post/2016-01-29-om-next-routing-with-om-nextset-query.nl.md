@@ -1,1 +1,0 @@
-2016-01-29-om-next-routing-with-om-nextset-query.md

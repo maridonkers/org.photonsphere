@@ -1,1 +1,0 @@
-2016-08-17-clojurescript-apps-for-ios-and-android-devices.md

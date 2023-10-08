@@ -1,1 +1,0 @@
-2021-11-13-xmonad-and-screen-zombies.md

@@ -1,1 +1,0 @@
-2023-02-04-nixos-rust-development.md

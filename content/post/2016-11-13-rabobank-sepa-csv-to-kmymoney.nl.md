@@ -1,1 +1,0 @@
-2016-11-13-rabobank-sepa-csv-to-kmymoney.md

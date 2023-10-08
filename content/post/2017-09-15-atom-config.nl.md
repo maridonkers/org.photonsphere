@@ -1,1 +1,0 @@
-2017-09-15-atom-config.md

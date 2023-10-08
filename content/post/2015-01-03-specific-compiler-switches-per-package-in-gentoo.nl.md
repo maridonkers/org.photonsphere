@@ -1,1 +1,0 @@
-2015-01-03-specific-compiler-switches-per-package-in-gentoo.md

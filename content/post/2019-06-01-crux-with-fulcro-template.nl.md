@@ -1,1 +1,0 @@
-2019-06-01-crux-with-fulcro-template.md

@@ -3,9 +3,9 @@
   LanguageName = "English"
   weight = 1
 
-[nl]
-  title = "The Photonsphere" # just for the sake of showing this is possible
-  LanguageName = "Dutch"
-  weight = 2
+# [nl]
+#   title = "The Photonsphere" # just for the sake of showing this is possible
+#   LanguageName = "Dutch"
+#   weight = 2
 
   # tip: assign the default language the lowest Weight
