@@ -40,12 +40,12 @@ apt install propellor
 Initialize it as follows (this creates `~/.propellor` subdirectory):
 
 ``` sh
-propellor --ini
+propellor --init
 ```
 
 *Do not yet attempt to run propellor!*
 
-Remove `.propellor/config.hs` and replace it with your own (mine is on <GitHub>); also change `propellor.cabal` to include additional source files (mine are in a `lib` subdirectory) -- don't forget to add to git via a `git add filename` command, prior to first run of propellor (if forget and it failed, recoverable only by removing `/usr/local/propellor` subdirectory as root).
+Remove `.propellor/config.hs` and replace it with your own (mine is on <GitHub>); also change `propellor.cabal` to include additional source files (mine are in a `lib` subdirectory) — don't forget to add to git via a `git add filename` command, prior to first run of propellor (appears to be recoverable only by removing `/usr/local/propellor` subdirectory as root).
 
 Configuration of `/etc/ssh/sshd_config` may need changing from its default to run `propellor`. Also see my configuration in <GitHub>.
 
