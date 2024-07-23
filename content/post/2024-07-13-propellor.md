@@ -45,9 +45,9 @@ propellor --init
 
 **Do not yet attempt to run propellor!**
 
-First remove `.propellor/config.hs` and replace it with your own (mine is on <GitHub>); also change `propellor.cabal` to include additional source files (mine are in a `lib` subdirectory) — don't forget to add any additional files to git via a `git add filename` command, prior to a first or next run of propellor (failure to do so appears to be recoverable only by removing `/usr/local/propellor` subdirectory as root). Then try to run `propellor`.
+First remove `.propellor/config.hs` and replace it with your own (mine is on GitHub); also change `propellor.cabal` to include additional source files (mine are in a `lib` subdirectory) — don't forget to add any additional files to git via a `git add filename` command, prior to a first or next run of propellor (failure to do so appears to be recoverable only by removing `/usr/local/propellor` subdirectory as root). Then try to run `propellor`.
 
-Configuration of `/etc/ssh/sshd_config` may need changing from its default to run `propellor`. Also see my configuration in <GitHub>.
+Configuration of `/etc/ssh/sshd_config` may need changing from its default to run `propellor`. Also see my configuration in GitHub.
 
 # Usage
 
