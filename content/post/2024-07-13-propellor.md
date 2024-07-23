@@ -63,7 +63,7 @@ propellor
 
 # Quirks
 
-Apparently Propellor typically only acts to ensure a property is met, it normally does not unact. If e.g. you have the Propellor cron functionality and remove it from your `config.hs` then it will not be installed but you'll have to remove it manually from `/etc/cron.d` to uninstall it. This may also apply to other and your own configuration you added.
+Apparently Propellor typically only acts to ensure a property is met, it normally does not unact. If e.g. you have the Propellor cron functionality and remove it from your `config.hs` then it will no longer be installed but you'll have to remove it manually from `/etc/cron.d` to uninstall it. This may also apply to other and your own configuration you added.
 
 # GitHub
 
