@@ -27,8 +27,6 @@ The [Propellor](https://propellor.branchable.com/) configuration management syst
 # Debian
 I use Propellor to manage my `Debian` installation (it replaced my `NixOS` installation — which I reconsidered because of this: [abdication of founder](https://lunduke.locals.com/post/5819317/nixos-commits-a-purge-of-nazi-contributors-forces-abdication-of-founder))
 
-I'll probably continue to use the [Nix](https://nix.dev/manual/nix/2.18/) package manager, but from a `Debian` shell.
-
 # Setup
 
 Install Propellor as follows:
@@ -60,6 +58,9 @@ To compile and install your configuration, use this:
 ``` sh
 propellor
 ```
+
+# Configuration
+API documentation for the configuration of Propellor is here: [Propellor API documentation](https://hackage.haskell.org/package/propellor).
 
 # Quirks
 
