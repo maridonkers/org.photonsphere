@@ -27,6 +27,8 @@ The [Propellor](https://propellor.branchable.com/) configuration management syst
 # Debian
 I use Propellor to manage my `Debian` installation (it replaced my `NixOS` installation — which I reconsidered because of this: [abdication of founder](https://lunduke.locals.com/post/5819317/nixos-commits-a-purge-of-nazi-contributors-forces-abdication-of-founder))
 
+Update [za 14 dec 2024 22:45:39 CET]: I have now calmed down and returned to NixOS :-}
+
 # Setup
 
 Install Propellor as follows:
