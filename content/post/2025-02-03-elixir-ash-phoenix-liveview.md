@@ -25,7 +25,7 @@ thumbnail = "/images/Official_Elixir_logo.png"
 Looking at [team-alembic/realworld](https://github.com/team-alembic/realworld) -- A fullstack Phoenix LiveView application with backend built with Ash Framework. This codebase was created to demonstrate a fully fledged [RealWorld](https://github.com/gothinkster/realworld) fullstack application built with Ash + Phoenix LiveView including CRUD operations, authentication, routing, pagination, and more.
 <!--more-->
 
-Elixir + Ash framework + Phoenix + LiveView is quite impressive and I'm pretty sure this is going to be my daily driver for development.
+I'm ashamed to say that I think I have looked at Elixir before but must have somehow forgotten to pursue it (probably sidetracked by other matters). This is a great shame because Elixir + Ash framework + Phoenix + LiveView is very impressive and I'm pretty sure this is going to be my daily driver for development.
 
 # Elixir
 [Elixir](https://elixir-lang.org/) is a dynamic, functional language for building scalable and maintainable applications.
