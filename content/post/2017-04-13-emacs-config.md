@@ -23,7 +23,7 @@ aliases = ["2017-04-13-emacs-config"]
 thumbnail = "/images/emacs.svg"
 +++
 
-My [emacs-config](https://github.com/maridonkers/emacs-config), which is using [org-mode](http://orgmode.org/) and has been based on Arjen Wiersma's [emacs-config](https://gitlab.com/buildfunthings/emacs-config), Sacha Chua's [Emacs Configuration](http://pages.sachachua.com/.emacs.d/Sacha.html), Daniel Mai's [Mai Emacs Configuration](https://github.com/danielmai/.emacs.d) and [Uncle Dave's Emacs](https://github.com/daedreth/UncleDavesEmacs/blob/master/config.org) configuration.
+My [emacs-config](https://codeberg.org/photonsphere/emacs-config), which is using [org-mode](http://orgmode.org/) and has been based on Arjen Wiersma's [emacs-config](https://gitlab.com/buildfunthings/emacs-config), Sacha Chua's [Emacs Configuration](http://pages.sachachua.com/.emacs.d/Sacha.html), Daniel Mai's [Mai Emacs Configuration](https://github.com/danielmai/.emacs.d) and [Uncle Dave's Emacs](https://github.com/daedreth/UncleDavesEmacs/blob/master/config.org) configuration.
 <!--more-->
 
 # Beware
@@ -34,7 +34,7 @@ Still debugging (my version, not theirs); tested only (my version) with Emacs 25
 
 - rename your existing \~/.emacs.d directory as a backup;
 - check that there's no \~/.emacs file (rename it if there is);
-- git clone <https://github.com/maridonkers/emacs-config.git> \~/.emacs.d
+- git clone <https://codeberg.org/photonsphere/emacs-config.git> \~/.emacs.d
 
 Start Emacs and wait until packages are all retrieved and installed.
 

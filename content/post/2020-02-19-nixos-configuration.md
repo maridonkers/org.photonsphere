@@ -26,7 +26,7 @@ The **Purely Functional** Linux Distribution – [NixOS](https://nixos.org/) (by
 NixOS is a Linux distribution with a unique approach to package and configuration management. Built on top of the [Nix package manager](https://nixos.org/nix), it is completely declarative, makes upgrading systems reliable, and has [many other advantages](https://nixos.org/nixos/about.html).
 <!--more-->
 
-The configuration is also on GitHub: [My NixOS configuration files](https://github.com/maridonkers/nixos-configuration).
+The configuration is also on Codeberg: [My NixOS configuration files](https://codeberg.org/photonsphere/nixos-configuration).
 
 Also, earlier on this site: [NixOS](./2017-10-03-nixos.html).
 
